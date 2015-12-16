@@ -16,6 +16,14 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+        <!-- SCM settings used to checkout other git repositories into this
+             webapp, e.g. the momo3-frontend -->
+
+        <!-- IMPORTANT: Set your git username here! (Assuming you have fork already) -->
+        <maven-scm-plugin.git-username>{{USERNAME}}</maven-scm-plugin.git-username>
+        <!-- The type of connection to use (connection or developerConnection) -->
+        <maven-scm-plugin.connection-type>developerConnection</maven-scm-plugin.connection-type>
+        
         <shogun2.version>0.0.1-SNAPSHOT</shogun2.version>
 
         <maven-javadoc-plugin.version>2.10.3</maven-javadoc-plugin.version>
@@ -147,12 +155,12 @@
                         bootstrap and checkout goals -->
                     <checkoutDirectory>${project.basedir}/src/main/webapp/client</checkoutDirectory>
                     <!-- The type of connection to use (connection or developerConnection) -->
-                    <connectionType>developerConnection</connectionType>
+                    <connectionType>${maven-scm-plugin.connection-type}</connectionType>
                     <!-- The base repository -->
                     <connectionUrl>scm:git:https://github.com/terrestris/momo3-frontend.git</connectionUrl>
                     <!-- IMPORTANT: Set your git username here! (Assuming
                         you have fork already) -->
-                    <developerConnectionUrl>scm:git:https://github.com/{{USERNAME}}/momo3-frontend.git</developerConnectionUrl>
+                    <developerConnectionUrl>scm:git:https://github.com/${maven-scm-plugin.git-username}/momo3-frontend.git</developerConnectionUrl>
                 </configuration>
             </plugin>
 
