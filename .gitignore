@@ -17,4 +17,8 @@ tmp
 .classpath
 .settings
 .project
-.wtpmodules
+wtpmodules
+
+# the client/frontend code (it's separate git repo)
+src/main/webapp/client/
+
