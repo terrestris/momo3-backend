@@ -133,6 +133,8 @@ startup.
 
    `http://localhost:8080/momo/client/index.html?id={applicationId}`
 
+    (If you haven't logged in yet, you will be asked to login as a valid user before)
+
  Note: To get a valid `{applicationId}` just follow these steps:
 
    * Adapt and open this URL:
