@@ -199,8 +199,8 @@
         <property name="name" value="default" />
         <property name="center">
             <bean class="java.awt.geom.Point2D$Double">
-                <constructor-arg index="0" value="829473" />
-                <constructor-arg index="1" value="6708897" />
+                <constructor-arg index="0" value="11532818" />
+                <constructor-arg index="1" value="5960865" />
             </bean>
         </property>
         <property name="minResolution" ref="res01" />
@@ -246,7 +246,7 @@
         </property>
         <property name="projection" value="3857" />
         <property name="rotation" value="0" />
-        <property name="zoom" value="16" />
+        <property name="zoom" value="5" />
     </bean>
 
     <!-- Define map controls -->
@@ -425,10 +425,10 @@
         <property name="xtype" value="imagecomponent" />
         <property name="properties">
             <util:map>
-                <entry key="src" value="resources/img/logo_terrestris.svg" />
-                <entry key="margin" value="0 0 10 95" />
-                <entry key="width" value="160" />
-                <entry key="height" value="100" />
+                <entry key="src" value="resources/img/logo_momo.png" />
+                <entry key="margin" value="10 0 10 130" />
+                <entry key="width" value="89" />
+                <entry key="height" value="85" />
             </util:map>
         </property>
     </bean>
@@ -439,7 +439,7 @@
         <property name="properties">
             <util:map>
                 <entry key="flex" value="1" />
-                <entry key="value" value="SHOGun2 Client" />
+                <entry key="value" value="MoMo Map-Client" />
                 <entry key="fieldStyle" value="color:#FFFFFF; font-size:30px; text-align: center; padding-top: 40px;" />
             </util:map>
         </property>
