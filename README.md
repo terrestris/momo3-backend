@@ -128,3 +128,19 @@ startup.
 
    Right click on the project: `Run as` &rarr; `Run on Server` &rarr;
    `Select your Tomcat`
+
+4. Open
+
+   `http://localhost:8080/momo/client/index.html?id={applicationId}`
+
+ Note: To get a valid `{applicationId}` just follow these steps:
+
+   * Adapt and open this URL:
+
+     `http://localhost:8080/momo/application/findAll.action`
+
+   * The response will list all of your current SHOGun2 applications (and normally it should return the default one named _Default Application_ only)
+
+   * Find the entry `id` containing the ID of the application (e.g. `"id": 50`)
+
+   * Use this ID as GET parameter (see above)
