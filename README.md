@@ -85,9 +85,15 @@ open the `pom.xml` and set your git username to the property `<maven-scm-plugin.
 1. Download the [ExtJS 6 sources](https://www.sencha.com/products/extjs/#overview) to a location of your choice: `{{PATH_TO_EXT}}`.
 2. Go to the directory with the ExtJS application (momo3-frontend): `cd src/main/webapp/client`
 3. Inside this folder run `sencha app upgrade {{PATH_TO_EXT}}`
-4. Run `sencha app refresh`
-5. Run `sencha app build`
-6. Refresh the project in Eclipse
+4. If you get a warning "Failed to resolve package BasiGX" please do follow steps:
+
+   `sencha package repo add GeoExt http://geoext.github.io/geoext3/cmd/pkgs`
+   
+   `sencha package repo add BasiGX http://terrestris.github.io/BasiGX/cmd/pkgs` 
+
+5. Run `sencha app refresh`
+6. Run `sencha app build`
+7. Refresh the project in Eclipse
 
 #### 4. Application setup
 
