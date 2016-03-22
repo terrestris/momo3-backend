@@ -7,26 +7,86 @@
                            http://www.springframework.org/schema/util
                            http://www.springframework.org/schema/util/spring-util.xsd">
 
+    <!--
+      The list of objects that shall be persisted.
+
+      The order of the objects is important here (as one object may require
+      that another object has been created before to avoid errors like 'object
+      references an unsaved transient instance save the transient instance
+      before flushing').
+    -->
+    <util:list id="objectsToCreate">
+
+        <!-- Roles -->
+        <ref bean="adminRole"/>
+        <ref bean="userRole"/>
+
+        <!-- Users -->
+        <ref bean="adminUser"/>
+        <ref bean="defaultUser"/>
+
+        <!-- UserGroups -->
+        <ref bean="adminUserGroup"/>
+        <ref bean="defaultUserGroup"/>
+
+        <!-- Layouts -->
+        <ref bean="borderLayout"/>
+        <ref bean="absoluteLayout"/>
+        <ref bean="hboxLayout"/>
+
+        <!-- Layer sources/appearance -->
+        <ref bean="osmWmsLayerTileGridExtent" />
+
+        <ref bean="osmWmsLayerTileGrid" />
+
+        <ref bean="osmWmsLayerDataSource" />
+        <ref bean="osmWmsLayerGrayDataSource" />
+        <ref bean="osmWmsLayerAppearance" />
+
+        <!-- Layers -->
+        <ref bean="osmWmsLayer" />
+        <ref bean="osmWmsLayerGray" />
+
+        <!-- Controls -->
+        <ref bean="controlAttribution" />
+        <ref bean="controlZoom" />
+        <ref bean="controlRotate" />
+        <ref bean="controlZoomSlider" />
+        <ref bean="controlScaleLine" />
+
+        <!-- Map config -->
+        <ref bean="mapConfigExtent" />
+        <ref bean="mapConfig" />
+
+        <!-- Modules -->
+        <ref bean="headerLogoModule" />
+        <ref bean="headerTitleModule" />
+        <ref bean="headerModule" />
+        <ref bean="layerTreeModule" />
+        <ref bean="mapModule" />
+        <ref bean="viewportModule" />
+
+        <!-- Permissions -->
+        <ref bean="defaultUserPermissionCollection" />
+
+        <!-- Applications -->
+        <ref bean="defaultApplication"/>
+    </util:list>
+
     <!-- Define roles -->
     <bean id="adminRole" class="de.terrestris.shogun2.model.Role">
-        <property name="name" value="ROLE_ADMIN"/>
+        <property name="name" value="${role.superAdminRoleName}"/>
         <property name="description" value="Administrator Role"/>
     </bean>
     <bean id="userRole" class="de.terrestris.shogun2.model.Role">
-        <property name="name" value="ROLE_USER"/>
+        <property name="name" value="${role.defaultUserRoleName}"/>
         <property name="description" value="User Role"/>
     </bean>
 
-    <!-- The Set<Role> of defaultRoles -->
-    <util:set id="defaultRoles" value-type="de.terrestris.shogun2.model.Role">
-        <ref bean="adminRole" />
-        <ref bean="userRole" />
-    </util:set>
-
     <!-- Define users -->
     <bean id="adminUser" class="de.terrestris.shogun2.model.User">
-        <property name="firstName" value="First Name"/>
-        <property name="lastName" value="Last Name"/>
+        <property name="firstName" value="Admins first name"/>
+        <property name="lastName" value="Admins last name"/>
         <property name="accountName" value="admin"/>
         <!-- This will be encrypted when the init service saves the user. -->
         <property name="password" value="shogun2"/>
@@ -37,11 +97,19 @@
             </util:set>
         </property>
     </bean>
-
-    <!-- The Set<User> of defaultUsers -->
-    <util:set id="defaultUsers" value-type="de.terrestris.shogun2.model.User">
-        <ref bean="adminUser" />
-    </util:set>
+    <bean id="defaultUser" class="de.terrestris.shogun2.model.User">
+        <property name="firstName" value="Users first name"/>
+        <property name="lastName" value="Users last name"/>
+        <property name="accountName" value="user"/>
+        <!-- This will be encrypted when the init service saves the user. -->
+        <property name="password" value="shogun2"/>
+        <property name="active" value="true"/>
+        <property name="roles">
+            <util:set id="defaultUserRoles">
+                <ref bean="userRole"/>
+            </util:set>
+        </property>
+    </bean>
 
     <!-- Define userGroups -->
     <bean id="adminUserGroup" class="de.terrestris.shogun2.model.UserGroup">
@@ -63,7 +131,7 @@
         <property name="owner" ref="adminUser"/>
         <property name="members">
             <util:set id="defaultUserGroupMembers">
-                <ref bean="adminUser"/>
+                <ref bean="defaultUser"/>
             </util:set>
         </property>
         <property name="roles">
@@ -72,12 +140,6 @@
             </util:set>
         </property>
     </bean>
-
-    <!-- The Set<UserGroup> of defaultUserGroups -->
-    <util:set id="defaultUserGroups" value-type="de.terrestris.shogun2.model.UserGroup">
-        <ref bean="adminUserGroup" />
-        <ref bean="defaultUserGroup" />
-    </util:set>
 
     <!-- The Border layout -->
     <bean id="borderLayout" class="de.terrestris.shogun2.model.layout.BorderLayout">
@@ -128,74 +190,83 @@
         </property>
     </bean>
 
-    <!-- The Set<Layout> of defaultLayouts -->
-    <util:set id="defaultLayouts" value-type="de.terrestris.shogun2.model.layout.Layout">
-        <ref bean="borderLayout" />
-        <ref bean="absoluteLayout" />
-        <ref bean="hboxLayout" />
-    </util:set>
-
     <!-- The Resolutions -->
-    <bean id="res01" class="de.terrestris.shogun2.model.layer.util.Resolution">
-        <property name="resolution" value="156543.03390625" />
+    <bean id="res01" class="java.lang.Double">
+        <constructor-arg value="156543.03390625"></constructor-arg>
     </bean>
-    <bean id="res02" class="de.terrestris.shogun2.model.layer.util.Resolution">
-        <property name="resolution" value="78271.516953125" />
+    <bean id="res02" class="java.lang.Double">
+        <constructor-arg value="78271.516953125"></constructor-arg>
     </bean>
-    <bean id="res03" class="de.terrestris.shogun2.model.layer.util.Resolution">
-        <property name="resolution" value="39135.7584765625" />
+    <bean id="res03" class="java.lang.Double">
+        <constructor-arg value="39135.7584765625"></constructor-arg>
     </bean>
-    <bean id="res04" class="de.terrestris.shogun2.model.layer.util.Resolution">
-        <property name="resolution" value="19567.87923828125" />
+    <bean id="res04" class="java.lang.Double">
+        <constructor-arg value="19567.87923828125"></constructor-arg>
     </bean>
-    <bean id="res05" class="de.terrestris.shogun2.model.layer.util.Resolution">
-        <property name="resolution" value="9783.939619140625" />
+    <bean id="res05" class="java.lang.Double">
+        <constructor-arg value="9783.939619140625"></constructor-arg>
     </bean>
-    <bean id="res06" class="de.terrestris.shogun2.model.layer.util.Resolution">
-        <property name="resolution" value="4891.9698095703125" />
+    <bean id="res06" class="java.lang.Double">
+        <constructor-arg value="4891.9698095703125"></constructor-arg>
     </bean>
-    <bean id="res07" class="de.terrestris.shogun2.model.layer.util.Resolution">
-        <property name="resolution" value="2445.9849047851562" />
+    <bean id="res07" class="java.lang.Double">
+        <constructor-arg value="2445.9849047851562"></constructor-arg>
     </bean>
-    <bean id="res08" class="de.terrestris.shogun2.model.layer.util.Resolution">
-        <property name="resolution" value="1222.9924523925781" />
+    <bean id="res08" class="java.lang.Double">
+        <constructor-arg value="1222.9924523925781"></constructor-arg>
     </bean>
-    <bean id="res09" class="de.terrestris.shogun2.model.layer.util.Resolution">
-        <property name="resolution" value="611.4962261962891" />
+    <bean id="res09" class="java.lang.Double">
+        <constructor-arg value="611.4962261962891"></constructor-arg>
     </bean>
-    <bean id="res10" class="de.terrestris.shogun2.model.layer.util.Resolution">
-        <property name="resolution" value="305.74811309814453" />
+    <bean id="res10" class="java.lang.Double">
+        <constructor-arg value="305.74811309814453"></constructor-arg>
     </bean>
-    <bean id="res11" class="de.terrestris.shogun2.model.layer.util.Resolution">
-        <property name="resolution" value="152.87405654907226" />
+    <bean id="res11" class="java.lang.Double">
+        <constructor-arg value="152.87405654907226"></constructor-arg>
     </bean>
-    <bean id="res12" class="de.terrestris.shogun2.model.layer.util.Resolution">
-        <property name="resolution" value="76.43702827453613" />
+    <bean id="res12" class="java.lang.Double">
+        <constructor-arg value="76.43702827453613"></constructor-arg>
     </bean>
-    <bean id="res13" class="de.terrestris.shogun2.model.layer.util.Resolution">
-        <property name="resolution" value="38.218514137268066" />
+    <bean id="res13" class="java.lang.Double">
+        <constructor-arg value="38.218514137268066"></constructor-arg>
     </bean>
-    <bean id="res14" class="de.terrestris.shogun2.model.layer.util.Resolution">
-        <property name="resolution" value="19.109257068634033" />
+    <bean id="res14" class="java.lang.Double">
+        <constructor-arg value="19.109257068634033"></constructor-arg>
     </bean>
-    <bean id="res15" class="de.terrestris.shogun2.model.layer.util.Resolution">
-        <property name="resolution" value="9.554628534317017" />
+    <bean id="res15" class="java.lang.Double">
+        <constructor-arg value="9.554628534317017"></constructor-arg>
     </bean>
-    <bean id="res16" class="de.terrestris.shogun2.model.layer.util.Resolution">
-        <property name="resolution" value="4.777314267158508" />
+    <bean id="res16" class="java.lang.Double">
+        <constructor-arg value="4.777314267158508"></constructor-arg>
     </bean>
-    <bean id="res17" class="de.terrestris.shogun2.model.layer.util.Resolution">
-        <property name="resolution" value="2.388657133579254" />
+    <bean id="res17" class="java.lang.Double">
+        <constructor-arg value="2.388657133579254"></constructor-arg>
     </bean>
-    <bean id="res18" class="de.terrestris.shogun2.model.layer.util.Resolution">
-        <property name="resolution" value="1.194328566789627" />
+    <bean id="res18" class="java.lang.Double">
+        <constructor-arg value="1.194328566789627"></constructor-arg>
     </bean>
-    <bean id="res19" class="de.terrestris.shogun2.model.layer.util.Resolution">
-        <property name="resolution" value="0.5971642833948135" />
+    <bean id="res19" class="java.lang.Double">
+        <constructor-arg value="0.5971642833948135"></constructor-arg>
+    </bean>
+
+    <!-- Default extent -->
+    <bean id="mapConfigExtent" class="de.terrestris.shogun2.model.layer.util.Extent">
+        <property name="lowerLeft">
+            <bean class="java.awt.geom.Point2D$Double">
+                <constructor-arg index="0" value="-20026376.39" />
+                <constructor-arg index="1" value="-20048966.10" />
+            </bean>
+        </property>
+        <property name="upperRight">
+            <bean class="java.awt.geom.Point2D$Double">
+                <constructor-arg index="0" value="20026376.39" />
+                <constructor-arg index="1" value="20048966.10" />
+            </bean>
+        </property>
     </bean>
 
     <!-- Define the MapConfig -->
-    <bean id="mapConfigModule" class="de.terrestris.shogun2.model.map.MapConfig">
+    <bean id="mapConfig" class="de.terrestris.shogun2.model.map.MapConfig">
         <property name="name" value="default" />
         <property name="center">
             <bean class="java.awt.geom.Point2D$Double">
@@ -229,20 +300,7 @@
             </util:list>
         </property>
         <property name="extent">
-            <bean class="de.terrestris.shogun2.model.layer.util.Extent">
-                <property name="lowerLeft">
-                    <bean class="java.awt.geom.Point2D$Double">
-                        <constructor-arg index="0" value="-20026376.39" />
-                        <constructor-arg index="1" value="-20048966.10" />
-                    </bean>
-                </property>
-                <property name="upperRight">
-                    <bean class="java.awt.geom.Point2D$Double">
-                        <constructor-arg index="0" value="20026376.39" />
-                        <constructor-arg index="1" value="20048966.10" />
-                    </bean>
-                </property>
-            </bean>
+            <ref bean="mapConfigExtent" />
         </property>
         <property name="projection" value="3857" />
         <property name="rotation" value="0" />
@@ -291,14 +349,14 @@
         </property>
     </bean>
 
-    <bean id="osmWmsLayerTileGridOrigin" class="java.awt.geom.Point2D$Double">
-        <constructor-arg index="0" value="0" />
-        <constructor-arg index="1" value="0" />
-    </bean>
-
-    <bean id="osmWmsLayerTileGrid" class="de.terrestris.shogun2.model.layer.util.WmsTileGrid">
+    <bean id="osmWmsLayerTileGrid" class="de.terrestris.shogun2.model.layer.util.TileGrid">
         <property name="type" value="TileGrid" />
-        <property name="tileGridOrigin" ref="osmWmsLayerTileGridOrigin" />
+        <property name="tileGridOrigin">
+            <bean class="java.awt.geom.Point2D$Double">
+                <constructor-arg index="0" value="0" />
+                <constructor-arg index="1" value="0" />
+            </bean>
+        </property>
         <property name="tileGridExtent" ref="osmWmsLayerTileGridExtent" />
         <property name="tileSize" value="256" />
         <property name="tileGridResolutions">
@@ -326,14 +384,6 @@
         </property>
     </bean>
 
-    <bean id="osmWmsLayerName" class="de.terrestris.shogun2.model.layer.util.GeoWebServiceLayerName">
-        <property name="layerName" value="OSM-WMS" />
-    </bean>
-
-    <bean id="osmWmsLayerStyle" class="de.terrestris.shogun2.model.layer.util.GeoWebServiceLayerStyle">
-        <property name="styleName" value="" />
-    </bean>
-
     <bean id="tileWMSDataSourceTemplate" class="de.terrestris.shogun2.model.layer.source.TileWmsLayerDataSource">
         <property name="type" value="TileWMS" />
         <property name="width" value="256" />
@@ -344,30 +394,14 @@
 
     <bean id="osmWmsLayerDataSource" parent="tileWMSDataSourceTemplate">
         <property name="url" value="http://ows.terrestris.de/osm/service?" />
-        <property name="layerNames">
-            <util:list>
-                <ref bean="osmWmsLayerName" />
-            </util:list>
-        </property>
-        <property name="layerStyles">
-            <util:set>
-                <ref bean="osmWmsLayerStyle" />
-            </util:set>
-        </property>
+        <property name="layerNames" value="OSM-WMS" />
+        <property name="layerStyles" value="" />
     </bean>
 
     <bean id="osmWmsLayerGrayDataSource" parent="tileWMSDataSourceTemplate">
         <property name="url" value="http://ows.terrestris.de/osm-gray/service?" />
-        <property name="layerNames">
-            <util:list>
-                <ref bean="osmWmsLayerName" />
-            </util:list>
-        </property>
-        <property name="layerStyles">
-            <util:set>
-                <ref bean="osmWmsLayerStyle" />
-            </util:set>
-        </property>
+       <property name="layerNames" value="OSM-WMS" />
+        <property name="layerStyles" value="" />
     </bean>
 
     <bean id="osmWmsLayerAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
@@ -396,7 +430,7 @@
     <bean id="mapModule" class="de.terrestris.shogun2.model.module.Map">
         <property name="name" value="Main Map" />
         <property name="xtype" value="shogun-component-map" />
-        <property name="mapConfig" ref="mapConfigModule" />
+        <property name="mapConfig" ref="mapConfig" />
         <property name="mapLayers">
             <util:list>
                 <ref bean="osmWmsLayer" />
@@ -439,7 +473,7 @@
         <property name="properties">
             <util:map>
                 <entry key="flex" value="1" />
-                <entry key="value" value="MoMo Map-Client" />
+                <entry key="value" value="Momo Map-Client" />
                 <entry key="fieldStyle" value="color:#FFFFFF; font-size:30px; text-align: center; padding-top: 40px;" />
             </util:map>
         </property>
@@ -490,21 +524,25 @@
         </property>
     </bean>
 
-    <!-- The Set<Module> of defaultModules -->
-    <util:set id="defaultModules" value-type="de.terrestris.shogun2.model.module.Module">
-        <ref bean="viewportModule" />
-    </util:set>
+    <bean id="defaultUserPermissionCollection" class="de.terrestris.shogun2.model.security.PermissionCollection">
+        <property name="permissions">
+            <util:set>
+                <value>READ</value>
+            </util:set>
+        </property>
+    </bean>
 
     <!-- Define applications -->
     <bean id="defaultApplication" class="de.terrestris.shogun2.model.Application">
         <property name="name" value="Default Application" />
         <property name="description" value="Default Application" />
         <property name="viewport" ref="viewportModule" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
     </bean>
-
-    <!-- The Set<Application> of defaultApplications -->
-    <util:set id="defaultApplications" value-type="de.terrestris.shogun2.model.Application">
-        <ref bean="defaultApplication" />
-    </util:set>
 
 </beans>

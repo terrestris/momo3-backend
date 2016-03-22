@@ -22,6 +22,12 @@
              GET requests CSRF has to be disabled -->
         <csrf disabled="false"/>
 
+        <!-- URL security -->
+        <intercept-url pattern="/login/**" access="permitAll" />
+        <intercept-url pattern="/user/register.action" access="permitAll" />
+        <intercept-url pattern="/user/activate.action" access="permitAll" />
+        <intercept-url pattern="/user/resetPassword.action" access="permitAll" />
+        <intercept-url pattern="/user/changePassword.action" access="permitAll" />
         <intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
 
     </http>
@@ -65,11 +71,17 @@
          <beans:property name = "roleHierarchy" ref="roleHierarchy"/>
     </beans:bean>
 
+    <beans:bean id="permissionEvaluator" class="de.terrestris.shogun2.security.access.Shogun2PermissionEvaluator">
+        <beans:property name="permissionEvaluatorFactory">
+            <beans:bean class="de.terrestris.shogun2.security.access.factory.EntityPermissionEvaluatorFactory" />
+        </beans:property>
+    </beans:bean>
+
     <!-- http://static.springsource.org/spring-security/site/docs/3.0.x/apidocs/org/springframework/security/access/hierarchicalroles/RoleHierarchyImpl.html -->
     <beans:bean id="roleHierarchy"  class="org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl">
         <beans:property name="hierarchy">
             <beans:value>
-                ROLE_ADMIN > ROLE_USER
+                ${role.superAdminRoleName} > ${role.defaultUserRoleName}
             </beans:value>
         </beans:property>
     </beans:bean>

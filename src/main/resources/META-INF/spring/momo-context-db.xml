@@ -7,44 +7,55 @@
                         http://www.springframework.org/schema/tx
                         http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-	<!-- Using c3p0 connection pooling. See http://static.springsource.org/spring/docs/3.2.x/spring-framework-reference/html/jdbc.html#jdbc-datasource -->
-	<bean id="shogun2DataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
-		destroy-method="close">
-		<property name="driverClass" value="${jdbc.driverClassName}" />
-		<property name="jdbcUrl" value="${jdbc.url}" />
-		<property name="user" value="${jdbc.username}" />
-		<property name="password" value="${jdbc.password}" />
+    <!-- (Optionally) define a prefix for table names -->
+    <bean id="tablePrefix" class="java.lang.String">
+        <constructor-arg value="${ddl.tablePrefix}" />
+    </bean>
 
-		<!-- Configuration of the c3p0 Connection Pool -->
-		<property name="initialPoolSize" value="${c3p0.initialPoolSize}" />
-		<property name="minPoolSize" value="${c3p0.minPoolSize}" />
-		<property name="maxPoolSize" value="${c3p0.maxPoolSize}" />
-		<property name="acquireIncrement" value="${c3p0.acquireIncrement}" />
-		<property name="maxIdleTime" value="${c3p0.maxIdleTime}" />
-		<property name="acquireRetryAttempts" value="${c3p0.acquireRetryAttempts}" />
-		<property name="acquireRetryDelay" value="${c3p0.acquireRetryDelay}" />
-		<property name="checkoutTimeout" value="${c3p0.checkoutTimeout}" />
-	</bean>
+    <!-- Using c3p0 connection pooling. See http://static.springsource.org/spring/docs/3.2.x/spring-framework-reference/html/jdbc.html#jdbc-datasource -->
+    <bean id="shogun2DataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+        destroy-method="close">
+        <property name="driverClass" value="${jdbc.driverClassName}" />
+        <property name="jdbcUrl" value="${jdbc.url}" />
+        <property name="user" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
 
-	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
-		<property name="dataSource" ref="shogun2DataSource" />
-		<property name="packagesToScan" value="de.terrestris.*.model, de.terrestris.momo.model" />
-		<property name="hibernateProperties">
-			<props>
-				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
-				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
-				<prop key="hibernate.id.new_generator_mappings">${hibernate.id.new_generator_mappings}</prop>
-				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
-			</props>
-		</property>
-	</bean>
+        <!-- Configuration of the c3p0 Connection Pool -->
+        <property name="initialPoolSize" value="${c3p0.initialPoolSize}" />
+        <property name="minPoolSize" value="${c3p0.minPoolSize}" />
+        <property name="maxPoolSize" value="${c3p0.maxPoolSize}" />
+        <property name="acquireIncrement" value="${c3p0.acquireIncrement}" />
+        <property name="maxIdleTime" value="${c3p0.maxIdleTime}" />
+        <property name="acquireRetryAttempts" value="${c3p0.acquireRetryAttempts}" />
+        <property name="acquireRetryDelay" value="${c3p0.acquireRetryDelay}" />
+        <property name="checkoutTimeout" value="${c3p0.checkoutTimeout}" />
+    </bean>
 
-	<tx:annotation-driven transaction-manager="transactionManager" />
+    <bean id="sessionFactory"
+        class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="shogun2DataSource" />
+        <property name="packagesToScan" value="de.terrestris.*.model, de.terrestris.momo.model" />
+        <property name="implicitNamingStrategy">
+            <bean class="de.terrestris.shogun2.util.naming.ImplicitNamingStrategyShogun2" />
+        </property>
+        <property name="physicalNamingStrategy">
+            <bean class="de.terrestris.shogun2.util.naming.PhysicalNamingStrategyShogun2" />
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+                <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+                <prop key="hibernate.id.new_generator_mappings">${hibernate.id.new_generator_mappings}</prop>
+                <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+            </props>
+        </property>
+    </bean>
 
-	<bean id="transactionManager"
-		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
+    <tx:annotation-driven transaction-manager="transactionManager" />
+
+    <bean id="transactionManager"
+        class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
 
 </beans>

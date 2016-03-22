@@ -8,8 +8,10 @@ import ch.rasc.extclassgenerator.Model;
 import de.terrestris.shogun2.model.Application;
 
 /**
+ * This is a demo extension of a SHOGun2 model.
+ *
  * @author Nils Bühner
- * 
+ *
  */
 @Entity
 @Model(value = "momo.model.ProjectApplication",

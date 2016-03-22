@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Class-Path: shogun2-init-0.0.6-SNAPSHOT.jar shogun2-security-0.0.6-SNA
+ PSHOT.jar shogun2-service-0.0.6-SNAPSHOT.jar shogun2-dao-0.0.6-SNAPSH
+ OT.jar shogun2-model-0.0.6-SNAPSHOT.jar hibernate-core-5.0.5.Final.ja
+ r jboss-logging-3.3.0.Final.jar hibernate-jpa-2.1-api-1.0.0.Final.jar
+  javassist-3.18.1-GA.jar antlr-2.7.7.jar jandex-2.0.0.Final.jar dom4j
+ -1.6.1.jar xml-apis-1.0.b2.jar hibernate-commons-annotations-5.0.1.Fi
+ nal.jar commons-lang3-3.4.jar joda-time-2.6.jar usertype.jodatime-2.0
+ .1.jar usertype.spi-2.0.1.jar extclassgenerator-1.0.8.jar extclassgen
+ erator-annotations-1.0.8.jar spring-core-4.2.4.RELEASE.jar commons-lo
+ gging-1.1.1.jar spring-beans-4.2.4.RELEASE.jar jackson-databind-2.6.4
+ .jar jackson-annotations-2.6.0.jar jackson-core-2.6.4.jar log4j-1.2.1
+ 7.jar h2-1.4.190.jar c3p0-0.9.5.2.jar mchange-commons-java-0.2.11.jar
+  jta-1.1.jar spring-context-4.2.4.RELEASE.jar spring-aop-4.2.4.RELEAS
+ E.jar aopalliance-1.0.jar spring-expression-4.2.4.RELEASE.jar spring-
+ orm-4.2.4.RELEASE.jar spring-jdbc-4.2.4.RELEASE.jar spring-tx-4.2.4.R
+ ELEASE.jar shogun2-util-0.0.6-SNAPSHOT.jar spring-context-support-4.2
+ .4.RELEASE.jar spring-web-4.2.4.RELEASE.jar jackson-datatype-joda-2.6
+ .4.jar javax.mail-api-1.5.4.jar activation-1.1.jar javax.mail-1.5.4.j
+ ar greenmail-1.4.2-SNAPSHOT.jar slf4j-api-1.7.7.jar junit-4.12.jar ja
+ vax.servlet-api-3.1.0.jar httpclient-4.5.2.jar httpcore-4.4.4.jar com
+ mons-codec-1.9.jar httpmime-4.5.2.jar commons-beanutils-1.9.2.jar com
+ mons-collections-3.2.1.jar spring-security-core-4.0.3.RELEASE.jar ext
+ directspring-1.6.1.jar spring-webmvc-4.2.4.RELEASE.jar commons-io-2.4
+ .jar imgscalr-lib-4.2.jar spring-security-web-4.0.3.RELEASE.jar sprin
+ g-security-config-4.0.3.RELEASE.jar spring-security-acl-4.0.3.RELEASE
+ .jar ehcache-2.10.1.jar shogun2-web-0.0.6-SNAPSHOT.jar tomcat-servlet
+ -api-8.0.28.jar
+
