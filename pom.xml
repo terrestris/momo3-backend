@@ -19,7 +19,15 @@
         <!-- SCM settings used to checkout other git repositories into this
              webapp, e.g. the momo3-frontend -->
 
-        <!-- IMPORTANT: Set your git username here! (Assuming you have fork already) -->
+        <!--
+         | IMPORTANT:
+         |
+         | When you invoke tasks that need the following property, like…
+         |     mvn scm:checkout
+         | …remember to pass your github handle via the commandline:
+         |     mvn scm:checkout -Dmaven-scm-plugin.git-username=YOUR_GITHUB_ID
+         |
+         +-->
         <maven-scm-plugin.git-username>{{USERNAME}}</maven-scm-plugin.git-username>
         <!-- The type of connection to use (connection or developerConnection) -->
         <maven-scm-plugin.connection-type>developerConnection</maven-scm-plugin.connection-type>

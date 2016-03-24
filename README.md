@@ -55,11 +55,10 @@ Fork and checkout [the sources of this project](https://github.com/ terrestris/m
 
     `$ git remote -v`
 
-8. In order to get all referenced git repositories ([momo3-frontend](https://github.com/terrestris/momo3-frontend)
-open the `pom.xml` and set your git username to the property `<maven-scm-plugin.git-username>`.
-**Note:** This assumes that you have forked the referenced repositories to your git account!
-
-9. Clone the frontend code by running `mvn scm:checkout` in project directory
+8. **Note:** This assumes that you have forked the
+[momo3-frontend](https://github.com/terrestris/momo3-frontend) to your git
+account `YOUR_GITHUB_ID`.
+    `$ mvn scm:checkout -Dmaven-scm-plugin.git-username=YOUR_GITHUB_ID`
 
 10. Go to `{projectDir}/src/main/webapp/client` and run:
 
@@ -88,8 +87,8 @@ open the `pom.xml` and set your git username to the property `<maven-scm-plugin.
 4. If you get a warning "Failed to resolve package BasiGX" please do follow steps:
 
    `sencha package repo add GeoExt http://geoext.github.io/geoext3/cmd/pkgs`
-   
-   `sencha package repo add BasiGX http://terrestris.github.io/BasiGX/cmd/pkgs` 
+
+   `sencha package repo add BasiGX http://terrestris.github.io/BasiGX/cmd/pkgs`
 
 5. Run `sencha app refresh`
 6. Run `sencha app build`
