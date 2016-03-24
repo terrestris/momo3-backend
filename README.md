@@ -9,7 +9,7 @@ used alongside its frontend companion https://github.com/terrestris/momo3-fronte
 
 This README contains a quickstart tutorial for **developers**.
 
-### Getting started
+## Getting started
 
 Prerequisites:
 
@@ -25,7 +25,7 @@ Recommended:
 * [m2e plugin for Eclipse](http://www.eclipse.org/m2e/)
 * [Tomcat 8](http://tomcat.apache.org/)
 
-#### 1. Checkout sources
+### 1. Checkout sources
 
 Fork and checkout [the sources of this project](https://github.com/ terrestris/momo3-backend):
 
@@ -65,7 +65,7 @@ open the `pom.xml` and set your git username to the property `<maven-scm-plugin.
 
   `git remote add upstream https://github.com/terrestris/momo3-frontend.git`
 
-#### 2. Import project to the Eclipse IDE
+### 2. Import project to the Eclipse IDE
 
 1. Make sure that the latest version of the m2e plugin is installed in your
    Eclipse IDE.
@@ -80,7 +80,7 @@ open the `pom.xml` and set your git username to the property `<maven-scm-plugin.
 > immediately be available in this project (if `Project` &rarr; `Build
 > Automatically` is enabled)
 
-#### 3. ExtJS/momo3-frontend setup
+### 3. ExtJS/momo3-frontend setup
 
 1. Download the [ExtJS 6 sources](https://www.sencha.com/products/extjs/#overview) to a location of your choice: `{{PATH_TO_EXT}}`.
 2. Go to the directory with the ExtJS application (momo3-frontend): `cd src/main/webapp/client`
@@ -95,7 +95,7 @@ open the `pom.xml` and set your git username to the property `<maven-scm-plugin.
 6. Run `sencha app build`
 7. Refresh the project in Eclipse
 
-#### 4. Application setup
+### 4. Application setup
 
 1. In the case you haven't run the application before, you have to initialize
    the application database including some default entities by enabling the
@@ -116,7 +116,7 @@ to reset the values from above to its defaults after the first startup.
 Otherwise the database is being initialized/overwritten on every application
 startup.
 
-#### 5. Run the project on a local Server
+### 5. Run the project on a local Server
 
 1. Add a server runtime environment to Eclipse:
 
