@@ -501,7 +501,7 @@
     <!-- Define the LayerTree -->
     <bean id="layerTreeModule" class="de.terrestris.shogun2.model.module.CompositeModule">
         <property name="name" value="Legend Tree" />
-        <property name="xtype" value="shogun-view-panel-legendtree" />
+        <property name="xtype" value="momo-panel-legendtree" />
         <property name="properties">
             <util:map>
                 <entry key="region" value="west" />
