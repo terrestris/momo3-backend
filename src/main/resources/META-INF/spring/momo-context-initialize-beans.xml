@@ -449,6 +449,10 @@
         <property name="properties">
             <util:map>
                 <entry key="region" value="center" />
+                <entry key="title" value="Application Map" />
+                <entry key="collapsible" value="false" />
+                <entry key="split" value="true" />
+
             </util:map>
         </property>
     </bean>
@@ -460,6 +464,7 @@
         <property name="properties">
             <util:map>
                 <entry key="src" value="resources/img/logo_momo.png" />
+                <entry key="alt" value="momo logo" />
                 <entry key="margin" value="10 0 10 130" />
                 <entry key="width" value="89" />
                 <entry key="height" value="85" />
@@ -488,6 +493,8 @@
                 <entry key="region" value="north" />
                 <entry key="height" value="120" />
                 <entry key="bodyStyle" value="background:#5FA2DD;" />
+                <entry key="collapsible" value="false" />
+                <entry key="split" value="false" />
             </util:map>
         </property>
         <property name="subModules">
@@ -506,6 +513,7 @@
             <util:map>
                 <entry key="region" value="west" />
                 <entry key="title" value="Layer Panel" />
+                <entry key="collapsible" value="true" />
                 <entry key="split" value="true" />
             </util:map>
         </property>
