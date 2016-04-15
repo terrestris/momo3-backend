@@ -17,7 +17,10 @@
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath*:META-INF/spring/*-context*.xml</param-value>
+        <param-value>
+            classpath*:META-INF/spring/momo-context*.xml
+            classpath*:META-INF/spring/${app.profile}/momo-context-initialize-beans.xml
+        </param-value>
     </context-param>
 
     <listener>
