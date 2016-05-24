@@ -36,7 +36,6 @@
 
         <!-- Layer sources/appearance -->
         <ref bean="osmWmsLayerTileGridExtent" />
-
         <ref bean="osmWmsLayerTileGrid" />
 
         <ref bean="osmWmsLayerDataSource" />
@@ -59,11 +58,21 @@
         <ref bean="mapConfig" />
 
         <!-- Modules -->
-        <ref bean="headerLogoModule" />
-        <ref bean="headerTitleModule" />
-        <ref bean="headerModule" />
-        <ref bean="layerTreeModule" />
+        <ref bean="zoomInModule" />
+        <ref bean="zoomOutModule" />
+        <ref bean="zoomToExtentModule" />
+        <ref bean="stepBackModule" />
+        <ref bean="stepForwardModule" />
+
         <ref bean="mapModule" />
+        <ref bean="toolsModule" />
+
+        <ref bean="mapContainer" />
+
+        <ref bean="headerLogoModule" />
+        <ref bean="headerModule" />
+
+        <ref bean="layerTreeModule" />
         <ref bean="viewportModule" />
 
         <!-- Permissions -->
@@ -428,7 +437,7 @@
     <!-- Define the Map -->
     <bean id="mapModule" class="de.terrestris.shogun2.model.module.Map">
         <property name="name" value="Main Map" />
-        <property name="xtype" value="momo-panel-mapcontainer" />
+        <property name="xtype" value="momo-component-map" />
         <property name="mapConfig" ref="mapConfig" />
         <property name="mapLayers">
             <util:list>
@@ -446,16 +455,119 @@
             </util:set>
         </property>
         <property name="properties">
-            <util:map>
-                <entry key="region" value="center" />
-                <entry key="collapsible" value="false" />
-                <entry key="split" value="true" />
+             <util:map>
+                <entry key="x" value="0" />
+                <entry key="y" value="0" />
+                <entry key="width" value="100%" />
+                <entry key="height" value="100%" />
             </util:map>
         </property>
     </bean>
 
+    <!-- Define common map tools -->
+    <bean id="zoomInModule" class="de.terrestris.shogun2.model.module.Button">
+        <property name="name" value="Zoom in" />
+        <property name="xtype" value="basigx-button-zoomin" />
+        <property name="properties">
+             <util:map>
+                <entry key="scale" value="small" />
+                <entry key="ui" value="default" />
+             </util:map>
+        </property>
+    </bean>
+
+    <bean id="zoomOutModule" class="de.terrestris.shogun2.model.module.Button">
+        <property name="name" value="Zoom out" />
+        <property name="xtype" value="basigx-button-zoomout" />
+        <property name="properties">
+             <util:map>
+                <entry key="scale" value="small" />
+                <entry key="ui" value="default" />
+             </util:map>
+        </property>
+    </bean>
+
+    <bean id="zoomToExtentModule" class="de.terrestris.shogun2.model.module.Button">
+        <property name="name" value="Zoom to extent" />
+        <property name="xtype" value="momo-button-zoomtoextent" />
+        <property name="properties">
+             <util:map>
+                <entry key="scale" value="small" />
+                <entry key="ui" value="default" />
+             </util:map>
+        </property>
+    </bean>
+
+    <bean id="stepBackModule" class="de.terrestris.shogun2.model.module.Button">
+        <property name="name" value="Step back to previous extent" />
+        <property name="xtype" value="momo-button-stepback" />
+        <property name="properties">
+             <util:map>
+                <entry key="scale" value="small" />
+                <entry key="ui" value="default" />
+             </util:map>
+        </property>
+    </bean>
+
+    <bean id="stepForwardModule" class="de.terrestris.shogun2.model.module.Button">
+        <property name="name" value="Step forward to next extent " />
+        <property name="xtype" value="momo-button-stepforward" />
+        <property name="properties">
+             <util:map>
+                <entry key="scale" value="small" />
+                <entry key="ui" value="default" />
+             </util:map>
+        </property>
+    </bean>
+
+    <!-- Define the Tools Toolbar -->
+    <bean id="toolsModule" class="de.terrestris.shogun2.model.module.CompositeModule">
+        <property name="name" value="Tools Toolbar" />
+        <property name="xtype" value="toolbar" />
+        <property name="properties">
+            <util:map>
+                <entry key="vertical" value="true" />
+                <entry key="width" value="50" />
+                <entry key="x" value="0" />
+                <entry key="y" value="0" />
+                <entry key="cls" value="map-tools" />
+            </util:map>
+        </property>
+        <property name="subModules">
+            <util:list value-type="de.terrestris.shogun2.model.module.Module">
+                <ref bean="zoomInModule" />
+                <ref bean="zoomOutModule" />
+                <ref bean="zoomToExtentModule" />
+                <ref bean="stepBackModule" />
+                <ref bean="stepForwardModule" />
+            </util:list>
+        </property>
+    </bean>
+
+    <!-- Define the MapContainer -->
+    <bean id="mapContainer" class="de.terrestris.shogun2.model.module.CompositeModule">
+        <property name="name" value="Map Container" />
+        <property name="xtype" value="container" />
+        <property name="layout" ref="absoluteLayout"/>
+        <property name="properties">
+            <util:map>
+                <entry key="width" value="100%" />
+                <entry key="height" value="100%" />
+                <entry key="collapsible" value="false" />
+                <entry key="split" value="true" />
+                <entry key="region" value="center" />
+            </util:map>
+        </property>
+        <property name="subModules">
+            <util:list value-type="de.terrestris.shogun2.model.module.Module">
+                <ref bean="mapModule" />
+                <ref bean="toolsModule" />
+            </util:list>
+        </property>
+    </bean>
+
     <!-- Define the Header -->
-    <bean id="headerLogoModule" class="de.terrestris.shogun2.model.module.Image">
+    <bean id="headerLogoModule" class="de.terrestris.shogun2.model.module.Module">
         <property name="name" value="Logo Image" />
         <property name="xtype" value="imagecomponent" />
         <property name="properties">
@@ -464,18 +576,6 @@
                 <entry key="margin" value="10 0 10 130" />
                 <entry key="width" value="89" />
                 <entry key="height" value="85" />
-            </util:map>
-        </property>
-    </bean>
-
-    <bean id="headerTitleModule" class="de.terrestris.shogun2.model.module.Module">
-        <property name="name" value="Logo Title" />
-        <property name="xtype" value="displayfield" />
-        <property name="properties">
-            <util:map>
-                <entry key="flex" value="1" />
-                <entry key="value" value="Momo Map-Client" />
-                <entry key="fieldStyle" value="color:#FFFFFF; font-size:30px; text-align: center; padding-top: 40px;" />
             </util:map>
         </property>
     </bean>
@@ -496,7 +596,6 @@
         <property name="subModules">
             <util:list value-type="de.terrestris.shogun2.model.module.Module">
                 <ref bean="headerLogoModule" />
-                <ref bean="headerTitleModule" />
             </util:list>
         </property>
     </bean>
@@ -517,10 +616,11 @@
     <!-- Define the Viewport -->
     <bean id="viewportModule" class="de.terrestris.shogun2.model.module.CompositeModule">
         <property name="name" value="Viewport with Border Layout" />
+        <property name="xtype" value="viewport" />
         <property name="layout" ref="borderLayout" />
         <property name="subModules">
             <util:list value-type="de.terrestris.shogun2.model.module.Module">
-                <ref bean="mapModule" />
+                <ref bean="mapContainer" />
                 <ref bean="headerModule" />
                 <ref bean="layerTreeModule" />
             </util:list>
