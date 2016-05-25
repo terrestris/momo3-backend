@@ -67,6 +67,9 @@
         <ref bean="mapModule" />
         <ref bean="toolsModule" />
 
+        <ref bean="gazetteerSearchModule" />
+        <ref bean="gazetteerGridModule" />
+
         <ref bean="mapContainer" />
 
         <ref bean="headerLogoModule" />
@@ -562,6 +565,7 @@
             <util:list value-type="de.terrestris.shogun2.model.module.Module">
                 <ref bean="mapModule" />
                 <ref bean="toolsModule" />
+                <ref bean="gazetteerGridModule" />
             </util:list>
         </property>
     </bean>
@@ -580,6 +584,26 @@
         </property>
     </bean>
 
+    <!--  Define the Gazetteer Search -->
+    <bean id="gazetteerSearchModule" class="de.terrestris.shogun2.model.module.Module">
+        <property name="name" value="Gazetteer Search" />
+        <property name="xtype" value="basigx_form_field_gazetteercombo" />
+        <property name="properties">
+            <util:map>
+                <entry key="margin" value="10 0 10 130" />
+                <entry key="width" value="400" />
+                <entry key="emptyText" value="Gazetteer Suche..." />
+                <entry key="hideTrigger" value="true" />
+                <entry key="minChars" value="3"/>
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="gazetteerGridModule" class="de.terrestris.shogun2.model.module.Module">
+        <property name="name" value="Gazetteer Grid" />
+        <property name="xtype" value="basigx_grid_gazetteergrid" />
+    </bean>
+
     <bean id="headerModule" class="de.terrestris.shogun2.model.module.CompositeModule">
         <property name="name" value="Viewport Header" />
         <property name="xtype" value="panel" />
@@ -596,6 +620,7 @@
         <property name="subModules">
             <util:list value-type="de.terrestris.shogun2.model.module.Module">
                 <ref bean="headerLogoModule" />
+                <ref bean="gazetteerSearchModule" />
             </util:list>
         </property>
     </bean>
@@ -623,6 +648,7 @@
                 <ref bean="mapContainer" />
                 <ref bean="headerModule" />
                 <ref bean="layerTreeModule" />
+                <ref bean="gazetteerGridModule" />
             </util:list>
         </property>
     </bean>
