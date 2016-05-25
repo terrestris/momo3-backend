@@ -590,8 +590,8 @@
         <property name="xtype" value="basigx_form_field_gazetteercombo" />
         <property name="properties">
             <util:map>
-                <entry key="margin" value="10 0 10 130" />
-                <entry key="width" value="400" />
+                <entry key="margin" value="30 0 10 500" />
+                <entry key="width" value="600" />
                 <entry key="emptyText" value="Gazetteer Suche..." />
                 <entry key="hideTrigger" value="true" />
                 <entry key="minChars" value="3"/>
