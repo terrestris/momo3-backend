@@ -64,6 +64,9 @@
         <ref bean="stepBackModule" />
         <ref bean="stepForwardModule" />
 
+        <ref bean="showMetaToolbarModule" />
+        <ref bean="metaToolbarModule" />
+
         <ref bean="mapModule" />
         <ref bean="toolsModule" />
 
@@ -469,7 +472,7 @@
 
     <!-- Define common map tools -->
     <bean id="zoomInModule" class="de.terrestris.shogun2.model.module.Button">
-        <property name="name" value="Zoom in" />
+        <property name="name" value="Zoom in button" />
         <property name="xtype" value="basigx-button-zoomin" />
         <property name="properties">
              <util:map>
@@ -480,7 +483,7 @@
     </bean>
 
     <bean id="zoomOutModule" class="de.terrestris.shogun2.model.module.Button">
-        <property name="name" value="Zoom out" />
+        <property name="name" value="Zoom out button" />
         <property name="xtype" value="basigx-button-zoomout" />
         <property name="properties">
              <util:map>
@@ -491,7 +494,7 @@
     </bean>
 
     <bean id="zoomToExtentModule" class="de.terrestris.shogun2.model.module.Button">
-        <property name="name" value="Zoom to extent" />
+        <property name="name" value="Zoom to extent button" />
         <property name="xtype" value="momo-button-zoomtoextent" />
         <property name="properties">
              <util:map>
@@ -502,7 +505,7 @@
     </bean>
 
     <bean id="stepBackModule" class="de.terrestris.shogun2.model.module.Button">
-        <property name="name" value="Step back to previous extent" />
+        <property name="name" value="Step back to previous extent button" />
         <property name="xtype" value="momo-button-stepback" />
         <property name="properties">
              <util:map>
@@ -513,7 +516,7 @@
     </bean>
 
     <bean id="stepForwardModule" class="de.terrestris.shogun2.model.module.Button">
-        <property name="name" value="Step forward to next extent " />
+        <property name="name" value="Step forward to next extent button" />
         <property name="xtype" value="momo-button-stepforward" />
         <property name="properties">
              <util:map>
@@ -521,6 +524,22 @@
                 <entry key="ui" value="default" />
              </util:map>
         </property>
+    </bean>
+
+    <bean id="showMetaToolbarModule" class="de.terrestris.shogun2.model.module.Button">
+        <property name="name" value="Show meta toolbar button" />
+        <property name="xtype" value="momo-button-showmetapanel" />
+        <property name="properties">
+             <util:map>
+                <entry key="scale" value="small" />
+                <entry key="ui" value="default" />
+             </util:map>
+        </property>
+    </bean>
+
+    <bean id="metaToolbarModule" class="de.terrestris.shogun2.model.module.Module">
+        <property name="name" value="Meta info toolbar for the map" />
+        <property name="xtype" value="momo-panel-metainfos" />
     </bean>
 
     <!-- Define the Tools Toolbar -->
@@ -564,6 +583,8 @@
         <property name="subModules">
             <util:list value-type="de.terrestris.shogun2.model.module.Module">
                 <ref bean="mapModule" />
+                <ref bean="showMetaToolbarModule" />
+                <ref bean="metaToolbarModule" />
                 <ref bean="toolsModule" />
                 <ref bean="gazetteerGridModule" />
             </util:list>
