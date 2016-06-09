@@ -60,9 +60,13 @@ Fork and checkout [the sources of this project](https://github.com/ terrestris/m
 account `YOUR_GITHUB_ID`.
     `$ mvn scm:checkout -Dmaven-scm-plugin.git-username=YOUR_GITHUB_ID`
 
-10. Go to `{projectDir}/src/main/webapp/client` and run:
+9. Go to `{projectDir}/src/main/webapp/client` and run:
 
   `git remote add upstream https://github.com/terrestris/momo3-frontend.git`
+
+10. In the `src/main/webapp/client` directory, execute this again:
+
+    `$ git submodule update --init --recursive`
 
 ### 2. Import project to the Eclipse IDE
 
