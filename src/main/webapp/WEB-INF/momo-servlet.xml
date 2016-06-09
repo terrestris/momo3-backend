@@ -37,8 +37,7 @@
     <beans:bean id="jacksonObjectMapper"
         class="de.terrestris.shogun2.util.json.Shogun2JsonObjectMapper" />
 
-    <component-scan base-package="de.terrestris.*.rest,
- de.terrestris.*.web, de.terrestris.momo.web, ch.ralscha.extdirectspring"
+    <component-scan base-package="de.terrestris.*.rest, de.terrestris.*.web"
         use-default-filters="false">
         <include-filter expression="org.springframework.stereotype.Controller"
             type="annotation" />

@@ -32,7 +32,7 @@
         <!-- The type of connection to use (connection or developerConnection) -->
         <maven-scm-plugin.connection-type>developerConnection</maven-scm-plugin.connection-type>
 
-        <shogun2.version>0.0.6-SNAPSHOT</shogun2.version>
+        <shogun2.version>0.0.6</shogun2.version>
 
         <maven-javadoc-plugin.version>2.10.3</maven-javadoc-plugin.version>
         <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>

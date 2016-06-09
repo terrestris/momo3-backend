@@ -3,8 +3,6 @@ package de.terrestris.momo.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-import ch.rasc.extclassgenerator.Model;
-
 import de.terrestris.shogun2.model.Application;
 
 /**
@@ -14,11 +12,6 @@ import de.terrestris.shogun2.model.Application;
  *
  */
 @Entity
-@Model(value = "momo.model.ProjectApplication",
-	readMethod = "projectApplicationService.findWithSortingAndPagingExtDirect",
-	createMethod = "projectApplicationService.saveOrUpdateCollection",
-	updateMethod = "projectApplicationService.saveOrUpdateCollection",
-	destroyMethod = "projectApplicationService.deleteCollection")
 public class ProjectApplication extends Application {
 
 	private static final long serialVersionUID = 1L;
