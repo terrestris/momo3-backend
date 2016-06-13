@@ -24,6 +24,11 @@
         <!-- Users -->
         <ref bean="adminUser"/>
         <ref bean="defaultUser"/>
+        <ref bean="territoryUser"/>
+
+        <!-- Territories -->
+        <ref bean="adminUserGroupTerritory"/>
+        <ref bean="defaultUserGroupTerritory"/>
 
         <!-- UserGroups -->
         <ref bean="adminUserGroup"/>
@@ -133,14 +138,35 @@
             </util:set>
         </property>
     </bean>
+    <bean id="territoryUser" class="de.terrestris.shogun2.model.User">
+        <property name="firstName" value="Terry"/>
+        <property name="lastName" value="Torry"/>
+        <property name="accountName" value="terrytorry"/>
+        <!-- This will be encrypted when the init service saves the user. -->
+        <property name="password" value="terrytorry"/>
+        <property name="active" value="true"/>
+        <property name="roles">
+            <util:set id="defaultUserRoles">
+                <ref bean="userRole"/>
+            </util:set>
+        </property>
+    </bean>
+
+    <bean id="adminUserGroupTerritory" class="de.terrestris.shogun2.model.Territory">
+        <property name="name" value="Admin Group Territory" />
+    </bean>
+    <bean id="defaultUserGroupTerritory" class="de.terrestris.shogun2.model.Territory">
+        <property name="name" value="Default User Group Territory" />
+    </bean>
 
     <!-- Define userGroups -->
-    <bean id="adminUserGroup" class="de.terrestris.shogun2.model.UserGroup">
+    <bean id="adminUserGroup" class="de.terrestris.momo.model.MomoUserGroup">
         <property name="name" value="Admin User Group"/>
         <property name="owner" ref="adminUser"/>
         <property name="members">
             <util:set id="adminUserGroupMembers">
                 <ref bean="adminUser"/>
+                <ref bean="territoryUser"/>
             </util:set>
         </property>
         <property name="roles">
@@ -148,13 +174,15 @@
                 <ref bean="adminRole"/>
             </util:set>
         </property>
+        <property name="territory" ref="adminUserGroupTerritory" />
     </bean>
-    <bean id="defaultUserGroup" class="de.terrestris.shogun2.model.UserGroup">
+    <bean id="defaultUserGroup" class="de.terrestris.momo.model.MomoUserGroup">
         <property name="name" value="Default User Group"/>
         <property name="owner" ref="adminUser"/>
         <property name="members">
             <util:set id="defaultUserGroupMembers">
                 <ref bean="defaultUser"/>
+                <ref bean="territoryUser"/>
             </util:set>
         </property>
         <property name="roles">
@@ -162,6 +190,7 @@
                 <ref bean="userRole"/>
             </util:set>
         </property>
+        <property name="territory" ref="defaultUserGroupTerritory" />
     </bean>
 
     <!-- The Border layout -->
