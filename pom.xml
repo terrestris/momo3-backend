@@ -33,6 +33,7 @@
         <maven-scm-plugin.connection-type>developerConnection</maven-scm-plugin.connection-type>
 
         <shogun2.version>0.1.0-SNAPSHOT</shogun2.version>
+        <postgresql.version>9.3-1102-jdbc41</postgresql.version>
 
         <maven-javadoc-plugin.version>2.10.3</maven-javadoc-plugin.version>
         <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
@@ -181,6 +182,12 @@
             <groupId>de.terrestris</groupId>
             <artifactId>shogun2-core</artifactId>
             <version>${shogun2.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
         </dependency>
 
     </dependencies>
