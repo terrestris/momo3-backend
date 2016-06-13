@@ -60,4 +60,7 @@
     <!-- The GeoServer Namespace to URI map used in the Interceptor -->
     <util:properties id="geoServerNameSpaces" location="classpath*:META-INF/config/${app.profile}/geoServerNameSpaces.properties" />
 
+    <!-- Project specific WMS interceptor -->
+    <bean id="wmsRequestInterceptor" class="de.terrestris.momo.interceptor.MomoWmsRequestInterceptor" />
+
 </beans>
