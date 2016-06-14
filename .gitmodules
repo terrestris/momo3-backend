@@ -10,3 +10,6 @@
 [submodule "src/main/webapp/login"]
 	path = src/main/webapp/login
 	url = https://github.com/terrestris/momo3-login
+[submodule "src/main/webapp/admin"]
+	path = src/main/webapp/admin
+	url = https://github.com/terrestris/momo3-admin
