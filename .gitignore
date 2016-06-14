@@ -21,8 +21,4 @@ wtpmodules
 
 #npm
 src/main/webapp/npm-debug.log
-
-
-# the client/frontend code (it's separate git repo)
-src/main/webapp/client/
-
+src/main/webapp/lib
