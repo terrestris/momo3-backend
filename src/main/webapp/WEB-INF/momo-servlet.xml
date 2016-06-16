@@ -42,6 +42,34 @@
 
     <annotation-config />
 
+    <!-- We configured the DispatcherServlet with the mapping "/", but we want
+     all requests to static resources (e.g., *.js or *.css) mapped to the
+     DefaultServlet -->
+    <mvc:default-servlet-handler />
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!-- set cache headers for static resources -->
+            <mvc:mapping path="/lib/**"/>
+            <mvc:mapping path="/admin/build/**"/>
+            <mvc:mapping path="/admin/resources/**"/>
+            <mvc:mapping path="/client/build/**"/>
+            <mvc:mapping path="/client/resources/**"/>
+            <mvc:mapping path="/login/build/**"/>
+            <mvc:mapping path="/login/resources/**"/>
+
+            <!-- set cache headers for file and image controllers -->
+            <mvc:mapping path="/image/**"/>
+            <mvc:mapping path="/file/**"/>
+            <beans:bean class="org.springframework.web.servlet.mvc.WebContentInterceptor">
+                <beans:property name="cacheSeconds" value="86400" /> <!-- 1 day -->
+                <beans:property name="useExpiresHeader" value="true"/>
+                <beans:property name="useCacheControlHeader" value="true"/>
+                <beans:property name="useCacheControlNoStore" value="true"/>
+            </beans:bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
     <beans:bean id="jacksonObjectMapper"
         class="de.terrestris.shogun2.util.json.Shogun2JsonObjectMapper" />
 

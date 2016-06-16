@@ -56,6 +56,14 @@
         <url-pattern>/momo/model/*</url-pattern>
     </servlet-mapping>
 
+    <!-- Enable JSP handling on the login index.html -->
+    <servlet-mapping>
+        <servlet-name>jsp</servlet-name>
+        <url-pattern>/login/index.html</url-pattern>
+        <url-pattern>/admin/index.html</url-pattern>
+        <url-pattern>/client/index.html</url-pattern>
+    </servlet-mapping>
+
     <!-- Misc -->
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>

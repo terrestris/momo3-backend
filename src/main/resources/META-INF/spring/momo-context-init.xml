@@ -18,7 +18,7 @@
     </bean>
 
     <!-- This bean initializes needed database objects or similar -->
-    <bean id="contentInitializer" class="de.terrestris.momo.init.ProjectContentInitializer"
+    <bean id="contentInitializer" class="de.terrestris.momo.init.MomoContentInitializer"
         init-method="initializeDatabaseContent" />
 
 </beans>

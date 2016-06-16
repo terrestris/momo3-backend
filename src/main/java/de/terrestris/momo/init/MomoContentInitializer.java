@@ -12,7 +12,7 @@ import de.terrestris.shogun2.init.ContentInitializer;
  * @author Nils Bühner
  *
  */
-public class ProjectContentInitializer extends ContentInitializer {
+public class MomoContentInitializer extends ContentInitializer {
 
 	/**
 	 * Flag symbolizing if something should be initialized on startup
