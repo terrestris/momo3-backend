@@ -24,11 +24,6 @@
         <!-- Users -->
         <ref bean="adminUser"/>
         <ref bean="defaultUser"/>
-        <ref bean="territoryUser"/>
-
-        <!-- Territories -->
-        <ref bean="adminUserGroupTerritory"/>
-        <ref bean="defaultUserGroupTerritory"/>
 
         <!-- UserGroups -->
         <ref bean="adminUserGroup"/>
@@ -47,9 +42,14 @@
         <ref bean="osmWmsLayerGrayDataSource" />
         <ref bean="osmWmsLayerAppearance" />
 
+        <!-- Permissions -->
+        <ref bean="defaultUserPermissionCollection" />
+
         <!-- Layers -->
         <ref bean="osmWmsLayer" />
         <ref bean="osmWmsLayerGray" />
+        <ref bean="mongoliaStateCenters" />
+        <ref bean="osmTopo" />
 
         <!-- Controls -->
         <ref bean="controlAttribution" />
@@ -85,9 +85,6 @@
 
         <ref bean="layerTreeModule" />
         <ref bean="viewportModule" />
-
-        <!-- Permissions -->
-        <ref bean="defaultUserPermissionCollection" />
 
         <!-- Applications -->
         <ref bean="defaultApplication"/>
@@ -138,26 +135,6 @@
             </util:set>
         </property>
     </bean>
-    <bean id="territoryUser" class="de.terrestris.shogun2.model.User">
-        <property name="firstName" value="Terry"/>
-        <property name="lastName" value="Torry"/>
-        <property name="accountName" value="terrytorry"/>
-        <!-- This will be encrypted when the init service saves the user. -->
-        <property name="password" value="terrytorry"/>
-        <property name="active" value="true"/>
-        <property name="roles">
-            <util:set id="defaultUserRoles">
-                <ref bean="userRole"/>
-            </util:set>
-        </property>
-    </bean>
-
-    <bean id="adminUserGroupTerritory" class="de.terrestris.shogun2.model.Territory">
-        <property name="name" value="Admin Group Territory" />
-    </bean>
-    <bean id="defaultUserGroupTerritory" class="de.terrestris.shogun2.model.Territory">
-        <property name="name" value="Default User Group Territory" />
-    </bean>
 
     <!-- Define userGroups -->
     <bean id="adminUserGroup" class="de.terrestris.momo.model.MomoUserGroup">
@@ -166,7 +143,6 @@
         <property name="members">
             <util:set id="adminUserGroupMembers">
                 <ref bean="adminUser"/>
-                <ref bean="territoryUser"/>
             </util:set>
         </property>
         <property name="roles">
@@ -174,7 +150,6 @@
                 <ref bean="adminRole"/>
             </util:set>
         </property>
-        <property name="territory" ref="adminUserGroupTerritory" />
     </bean>
     <bean id="defaultUserGroup" class="de.terrestris.momo.model.MomoUserGroup">
         <property name="name" value="Default User Group"/>
@@ -182,7 +157,6 @@
         <property name="members">
             <util:set id="defaultUserGroupMembers">
                 <ref bean="defaultUser"/>
-                <ref bean="territoryUser"/>
             </util:set>
         </property>
         <property name="roles">
@@ -190,7 +164,12 @@
                 <ref bean="userRole"/>
             </util:set>
         </property>
-        <property name="territory" ref="defaultUserGroupTerritory" />
+        <property name="maskingValues">
+            <util:set id="defaultUserGroupRoles">
+                <value>14</value>
+                <value>21</value>
+            </util:set>
+        </property>
     </bean>
 
     <!-- The Border layout -->
@@ -449,6 +428,18 @@
         <property name="layerStyles" value="" />
     </bean>
 
+    <bean id="mongoliaStateCentersDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:Aimag_center" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="osmTopoDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:TOPO-OSM-WMS" />
+        <property name="layerStyles" value="" />
+    </bean>
+
     <bean id="osmWmsLayerGrayDataSource" parent="tileWMSDataSourceTemplate">
         <property name="url" value="http://ows.terrestris.de/osm-gray/service?" />
        <property name="layerNames" value="OSM-WMS" />
@@ -457,6 +448,20 @@
 
     <bean id="osmWmsLayerAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
         <property name="attribution" value="© &lt;a href='http://www.openstreetmap.org/copyright'&gt;OpenStreetMap contributors&lt;/a&gt; &lt;br&gt;" />
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="true" />
+    </bean>
+
+    <bean id="mongoliaStateCentersAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="true" />
+    </bean>
+
+    <bean id="osmTopoAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
         <property name="maxResolution" ref="res01" />
         <property name="minResolution" ref="res19" />
         <property name="opacity" value="1" />
@@ -475,6 +480,32 @@
         <property name="appearance" ref="osmWmsLayerAppearance" />
     </bean>
 
+    <bean id="mongoliaStateCenters" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="Mongolia state centers" />
+        <property name="source" ref="mongoliaStateCentersDataSource" />
+        <property name="appearance" ref="mongoliaStateCentersAppearance" />
+        <property name="spatiallyRestricted" value="true" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="osmTopo" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="OSM TOPO terrestris" />
+        <property name="source" ref="osmTopoDataSource" />
+        <property name="appearance" ref="osmTopoAppearance" />
+        <property name="spatiallyRestricted" value="true" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
     <!-- Define the Map -->
     <bean id="mapModule" class="de.terrestris.shogun2.model.module.Map">
         <property name="name" value="Main Map" />
@@ -482,6 +513,8 @@
         <property name="mapConfig" ref="mapConfig" />
         <property name="mapLayers">
             <util:list>
+                <ref bean="mongoliaStateCenters" />
+                <ref bean="osmTopo" />
                 <ref bean="osmWmsLayer" />
                 <ref bean="osmWmsLayerGray" />
             </util:list>
@@ -738,7 +771,7 @@
     </bean>
     <bean id="defaultWMSResponseInterceptorRule" class="de.terrestris.shogun2.model.interceptor.InterceptorRule">
         <property name="event" value="RESPONSE"/>
-        <property name="rule" value="ALLOW"/>
+        <property name="rule" value="MODIFY"/>
         <property name="service" value="WMS"/>
     </bean>
     <bean id="defaultWFSRequestInterceptorRule" class="de.terrestris.shogun2.model.interceptor.InterceptorRule">

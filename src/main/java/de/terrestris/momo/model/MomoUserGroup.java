@@ -1,12 +1,16 @@
 package de.terrestris.momo.model;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.ManyToOne;
 import javax.persistence.MapKeyJoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -14,7 +18,6 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import de.terrestris.momo.model.security.LayerPermissionCollection;
-import de.terrestris.shogun2.model.Territory;
 import de.terrestris.shogun2.model.User;
 import de.terrestris.shogun2.model.UserGroup;
 
@@ -34,8 +37,10 @@ public class MomoUserGroup extends UserGroup {
 	/**
 	 *
 	 */
-	@ManyToOne
-	private Territory territory;
+	@ElementCollection
+	@CollectionTable(joinColumns = @JoinColumn(name = "USERGROUP_ID"))
+	@Column(name = "MASK_VALUE")
+	private Set<Integer> maskingValues = new HashSet<Integer>();
 
 	/**
 	 *
@@ -56,19 +61,17 @@ public class MomoUserGroup extends UserGroup {
 	}
 
 	/**
-	 *
-	 * @return
+	 * @return the maskingValues
 	 */
-	public Territory getTerritory() {
-		return territory;
+	public Set<Integer> getMaskingValues() {
+		return maskingValues;
 	}
 
 	/**
-	 *
-	 * @param territory
+	 * @param maskingValues the maskingValues to set
 	 */
-	public void setTerritory(Territory territory) {
-		this.territory = territory;
+	public void setMaskingValues(Set<Integer> maskingValues) {
+		this.maskingValues = maskingValues;
 	}
 
 	/**
