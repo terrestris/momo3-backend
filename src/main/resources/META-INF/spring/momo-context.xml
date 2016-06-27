@@ -62,5 +62,6 @@
 
     <!-- Project specific WMS interceptor -->
     <bean id="wmsRequestInterceptor" class="de.terrestris.momo.interceptor.MomoWmsRequestInterceptor" />
+    <bean id="wmsResponseInterceptor" class="de.terrestris.momo.interceptor.MomoWmsResponseInterceptor" />
 
 </beans>
