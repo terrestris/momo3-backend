@@ -44,18 +44,6 @@
         <url-pattern>/rest/*</url-pattern>
     </servlet-mapping>
 
-    <!-- See de.terrestris.shogun2.web.ExtModelController -->
-    <servlet-mapping>
-        <servlet-name>momo</servlet-name>
-        <url-pattern>/shogun2/model/*</url-pattern>
-    </servlet-mapping>
-
-    <!-- See de.terrestris.shogun2.web.ExtModelController -->
-    <servlet-mapping>
-        <servlet-name>momo</servlet-name>
-        <url-pattern>/momo/model/*</url-pattern>
-    </servlet-mapping>
-
     <!-- Enable JSP handling on the login index.html -->
     <servlet-mapping>
         <servlet-name>jsp</servlet-name>
