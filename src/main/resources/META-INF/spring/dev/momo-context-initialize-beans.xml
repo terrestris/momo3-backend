@@ -50,6 +50,123 @@
         <ref bean="osmWmsLayerGray" />
         <ref bean="mongoliaStateCenters" />
         <ref bean="osmTopo" />
+        <ref bean="01_kharaa_river_basin_32648" />
+        <ref bean="01_kharaa_subbasins_32648" />
+        <ref bean="02_surface_water_bodies_32648" />
+        <ref bean="02_surface_water_bodies_corr_32648" />
+        <ref bean="03_groundwater_bodies_32648" />
+        <ref bean="03_groundwater_monitoring_sites_32648" />
+        <ref bean="07_mining_operations_32648" />
+        <ref bean="07_potentially_contaminated_areas_32648" />
+        <ref bean="07_risk_assessment_groundwater_bodies_32648" />
+        <ref bean="07_risk_assessment_surface_water_bodies_32648" />
+        <ref bean="2085_prec_sum_mng" />
+        <ref bean="aet_1971-00" />
+        <ref bean="aimag_boundary" />
+        <ref bean="aimag_center" />
+        <ref bean="aimagboundary" />
+        <ref bean="avail_1971-00" />
+        <ref bean="avail_2011-40_a2_cncm3" />
+        <ref bean="avail_2011-40_a2_echam5" />
+        <ref bean="avail_2011-40_a2_ipsl" />
+        <ref bean="avail_2011-40_b1_cncm3" />
+        <ref bean="avail_2011-40_b1_echam5" />
+        <ref bean="avail_2011-40_b1_ipsl" />
+        <ref bean="avail_2041-70_a2_cncm3" />
+        <ref bean="avail_2041-70_a2_echam5" />
+        <ref bean="avail_2041-70_a2_ipsl" />
+        <ref bean="avail_2041-70_b1_cncm3" />
+        <ref bean="avail_2041-70_b1_echam5" />
+        <ref bean="avail_2041-70_b1_ipsl" />
+        <ref bean="avail_2071-00_a2_cncm3" />
+        <ref bean="avail_2071-00_a2_echam5" />
+        <ref bean="avail_2071-00_a2_ipsl" />
+        <ref bean="avail_2071-00_b1_cncm3" />
+        <ref bean="avail_2071-00_b1_echam5" />
+        <ref bean="avail_2071-00_b1_ipsl" />
+        <ref bean="big_rivers" />
+        <ref bean="blue_marble" />
+        <ref bean="buildings" />
+        <ref bean="country_borders" />
+        <ref bean="cropland_1989_kharaa" />
+        <ref bean="cropland_2006_kharaa" />
+        <ref bean="DEM_30m" />
+        <ref bean="DEM_Mongolia_900m" />
+        <ref bean="digiriver_subbasins" />
+        <ref bean="dyn_17_1369841595246" />
+        <ref bean="ecological_status_kharaa" />
+        <ref bean="ecological_status_kharaa_uploadtest" />
+        <ref bean="einwohnerdichte" />
+        <ref bean="einwohnerdichte_darhan" />
+        <ref bean="gebaeude" />
+        <ref bean="gebaeude_darkhan_32648_clip" />
+        <ref bean="gebaeude_darkhan_32648_clip_try" />
+        <ref bean="gebaeude1_darhan" />
+        <ref bean="gol" />
+        <ref bean="kharaa_basin" />
+        <ref bean="kharaa_darhan" />
+        <ref bean="kharaa_subbasins" />
+        <ref bean="lakes_large" />
+        <ref bean="landuse" />
+        <ref bean="mng_roads" />
+        <ref bean="natural" />
+        <ref bean="nuuruud" />
+        <ref bean="ortho_drone_oczipka" />
+        <ref bean="permafrost" />
+        <ref bean="phenomenonzonemeta" />
+        <ref bean="places" />
+        <ref bean="points" />
+        <ref bean="populationdensity_darhan" />
+        <ref bean="precip_1971-00" />
+        <ref bean="precip_2011-40_a2_cncm3" />
+        <ref bean="precip_2011-40_a2_echam5" />
+        <ref bean="precip_2011-40_a2_ipsl" />
+        <ref bean="precip_2011-40_b1_cncm3" />
+        <ref bean="precip_2011-40_b1_echam5" />
+        <ref bean="precip_2011-40_b1_ipsl" />
+        <ref bean="precip_2041-70_a2_cncm3" />
+        <ref bean="precip_2041-70_a2_echam5" />
+        <ref bean="precip_2041-70_a2_ipsl" />
+        <ref bean="precip_2041-70_b1_cncm3" />
+        <ref bean="precip_2041-70_b1_echam5" />
+        <ref bean="precip_2041-70_b1_ipsl" />
+        <ref bean="precip_2071-00_a2_cncm3" />
+        <ref bean="precip_2071-00_a2_echam5" />
+        <ref bean="precip_2071-00_a2_ipsl" />
+        <ref bean="precip_2071-00_b1_cncm3" />
+        <ref bean="precip_2071-00_b1_echam5" />
+        <ref bean="precip_2071-00_b1_ipsl" />
+        <ref bean="protected_areas" />
+        <ref bean="rail_road" />
+        <ref bean="railways" />
+        <ref bean="roads" />
+        <ref bean="snow_cover_fraction_1971-00" />
+        <ref bean="soum_center342" />
+        <ref bean="state_boundary" />
+        <ref bean="temp_1971-00" />
+        <ref bean="temp_2011-40_a2_cncm3" />
+        <ref bean="temp_2011-40_a2_echam5" />
+        <ref bean="temp_2011-40_a2_ipsl" />
+        <ref bean="temp_2011-40_b1_cncm3" />
+        <ref bean="temp_2011-40_b1_echam5" />
+        <ref bean="temp_2011-40_b1_ipsl" />
+        <ref bean="temp_2041-70_a2_cncm3" />
+        <ref bean="temp_2041-70_a2_echam5" />
+        <ref bean="temp_2041-70_a2_ipsl" />
+        <ref bean="temp_2041-70_b1_cncm3" />
+        <ref bean="temp_2041-70_b1_echam5" />
+        <ref bean="temp_2041-70_b1_ipsl" />
+        <ref bean="temp_2071-00_a2_cncm3" />
+        <ref bean="temp_2071-00_a2_echam5" />
+        <ref bean="temp_2071-00_a2_ipsl" />
+        <ref bean="temp_2071-00_b1_cncm3" />
+        <ref bean="temp_2071-00_b1_echam5" />
+        <ref bean="temp_2071-00_b1_ipsl" />
+        <ref bean="TM5_2010" />
+        <ref bean="wasserkioske_bag7_32648" />
+        <ref bean="wastewater_darhan" />
+        <ref bean="waterways" />
+        <ref bean="wg3_webgis_cru" />
 
         <!-- Controls -->
         <ref bean="controlAttribution" />
@@ -446,6 +563,708 @@
         <property name="layerStyles" value="" />
     </bean>
 
+    <bean id="01_kharaa_river_basin_32648DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:01_kharaa_river_basin_32648" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="01_kharaa_subbasins_32648DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:01_kharaa_subbasins_32648" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="02_surface_water_bodies_32648DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:02_surface_water_bodies_32648" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="02_surface_water_bodies_corr_32648DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:02_surface_water_bodies_corr_32648" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="03_groundwater_bodies_32648DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:03_groundwater_bodies_32648" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="03_groundwater_monitoring_sites_32648DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:03_groundwater_monitoring_sites_32648" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="07_mining_operations_32648DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:07_mining_operations_32648" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="07_potentially_contaminated_areas_32648DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:07_potentially_contaminated_areas_32648" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="07_risk_assessment_groundwater_bodies_32648DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:07_risk_assessment_groundwater_bodies_32648" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="07_risk_assessment_surface_water_bodies_32648DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:07_risk_assessment_surface_water_bodies_32648" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="2085_prec_sum_mngDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:2085_prec_sum_mng" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="aet_1971-00DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:aet_1971-00" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="aimag_boundaryDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:aimag_boundary" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="aimag_centerDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:aimag_center" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="aimagboundaryDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:aimagboundary" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="avail_1971-00DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:avail_1971-00" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="avail_2011-40_a2_cncm3DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:avail_2011-40_a2_cncm3" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="avail_2011-40_a2_echam5DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:avail_2011-40_a2_echam5" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="avail_2011-40_a2_ipslDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:avail_2011-40_a2_ipsl" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="avail_2011-40_b1_cncm3DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:avail_2011-40_b1_cncm3" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="avail_2011-40_b1_echam5DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:avail_2011-40_b1_echam5" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="avail_2011-40_b1_ipslDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:avail_2011-40_b1_ipsl" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="avail_2041-70_a2_cncm3DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:avail_2041-70_a2_cncm3" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="avail_2041-70_a2_echam5DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:avail_2041-70_a2_echam5" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="avail_2041-70_a2_ipslDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:avail_2041-70_a2_ipsl" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="avail_2041-70_b1_cncm3DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:avail_2041-70_b1_cncm3" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="avail_2041-70_b1_echam5DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:avail_2041-70_b1_echam5" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="avail_2041-70_b1_ipslDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:avail_2041-70_b1_ipsl" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="avail_2071-00_a2_cncm3DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:avail_2071-00_a2_cncm3" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="avail_2071-00_a2_echam5DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:avail_2071-00_a2_echam5" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="avail_2071-00_a2_ipslDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:avail_2071-00_a2_ipsl" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="avail_2071-00_b1_cncm3DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:avail_2071-00_b1_cncm3" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="avail_2071-00_b1_echam5DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:avail_2071-00_b1_echam5" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="avail_2071-00_b1_ipslDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:avail_2071-00_b1_ipsl" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="big_riversDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:big_rivers" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="blue_marbleDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:blue_marble" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="buildingsDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:buildings" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="country_bordersDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:country_borders" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="cropland_1989_kharaaDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:cropland_1989_kharaa" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="cropland_2006_kharaaDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:cropland_2006_kharaa" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="DEM_30mDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:DEM_30m" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="DEM_Mongolia_900mDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:DEM_Mongolia_900m" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="digiriver_subbasinsDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:digiriver_subbasins" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="dyn_17_1369841595246DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:dyn_17_1369841595246" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="ecological_status_kharaaDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:ecological_status_kharaa" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="ecological_status_kharaa_uploadtestDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:ecological_status_kharaa_uploadtest" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="einwohnerdichteDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:einwohnerdichte" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="einwohnerdichte_darhanDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:einwohnerdichte_darhan" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="gebaeudeDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:gebaeude" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="gebaeude_darkhan_32648_clipDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:gebaeude_darkhan_32648_clip" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="gebaeude_darkhan_32648_clip_tryDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:gebaeude_darkhan_32648_clip_try" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="gebaeude1_darhanDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:gebaeude1_darhan" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="golDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:gol" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="kharaa_basinDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:kharaa_basin" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="kharaa_darhanDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:kharaa_darhan" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="kharaa_subbasinsDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:kharaa_subbasins" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="lakes_largeDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:lakes_large" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="landuseDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:landuse" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="mng_roadsDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:mng_roads" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="naturalDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:natural" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="nuuruudDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:nuuruud" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="ortho_drone_oczipkaDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:ortho_drone_oczipka" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="permafrostDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:permafrost" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="phenomenonzonemetaDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:phenomenonzonemeta" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="placesDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:places" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="pointsDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:points" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="populationdensity_darhanDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:populationdensity_darhan" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="precip_1971-00DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:precip_1971-00" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="precip_2011-40_a2_cncm3DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:precip_2011-40_a2_cncm3" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="precip_2011-40_a2_echam5DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:precip_2011-40_a2_echam5" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="precip_2011-40_a2_ipslDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:precip_2011-40_a2_ipsl" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="precip_2011-40_b1_cncm3DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:precip_2011-40_b1_cncm3" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="precip_2011-40_b1_echam5DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:precip_2011-40_b1_echam5" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="precip_2011-40_b1_ipslDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:precip_2011-40_b1_ipsl" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="precip_2041-70_a2_cncm3DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:precip_2041-70_a2_cncm3" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="precip_2041-70_a2_echam5DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:precip_2041-70_a2_echam5" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="precip_2041-70_a2_ipslDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:precip_2041-70_a2_ipsl" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="precip_2041-70_b1_cncm3DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:precip_2041-70_b1_cncm3" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="precip_2041-70_b1_echam5DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:precip_2041-70_b1_echam5" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="precip_2041-70_b1_ipslDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:precip_2041-70_b1_ipsl" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="precip_2071-00_a2_cncm3DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:precip_2071-00_a2_cncm3" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="precip_2071-00_a2_echam5DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:precip_2071-00_a2_echam5" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="precip_2071-00_a2_ipslDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:precip_2071-00_a2_ipsl" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="precip_2071-00_b1_cncm3DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:precip_2071-00_b1_cncm3" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="precip_2071-00_b1_echam5DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:precip_2071-00_b1_echam5" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="precip_2071-00_b1_ipslDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:precip_2071-00_b1_ipsl" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="protected_areasDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:protected_areas" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="rail_roadDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:rail_road" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="railwaysDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:railways" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="roadsDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:roads" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="snow_cover_fraction_1971-00DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:snow_cover_fraction_1971-00" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="soum_center342DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:soum_center342" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="state_boundaryDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:state_boundary" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="temp_1971-00DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:temp_1971-00" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="temp_2011-40_a2_cncm3DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:temp_2011-40_a2_cncm3" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="temp_2011-40_a2_echam5DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:temp_2011-40_a2_echam5" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="temp_2011-40_a2_ipslDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:temp_2011-40_a2_ipsl" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="temp_2011-40_b1_cncm3DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:temp_2011-40_b1_cncm3" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="temp_2011-40_b1_echam5DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:temp_2011-40_b1_echam5" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="temp_2011-40_b1_ipslDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:temp_2011-40_b1_ipsl" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="temp_2041-70_a2_cncm3DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:temp_2041-70_a2_cncm3" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="temp_2041-70_a2_echam5DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:temp_2041-70_a2_echam5" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="temp_2041-70_a2_ipslDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:temp_2041-70_a2_ipsl" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="temp_2041-70_b1_cncm3DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:temp_2041-70_b1_cncm3" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="temp_2041-70_b1_echam5DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:temp_2041-70_b1_echam5" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="temp_2041-70_b1_ipslDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:temp_2041-70_b1_ipsl" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="temp_2071-00_a2_cncm3DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:temp_2071-00_a2_cncm3" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="temp_2071-00_a2_echam5DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:temp_2071-00_a2_echam5" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="temp_2071-00_a2_ipslDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:temp_2071-00_a2_ipsl" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="temp_2071-00_b1_cncm3DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:temp_2071-00_b1_cncm3" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="temp_2071-00_b1_echam5DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:temp_2071-00_b1_echam5" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="temp_2071-00_b1_ipslDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:temp_2071-00_b1_ipsl" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="TM5_2010DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:TM5_2010" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="wasserkioske_bag7_32648DataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:wasserkioske_bag7_32648" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="wastewater_darhanDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:wastewater_darhan" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="waterwaysDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:waterways" />
+        <property name="layerStyles" value="" />
+    </bean>
+
+    <bean id="wg3_webgis_cruDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:wg3_webgis_cru" />
+        <property name="layerStyles" value="" />
+    </bean>
+
     <bean id="osmWmsLayerAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
         <property name="attribution" value="© &lt;a href='http://www.openstreetmap.org/copyright'&gt;OpenStreetMap contributors&lt;/a&gt; &lt;br&gt;" />
         <property name="maxResolution" ref="res01" />
@@ -466,6 +1285,825 @@
         <property name="minResolution" ref="res19" />
         <property name="opacity" value="1" />
         <property name="visible" value="true" />
+    </bean>
+
+    <bean id="01_kharaa_river_basin_32648Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="01_kharaa_subbasins_32648Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="02_surface_water_bodies_32648Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="02_surface_water_bodies_corr_32648Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="03_groundwater_bodies_32648Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="03_groundwater_monitoring_sites_32648Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="07_mining_operations_32648Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="07_potentially_contaminated_areas_32648Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="07_risk_assessment_groundwater_bodies_32648Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="07_risk_assessment_surface_water_bodies_32648Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="2085_prec_sum_mngAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="aet_1971-00Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="aimag_boundaryAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="aimag_centerAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="aimagboundaryAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="avail_1971-00Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="avail_2011-40_a2_cncm3Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="avail_2011-40_a2_echam5Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="avail_2011-40_a2_ipslAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="avail_2011-40_b1_cncm3Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="avail_2011-40_b1_echam5Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="avail_2011-40_b1_ipslAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="avail_2041-70_a2_cncm3Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="avail_2041-70_a2_echam5Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="avail_2041-70_a2_ipslAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="avail_2041-70_b1_cncm3Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="avail_2041-70_b1_echam5Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="avail_2041-70_b1_ipslAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="avail_2071-00_a2_cncm3Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="avail_2071-00_a2_echam5Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="avail_2071-00_a2_ipslAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="avail_2071-00_b1_cncm3Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="avail_2071-00_b1_echam5Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="avail_2071-00_b1_ipslAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="big_riversAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="blue_marbleAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="buildingsAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="country_bordersAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="cropland_1989_kharaaAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="cropland_2006_kharaaAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="DEM_30mAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="DEM_Mongolia_900mAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="digiriver_subbasinsAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="dyn_17_1369841595246Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="ecological_status_kharaaAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="ecological_status_kharaa_uploadtestAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="einwohnerdichteAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="einwohnerdichte_darhanAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="gebaeudeAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="gebaeude_darkhan_32648_clipAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="gebaeude_darkhan_32648_clip_tryAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="gebaeude1_darhanAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="golAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="kharaa_basinAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="kharaa_darhanAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="kharaa_subbasinsAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="lakes_largeAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="landuseAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="mng_roadsAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="naturalAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="nuuruudAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="ortho_drone_oczipkaAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="permafrostAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="phenomenonzonemetaAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="placesAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="pointsAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="populationdensity_darhanAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="precip_1971-00Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="precip_2011-40_a2_cncm3Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="precip_2011-40_a2_echam5Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="precip_2011-40_a2_ipslAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="precip_2011-40_b1_cncm3Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="precip_2011-40_b1_echam5Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="precip_2011-40_b1_ipslAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="precip_2041-70_a2_cncm3Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="precip_2041-70_a2_echam5Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="precip_2041-70_a2_ipslAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="precip_2041-70_b1_cncm3Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="precip_2041-70_b1_echam5Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="precip_2041-70_b1_ipslAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="precip_2071-00_a2_cncm3Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="precip_2071-00_a2_echam5Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="precip_2071-00_a2_ipslAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="precip_2071-00_b1_cncm3Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="precip_2071-00_b1_echam5Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="precip_2071-00_b1_ipslAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="protected_areasAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="rail_roadAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="railwaysAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="roadsAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="snow_cover_fraction_1971-00Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="soum_center342Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="state_boundaryAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="temp_1971-00Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="temp_2011-40_a2_cncm3Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="temp_2011-40_a2_echam5Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="temp_2011-40_a2_ipslAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="temp_2011-40_b1_cncm3Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="temp_2011-40_b1_echam5Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="temp_2011-40_b1_ipslAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="temp_2041-70_a2_cncm3Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="temp_2041-70_a2_echam5Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="temp_2041-70_a2_ipslAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="temp_2041-70_b1_cncm3Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="temp_2041-70_b1_echam5Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="temp_2041-70_b1_ipslAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="temp_2071-00_a2_cncm3Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="temp_2071-00_a2_echam5Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="temp_2071-00_a2_ipslAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="temp_2071-00_b1_cncm3Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="temp_2071-00_b1_echam5Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="temp_2071-00_b1_ipslAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="TM5_2010Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="wasserkioske_bag7_32648Appearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="wastewater_darhanAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="waterwaysAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
+    </bean>
+
+    <bean id="wg3_webgis_cruAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="false" />
     </bean>
 
     <bean id="osmWmsLayer" class="de.terrestris.shogun2.model.layer.Layer">
@@ -506,6 +2144,1527 @@
         </property>
     </bean>
 
+    <bean id="01_kharaa_river_basin_32648" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="01_kharaa_river_basin_32648" />
+        <property name="source" ref="01_kharaa_river_basin_32648DataSource" />
+        <property name="appearance" ref="01_kharaa_river_basin_32648Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="01_kharaa_subbasins_32648" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="01_kharaa_subbasins_32648" />
+        <property name="source" ref="01_kharaa_subbasins_32648DataSource" />
+        <property name="appearance" ref="01_kharaa_subbasins_32648Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="02_surface_water_bodies_32648" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="02_surface_water_bodies_32648" />
+        <property name="source" ref="02_surface_water_bodies_32648DataSource" />
+        <property name="appearance" ref="02_surface_water_bodies_32648Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="02_surface_water_bodies_corr_32648" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="02_surface_water_bodies_corr_32648" />
+        <property name="source" ref="02_surface_water_bodies_corr_32648DataSource" />
+        <property name="appearance" ref="02_surface_water_bodies_corr_32648Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="03_groundwater_bodies_32648" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="03_groundwater_bodies_32648" />
+        <property name="source" ref="03_groundwater_bodies_32648DataSource" />
+        <property name="appearance" ref="03_groundwater_bodies_32648Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="03_groundwater_monitoring_sites_32648" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="03_groundwater_monitoring_sites_32648" />
+        <property name="source" ref="03_groundwater_monitoring_sites_32648DataSource" />
+        <property name="appearance" ref="03_groundwater_monitoring_sites_32648Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="07_mining_operations_32648" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="07_mining_operations_32648" />
+        <property name="source" ref="07_mining_operations_32648DataSource" />
+        <property name="appearance" ref="07_mining_operations_32648Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="07_potentially_contaminated_areas_32648" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="07_potentially_contaminated_areas_32648" />
+        <property name="source" ref="07_potentially_contaminated_areas_32648DataSource" />
+        <property name="appearance" ref="07_potentially_contaminated_areas_32648Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="07_risk_assessment_groundwater_bodies_32648" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="07_risk_assessment_groundwater_bodies_32648" />
+        <property name="source" ref="07_risk_assessment_groundwater_bodies_32648DataSource" />
+        <property name="appearance" ref="07_risk_assessment_groundwater_bodies_32648Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="07_risk_assessment_surface_water_bodies_32648" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="07_risk_assessment_surface_water_bodies_32648" />
+        <property name="source" ref="07_risk_assessment_surface_water_bodies_32648DataSource" />
+        <property name="appearance" ref="07_risk_assessment_surface_water_bodies_32648Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="2085_prec_sum_mng" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="2085_prec_sum_mng" />
+        <property name="source" ref="2085_prec_sum_mngDataSource" />
+        <property name="appearance" ref="2085_prec_sum_mngAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="aet_1971-00" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="aet_1971-00" />
+        <property name="source" ref="aet_1971-00DataSource" />
+        <property name="appearance" ref="aet_1971-00Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="aimag_boundary" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="aimag_boundary" />
+        <property name="source" ref="aimag_boundaryDataSource" />
+        <property name="appearance" ref="aimag_boundaryAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="aimag_center" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="aimag_center" />
+        <property name="source" ref="aimag_centerDataSource" />
+        <property name="appearance" ref="aimag_centerAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="aimagboundary" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="aimagboundary" />
+        <property name="source" ref="aimagboundaryDataSource" />
+        <property name="appearance" ref="aimagboundaryAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="avail_1971-00" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="avail_1971-00" />
+        <property name="source" ref="avail_1971-00DataSource" />
+        <property name="appearance" ref="avail_1971-00Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="avail_2011-40_a2_cncm3" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="avail_2011-40_a2_cncm3" />
+        <property name="source" ref="avail_2011-40_a2_cncm3DataSource" />
+        <property name="appearance" ref="avail_2011-40_a2_cncm3Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="avail_2011-40_a2_echam5" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="avail_2011-40_a2_echam5" />
+        <property name="source" ref="avail_2011-40_a2_echam5DataSource" />
+        <property name="appearance" ref="avail_2011-40_a2_echam5Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="avail_2011-40_a2_ipsl" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="avail_2011-40_a2_ipsl" />
+        <property name="source" ref="avail_2011-40_a2_ipslDataSource" />
+        <property name="appearance" ref="avail_2011-40_a2_ipslAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="avail_2011-40_b1_cncm3" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="avail_2011-40_b1_cncm3" />
+        <property name="source" ref="avail_2011-40_b1_cncm3DataSource" />
+        <property name="appearance" ref="avail_2011-40_b1_cncm3Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="avail_2011-40_b1_echam5" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="avail_2011-40_b1_echam5" />
+        <property name="source" ref="avail_2011-40_b1_echam5DataSource" />
+        <property name="appearance" ref="avail_2011-40_b1_echam5Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="avail_2011-40_b1_ipsl" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="avail_2011-40_b1_ipsl" />
+        <property name="source" ref="avail_2011-40_b1_ipslDataSource" />
+        <property name="appearance" ref="avail_2011-40_b1_ipslAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="avail_2041-70_a2_cncm3" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="avail_2041-70_a2_cncm3" />
+        <property name="source" ref="avail_2041-70_a2_cncm3DataSource" />
+        <property name="appearance" ref="avail_2041-70_a2_cncm3Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="avail_2041-70_a2_echam5" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="avail_2041-70_a2_echam5" />
+        <property name="source" ref="avail_2041-70_a2_echam5DataSource" />
+        <property name="appearance" ref="avail_2041-70_a2_echam5Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="avail_2041-70_a2_ipsl" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="avail_2041-70_a2_ipsl" />
+        <property name="source" ref="avail_2041-70_a2_ipslDataSource" />
+        <property name="appearance" ref="avail_2041-70_a2_ipslAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="avail_2041-70_b1_cncm3" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="avail_2041-70_b1_cncm3" />
+        <property name="source" ref="avail_2041-70_b1_cncm3DataSource" />
+        <property name="appearance" ref="avail_2041-70_b1_cncm3Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="avail_2041-70_b1_echam5" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="avail_2041-70_b1_echam5" />
+        <property name="source" ref="avail_2041-70_b1_echam5DataSource" />
+        <property name="appearance" ref="avail_2041-70_b1_echam5Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="avail_2041-70_b1_ipsl" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="avail_2041-70_b1_ipsl" />
+        <property name="source" ref="avail_2041-70_b1_ipslDataSource" />
+        <property name="appearance" ref="avail_2041-70_b1_ipslAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="avail_2071-00_a2_cncm3" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="avail_2071-00_a2_cncm3" />
+        <property name="source" ref="avail_2071-00_a2_cncm3DataSource" />
+        <property name="appearance" ref="avail_2071-00_a2_cncm3Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="avail_2071-00_a2_echam5" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="avail_2071-00_a2_echam5" />
+        <property name="source" ref="avail_2071-00_a2_echam5DataSource" />
+        <property name="appearance" ref="avail_2071-00_a2_echam5Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="avail_2071-00_a2_ipsl" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="avail_2071-00_a2_ipsl" />
+        <property name="source" ref="avail_2071-00_a2_ipslDataSource" />
+        <property name="appearance" ref="avail_2071-00_a2_ipslAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="avail_2071-00_b1_cncm3" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="avail_2071-00_b1_cncm3" />
+        <property name="source" ref="avail_2071-00_b1_cncm3DataSource" />
+        <property name="appearance" ref="avail_2071-00_b1_cncm3Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="avail_2071-00_b1_echam5" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="avail_2071-00_b1_echam5" />
+        <property name="source" ref="avail_2071-00_b1_echam5DataSource" />
+        <property name="appearance" ref="avail_2071-00_b1_echam5Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="avail_2071-00_b1_ipsl" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="avail_2071-00_b1_ipsl" />
+        <property name="source" ref="avail_2071-00_b1_ipslDataSource" />
+        <property name="appearance" ref="avail_2071-00_b1_ipslAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="big_rivers" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="big_rivers" />
+        <property name="source" ref="big_riversDataSource" />
+        <property name="appearance" ref="big_riversAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="blue_marble" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="blue_marble" />
+        <property name="source" ref="blue_marbleDataSource" />
+        <property name="appearance" ref="blue_marbleAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="buildings" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="buildings" />
+        <property name="source" ref="buildingsDataSource" />
+        <property name="appearance" ref="buildingsAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="country_borders" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="country_borders" />
+        <property name="source" ref="country_bordersDataSource" />
+        <property name="appearance" ref="country_bordersAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="cropland_1989_kharaa" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="cropland_1989_kharaa" />
+        <property name="source" ref="cropland_1989_kharaaDataSource" />
+        <property name="appearance" ref="cropland_1989_kharaaAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="cropland_2006_kharaa" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="cropland_2006_kharaa" />
+        <property name="source" ref="cropland_2006_kharaaDataSource" />
+        <property name="appearance" ref="cropland_2006_kharaaAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="DEM_30m" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="DEM_30m" />
+        <property name="source" ref="DEM_30mDataSource" />
+        <property name="appearance" ref="DEM_30mAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="DEM_Mongolia_900m" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="DEM_Mongolia_900m" />
+        <property name="source" ref="DEM_Mongolia_900mDataSource" />
+        <property name="appearance" ref="DEM_Mongolia_900mAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="digiriver_subbasins" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="digiriver_subbasins" />
+        <property name="source" ref="digiriver_subbasinsDataSource" />
+        <property name="appearance" ref="digiriver_subbasinsAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="dyn_17_1369841595246" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="dyn_17_1369841595246" />
+        <property name="source" ref="dyn_17_1369841595246DataSource" />
+        <property name="appearance" ref="dyn_17_1369841595246Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="ecological_status_kharaa" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="ecological_status_kharaa" />
+        <property name="source" ref="ecological_status_kharaaDataSource" />
+        <property name="appearance" ref="ecological_status_kharaaAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="ecological_status_kharaa_uploadtest" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="ecological_status_kharaa_uploadtest" />
+        <property name="source" ref="ecological_status_kharaa_uploadtestDataSource" />
+        <property name="appearance" ref="ecological_status_kharaa_uploadtestAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="einwohnerdichte" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="einwohnerdichte" />
+        <property name="source" ref="einwohnerdichteDataSource" />
+        <property name="appearance" ref="einwohnerdichteAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="einwohnerdichte_darhan" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="einwohnerdichte_darhan" />
+        <property name="source" ref="einwohnerdichte_darhanDataSource" />
+        <property name="appearance" ref="einwohnerdichte_darhanAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="gebaeude" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="gebaeude" />
+        <property name="source" ref="gebaeudeDataSource" />
+        <property name="appearance" ref="gebaeudeAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="gebaeude_darkhan_32648_clip" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="gebaeude_darkhan_32648_clip" />
+        <property name="source" ref="gebaeude_darkhan_32648_clipDataSource" />
+        <property name="appearance" ref="gebaeude_darkhan_32648_clipAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="gebaeude_darkhan_32648_clip_try" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="gebaeude_darkhan_32648_clip_try" />
+        <property name="source" ref="gebaeude_darkhan_32648_clip_tryDataSource" />
+        <property name="appearance" ref="gebaeude_darkhan_32648_clip_tryAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="gebaeude1_darhan" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="gebaeude1_darhan" />
+        <property name="source" ref="gebaeude1_darhanDataSource" />
+        <property name="appearance" ref="gebaeude1_darhanAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="gol" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="gol" />
+        <property name="source" ref="golDataSource" />
+        <property name="appearance" ref="golAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="kharaa_basin" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="kharaa_basin" />
+        <property name="source" ref="kharaa_basinDataSource" />
+        <property name="appearance" ref="kharaa_basinAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="kharaa_darhan" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="kharaa_darhan" />
+        <property name="source" ref="kharaa_darhanDataSource" />
+        <property name="appearance" ref="kharaa_darhanAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="kharaa_subbasins" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="kharaa_subbasins" />
+        <property name="source" ref="kharaa_subbasinsDataSource" />
+        <property name="appearance" ref="kharaa_subbasinsAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="lakes_large" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="lakes_large" />
+        <property name="source" ref="lakes_largeDataSource" />
+        <property name="appearance" ref="lakes_largeAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="landuse" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="landuse" />
+        <property name="source" ref="landuseDataSource" />
+        <property name="appearance" ref="landuseAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="mng_roads" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="mng_roads" />
+        <property name="source" ref="mng_roadsDataSource" />
+        <property name="appearance" ref="mng_roadsAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="natural" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="natural" />
+        <property name="source" ref="naturalDataSource" />
+        <property name="appearance" ref="naturalAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="nuuruud" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="nuuruud" />
+        <property name="source" ref="nuuruudDataSource" />
+        <property name="appearance" ref="nuuruudAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="ortho_drone_oczipka" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="ortho_drone_oczipka" />
+        <property name="source" ref="ortho_drone_oczipkaDataSource" />
+        <property name="appearance" ref="ortho_drone_oczipkaAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="permafrost" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="permafrost" />
+        <property name="source" ref="permafrostDataSource" />
+        <property name="appearance" ref="permafrostAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="phenomenonzonemeta" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="phenomenonzonemeta" />
+        <property name="source" ref="phenomenonzonemetaDataSource" />
+        <property name="appearance" ref="phenomenonzonemetaAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="places" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="places" />
+        <property name="source" ref="placesDataSource" />
+        <property name="appearance" ref="placesAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="points" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="points" />
+        <property name="source" ref="pointsDataSource" />
+        <property name="appearance" ref="pointsAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="populationdensity_darhan" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="populationdensity_darhan" />
+        <property name="source" ref="populationdensity_darhanDataSource" />
+        <property name="appearance" ref="populationdensity_darhanAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="precip_1971-00" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="precip_1971-00" />
+        <property name="source" ref="precip_1971-00DataSource" />
+        <property name="appearance" ref="precip_1971-00Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="precip_2011-40_a2_cncm3" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="precip_2011-40_a2_cncm3" />
+        <property name="source" ref="precip_2011-40_a2_cncm3DataSource" />
+        <property name="appearance" ref="precip_2011-40_a2_cncm3Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="precip_2011-40_a2_echam5" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="precip_2011-40_a2_echam5" />
+        <property name="source" ref="precip_2011-40_a2_echam5DataSource" />
+        <property name="appearance" ref="precip_2011-40_a2_echam5Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="precip_2011-40_a2_ipsl" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="precip_2011-40_a2_ipsl" />
+        <property name="source" ref="precip_2011-40_a2_ipslDataSource" />
+        <property name="appearance" ref="precip_2011-40_a2_ipslAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="precip_2011-40_b1_cncm3" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="precip_2011-40_b1_cncm3" />
+        <property name="source" ref="precip_2011-40_b1_cncm3DataSource" />
+        <property name="appearance" ref="precip_2011-40_b1_cncm3Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="precip_2011-40_b1_echam5" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="precip_2011-40_b1_echam5" />
+        <property name="source" ref="precip_2011-40_b1_echam5DataSource" />
+        <property name="appearance" ref="precip_2011-40_b1_echam5Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="precip_2011-40_b1_ipsl" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="precip_2011-40_b1_ipsl" />
+        <property name="source" ref="precip_2011-40_b1_ipslDataSource" />
+        <property name="appearance" ref="precip_2011-40_b1_ipslAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="precip_2041-70_a2_cncm3" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="precip_2041-70_a2_cncm3" />
+        <property name="source" ref="precip_2041-70_a2_cncm3DataSource" />
+        <property name="appearance" ref="precip_2041-70_a2_cncm3Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="precip_2041-70_a2_echam5" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="precip_2041-70_a2_echam5" />
+        <property name="source" ref="precip_2041-70_a2_echam5DataSource" />
+        <property name="appearance" ref="precip_2041-70_a2_echam5Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="precip_2041-70_a2_ipsl" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="precip_2041-70_a2_ipsl" />
+        <property name="source" ref="precip_2041-70_a2_ipslDataSource" />
+        <property name="appearance" ref="precip_2041-70_a2_ipslAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="precip_2041-70_b1_cncm3" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="precip_2041-70_b1_cncm3" />
+        <property name="source" ref="precip_2041-70_b1_cncm3DataSource" />
+        <property name="appearance" ref="precip_2041-70_b1_cncm3Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="precip_2041-70_b1_echam5" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="precip_2041-70_b1_echam5" />
+        <property name="source" ref="precip_2041-70_b1_echam5DataSource" />
+        <property name="appearance" ref="precip_2041-70_b1_echam5Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="precip_2041-70_b1_ipsl" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="precip_2041-70_b1_ipsl" />
+        <property name="source" ref="precip_2041-70_b1_ipslDataSource" />
+        <property name="appearance" ref="precip_2041-70_b1_ipslAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="precip_2071-00_a2_cncm3" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="precip_2071-00_a2_cncm3" />
+        <property name="source" ref="precip_2071-00_a2_cncm3DataSource" />
+        <property name="appearance" ref="precip_2071-00_a2_cncm3Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="precip_2071-00_a2_echam5" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="precip_2071-00_a2_echam5" />
+        <property name="source" ref="precip_2071-00_a2_echam5DataSource" />
+        <property name="appearance" ref="precip_2071-00_a2_echam5Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="precip_2071-00_a2_ipsl" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="precip_2071-00_a2_ipsl" />
+        <property name="source" ref="precip_2071-00_a2_ipslDataSource" />
+        <property name="appearance" ref="precip_2071-00_a2_ipslAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="precip_2071-00_b1_cncm3" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="precip_2071-00_b1_cncm3" />
+        <property name="source" ref="precip_2071-00_b1_cncm3DataSource" />
+        <property name="appearance" ref="precip_2071-00_b1_cncm3Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="precip_2071-00_b1_echam5" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="precip_2071-00_b1_echam5" />
+        <property name="source" ref="precip_2071-00_b1_echam5DataSource" />
+        <property name="appearance" ref="precip_2071-00_b1_echam5Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="precip_2071-00_b1_ipsl" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="precip_2071-00_b1_ipsl" />
+        <property name="source" ref="precip_2071-00_b1_ipslDataSource" />
+        <property name="appearance" ref="precip_2071-00_b1_ipslAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="protected_areas" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="protected_areas" />
+        <property name="source" ref="protected_areasDataSource" />
+        <property name="appearance" ref="protected_areasAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="rail_road" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="rail_road" />
+        <property name="source" ref="rail_roadDataSource" />
+        <property name="appearance" ref="rail_roadAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="railways" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="railways" />
+        <property name="source" ref="railwaysDataSource" />
+        <property name="appearance" ref="railwaysAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="roads" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="roads" />
+        <property name="source" ref="roadsDataSource" />
+        <property name="appearance" ref="roadsAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="snow_cover_fraction_1971-00" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="snow_cover_fraction_1971-00" />
+        <property name="source" ref="snow_cover_fraction_1971-00DataSource" />
+        <property name="appearance" ref="snow_cover_fraction_1971-00Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="soum_center342" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="soum_center342" />
+        <property name="source" ref="soum_center342DataSource" />
+        <property name="appearance" ref="soum_center342Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="state_boundary" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="state_boundary" />
+        <property name="source" ref="state_boundaryDataSource" />
+        <property name="appearance" ref="state_boundaryAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="temp_1971-00" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="temp_1971-00" />
+        <property name="source" ref="temp_1971-00DataSource" />
+        <property name="appearance" ref="temp_1971-00Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="temp_2011-40_a2_cncm3" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="temp_2011-40_a2_cncm3" />
+        <property name="source" ref="temp_2011-40_a2_cncm3DataSource" />
+        <property name="appearance" ref="temp_2011-40_a2_cncm3Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="temp_2011-40_a2_echam5" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="temp_2011-40_a2_echam5" />
+        <property name="source" ref="temp_2011-40_a2_echam5DataSource" />
+        <property name="appearance" ref="temp_2011-40_a2_echam5Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="temp_2011-40_a2_ipsl" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="temp_2011-40_a2_ipsl" />
+        <property name="source" ref="temp_2011-40_a2_ipslDataSource" />
+        <property name="appearance" ref="temp_2011-40_a2_ipslAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="temp_2011-40_b1_cncm3" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="temp_2011-40_b1_cncm3" />
+        <property name="source" ref="temp_2011-40_b1_cncm3DataSource" />
+        <property name="appearance" ref="temp_2011-40_b1_cncm3Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="temp_2011-40_b1_echam5" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="temp_2011-40_b1_echam5" />
+        <property name="source" ref="temp_2011-40_b1_echam5DataSource" />
+        <property name="appearance" ref="temp_2011-40_b1_echam5Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="temp_2011-40_b1_ipsl" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="temp_2011-40_b1_ipsl" />
+        <property name="source" ref="temp_2011-40_b1_ipslDataSource" />
+        <property name="appearance" ref="temp_2011-40_b1_ipslAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="temp_2041-70_a2_cncm3" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="temp_2041-70_a2_cncm3" />
+        <property name="source" ref="temp_2041-70_a2_cncm3DataSource" />
+        <property name="appearance" ref="temp_2041-70_a2_cncm3Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="temp_2041-70_a2_echam5" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="temp_2041-70_a2_echam5" />
+        <property name="source" ref="temp_2041-70_a2_echam5DataSource" />
+        <property name="appearance" ref="temp_2041-70_a2_echam5Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="temp_2041-70_a2_ipsl" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="temp_2041-70_a2_ipsl" />
+        <property name="source" ref="temp_2041-70_a2_ipslDataSource" />
+        <property name="appearance" ref="temp_2041-70_a2_ipslAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="temp_2041-70_b1_cncm3" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="temp_2041-70_b1_cncm3" />
+        <property name="source" ref="temp_2041-70_b1_cncm3DataSource" />
+        <property name="appearance" ref="temp_2041-70_b1_cncm3Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="temp_2041-70_b1_echam5" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="temp_2041-70_b1_echam5" />
+        <property name="source" ref="temp_2041-70_b1_echam5DataSource" />
+        <property name="appearance" ref="temp_2041-70_b1_echam5Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="temp_2041-70_b1_ipsl" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="temp_2041-70_b1_ipsl" />
+        <property name="source" ref="temp_2041-70_b1_ipslDataSource" />
+        <property name="appearance" ref="temp_2041-70_b1_ipslAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="temp_2071-00_a2_cncm3" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="temp_2071-00_a2_cncm3" />
+        <property name="source" ref="temp_2071-00_a2_cncm3DataSource" />
+        <property name="appearance" ref="temp_2071-00_a2_cncm3Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="temp_2071-00_a2_echam5" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="temp_2071-00_a2_echam5" />
+        <property name="source" ref="temp_2071-00_a2_echam5DataSource" />
+        <property name="appearance" ref="temp_2071-00_a2_echam5Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="temp_2071-00_a2_ipsl" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="temp_2071-00_a2_ipsl" />
+        <property name="source" ref="temp_2071-00_a2_ipslDataSource" />
+        <property name="appearance" ref="temp_2071-00_a2_ipslAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="temp_2071-00_b1_cncm3" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="temp_2071-00_b1_cncm3" />
+        <property name="source" ref="temp_2071-00_b1_cncm3DataSource" />
+        <property name="appearance" ref="temp_2071-00_b1_cncm3Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="temp_2071-00_b1_echam5" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="temp_2071-00_b1_echam5" />
+        <property name="source" ref="temp_2071-00_b1_echam5DataSource" />
+        <property name="appearance" ref="temp_2071-00_b1_echam5Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="temp_2071-00_b1_ipsl" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="temp_2071-00_b1_ipsl" />
+        <property name="source" ref="temp_2071-00_b1_ipslDataSource" />
+        <property name="appearance" ref="temp_2071-00_b1_ipslAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="TM5_2010" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="TM5_2010" />
+        <property name="source" ref="TM5_2010DataSource" />
+        <property name="appearance" ref="TM5_2010Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="wasserkioske_bag7_32648" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="wasserkioske_bag7_32648" />
+        <property name="source" ref="wasserkioske_bag7_32648DataSource" />
+        <property name="appearance" ref="wasserkioske_bag7_32648Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="wastewater_darhan" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="wastewater_darhan" />
+        <property name="source" ref="wastewater_darhanDataSource" />
+        <property name="appearance" ref="wastewater_darhanAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="waterways" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="waterways" />
+        <property name="source" ref="waterwaysDataSource" />
+        <property name="appearance" ref="waterwaysAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="wg3_webgis_cru" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="wg3_webgis_cru" />
+        <property name="source" ref="wg3_webgis_cruDataSource" />
+        <property name="appearance" ref="wg3_webgis_cruAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
     <!-- Define the Map -->
     <bean id="mapModule" class="de.terrestris.shogun2.model.module.Map">
         <property name="name" value="Main Map" />
@@ -513,6 +3672,123 @@
         <property name="mapConfig" ref="mapConfig" />
         <property name="mapLayers">
             <util:list>
+                <ref bean="01_kharaa_river_basin_32648" />
+                <ref bean="01_kharaa_subbasins_32648" />
+                <ref bean="02_surface_water_bodies_32648" />
+                <ref bean="02_surface_water_bodies_corr_32648" />
+                <ref bean="03_groundwater_bodies_32648" />
+                <ref bean="03_groundwater_monitoring_sites_32648" />
+                <ref bean="07_mining_operations_32648" />
+                <ref bean="07_potentially_contaminated_areas_32648" />
+                <ref bean="07_risk_assessment_groundwater_bodies_32648" />
+                <ref bean="07_risk_assessment_surface_water_bodies_32648" />
+                <ref bean="2085_prec_sum_mng" />
+                <ref bean="aet_1971-00" />
+                <ref bean="aimag_boundary" />
+                <ref bean="aimag_center" />
+                <ref bean="aimagboundary" />
+                <ref bean="avail_1971-00" />
+                <ref bean="avail_2011-40_a2_cncm3" />
+                <ref bean="avail_2011-40_a2_echam5" />
+                <ref bean="avail_2011-40_a2_ipsl" />
+                <ref bean="avail_2011-40_b1_cncm3" />
+                <ref bean="avail_2011-40_b1_echam5" />
+                <ref bean="avail_2011-40_b1_ipsl" />
+                <ref bean="avail_2041-70_a2_cncm3" />
+                <ref bean="avail_2041-70_a2_echam5" />
+                <ref bean="avail_2041-70_a2_ipsl" />
+                <ref bean="avail_2041-70_b1_cncm3" />
+                <ref bean="avail_2041-70_b1_echam5" />
+                <ref bean="avail_2041-70_b1_ipsl" />
+                <ref bean="avail_2071-00_a2_cncm3" />
+                <ref bean="avail_2071-00_a2_echam5" />
+                <ref bean="avail_2071-00_a2_ipsl" />
+                <ref bean="avail_2071-00_b1_cncm3" />
+                <ref bean="avail_2071-00_b1_echam5" />
+                <ref bean="avail_2071-00_b1_ipsl" />
+                <ref bean="big_rivers" />
+                <ref bean="blue_marble" />
+                <ref bean="buildings" />
+                <ref bean="country_borders" />
+                <ref bean="cropland_1989_kharaa" />
+                <ref bean="cropland_2006_kharaa" />
+                <ref bean="DEM_30m" />
+                <ref bean="DEM_Mongolia_900m" />
+                <ref bean="digiriver_subbasins" />
+                <ref bean="dyn_17_1369841595246" />
+                <ref bean="ecological_status_kharaa" />
+                <ref bean="ecological_status_kharaa_uploadtest" />
+                <ref bean="einwohnerdichte" />
+                <ref bean="einwohnerdichte_darhan" />
+                <ref bean="gebaeude" />
+                <ref bean="gebaeude_darkhan_32648_clip" />
+                <ref bean="gebaeude_darkhan_32648_clip_try" />
+                <ref bean="gebaeude1_darhan" />
+                <ref bean="gol" />
+                <ref bean="kharaa_basin" />
+                <ref bean="kharaa_darhan" />
+                <ref bean="kharaa_subbasins" />
+                <ref bean="lakes_large" />
+                <ref bean="landuse" />
+                <ref bean="mng_roads" />
+                <ref bean="natural" />
+                <ref bean="nuuruud" />
+                <ref bean="ortho_drone_oczipka" />
+                <ref bean="permafrost" />
+                <ref bean="phenomenonzonemeta" />
+                <ref bean="places" />
+                <ref bean="points" />
+                <ref bean="populationdensity_darhan" />
+                <ref bean="precip_1971-00" />
+                <ref bean="precip_2011-40_a2_cncm3" />
+                <ref bean="precip_2011-40_a2_echam5" />
+                <ref bean="precip_2011-40_a2_ipsl" />
+                <ref bean="precip_2011-40_b1_cncm3" />
+                <ref bean="precip_2011-40_b1_echam5" />
+                <ref bean="precip_2011-40_b1_ipsl" />
+                <ref bean="precip_2041-70_a2_cncm3" />
+                <ref bean="precip_2041-70_a2_echam5" />
+                <ref bean="precip_2041-70_a2_ipsl" />
+                <ref bean="precip_2041-70_b1_cncm3" />
+                <ref bean="precip_2041-70_b1_echam5" />
+                <ref bean="precip_2041-70_b1_ipsl" />
+                <ref bean="precip_2071-00_a2_cncm3" />
+                <ref bean="precip_2071-00_a2_echam5" />
+                <ref bean="precip_2071-00_a2_ipsl" />
+                <ref bean="precip_2071-00_b1_cncm3" />
+                <ref bean="precip_2071-00_b1_echam5" />
+                <ref bean="precip_2071-00_b1_ipsl" />
+                <ref bean="protected_areas" />
+                <ref bean="rail_road" />
+                <ref bean="railways" />
+                <ref bean="roads" />
+                <ref bean="snow_cover_fraction_1971-00" />
+                <ref bean="soum_center342" />
+                <ref bean="state_boundary" />
+                <ref bean="temp_1971-00" />
+                <ref bean="temp_2011-40_a2_cncm3" />
+                <ref bean="temp_2011-40_a2_echam5" />
+                <ref bean="temp_2011-40_a2_ipsl" />
+                <ref bean="temp_2011-40_b1_cncm3" />
+                <ref bean="temp_2011-40_b1_echam5" />
+                <ref bean="temp_2011-40_b1_ipsl" />
+                <ref bean="temp_2041-70_a2_cncm3" />
+                <ref bean="temp_2041-70_a2_echam5" />
+                <ref bean="temp_2041-70_a2_ipsl" />
+                <ref bean="temp_2041-70_b1_cncm3" />
+                <ref bean="temp_2041-70_b1_echam5" />
+                <ref bean="temp_2041-70_b1_ipsl" />
+                <ref bean="temp_2071-00_a2_cncm3" />
+                <ref bean="temp_2071-00_a2_echam5" />
+                <ref bean="temp_2071-00_a2_ipsl" />
+                <ref bean="temp_2071-00_b1_cncm3" />
+                <ref bean="temp_2071-00_b1_echam5" />
+                <ref bean="temp_2071-00_b1_ipsl" />
+                <ref bean="TM5_2010" />
+                <ref bean="wasserkioske_bag7_32648" />
+                <ref bean="wastewater_darhan" />
+                <ref bean="waterways" />
+                <ref bean="wg3_webgis_cru" />
                 <ref bean="mongoliaStateCenters" />
                 <ref bean="osmTopo" />
                 <ref bean="osmWmsLayer" />
