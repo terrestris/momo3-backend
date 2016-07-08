@@ -1,15 +1,24 @@
 [submodule "src/main/webapp/client"]
 	path = src/main/webapp/client
 	url = https://github.com/terrestris/momo3-frontend
-[submodule "src/main/webapp/lib/BasiGX"]
-	path = src/main/webapp/lib/BasiGX
-	url = https://github.com/terrestris/BasiGX
-[submodule "src/main/webapp/lib/geoext3"]
-	path = src/main/webapp/lib/geoext3
-	url = https://github.com/geoext/geoext3
 [submodule "src/main/webapp/login"]
 	path = src/main/webapp/login
 	url = https://github.com/terrestris/momo3-login
 [submodule "src/main/webapp/admin"]
 	path = src/main/webapp/admin
 	url = https://github.com/terrestris/momo3-admin
+[submodule "src/main/webapp/lib/BasiGX"]
+	path = src/main/webapp/lib/BasiGX
+	url = https://github.com/terrestris/BasiGX
+[submodule "src/main/webapp/lib/geoext3"]
+	path = src/main/webapp/lib/geoext3
+	url = https://github.com/geoext/geoext3
+[submodule "src/main/webapp/lib/jsonix"]
+	path = src/main/webapp/lib/jsonix
+	url = https://github.com/highsource/jsonix
+[submodule "src/main/webapp/lib/jszip"]
+	path = src/main/webapp/lib/jszip
+	url = https://github.com/Stuk/jszip
+[submodule "src/main/webapp/lib/geotiff.js"]
+	path = src/main/webapp/lib/geotiff.js
+	url = https://github.com/constantinius/geotiff.js
