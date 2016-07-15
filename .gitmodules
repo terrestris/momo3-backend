@@ -22,3 +22,6 @@
 [submodule "src/main/webapp/lib/geotiff.js"]
 	path = src/main/webapp/lib/geotiff.js
 	url = https://github.com/constantinius/geotiff.js
+[submodule "src/main/webapp/lib/ol3"]
+	path = src/main/webapp/lib/ol3
+	url = https://github.com/openlayers/ol3.git # by tag v3.17.1 (eb92c26)
