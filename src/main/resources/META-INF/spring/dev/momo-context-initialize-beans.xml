@@ -33,6 +33,7 @@
         <ref bean="borderLayout"/>
         <ref bean="absoluteLayout"/>
         <ref bean="hboxLayout"/>
+        <ref bean="vboxLayout"/>
 
         <!-- Layer sources/appearance -->
         <ref bean="osmWmsLayerTileGridExtent" />
@@ -286,6 +287,14 @@
         <ref bean="mapContainer" />
 
         <ref bean="headerLogoModule" />
+        <ref bean="loginButtonModule" />
+        <ref bean="translateToDeModule" />
+        <ref bean="translateToEnModule" />
+        <ref bean="translateToMnModule" />
+        <ref bean="translationButtonsModule" />
+        <ref bean="rbmaButtonModule" />
+        <ref bean="headerButtonContainer" />
+        <ref bean="bmbfLogoModule" />
         <ref bean="headerModule" />
 
         <ref bean="layerTreeModule" />
@@ -421,6 +430,21 @@
         </property>
         <property name="propertyMusts">
             <util:set id="propertyMusts">
+            </util:set>
+        </property>
+    </bean>
+
+    <!-- The VBOX layout -->
+    <bean id="vboxLayout" class="de.terrestris.shogun2.model.layout.Layout">
+        <property name="type" value="vbox" />
+        <property name="propertyHints">
+            <util:set>
+                <value>flex</value>
+                <value>height</value>
+            </util:set>
+        </property>
+        <property name="propertyMusts">
+            <util:set>
             </util:set>
         </property>
     </bean>
@@ -6401,18 +6425,141 @@
     </bean>
 
     <!-- Define the Header -->
-    <bean id="headerLogoModule" class="de.terrestris.shogun2.model.module.Module">
-        <property name="name" value="Logo Image" />
+    <bean id="headerLogoModule" class="de.terrestris.shogun2.model.module.Image">
+        <property name="name" value="Momo Project Logo Image" />
         <property name="xtype" value="imagecomponent" />
         <property name="properties">
             <util:map>
                 <entry key="src" value="resources/img/logo_momo.png" />
-                <entry key="margin" value="10 0 10 130" />
+                <entry key="margin" value="10 0 10 20" />
                 <entry key="width" value="89" />
                 <entry key="height" value="85" />
             </util:map>
         </property>
     </bean>
+
+    <!-- Login/logout button Module -->
+    <bean id="loginButtonModule" class="de.terrestris.shogun2.model.module.Module">
+        <property name="name" value="Login Button" />
+        <property name="xtype" value="momo-login-logout-button" />
+        <property name="properties">
+            <util:map>
+                <entry key="width" value="180" />
+                <entry key="margin" value="5 0 0 0" />
+                <entry key="iconCls" value="fa fa-sign-in"/>
+                <entry key="text" value="Login" />
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="translateToDeModule" class="de.terrestris.shogun2.model.module.Module">
+        <property name="name" value="Translate to German Button" />
+        <property name="xtype" value="momo-translation-de-button" />
+        <property name="properties">
+            <util:map>
+                <entry key="width" value="40" />
+                <entry key="margin" value="5 10 5 10" />
+                <entry key="cls" value="translation-btn"/>
+                <entry key="iconCls" value="trans-de"/>
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="translateToEnModule" class="de.terrestris.shogun2.model.module.Module">
+        <property name="name" value="Translate to English Button" />
+        <property name="xtype" value="momo-translation-en-button" />
+        <property name="properties">
+            <util:map>
+                <entry key="width" value="40" />
+                <entry key="margin" value="5 10 5 10" />
+                <entry key="cls" value="translation-btn"/>
+                <entry key="iconCls" value="trans-en"/>
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="translateToMnModule" class="de.terrestris.shogun2.model.module.Module">
+        <property name="name" value="Translate to Mongolian Button" />
+        <property name="xtype" value="momo-translation-mn-button" />
+        <property name="properties">
+            <util:map>
+                <entry key="width" value="40" />
+                <entry key="margin" value="5 10 5 10" />
+                <entry key="cls" value="translation-btn"/>
+                <entry key="iconCls" value="trans-mn"/>
+            </util:map>
+        </property>
+    </bean>
+
+    <!-- River Basin Management Atlas button Module -->
+    <bean id="rbmaButtonModule" class="de.terrestris.shogun2.model.module.Module">
+        <property name="name" value="RBMA Button" />
+        <property name="xtype" value="momo-rbma-button" />
+        <property name="properties">
+            <util:map>
+                <entry key="width" value="180" />
+                <entry key="margin" value="5 0 0 0" />
+                <entry key="iconCls" value="fa fa-file-pdf-o"/>
+                <entry key="text" value="Open RBMA" />
+            </util:map>
+        </property>
+    </bean>
+
+    <!-- BMBF Logo Module-->
+    <bean id="bmbfLogoModule" class="de.terrestris.shogun2.model.module.Image">
+        <property name="name" value="Federal Ministry of Education and Research Logo Image" />
+        <property name="xtype" value="imagecomponent" />
+        <property name="properties">
+            <util:map>
+                <entry key="src" value="resources/img/bmbf.png" />
+                <entry key="margin" value="10 10 10 10" />
+                <entry key="width" value="111" />
+                <entry key="height" value="85" />
+            </util:map>
+        </property>
+    </bean>
+
+    <!-- Translation buttons module (contains 3 buttons for DE, EN and MN) -->
+    <bean id="translationButtonsModule" class="de.terrestris.shogun2.model.module.CompositeModule">
+        <property name="name" value="Translation Buttons Container" />
+        <property name="xtype" value="container" />
+        <property name="properties">
+            <util:map>
+                <entry key="width" value="250" />
+                <entry key="pack" value="center" />
+            </util:map>
+        </property>
+        <property name="subModules">
+            <util:list value-type="de.terrestris.shogun2.model.module.Module">
+                <ref bean="translateToDeModule" />
+                <ref bean="translateToEnModule" />
+                <ref bean="translateToMnModule" />
+            </util:list>
+        </property>
+    </bean>
+
+    <!-- Define the header button container for help, translations and RBMA buttons
+    as well as login/logout informations -->
+    <bean id="headerButtonContainer" class="de.terrestris.shogun2.model.module.CompositeModule">
+        <property name="name" value="Header Button Container" />
+        <property name="xtype" value="container" />
+        <property name="layout" ref="vboxLayout" />
+        <property name="properties">
+            <util:map>
+                <entry key="width" value="200" />
+                <entry key="cls" value="momo-header-right-container" />
+            </util:map>
+        </property>
+        <property name="subModules">
+            <util:list value-type="de.terrestris.shogun2.model.module.Module">
+                <ref bean="loginButtonModule" />
+                <ref bean="translationButtonsModule" />
+                <ref bean="rbmaButtonModule" />
+            </util:list>
+        </property>
+    </bean>
+
+
 
     <!--  Define the Gazetteer Search -->
     <bean id="gazetteerSearchModule" class="de.terrestris.shogun2.model.module.Module">
@@ -6420,7 +6567,7 @@
         <property name="xtype" value="basigx_form_field_gazetteercombo" />
         <property name="properties">
             <util:map>
-                <entry key="margin" value="30 0 10 500" />
+                <entry key="margin" value="30 0 10 130" />
                 <entry key="width" value="600" />
                 <entry key="emptyText" value="Gazetteer Suche..." />
                 <entry key="hideTrigger" value="true" />
@@ -6449,8 +6596,10 @@
         </property>
         <property name="subModules">
             <util:list value-type="de.terrestris.shogun2.model.module.Module">
+                <ref bean="bmbfLogoModule" />
                 <ref bean="headerLogoModule" />
                 <ref bean="gazetteerSearchModule" />
+                <ref bean="headerButtonContainer" />
             </util:list>
         </property>
     </bean>
