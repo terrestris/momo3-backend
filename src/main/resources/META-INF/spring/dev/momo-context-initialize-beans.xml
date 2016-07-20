@@ -310,6 +310,15 @@
         <ref bean="defaultWFSResponseInterceptorRule" />
         <ref bean="defaultWCSRequestInterceptorRule" />
         <ref bean="defaultWCSResponseInterceptorRule" />
+
+        <!-- RBMA Tree -->
+        <ref bean="rootNode" />
+        <ref bean="folder1" />
+        <ref bean="leaf1" />
+        <ref bean="leaf2" />
+        <ref bean="leaf3" />
+        <ref bean="leaf4" />
+
     </util:list>
 
     <!-- Define roles -->
@@ -6685,4 +6694,40 @@
         <property name="service" value="WCS"/>
     </bean>
 
+    <!-- Temporary structure of RBMA tree -->
+<bean id="leaf1" class="de.terrestris.momo.model.tree.RbmaTreeLeaf">
+        <property name="text" value="Leaf 1"/>
+        <property name="qTip" value="Tooltip Leaf 1"/>
+        <property name="qTitle" value="Tooltip Title Leaf 1"/>
+        <property name="parentFolder" ref="folder1" />
+    </bean>
+
+    <bean id="leaf2" class="de.terrestris.momo.model.tree.RbmaTreeLeaf">
+        <property name="text" value="Leaf 2"/>
+        <property name="parentFolder" ref="folder1" />
+    </bean>
+
+    <bean id="leaf3" class="de.terrestris.momo.model.tree.RbmaTreeLeaf">
+        <property name="text" value="Leaf 3"/>
+        <property name="parentFolder" ref="rootNode" />
+        <property name="index" value="2" />
+    </bean>
+
+    <bean id="leaf4" class="de.terrestris.momo.model.tree.RbmaTreeLeaf">
+        <property name="text" value="Leaf 4"/>
+        <property name="parentFolder" ref="rootNode" />
+        <property name="index" value="0" />
+    </bean>
+
+    <bean id="folder1" class="de.terrestris.momo.model.tree.RbmaTreeFolder">
+        <property name="text" value="Folder 1"/>
+        <property name="parentFolder" ref="rootNode" />
+        <property name="index" value="1" />
+    </bean>
+
+    <bean id="rootNode" class="de.terrestris.momo.model.tree.RbmaTreeFolder">
+        <property name="text" value="rootNode"/>
+        <property name="expanded" value="true"/>
+        <property name="root" value="true"/>
+    </bean>
 </beans>
