@@ -6700,11 +6700,13 @@
         <property name="qTip" value="Tooltip Leaf 1"/>
         <property name="qTitle" value="Tooltip Title Leaf 1"/>
         <property name="parentFolder" ref="folder1" />
+        <property name="index" value="1" />
     </bean>
 
     <bean id="leaf2" class="de.terrestris.momo.model.tree.RbmaTreeLeaf">
         <property name="text" value="Leaf 2"/>
         <property name="parentFolder" ref="folder1" />
+        <property name="index" value="0" />
     </bean>
 
     <bean id="leaf3" class="de.terrestris.momo.model.tree.RbmaTreeLeaf">
