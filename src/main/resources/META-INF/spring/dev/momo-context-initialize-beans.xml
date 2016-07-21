@@ -7,7 +7,7 @@
                            http://www.springframework.org/schema/util
                            http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <!--
+    <!--t
       The list of objects that shall be persisted.
 
       The order of the objects is important here (as one object may require
@@ -643,7 +643,7 @@
         </property>
     </bean>
 
-    <bean id="tileWMSDataSourceTemplate" class="de.terrestris.shogun2.model.layer.source.TileWmsLayerDataSource">
+    <bean id="tileWMSDataSourceTemplate" class="de.terrestris.shogun2.model.layer.source.TileWmsLayerDataSource" abstract="true">
         <property name="type" value="TileWMS" />
         <property name="width" value="256" />
         <property name="height" value="256" />
