@@ -96,6 +96,8 @@ public class MomoWmsRequestInterceptor implements WmsRequestInterceptorInterface
 		// 2. The logged in user
 		User currentUser = userService.getUserBySession();
 
+		// TODO: check if user is admin
+
 		if(currentUser == null) {
 			LOG.warn("Logged in user is null!?");
 			// TODO maybe returning null is not optimal here
@@ -115,6 +117,8 @@ public class MomoWmsRequestInterceptor implements WmsRequestInterceptorInterface
 
 		String[] layersParamsArray = new String[]{layersParam, maskingFeatureType};
 		String[] stylesParamsArray = new String[]{stylesParam, maskingStyleName};
+
+		// TODO fix bug when no masking values are set/available
 
 		// We assume that there is no existing CQL_FILTER
 		// TODO: Assure that there will really never be a CQL_FILTER in a request
