@@ -18,6 +18,13 @@
             expression="org.springframework.stereotype.Controller" type="annotation" />
     </context:component-scan>
 
+    <!-- The multipart resolver used as strategy interface for
+     multipart file upload -->
+    <bean id="filterMultipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- Limit file upload size to 10 Mb -->
+        <property name="maxUploadSize" value="10000000"/>
+    </bean>
+
     <!-- The mailSender configuration -->
     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
         <property name="host" value="${mail.server.host}" />
