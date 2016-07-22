@@ -1,8 +1,14 @@
 package de.terrestris.momo.service;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.pdfbox.io.MemoryUsageSetting;
+import org.apache.pdfbox.multipdf.PDFMergerUtility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -101,11 +107,26 @@ public class RbmaService<E extends TreeNode, D extends TreeNodeDao<E>> extends
 			// we have a FOLDER
 
 			RbmaTreeFolder folder = (RbmaTreeFolder) node;
-			// TODO concatenate docs of all children by recursion.
-			// The final doc should be embedded in a new instance.
-			// This seems to be helpful:
+			// Credits go to:
 			// https://pdfbox.apache.org/
 			// http://stackoverflow.com/a/4874334
+
+			PDFMergerUtility pdfMerger = new PDFMergerUtility();
+			ByteArrayOutputStream docOutputStream = new ByteArrayOutputStream();
+			List<byte []> orderedFolderDocs = getAllDocumentsOfFolder(folder);
+
+			for (byte[] doc : orderedFolderDocs) {
+				pdfMerger.addSource(new ByteArrayInputStream(doc));
+			}
+
+			// merge and write the pdf
+			pdfMerger.setDestinationStream(docOutputStream);
+			pdfMerger.mergeDocuments(MemoryUsageSetting.setupMainMemoryOnly());
+
+			fileToReturn = new File();
+			fileToReturn.setFile(docOutputStream.toByteArray());
+			fileToReturn.setFileName(folder.getText() + ".pdf");
+			fileToReturn.setFileType("application/pdf");
 
 		} else if(node instanceof RbmaTreeLeaf) {
 			// we have a LEAF
@@ -122,6 +143,49 @@ public class RbmaService<E extends TreeNode, D extends TreeNodeDao<E>> extends
 
 		return fileToReturn;
 
+	}
+
+	/**
+	 *
+	 * @param folder
+	 * @return
+	 * @throws Exception
+	 */
+	private List<byte[]> getAllDocumentsOfFolder(RbmaTreeFolder folder) throws Exception {
+
+		List<byte[]> documentList = new ArrayList<byte[]>();
+
+		List<TreeNode> children = folder.getChildren();
+
+		for (TreeNode treeNode : children) {
+
+			if(treeNode instanceof RbmaTreeFolder) {
+
+				// recursive call
+				documentList.addAll(getAllDocumentsOfFolder((RbmaTreeFolder) treeNode));
+
+			} else if(treeNode instanceof RbmaTreeLeaf) {
+
+				// we have a leaf -> add attached doc
+				RbmaTreeLeaf leaf = (RbmaTreeLeaf) treeNode;
+
+				final String leafName = leaf.getText();
+				final File document = leaf.getDocument();
+
+				if(document != null) {
+					documentList.add(document.getFile());
+					LOG.debug("Collected the document of node '" + leafName + "' to merge it into one pdf finally.");
+				} else {
+					LOG.warn("Skipping the merge of document of node '" + leafName
+							+ "' as there is no attached document.");
+				}
+
+			} else {
+				throw new Exception("Unknown node type!");
+			}
+		}
+
+		return documentList;
 	}
 
 	/**
