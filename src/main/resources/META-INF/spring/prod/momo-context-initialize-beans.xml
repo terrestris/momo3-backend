@@ -7,7 +7,7 @@
                            http://www.springframework.org/schema/util
                            http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <!--
+    <!--t
       The list of objects that shall be persisted.
 
       The order of the objects is important here (as one object may require
@@ -310,6 +310,10 @@
         <ref bean="defaultWFSResponseInterceptorRule" />
         <ref bean="defaultWCSRequestInterceptorRule" />
         <ref bean="defaultWCSResponseInterceptorRule" />
+
+        <!-- RBMA Tree -->
+        <ref bean="rbmaRootNode" />
+
     </util:list>
 
     <!-- Define roles -->
@@ -643,7 +647,7 @@
         </property>
     </bean>
 
-    <bean id="tileWMSDataSourceTemplate" class="de.terrestris.shogun2.model.layer.source.TileWmsLayerDataSource">
+    <bean id="tileWMSDataSourceTemplate" class="de.terrestris.shogun2.model.layer.source.TileWmsLayerDataSource" abstract="true">
         <property name="type" value="TileWMS" />
         <property name="width" value="256" />
         <property name="height" value="256" />
@@ -6685,4 +6689,10 @@
         <property name="service" value="WCS"/>
     </bean>
 
+    <!-- Root of of RBMA tree -->
+    <bean id="rbmaRootNode" class="de.terrestris.momo.model.tree.RbmaTreeFolder">
+        <property name="text" value="River Basin Management Atlas"/>
+        <property name="expanded" value="true"/>
+        <property name="root" value="true"/>
+    </bean>
 </beans>
