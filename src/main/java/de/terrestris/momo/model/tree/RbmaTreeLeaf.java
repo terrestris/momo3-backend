@@ -3,10 +3,16 @@
  */
 package de.terrestris.momo.model.tree;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
+import de.terrestris.shogun2.model.File;
 import de.terrestris.shogun2.model.tree.TreeNode;
 
 /**
@@ -22,25 +28,37 @@ public class RbmaTreeLeaf extends TreeNode {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Column
-	private String pdfFile;
+	/**
+	 *
+	 */
+	@ManyToOne
+	@JoinColumn(name="DOCUMENT_ID")
+	@JsonIdentityInfo(
+		generator = ObjectIdGenerators.PropertyGenerator.class,
+		property = "id"
+	)
+	@JsonIdentityReference(alwaysAsId = true)
+	private File document;
 
+	/**
+	 *
+	 */
 	public RbmaTreeLeaf() {
 
 	}
 
 	/**
-	 * @return the pdfFile
+	 * @return the document
 	 */
-	public String getPdfFile() {
-		return pdfFile;
+	public File getDocument() {
+		return document;
 	}
 
 	/**
-	 * @param pdfFile the pdfFile to set
+	 * @param document the document to set
 	 */
-	public void setPdfFile(String pdfFile) {
-		this.pdfFile = pdfFile;
+	public void setDocument(File document) {
+		this.document = document;
 	}
 
 }
