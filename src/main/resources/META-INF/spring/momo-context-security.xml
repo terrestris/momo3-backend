@@ -48,6 +48,13 @@
         <intercept-url pattern="/user/changePassword.action" access="permitAll" />
         <intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
 
+        <!-- Allow iFrames within the same domain, this is especially needed
+         for file-uploads, Spring's default is to 'DENY'.
+         See: https://developer.mozilla.org/en-US/docs/Web/HTTP/X-Frame-Options-->
+        <headers>
+            <frame-options policy="SAMEORIGIN" />
+        </headers>
+
     </http>
 
     <!-- Enables Method Security and Expression-based access control -->
@@ -55,6 +62,8 @@
         <!-- Enables custom expression handler -->
         <expression-handler ref="methodExpressionHandler" />
     </global-method-security>
+
+
 
     <!-- BEANS -->
 
