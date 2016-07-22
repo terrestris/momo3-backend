@@ -43,14 +43,16 @@ public class RbmaService<E extends TreeNode, D extends TreeNodeDao<E>> extends
 	public void attachDocumentToNode(RbmaTreeLeaf node, MultipartFile documentUpload) throws Exception {
 
 		InputStream is = null;
-		File document = null;
+		File document = node.getDocument();
+
+		if(document == null) {
+			// create a new instance
+			document = new File();
+		}
 
 		try {
 			is = documentUpload.getInputStream();
 			byte[] docByteArray = IOUtils.toByteArray(is);
-
-			// create a new instance (generic)
-			document = new File();
 
 			// set binary doc data
 			document.setFile(docByteArray);
