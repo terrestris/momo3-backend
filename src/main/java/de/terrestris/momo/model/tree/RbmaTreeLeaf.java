@@ -3,6 +3,7 @@
  */
 package de.terrestris.momo.model.tree;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -31,7 +32,7 @@ public class RbmaTreeLeaf extends TreeNode {
 	/**
 	 *
 	 */
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.REMOVE)
 	@JoinColumn(name="DOCUMENT_ID")
 	@JsonIdentityInfo(
 		generator = ObjectIdGenerators.PropertyGenerator.class,
