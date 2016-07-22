@@ -9,6 +9,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import de.terrestris.momo.model.tree.RbmaTreeFolder;
 import de.terrestris.momo.model.tree.RbmaTreeLeaf;
 import de.terrestris.shogun2.dao.FileDao;
 import de.terrestris.shogun2.dao.TreeNodeDao;
@@ -70,6 +71,54 @@ public class RbmaService<E extends TreeNode, D extends TreeNodeDao<E>> extends
 		} finally {
 			IOUtils.closeQuietly(is);
 		}
+
+	}
+
+	/**
+	 *
+	 * In case of leafs: simply returns the attached doc.
+	 * In case of folders: concatenates the docs of all children.
+	 *
+	 * @param nodeId
+	 * @return
+	 * @throws Exception
+	 */
+	@PreAuthorize("hasRole(@configHolder.getDefaultUserRoleName())")
+	public File getDocumentOfNode(Integer nodeId) throws Exception {
+
+		File fileToReturn = null;
+
+		// get node from DB
+		E node = this.findById(nodeId);
+
+		if(node == null) {
+			final String msg = "Node does not exist: " + nodeId;
+			LOG.error(msg);
+			throw new Exception(msg);
+		} else if(node instanceof RbmaTreeFolder) {
+			// we have a FOLDER
+
+			RbmaTreeFolder folder = (RbmaTreeFolder) node;
+			// TODO concatenate docs of all children by recursion.
+			// The final doc should be embedded in a new instance.
+			// This seems to be helpful:
+			// https://pdfbox.apache.org/
+			// http://stackoverflow.com/a/4874334
+
+		} else if(node instanceof RbmaTreeLeaf) {
+			// we have a LEAF
+
+			RbmaTreeLeaf leaf = (RbmaTreeLeaf) node;
+
+			fileToReturn = leaf.getDocument();
+
+		} else {
+			final String msg = "Unexpected treeNode type!";
+			LOG.error(msg);
+			throw new Exception(msg);
+		}
+
+		return fileToReturn;
 
 	}
 

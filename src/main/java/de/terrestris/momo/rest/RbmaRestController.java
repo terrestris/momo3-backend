@@ -23,6 +23,7 @@ import de.terrestris.momo.dao.RbmaDao;
 import de.terrestris.momo.model.tree.RbmaTreeFolder;
 import de.terrestris.momo.model.tree.RbmaTreeLeaf;
 import de.terrestris.momo.service.RbmaService;
+import de.terrestris.shogun2.model.File;
 import de.terrestris.shogun2.model.tree.TreeNode;
 import de.terrestris.shogun2.rest.TreeNodeRestController;
 import de.terrestris.shogun2.util.data.ResultSet;
@@ -150,6 +151,41 @@ public class RbmaRestController<E extends TreeNode, D extends RbmaDao<E>, S exte
 		}
 
 		return new ResponseEntity<String>(responseMapAsString, responseHeaders, responseStatus);
+	}
+
+	/**
+	 *
+	 * @return
+	 */
+	@RequestMapping(value = "/{nodeId}/doc", method = RequestMethod.GET)
+	public ResponseEntity<?> downloadFile(@PathVariable Integer nodeId) {
+		final HttpHeaders responseHeaders = new HttpHeaders();
+
+		try {
+			// try to get the doc
+			File doc = this.service.getDocumentOfNode(nodeId);
+
+			if(doc == null) {
+				throw new Exception("There is no document for node: " + nodeId);
+			}
+
+			responseHeaders.setContentType(MediaType.parseMediaType(doc.getFileType()));
+
+			LOG.info("Successfully got the doc of a node: " + doc.getFileName());
+
+			return new ResponseEntity<byte[]>(doc.getFile(), responseHeaders, HttpStatus.OK);
+
+		} catch (Exception e) {
+			Map<String, Object> responseMap = new HashMap<String, Object>();
+
+			final String errorMessage = "Could not get the document of a node: " + e.getMessage();
+
+			LOG.error(errorMessage);
+			responseMap = ResultSet.error(errorMessage);
+			responseHeaders.setContentType(MediaType.APPLICATION_JSON);
+
+			return new ResponseEntity<Map<String, Object>>(responseMap, responseHeaders, HttpStatus.NOT_FOUND);
+		}
 	}
 
 }
