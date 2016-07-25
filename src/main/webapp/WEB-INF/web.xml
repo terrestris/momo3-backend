@@ -8,7 +8,7 @@
     <!-- Log4J configuration -->
     <context-param>
         <param-name>log4jConfigLocation</param-name>
-        <param-value>WEB-INF/log4j.properties</param-value>
+        <param-value>WEB-INF/config/${app.profile}/log4j.properties</param-value>
     </context-param>
 
     <listener>

@@ -16,6 +16,10 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+        <!-- The local sencha CMD executable. Note: The executable has to be
+             available in the PATH. -->
+        <sencha.cmd.executable>sencha</sencha.cmd.executable>
+
         <!-- SCM settings used to checkout other git repositories into this
              webapp, e.g. the momo3-frontend -->
 
@@ -32,16 +36,23 @@
         <!-- The type of connection to use (connection or developerConnection) -->
         <maven-scm-plugin.connection-type>developerConnection</maven-scm-plugin.connection-type>
 
+        <!-- Skip the creation of the javascript applications (login, client,
+             admin) per default. Create with productio profile only. -->
+        <skip-build-javascript-resources>true</skip-build-javascript-resources>
+
         <shogun2.version>0.1.0-SNAPSHOT</shogun2.version>
 
         <javax.jstl.version>1.2</javax.jstl.version>
 
-        <postgresql.version>9.3-1102-jdbc41</postgresql.version>
+        <postgresql.version>9.4.1209</postgresql.version>
 
         <maven-javadoc-plugin.version>2.10.3</maven-javadoc-plugin.version>
         <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
         <maven-eclipse-plugin.version>2.10</maven-eclipse-plugin.version>
         <maven-scm-plugin.version>1.9.4</maven-scm-plugin.version>
+        <maven-exec-plugin.version>1.5.0</maven-exec-plugin.version>
+        <maven-tomcat-plugin.version>2.2</maven-tomcat-plugin.version>
+        <maven-war-plugin.version>2.6</maven-war-plugin.version>
 
         <commons-fileupload.version>1.3.1</commons-fileupload.version>
         <pdfbox.version>2.0.2</pdfbox.version>
@@ -76,10 +87,184 @@
                 <jetty-maven-plugin.version>9.3.6.v20151106</jetty-maven-plugin.version>
             </properties>
         </profile>
+
+        <!-- The profile to be used for a testing release -->
+        <profile>
+            <id>momo-test-delivery</id>
+            <!-- Activated when -Denv=momo-test-delivery is given as
+                parameter. -->
+            <activation>
+                <property>
+                    <name>env</name>
+                    <value>momo-test-delivery</value>
+                </property>
+            </activation>
+            <properties>
+                <app.profile>ci</app.profile>
+                <skip-jetty-execution>true</skip-jetty-execution>
+                <skip-build-javascript-resources>false</skip-build-javascript-resources>
+                <deploy.server.url>http://188.40.113.28:8080/manager/text</deploy.server.url>
+                <deploy.server.id>momo-test</deploy.server.id>
+                <deploy.server.path>/momo</deploy.server.path>
+            </properties>
+        </profile>
+
     </profiles>
 
     <build>
+        <resources>
+            <resource>
+                <!-- Explicitly include the required resources -->
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>META-INF/spring/*.xml</include>
+                    <include>META-INF/spring/${app.profile}/**</include>
+                    <!-- This will include the config of the active profile (only) -->
+                    <include>META-INF/config/${app.profile}/**</include>
+                </includes>
+            </resource>
+        </resources>
+
         <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${maven-war-plugin.version}</version>
+                <configuration>
+                    <webXml>${basedir}/src/main/webapp/WEB-INF/web.xml</webXml>
+                    <warSourceDirectory>${basedir}/src/main/webapp/</warSourceDirectory>
+                    <warSourceIncludes>
+                        index.html,
+
+                        WEB-INF/momo-servlet.xml,
+                        WEB-INF/config/${app.profile}/**,
+
+                        admin/build/production/**,
+                        admin/resources/**,
+                        admin/classic.json,
+                        admin/index.html,
+
+                        client/build/production/**,
+                        client/resources/**,
+                        client/classic.json,
+                        client/index.html,
+
+                        login/build/production/**,
+                        login/resources/**,
+                        login/classic.json,
+                        login/index.html,
+                        login/registrationSucceeded.html,
+
+                        lib/ol3/build/ol.js,
+                        lib/ol3/css/ol.css,
+                        lib/jsonix/**,
+                        lib/geotiff.js/**,
+                        lib/jszip/**
+                    </warSourceIncludes>
+                    <warSourceExcludes>
+                        lib/BasiGX/**,
+                        lib/geoext3/**
+                    </warSourceExcludes>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>${maven-tomcat-plugin.version}</version>
+                <configuration>
+                    <warFile>${project.build.directory}/${project.build.finalName}.war</warFile>
+                    <!-- Use variables defined in the profiles. -->
+                    <url>${deploy.server.url}</url>
+                    <server>${deploy.server.id}</server>
+                    <path>${deploy.server.path}</path>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>${maven-exec-plugin.version}</version>
+                <executions>
+                    <!-- Update any available submodule -->
+                    <execution>
+                        <id>update-git-submodules</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <skip>${skip-build-javascript-resources}</skip>
+                            <executable>git</executable>
+                            <arguments>
+                                <argument>submodule</argument>
+                                <argument>update</argument>
+                                <argument>--init</argument>
+                                <argument>--recursive</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+
+                    <!-- Create production build of the login application -->
+                    <execution>
+                        <id>build-login-application</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <skip>${skip-build-javascript-resources}</skip>
+                            <workingDirectory>${basedir}/src/main/webapp/login/</workingDirectory>
+                            <executable>${sencha.cmd.executable}</executable>
+                            <arguments>
+                                <argument>app</argument>
+                                <argument>build</argument>
+                                <argument>--clean</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+
+                    <!-- Create production build of the gis client application -->
+                    <execution>
+                        <id>build-client-application</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+<!--                             <skip>true</skip> -->
+                            <skip>${skip-build-javascript-resources}</skip>
+                            <workingDirectory>${basedir}/src/main/webapp/client/</workingDirectory>
+                            <executable>${sencha.cmd.executable}</executable>
+                            <arguments>
+                                <argument>app</argument>
+                                <argument>build</argument>
+                                <argument>--clean</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+
+                    <!-- Create production build of the admin application -->
+                    <execution>
+                        <id>build-admin-application</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <skip>${skip-build-javascript-resources}</skip>
+                            <workingDirectory>${basedir}/src/main/webapp/admin/</workingDirectory>
+                            <executable>${sencha.cmd.executable}</executable>
+                            <arguments>
+                                <argument>app</argument>
+                                <argument>build</argument>
+                                <argument>--clean</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
@@ -103,13 +288,13 @@
                 </configuration>
                 <executions>
                     <!-- Run the server on mvn:test -->
-                    <execution>
-                        <id>start-jetty</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>start</goal>
-                        </goals>
-                    </execution>
+<!--                     <execution> -->
+<!--                         <id>start-jetty</id> -->
+<!--                         <phase>test</phase> -->
+<!--                         <goals> -->
+<!--                             <goal>start</goal> -->
+<!--                         </goals> -->
+<!--                     </execution> -->
                 </executions>
             </plugin>
 
