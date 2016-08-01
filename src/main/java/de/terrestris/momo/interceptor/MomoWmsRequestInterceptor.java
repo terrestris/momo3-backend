@@ -14,6 +14,7 @@ import de.terrestris.momo.model.MomoLayer;
 import de.terrestris.momo.model.MomoUserGroup;
 import de.terrestris.momo.service.MomoLayerService;
 import de.terrestris.shogun2.dao.UserDao;
+import de.terrestris.shogun2.model.Role;
 import de.terrestris.shogun2.model.User;
 import de.terrestris.shogun2.model.UserGroup;
 import de.terrestris.shogun2.service.UserService;
@@ -73,6 +74,12 @@ public class MomoWmsRequestInterceptor implements WmsRequestInterceptorInterface
 	/**
 	 *
 	 */
+	@Value("${role.superAdminRoleName}")
+	private String adminRoleName;
+
+	/**
+	 *
+	 */
 	@Override
 	public MutableHttpServletRequest interceptGetMap(MutableHttpServletRequest request) {
 		LOG.debug("Intercepting MOMO WMS GetMap request");
@@ -96,12 +103,18 @@ public class MomoWmsRequestInterceptor implements WmsRequestInterceptorInterface
 		// 2. The logged in user
 		User currentUser = userService.getUserBySession();
 
-		// TODO: check if user is admin
-
 		if(currentUser == null) {
 			LOG.warn("Logged in user is null!?");
 			// TODO maybe returning null is not optimal here
 			return null;
+		}
+
+		// 2.1 Check if logged in user is ADMIN. If yes -> allow everything
+		for (Role role : currentUser.getRoles()) {
+			if(role.getName().equals(adminRoleName)) {
+				LOG.debug("User is admin -> Not intercepting the WMS request anymore!");
+				return request;
+			}
 		}
 
 		// 3. Adapt following request parameters:
@@ -274,6 +287,20 @@ public class MomoWmsRequestInterceptor implements WmsRequestInterceptorInterface
 	 */
 	public void setGeoserverInterceptorUrl(String geoserverInterceptorUrl) {
 		this.geoserverInterceptorUrl = geoserverInterceptorUrl;
+	}
+
+	/**
+	 * @return the adminRoleName
+	 */
+	public String getAdminRoleName() {
+		return adminRoleName;
+	}
+
+	/**
+	 * @param adminRoleName the adminRoleName to set
+	 */
+	public void setAdminRoleName(String adminRoleName) {
+		this.adminRoleName = adminRoleName;
 	}
 
 }
