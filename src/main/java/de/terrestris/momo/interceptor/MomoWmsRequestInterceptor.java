@@ -124,14 +124,19 @@ public class MomoWmsRequestInterceptor implements WmsRequestInterceptorInterface
 		Set<UserGroup> userGroups = currentUser.getUserGroups();
 
 		Set<Integer> maskingValues = getMaskingPropertyValues(userGroups);
-		final String commaSeparatedMaskingValues = StringUtils.join(maskingValues, ",");
+		String commaSeparatedMaskingValues = StringUtils.join(maskingValues, ",");
 
 		String stylesParam = request.getParameter("STYLES");
 
 		String[] layersParamsArray = new String[]{layersParam, maskingFeatureType};
 		String[] stylesParamsArray = new String[]{stylesParam, maskingStyleName};
 
-		// TODO fix bug when no masking values are set/available
+		if(commaSeparatedMaskingValues.isEmpty()) {
+			// set an "invalid" id to avoid that the NOT IN expression can still be parsed but the
+			// WMS will not return anything, which should be the case if the layer is restricted,
+			// but the current user has not masking values assigned
+			commaSeparatedMaskingValues = "-1";
+		}
 
 		// We assume that there is no existing CQL_FILTER
 		// TODO: Assure that there will really never be a CQL_FILTER in a request
