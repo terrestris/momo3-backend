@@ -5,6 +5,11 @@
 
     <display-name>momo</display-name>
 
+    <context-param>
+        <param-name>webAppRootKey</param-name>
+        <param-value>webapp.momo.root</param-value>
+    </context-param>
+
     <!-- Log4J configuration -->
     <context-param>
         <param-name>log4jConfigLocation</param-name>
