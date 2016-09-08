@@ -274,6 +274,7 @@
         <ref bean="zoomToExtentModule" />
         <ref bean="stepBackModule" />
         <ref bean="stepForwardModule" />
+        <ref bean="showMeasureToolsModule" />
 
         <ref bean="showMetaToolbarModule" />
         <ref bean="metaToolbarModule" />
@@ -6363,6 +6364,17 @@
         </property>
     </bean>
 
+    <bean id="showMeasureToolsModule" class="de.terrestris.shogun2.model.module.Button">
+        <property name="name" value="Show measure tools button" />
+        <property name="xtype" value="momo-button-showmeasuretoolspanel" />
+        <property name="properties">
+             <util:map>
+                <entry key="scale" value="small" />
+                <entry key="ui" value="default" />
+             </util:map>
+        </property>
+    </bean>
+
     <bean id="showMetaToolbarModule" class="de.terrestris.shogun2.model.module.Button">
         <property name="name" value="Show meta toolbar button" />
         <property name="xtype" value="momo-button-showmetapanel" />
@@ -6399,6 +6411,7 @@
                 <ref bean="zoomToExtentModule" />
                 <ref bean="stepBackModule" />
                 <ref bean="stepForwardModule" />
+                <ref bean="showMeasureToolsModule" />
             </util:list>
         </property>
     </bean>
