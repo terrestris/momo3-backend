@@ -275,6 +275,7 @@
         <ref bean="stepBackModule" />
         <ref bean="stepForwardModule" />
         <ref bean="showMeasureToolsModule" />
+        <ref bean="showRedliningToolsModule" />
 
         <ref bean="showMetaToolbarModule" />
         <ref bean="metaToolbarModule" />
@@ -6375,6 +6376,17 @@
         </property>
     </bean>
 
+    <bean id="showRedliningToolsModule" class="de.terrestris.shogun2.model.module.Button">
+        <property name="name" value="Show redlining tools button" />
+        <property name="xtype" value="momo-button-showredliningtoolspanel" />
+        <property name="properties">
+             <util:map>
+                <entry key="scale" value="small" />
+                <entry key="ui" value="default" />
+             </util:map>
+        </property>
+    </bean>
+
     <bean id="showMetaToolbarModule" class="de.terrestris.shogun2.model.module.Button">
         <property name="name" value="Show meta toolbar button" />
         <property name="xtype" value="momo-button-showmetapanel" />
@@ -6412,6 +6424,7 @@
                 <ref bean="stepBackModule" />
                 <ref bean="stepForwardModule" />
                 <ref bean="showMeasureToolsModule" />
+                <ref bean="showRedliningToolsModule" />
             </util:list>
         </property>
     </bean>
