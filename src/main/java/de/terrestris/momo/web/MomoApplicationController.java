@@ -13,6 +13,7 @@ import de.terrestris.momo.dto.ApplicationData;
 import de.terrestris.momo.service.MomoApplicationService;
 import de.terrestris.shogun2.dao.ApplicationDao;
 import de.terrestris.shogun2.model.Application;
+import de.terrestris.shogun2.util.data.ResultSet;
 import de.terrestris.shogun2.web.ApplicationController;
 
 /**
@@ -60,16 +61,17 @@ public class MomoApplicationController<E extends Application, D extends Applicat
 	 */
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value="create.action", method = RequestMethod.POST)
-	public ResponseEntity<E> createMomoApplication(@RequestBody ApplicationData applicationData) {
+	public ResponseEntity<?> createMomoApplication(@RequestBody ApplicationData applicationData) {
 
 		E app = null;
 		try {
 			app = (E) service.createMomoApplication(applicationData);
-
 		} catch (Exception e) {
-			LOG.error("Could not create MOMO application: " + e.getMessage());
+			final String msg = e.getMessage();
+			LOG.error("Could not create MOMO application: " + msg);
+			return new ResponseEntity<>(ResultSet.error(msg), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		return new ResponseEntity<E>(app, HttpStatus.OK);
+		return new ResponseEntity<E>(app, HttpStatus.CREATED);
 	}
 
 }
