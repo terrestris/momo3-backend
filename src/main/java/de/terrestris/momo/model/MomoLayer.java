@@ -34,6 +34,11 @@ public class MomoLayer extends Layer {
 	/**
 	 *
 	 */
+	private Boolean hoverable;
+
+	/**
+	 *
+	 */
 	public MomoLayer() {
 	}
 
@@ -52,6 +57,20 @@ public class MomoLayer extends Layer {
 	}
 
 	/**
+	 * @return the hoverable
+	 */
+	public Boolean getHoverable() {
+		return hoverable;
+	}
+
+	/**
+	 * @param hoverable the hoverable to set
+	 */
+	public void setHoverable(Boolean hoverable) {
+		this.hoverable = hoverable;
+	}
+
+	/**
 	 * @see java.lang.Object#hashCode()
 	 *
 	 *      According to
@@ -65,6 +84,7 @@ public class MomoLayer extends Layer {
 		return new HashCodeBuilder(29, 11).
 				appendSuper(super.hashCode()).
 				append(getSpatiallyRestricted()).
+				append(getHoverable()).
 				toHashCode();
 	}
 
