@@ -77,31 +77,32 @@ public class MomoWmsResponseInterceptor implements WmsResponseInterceptorInterfa
 	@Override
 	public Response interceptGetCapabilities(MutableHttpServletRequest mutableRequest, Response response) {
 		// TODO Auto-generated method stub
-		return null;
+		return response;
 	}
 
 	@Override
 	public Response interceptGetFeatureInfo(MutableHttpServletRequest mutableRequest, Response response) {
-		// TODO Auto-generated method stub
-		return null;
+		// TODO Implement logic to consider the masking layer by GFI response
+		// (e.g. all objects outside of allowed bbox shouldn't be queryable)
+		return response;
 	}
 
 	@Override
 	public Response interceptDescribeLayer(MutableHttpServletRequest mutableRequest, Response response) {
 		// TODO Auto-generated method stub
-		return null;
+		return response;
 	}
 
 	@Override
 	public Response interceptGetLegendGraphic(MutableHttpServletRequest mutableRequest, Response response) {
 		// TODO Auto-generated method stub
-		return null;
+		return response;
 	}
 
 	@Override
 	public Response interceptGetStyles(MutableHttpServletRequest mutableRequest, Response response) {
 		// TODO Auto-generated method stub
-		return null;
+		return response;
 	}
 
 	/**
