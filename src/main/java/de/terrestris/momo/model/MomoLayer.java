@@ -105,6 +105,7 @@ public class MomoLayer extends Layer {
 		return new EqualsBuilder().
 				appendSuper(super.equals(other)).
 				append(getSpatiallyRestricted(), other.getSpatiallyRestricted()).
+				append(getHoverable(), other.getHoverable()).
 				isEquals();
 	}
 
