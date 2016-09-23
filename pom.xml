@@ -160,7 +160,9 @@
                         lib/ol3/css/ol.css,
                         lib/jsonix/**,
                         lib/geotiff.js/**,
-                        lib/jszip/**
+                        lib/jszip/**,
+                        lib/proj4/**,
+                        lib/proj4-defs/**
                     </warSourceIncludes>
                     <warSourceExcludes>
                         lib/BasiGX/**,
