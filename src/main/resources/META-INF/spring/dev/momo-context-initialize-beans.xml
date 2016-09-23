@@ -277,6 +277,7 @@
         <ref bean="hsiToolsModule" />
         <ref bean="showMeasureToolsModule" />
         <ref bean="showRedliningToolsModule" />
+        <ref bean="showWorkstateToolsModule" />
 
         <ref bean="showMetaToolbarModule" />
         <ref bean="metaToolbarModule" />
@@ -6525,6 +6526,17 @@
         </property>
     </bean>
 
+    <bean id="showWorkstateToolsModule" class="de.terrestris.shogun2.model.module.Button">
+        <property name="name" value="Show workstate tools button" />
+        <property name="xtype" value="momo-button-showworkstatetoolspanel" />
+        <property name="properties">
+             <util:map>
+                <entry key="scale" value="small" />
+                <entry key="ui" value="default" />
+             </util:map>
+        </property>
+    </bean>
+
     <bean id="showMetaToolbarModule" class="de.terrestris.shogun2.model.module.Button">
         <property name="name" value="Show meta toolbar button" />
         <property name="xtype" value="momo-button-showmetapanel" />
@@ -6564,6 +6576,7 @@
                 <ref bean="hsiToolsModule" />
                 <ref bean="showMeasureToolsModule" />
                 <ref bean="showRedliningToolsModule" />
+                <ref bean="showWorkstateToolsModule" />
             </util:list>
         </property>
     </bean>
@@ -6727,8 +6740,6 @@
             </util:list>
         </property>
     </bean>
-
-
 
     <!--  Define the Gazetteer Search -->
     <bean id="gazetteerSearchModule" class="de.terrestris.shogun2.model.module.Module">
