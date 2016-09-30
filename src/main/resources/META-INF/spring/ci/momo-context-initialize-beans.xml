@@ -6444,7 +6444,7 @@
         <property name="properties">
              <util:map>
                 <entry key="scale" value="small" />
-                <entry key="ui" value="default" />
+                <entry key="ui" value="momo-tools" />
              </util:map>
         </property>
     </bean>
@@ -6455,7 +6455,7 @@
         <property name="properties">
              <util:map>
                 <entry key="scale" value="small" />
-                <entry key="ui" value="default" />
+                <entry key="ui" value="momo-tools" />
              </util:map>
         </property>
     </bean>
@@ -6466,7 +6466,7 @@
         <property name="properties">
              <util:map>
                 <entry key="scale" value="small" />
-                <entry key="ui" value="default" />
+                <entry key="ui" value="momo-tools" />
              </util:map>
         </property>
     </bean>
@@ -6477,7 +6477,7 @@
         <property name="properties">
              <util:map>
                 <entry key="scale" value="small" />
-                <entry key="ui" value="default" />
+                <entry key="ui" value="momo-tools" />
              </util:map>
         </property>
     </bean>
@@ -6488,7 +6488,7 @@
         <property name="properties">
              <util:map>
                 <entry key="scale" value="small" />
-                <entry key="ui" value="default" />
+                <entry key="ui" value="momo-tools" />
              </util:map>
         </property>
     </bean>
@@ -6499,7 +6499,7 @@
         <property name="properties">
              <util:map>
                 <entry key="scale" value="small" />
-                <entry key="ui" value="default" />
+                <entry key="ui" value="momo-tools" />
              </util:map>
         </property>
     </bean>
@@ -6510,7 +6510,7 @@
         <property name="properties">
              <util:map>
                 <entry key="scale" value="small" />
-                <entry key="ui" value="default" />
+                <entry key="ui" value="momo-tools" />
              </util:map>
         </property>
     </bean>
@@ -6521,7 +6521,7 @@
         <property name="properties">
              <util:map>
                 <entry key="scale" value="small" />
-                <entry key="ui" value="default" />
+                <entry key="ui" value="momo-tools" />
              </util:map>
         </property>
     </bean>
@@ -6532,7 +6532,7 @@
         <property name="properties">
              <util:map>
                 <entry key="scale" value="small" />
-                <entry key="ui" value="default" />
+                <entry key="ui" value="momo-tools" />
              </util:map>
         </property>
     </bean>
@@ -6543,7 +6543,7 @@
         <property name="properties">
              <util:map>
                 <entry key="scale" value="small" />
-                <entry key="ui" value="default" />
+                <entry key="ui" value="momo-tools" />
              </util:map>
         </property>
     </bean>
@@ -6769,9 +6769,9 @@
             <util:map>
                 <entry key="region" value="north" />
                 <entry key="collapsible" value="false" />
+                <entry key="bodyCls" value="momo-viewport-header-body" />
                 <entry key="split" value="true" />
                 <entry key="height" value="120" />
-                <entry key="bodyStyle" value="background:#5FA2DD;" />
             </util:map>
         </property>
         <property name="subModules">
