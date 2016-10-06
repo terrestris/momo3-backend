@@ -40,6 +40,23 @@
         </property>
     </bean>
 
+    <bean id="publicInterceptGeoServerAction" class="java.lang.String">
+        <constructor-arg value="${momo.publicInterceptGeoServerAction}"></constructor-arg>
+    </bean>
+
+    <bean id="geoServerBaseUrl" class="java.lang.String">
+       <constructor-arg value="${geoserver.baseUrl}"></constructor-arg>
+    </bean>
+
+    <!-- Print servlet -->
+    <bean id="printservletBaseUrl" class="java.lang.String">
+        <constructor-arg value="${printservlet.baseUrl}"></constructor-arg>
+    </bean>
+
+    <bean id="printservletInterceptorUrl" class="java.lang.String">
+        <constructor-arg value="${printservlet.interceptorUrl}"></constructor-arg>
+    </bean>
+
     <!-- The default mail sender -->
     <bean id="defaultMailSender" class="java.lang.String">
         <constructor-arg value="${mail.defaultSender}"></constructor-arg>
