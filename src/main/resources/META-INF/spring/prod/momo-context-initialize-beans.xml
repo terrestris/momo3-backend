@@ -275,6 +275,7 @@
         <ref bean="stepBackModule" />
         <ref bean="stepForwardModule" />
         <ref bean="hsiToolsModule" />
+        <ref bean="printModule" />
         <ref bean="showMeasureToolsModule" />
         <ref bean="showRedliningToolsModule" />
         <ref bean="showWorkstateToolsModule" />
@@ -6504,6 +6505,17 @@
         </property>
     </bean>
 
+    <bean id="printModule" class="de.terrestris.shogun2.model.module.Button">
+        <property name="name" value="Print button" />
+        <property name="xtype" value="momo-button-print" />
+        <property name="properties">
+            <util:map>
+                <entry key="printUrl" value="${printservlet.interceptorUrl}"/>
+                <entry key="ui" value="momo-tools" />
+            </util:map>
+        </property>
+    </bean>
+
     <bean id="showMeasureToolsModule" class="de.terrestris.shogun2.model.module.Button">
         <property name="name" value="Show measure tools button" />
         <property name="xtype" value="momo-button-showmeasuretoolspanel" />
@@ -6574,6 +6586,7 @@
                 <ref bean="stepBackModule" />
                 <ref bean="stepForwardModule" />
                 <ref bean="hsiToolsModule" />
+                <ref bean="printModule" />
                 <ref bean="showMeasureToolsModule" />
                 <ref bean="showRedliningToolsModule" />
                 <ref bean="showWorkstateToolsModule" />

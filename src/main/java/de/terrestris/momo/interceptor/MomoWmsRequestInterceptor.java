@@ -68,7 +68,7 @@ public class MomoWmsRequestInterceptor implements WmsRequestInterceptorInterface
 	/**
 	 *
 	 */
-	@Value("${shogun2.geoserverInterceptorUrl}")
+	@Value("${momo.publicInterceptGeoServerAction}")
 	private String geoserverInterceptorUrl;
 
 	/**
