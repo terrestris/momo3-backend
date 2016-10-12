@@ -35,6 +35,11 @@ public class MomoLayer extends Layer {
 	 *
 	 */
 	private Boolean hoverable;
+	
+	/**
+	 *
+	 */
+	private Boolean chartable;
 
 	/**
 	 *
@@ -71,6 +76,20 @@ public class MomoLayer extends Layer {
 	}
 
 	/**
+	 * @return the chartable
+	 */
+	public Boolean getChartable() {
+		return chartable;
+	}
+
+	/**
+	 * @param chartable the chartable to set
+	 */
+	public void setChartable(Boolean chartable) {
+		this.chartable = chartable;
+	}
+
+	/**
 	 * @see java.lang.Object#hashCode()
 	 *
 	 *      According to
@@ -85,6 +104,7 @@ public class MomoLayer extends Layer {
 				appendSuper(super.hashCode()).
 				append(getSpatiallyRestricted()).
 				append(getHoverable()).
+				append(getChartable()).
 				toHashCode();
 	}
 
@@ -106,6 +126,7 @@ public class MomoLayer extends Layer {
 				appendSuper(super.equals(other)).
 				append(getSpatiallyRestricted(), other.getSpatiallyRestricted()).
 				append(getHoverable(), other.getHoverable()).
+				append(getChartable(), other.getChartable()).
 				isEquals();
 	}
 
