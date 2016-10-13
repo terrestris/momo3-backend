@@ -88,4 +88,8 @@
     <bean id="wmsRequestInterceptor" class="de.terrestris.momo.interceptor.MomoWmsRequestInterceptor" />
     <bean id="wmsResponseInterceptor" class="de.terrestris.momo.interceptor.MomoWmsResponseInterceptor" />
 
+    <!-- Project specific WFS interceptor -->
+    <bean id="wfsRequestInterceptor" class="de.terrestris.momo.interceptor.MomoWfsRequestInterceptor" />
+    <bean id="wfsResponseInterceptor" class="de.terrestris.momo.interceptor.MomoWfsResponseInterceptor" />
+
 </beans>
