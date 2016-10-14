@@ -1,4 +1,4 @@
-*.class
+.class
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
@@ -21,4 +21,7 @@ wtpmodules
 
 #npm
 src/main/webapp/npm-debug.log
-src/main/webapp/lib
+src/main/webapp/lib/*
+!src/main/webapp/lib/datetimeux
+!src/main/webapp/lib/proj4-defs
+
