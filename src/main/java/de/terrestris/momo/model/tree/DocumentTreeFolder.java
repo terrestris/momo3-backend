@@ -15,7 +15,7 @@ import de.terrestris.shogun2.model.tree.TreeFolder;
  */
 @Entity
 @Table
-public class RbmaTreeFolder extends TreeFolder {
+public class DocumentTreeFolder extends TreeFolder {
 
 	/**
 	 *
@@ -25,7 +25,10 @@ public class RbmaTreeFolder extends TreeFolder {
 	@Column
 	private String pdfFile;
 
-	public RbmaTreeFolder() {
+	/**
+	 * 
+	 */
+	public DocumentTreeFolder() {
 
 	}
 

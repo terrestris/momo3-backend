@@ -19,8 +19,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
+import de.terrestris.momo.dao.MomoApplicationDao;
 import de.terrestris.momo.dto.ApplicationData;
-import de.terrestris.shogun2.dao.ApplicationDao;
+import de.terrestris.momo.model.MomoApplication;
 import de.terrestris.shogun2.dao.ExtentDao;
 import de.terrestris.shogun2.dao.LayerDao;
 import de.terrestris.shogun2.dao.LayoutDao;
@@ -29,7 +30,6 @@ import de.terrestris.shogun2.dao.MapControlDao;
 import de.terrestris.shogun2.dao.MapDao;
 import de.terrestris.shogun2.dao.ModuleDao;
 import de.terrestris.shogun2.dao.UserDao;
-import de.terrestris.shogun2.model.Application;
 import de.terrestris.shogun2.model.User;
 import de.terrestris.shogun2.model.layer.Layer;
 import de.terrestris.shogun2.model.layer.util.Extent;
@@ -57,7 +57,7 @@ import de.terrestris.shogun2.service.UserService;
  *
  */
 @Service("momoApplicationService")
-public class MomoApplicationService<E extends Application, D extends ApplicationDao<E>>
+public class MomoApplicationService<E extends MomoApplication, D extends MomoApplicationDao<E>>
 		extends ApplicationService<E, D> {
 
 	private static final String BEAN_ID_DEFAULT_MAP = "defaultMap";
@@ -117,6 +117,34 @@ public class MomoApplicationService<E extends Application, D extends Application
 	private UserService<User, UserDao<User>> userService;
 
 	/**
+	 * Default constructor, which calls the type-constructor
+	 */
+	@SuppressWarnings("unchecked")
+	public MomoApplicationService() {
+		this((Class<E>) MomoApplication.class);
+	}
+
+	/**
+	 * Constructor that sets the concrete entity class for the service.
+	 * Subclasses MUST call this constructor.
+	 */
+	protected MomoApplicationService(Class<E> entityClass) {
+		super(entityClass);
+	}
+
+	/**
+	 * We have to use {@link Qualifier} to define the correct dao here.
+	 * Otherwise, spring can not decide which dao has to be autowired here
+	 * as there are multiple candidates.
+	 */
+	@Override
+	@Autowired
+	@Qualifier("momoApplicationDao")
+	public void setDao(D dao) {
+		this.dao = dao;
+	}
+
+	/**
 	 *
 	 * @param isActive
 	 * @param isPublic
@@ -127,7 +155,7 @@ public class MomoApplicationService<E extends Application, D extends Application
 	 */
 	@SuppressWarnings("unchecked")
 	@PreAuthorize("hasRole(@configHolder.getSuperAdminRoleName())")
-	public Application createMomoApplication(ApplicationData applicationData) throws Exception {
+	public MomoApplication createMomoApplication(ApplicationData applicationData) throws Exception {
 
 		String name = applicationData.getName();
 		String description = applicationData.getDescription();
@@ -140,9 +168,11 @@ public class MomoApplicationService<E extends Application, D extends Application
 		Integer zoom = applicationData.getZoom();
 
 		// create a new application
-		Application application = new Application(name, description);
+		MomoApplication application = new MomoApplication();
 
 		// set properties
+		application.setName(name);
+		application.setDescription(description);
 		application.setLanguage(Locale.forLanguageTag(language));
 		application.setOpen(isPublic);
 		application.setActive(isActive);

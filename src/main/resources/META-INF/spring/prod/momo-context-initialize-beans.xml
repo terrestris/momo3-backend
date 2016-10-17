@@ -6834,7 +6834,7 @@
     </bean>
 
     <!-- Define applications -->
-    <bean id="defaultApplication" class="de.terrestris.shogun2.model.Application">
+    <bean id="defaultApplication" class="de.terrestris.momo.model.MomoApplication">
         <property name="name" value="Default Application" />
         <property name="description" value="Default Application" />
         <property name="viewport" ref="viewportModule" />

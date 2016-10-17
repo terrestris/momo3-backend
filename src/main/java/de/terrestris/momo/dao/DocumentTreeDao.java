@@ -6,20 +6,19 @@ import de.terrestris.shogun2.dao.TreeNodeDao;
 import de.terrestris.shogun2.model.tree.TreeNode;
 
 /**
- * This is a demo DAO that demonstrates how a SHOGun2 DAO can be extended.
  *
  * @author Nils Bühner
  *
  * @param <E>
  */
-@Repository("rbmaDao")
-public class RbmaDao<E extends TreeNode> extends TreeNodeDao<E> {
+@Repository("docTreeDao")
+public class DocumentTreeDao<E extends TreeNode> extends TreeNodeDao<E> {
 
 	/**
 	 * Public default constructor for this DAO.
 	 */
 	@SuppressWarnings("unchecked")
-	public RbmaDao() {
+	public DocumentTreeDao() {
 		super((Class<E>) TreeNode.class);
 	}
 
@@ -28,7 +27,7 @@ public class RbmaDao<E extends TreeNode> extends TreeNodeDao<E> {
 	 *
 	 * @param clazz
 	 */
-	protected RbmaDao(Class<E> clazz) {
+	protected DocumentTreeDao(Class<E> clazz) {
 		super(clazz);
 	}
 
