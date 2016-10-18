@@ -5,6 +5,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
@@ -19,8 +20,11 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
+import de.terrestris.momo.dao.DocumentTreeDao;
+import de.terrestris.momo.dao.MomoApplicationDao;
 import de.terrestris.momo.dto.ApplicationData;
-import de.terrestris.shogun2.dao.ApplicationDao;
+import de.terrestris.momo.model.MomoApplication;
+import de.terrestris.momo.model.tree.DocumentTreeFolder;
 import de.terrestris.shogun2.dao.ExtentDao;
 import de.terrestris.shogun2.dao.LayerDao;
 import de.terrestris.shogun2.dao.LayoutDao;
@@ -29,7 +33,6 @@ import de.terrestris.shogun2.dao.MapControlDao;
 import de.terrestris.shogun2.dao.MapDao;
 import de.terrestris.shogun2.dao.ModuleDao;
 import de.terrestris.shogun2.dao.UserDao;
-import de.terrestris.shogun2.model.Application;
 import de.terrestris.shogun2.model.User;
 import de.terrestris.shogun2.model.layer.Layer;
 import de.terrestris.shogun2.model.layer.util.Extent;
@@ -57,7 +60,7 @@ import de.terrestris.shogun2.service.UserService;
  *
  */
 @Service("momoApplicationService")
-public class MomoApplicationService<E extends Application, D extends ApplicationDao<E>>
+public class MomoApplicationService<E extends MomoApplication, D extends MomoApplicationDao<E>>
 		extends ApplicationService<E, D> {
 
 	private static final String BEAN_ID_DEFAULT_MAP = "defaultMap";
@@ -116,6 +119,38 @@ public class MomoApplicationService<E extends Application, D extends Application
 	@Qualifier("userService")
 	private UserService<User, UserDao<User>> userService;
 
+	@Autowired
+	@Qualifier("docTreeService")
+	private DocumentTreeService<DocumentTreeFolder, DocumentTreeDao<DocumentTreeFolder>> docTreeService;
+
+	/**
+	 * Default constructor, which calls the type-constructor
+	 */
+	@SuppressWarnings("unchecked")
+	public MomoApplicationService() {
+		this((Class<E>) MomoApplication.class);
+	}
+
+	/**
+	 * Constructor that sets the concrete entity class for the service.
+	 * Subclasses MUST call this constructor.
+	 */
+	protected MomoApplicationService(Class<E> entityClass) {
+		super(entityClass);
+	}
+
+	/**
+	 * We have to use {@link Qualifier} to define the correct dao here.
+	 * Otherwise, spring can not decide which dao has to be autowired here
+	 * as there are multiple candidates.
+	 */
+	@Override
+	@Autowired
+	@Qualifier("momoApplicationDao")
+	public void setDao(D dao) {
+		this.dao = dao;
+	}
+
 	/**
 	 *
 	 * @param isActive
@@ -127,7 +162,7 @@ public class MomoApplicationService<E extends Application, D extends Application
 	 */
 	@SuppressWarnings("unchecked")
 	@PreAuthorize("hasRole(@configHolder.getSuperAdminRoleName())")
-	public Application createMomoApplication(ApplicationData applicationData) throws Exception {
+	public MomoApplication createMomoApplication(ApplicationData applicationData) throws Exception {
 
 		String name = applicationData.getName();
 		String description = applicationData.getDescription();
@@ -140,9 +175,11 @@ public class MomoApplicationService<E extends Application, D extends Application
 		Integer zoom = applicationData.getZoom();
 
 		// create a new application
-		Application application = new Application(name, description);
+		MomoApplication application = new MomoApplication();
 
 		// set properties
+		application.setName(name);
+		application.setDescription(description);
 		application.setLanguage(Locale.forLanguageTag(language));
 		application.setOpen(isPublic);
 		application.setActive(isActive);
@@ -171,9 +208,64 @@ public class MomoApplicationService<E extends Application, D extends Application
 	}
 
 	/**
+	 * @param id
+	 * @return
+	 * @throws Exception
+	 */
+	@PreAuthorize("hasRole(@configHolder.getDefaultUserRoleName())")
+	public List<java.util.Map<String, Object>> getDocumentTreeRootNodeInfo(Integer id) throws Exception {
+		E app = this.findById(id);
+
+		if(app == null) {
+			throw new Exception("Could not find momo app with id " + id);
+		}
+
+		List<DocumentTreeFolder> documentRoots = app.getDocumentRootNodes();
+
+		List<java.util.Map<String, Object>> resultList = new ArrayList<java.util.Map<String, Object>>();
+
+		// we only want to publish the ID and the name of the roots here to list them in a grid
+		for (DocumentTreeFolder docTreeRoot : documentRoots) {
+			java.util.Map<String, Object> propMap = new HashMap<String, Object>();
+			propMap.put("id", docTreeRoot.getId());
+			propMap.put("name", docTreeRoot.getText());
+
+			resultList.add(propMap);
+		}
+
+		return resultList;
+	}
+
+	@PreAuthorize("hasRole(@configHolder.getSuperAdminRoleName())")
+	public DocumentTreeFolder createNewDocumentRoot(Integer id, String name) throws Exception {
+		E app = this.findById(id);
+
+		if(app == null) {
+			throw new Exception("Could not find momo app with id " + id);
+		}
+
+
+		// create a new root node
+		DocumentTreeFolder newRootDoc = new DocumentTreeFolder();
+		newRootDoc.setRoot(true);
+		newRootDoc.setText(name);
+		docTreeService.saveOrUpdate(newRootDoc);
+
+		// add it to the existing docs of this app
+		List<DocumentTreeFolder> documentRoots = app.getDocumentRootNodes();
+		documentRoots.add(newRootDoc);
+
+		// save the app
+		this.saveOrUpdate(app);
+
+		return newRootDoc;
+	}
+
+	/**
 	 * @param mapContainer
 	 * @return
 	 */
+
 	private CompositeModule buildViewport(CompositeModule mapContainer) {
 		CompositeModule viewport = new CompositeModule();
 		viewport.setXtype("viewport");

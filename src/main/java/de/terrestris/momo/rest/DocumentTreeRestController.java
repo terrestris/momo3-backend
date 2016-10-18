@@ -19,26 +19,40 @@ import org.springframework.web.multipart.MultipartFile;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import de.terrestris.momo.dao.RbmaDao;
-import de.terrestris.momo.model.tree.RbmaTreeFolder;
-import de.terrestris.momo.model.tree.RbmaTreeLeaf;
-import de.terrestris.momo.service.RbmaService;
+import de.terrestris.momo.dao.DocumentTreeDao;
+import de.terrestris.momo.model.tree.DocumentTreeFolder;
+import de.terrestris.momo.model.tree.DocumentTreeLeaf;
+import de.terrestris.momo.service.DocumentTreeService;
 import de.terrestris.shogun2.model.File;
 import de.terrestris.shogun2.model.tree.TreeNode;
 import de.terrestris.shogun2.rest.TreeNodeRestController;
 import de.terrestris.shogun2.util.data.ResultSet;
 
 /**
- * This is a demo controller that demonstrates how SHOGun2 REST controllers
- * can be extended.
  *
  * @author Nils Bühner
  *
  */
 @RestController
-@RequestMapping("/rbma")
-public class RbmaRestController<E extends TreeNode, D extends RbmaDao<E>, S extends RbmaService<E, D>>
+@RequestMapping("/doctree")
+public class DocumentTreeRestController<E extends TreeNode, D extends DocumentTreeDao<E>, S extends DocumentTreeService<E, D>>
 		extends TreeNodeRestController<E, D, S> {
+
+	/**
+	 * Default constructor, which calls the type-constructor
+	 */
+	@SuppressWarnings("unchecked")
+	public DocumentTreeRestController() {
+		this((Class<E>) TreeNode.class);
+	}
+
+	/**
+	 * Constructor that sets the concrete entity class for the controller.
+	 * Subclasses MUST call this constructor.
+	 */
+	protected DocumentTreeRestController(Class<E> entityClass) {
+		super(entityClass);
+	}
 
 	/**
 	 * We have to use {@link Qualifier} to define the correct service here.
@@ -47,34 +61,13 @@ public class RbmaRestController<E extends TreeNode, D extends RbmaDao<E>, S exte
 	 */
 	@Override
 	@Autowired
-	@Qualifier("rbmaService")
+	@Qualifier("docTreeService")
 	public void setService(S service) {
 		this.service = service;
 	}
 
 	/**
-	 * Get an entity by id.
-	 *
-	 * @param id
-	 * @return
-	 */
-	@RequestMapping(value = "/root", method = RequestMethod.GET)
-	public ResponseEntity<E> getRoot() {
-
-		try {
-			// TODO get dynamic to determine ID
-			E entity = this.service.findById(678);
-			LOG.trace("Found " + entity.getClass().getSimpleName()
-					+ " with ID " + entity.getId());
-			return new ResponseEntity<E>(entity, HttpStatus.OK);
-		} catch (Exception e) {
-			LOG.error("Error finding rootNode for RBMA:" + e.getMessage());
-			return new ResponseEntity<E>(HttpStatus.NOT_FOUND);
-		}
-	}
-
-	/**
-	 * Attaches a document to a (RBMA leaf) node
+	 * Attaches a document to a (doctree leaf) node
 	 *
 	 * @param uploadedDoc
 	 * @return
@@ -111,27 +104,27 @@ public class RbmaRestController<E extends TreeNode, D extends RbmaDao<E>, S exte
 		E treeNode = this.service.findById(nodeId);
 
 		// 2.1 check if node is a folder, which would not be allowed
-		if(treeNode instanceof RbmaTreeFolder) {
+		if(treeNode instanceof DocumentTreeFolder) {
 			final String msg = "Documents can not be attached to folders!";
 			LOG.error(msg);
 			responseMap = ResultSet.error(msg);
 		}
 
-		// 2.2 check if node is an RBMA leaf
-		if(!(treeNode instanceof RbmaTreeLeaf)) {
+		// 2.2 check if node is an doctree leaf
+		if(!(treeNode instanceof DocumentTreeLeaf)) {
 			final String msg = "Unexpected treeNode type!";
 			LOG.error(msg);
 			responseMap = ResultSet.error(msg);
 		} else {
-			// treeNode is instanceof RbmaTreeLeaf -> Let's go!
-			RbmaTreeLeaf rbmaLeaf = (RbmaTreeLeaf) treeNode;
+			// treeNode is instanceof DocumentTreeLeaf -> Let's go!
+			DocumentTreeLeaf docTreeLeaf = (DocumentTreeLeaf) treeNode;
 
 			// attach document
 			try {
-				this.service.attachDocumentToNode(rbmaLeaf, uploadedDoc);
+				this.service.attachDocumentToNode(docTreeLeaf, uploadedDoc);
 
 				LOG.info("Successfully attached a document to a node.");
-				responseMap = ResultSet.success(rbmaLeaf);
+				responseMap = ResultSet.success(docTreeLeaf);
 
 			} catch (Exception e) {
 				final String msg = "Could not attach a document to a node: " + e.getMessage();

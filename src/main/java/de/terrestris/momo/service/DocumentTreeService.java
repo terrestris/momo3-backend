@@ -15,26 +15,24 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import de.terrestris.momo.model.tree.RbmaTreeFolder;
-import de.terrestris.momo.model.tree.RbmaTreeLeaf;
+import de.terrestris.momo.dao.DocumentTreeDao;
+import de.terrestris.momo.model.tree.DocumentTreeFolder;
+import de.terrestris.momo.model.tree.DocumentTreeLeaf;
 import de.terrestris.shogun2.dao.FileDao;
-import de.terrestris.shogun2.dao.TreeNodeDao;
 import de.terrestris.shogun2.model.File;
 import de.terrestris.shogun2.model.tree.TreeNode;
 import de.terrestris.shogun2.service.FileService;
 import de.terrestris.shogun2.service.TreeNodeService;
 
 /**
- * This is a demo service that demonstrates how a SHOGun2 service can be
- * extended.
  *
  * @author Nils Bühner
  *
  * @param <E>
  * @param <D>
  */
-@Service("rbmaService")
-public class RbmaService<E extends TreeNode, D extends TreeNodeDao<E>> extends
+@Service("docTreeService")
+public class DocumentTreeService<E extends TreeNode, D extends DocumentTreeDao<E>> extends
 		TreeNodeService<E, D> {
 
 	@Autowired
@@ -46,7 +44,7 @@ public class RbmaService<E extends TreeNode, D extends TreeNodeDao<E>> extends
 	 */
 	@SuppressWarnings("unchecked")
 	@PreAuthorize("hasRole(@configHolder.getSuperAdminRoleName())")
-	public void attachDocumentToNode(RbmaTreeLeaf node, MultipartFile documentUpload) throws Exception {
+	public void attachDocumentToNode(DocumentTreeLeaf node, MultipartFile documentUpload) throws Exception {
 
 		InputStream is = null;
 		File document = node.getDocument();
@@ -103,10 +101,10 @@ public class RbmaService<E extends TreeNode, D extends TreeNodeDao<E>> extends
 			final String msg = "Node does not exist: " + nodeId;
 			LOG.error(msg);
 			throw new Exception(msg);
-		} else if(node instanceof RbmaTreeFolder) {
+		} else if(node instanceof DocumentTreeFolder) {
 			// we have a FOLDER
 
-			RbmaTreeFolder folder = (RbmaTreeFolder) node;
+			DocumentTreeFolder folder = (DocumentTreeFolder) node;
 			// Credits go to:
 			// https://pdfbox.apache.org/
 			// http://stackoverflow.com/a/4874334
@@ -128,10 +126,10 @@ public class RbmaService<E extends TreeNode, D extends TreeNodeDao<E>> extends
 			fileToReturn.setFileName(folder.getText() + ".pdf");
 			fileToReturn.setFileType("application/pdf");
 
-		} else if(node instanceof RbmaTreeLeaf) {
+		} else if(node instanceof DocumentTreeLeaf) {
 			// we have a LEAF
 
-			RbmaTreeLeaf leaf = (RbmaTreeLeaf) node;
+			DocumentTreeLeaf leaf = (DocumentTreeLeaf) node;
 
 			fileToReturn = leaf.getDocument();
 
@@ -151,7 +149,8 @@ public class RbmaService<E extends TreeNode, D extends TreeNodeDao<E>> extends
 	 * @return
 	 * @throws Exception
 	 */
-	private List<byte[]> getAllDocumentsOfFolder(RbmaTreeFolder folder) throws Exception {
+	@PreAuthorize("hasRole(@configHolder.getDefaultUserRoleName())")
+	private List<byte[]> getAllDocumentsOfFolder(DocumentTreeFolder folder) throws Exception {
 
 		List<byte[]> documentList = new ArrayList<byte[]>();
 
@@ -159,15 +158,15 @@ public class RbmaService<E extends TreeNode, D extends TreeNodeDao<E>> extends
 
 		for (TreeNode treeNode : children) {
 
-			if(treeNode instanceof RbmaTreeFolder) {
+			if(treeNode instanceof DocumentTreeFolder) {
 
 				// recursive call
-				documentList.addAll(getAllDocumentsOfFolder((RbmaTreeFolder) treeNode));
+				documentList.addAll(getAllDocumentsOfFolder((DocumentTreeFolder) treeNode));
 
-			} else if(treeNode instanceof RbmaTreeLeaf) {
+			} else if(treeNode instanceof DocumentTreeLeaf) {
 
 				// we have a leaf -> add attached doc
-				RbmaTreeLeaf leaf = (RbmaTreeLeaf) treeNode;
+				DocumentTreeLeaf leaf = (DocumentTreeLeaf) treeNode;
 
 				final String leafName = leaf.getText();
 				final File document = leaf.getDocument();
@@ -209,7 +208,7 @@ public class RbmaService<E extends TreeNode, D extends TreeNodeDao<E>> extends
 	 */
 	@Override
 	@Autowired
-	@Qualifier("rbmaDao")
+	@Qualifier("docTreeDao")
 	public void setDao(D dao) {
 		super.setDao(dao);
 	}

@@ -22,7 +22,7 @@ import de.terrestris.shogun2.model.tree.TreeNode;
  */
 @Entity
 @Table
-public class RbmaTreeLeaf extends TreeNode {
+public class DocumentTreeLeaf extends TreeNode {
 
 	/**
 	 *
@@ -44,7 +44,7 @@ public class RbmaTreeLeaf extends TreeNode {
 	/**
 	 *
 	 */
-	public RbmaTreeLeaf() {
+	public DocumentTreeLeaf() {
 
 	}
 

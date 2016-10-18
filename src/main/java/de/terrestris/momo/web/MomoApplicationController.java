@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import de.terrestris.momo.dao.MomoApplicationDao;
 import de.terrestris.momo.dto.ApplicationData;
+import de.terrestris.momo.model.MomoApplication;
 import de.terrestris.momo.service.MomoApplicationService;
-import de.terrestris.shogun2.dao.ApplicationDao;
-import de.terrestris.shogun2.model.Application;
 import de.terrestris.shogun2.util.data.ResultSet;
 import de.terrestris.shogun2.web.ApplicationController;
 
@@ -22,8 +22,8 @@ import de.terrestris.shogun2.web.ApplicationController;
  *
  */
 @Controller
-@RequestMapping("/apps")
-public class MomoApplicationController<E extends Application, D extends ApplicationDao<E>, S extends MomoApplicationService<E, D>>
+@RequestMapping("/momoapps")
+public class MomoApplicationController<E extends MomoApplication, D extends MomoApplicationDao<E>, S extends MomoApplicationService<E, D>>
 		extends ApplicationController<E, D, S> {
 
 	/**
@@ -31,7 +31,7 @@ public class MomoApplicationController<E extends Application, D extends Applicat
 	 */
 	@SuppressWarnings("unchecked")
 	public MomoApplicationController() {
-		this((Class<E>) Application.class);
+		this((Class<E>) MomoApplication.class);
 	}
 
 	/**
