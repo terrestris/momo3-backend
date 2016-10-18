@@ -5,6 +5,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
@@ -19,9 +20,11 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
+import de.terrestris.momo.dao.DocumentTreeDao;
 import de.terrestris.momo.dao.MomoApplicationDao;
 import de.terrestris.momo.dto.ApplicationData;
 import de.terrestris.momo.model.MomoApplication;
+import de.terrestris.momo.model.tree.DocumentTreeFolder;
 import de.terrestris.shogun2.dao.ExtentDao;
 import de.terrestris.shogun2.dao.LayerDao;
 import de.terrestris.shogun2.dao.LayoutDao;
@@ -116,6 +119,10 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 	@Qualifier("userService")
 	private UserService<User, UserDao<User>> userService;
 
+	@Autowired
+	@Qualifier("docTreeService")
+	private DocumentTreeService<DocumentTreeFolder, DocumentTreeDao<DocumentTreeFolder>> docTreeService;
+
 	/**
 	 * Default constructor, which calls the type-constructor
 	 */
@@ -201,9 +208,64 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 	}
 
 	/**
+	 * @param id
+	 * @return
+	 * @throws Exception
+	 */
+	@PreAuthorize("hasRole(@configHolder.getDefaultUserRoleName())")
+	public List<java.util.Map<String, Object>> getDocumentTreeRootNodeInfo(Integer id) throws Exception {
+		E app = this.findById(id);
+
+		if(app == null) {
+			throw new Exception("Could not find momo app with id " + id);
+		}
+
+		List<DocumentTreeFolder> documentRoots = app.getDocumentRootNodes();
+
+		List<java.util.Map<String, Object>> resultList = new ArrayList<java.util.Map<String, Object>>();
+
+		// we only want to publish the ID and the name of the roots here to list them in a grid
+		for (DocumentTreeFolder docTreeRoot : documentRoots) {
+			java.util.Map<String, Object> propMap = new HashMap<String, Object>();
+			propMap.put("id", docTreeRoot.getId());
+			propMap.put("name", docTreeRoot.getText());
+
+			resultList.add(propMap);
+		}
+
+		return resultList;
+	}
+
+	@PreAuthorize("hasRole(@configHolder.getSuperAdminRoleName())")
+	public DocumentTreeFolder createNewDocumentRoot(Integer id, String name) throws Exception {
+		E app = this.findById(id);
+
+		if(app == null) {
+			throw new Exception("Could not find momo app with id " + id);
+		}
+
+
+		// create a new root node
+		DocumentTreeFolder newRootDoc = new DocumentTreeFolder();
+		newRootDoc.setRoot(true);
+		newRootDoc.setText(name);
+		docTreeService.saveOrUpdate(newRootDoc);
+
+		// add it to the existing docs of this app
+		List<DocumentTreeFolder> documentRoots = app.getDocumentRootNodes();
+		documentRoots.add(newRootDoc);
+
+		// save the app
+		this.saveOrUpdate(app);
+
+		return newRootDoc;
+	}
+
+	/**
 	 * @param mapContainer
 	 * @return
 	 */
+
 	private CompositeModule buildViewport(CompositeModule mapContainer) {
 		CompositeModule viewport = new CompositeModule();
 		viewport.setXtype("viewport");

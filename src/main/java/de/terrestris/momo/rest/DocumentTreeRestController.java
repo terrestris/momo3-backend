@@ -39,6 +39,22 @@ public class DocumentTreeRestController<E extends TreeNode, D extends DocumentTr
 		extends TreeNodeRestController<E, D, S> {
 
 	/**
+	 * Default constructor, which calls the type-constructor
+	 */
+	@SuppressWarnings("unchecked")
+	public DocumentTreeRestController() {
+		this((Class<E>) TreeNode.class);
+	}
+
+	/**
+	 * Constructor that sets the concrete entity class for the controller.
+	 * Subclasses MUST call this constructor.
+	 */
+	protected DocumentTreeRestController(Class<E> entityClass) {
+		super(entityClass);
+	}
+
+	/**
 	 * We have to use {@link Qualifier} to define the correct service here.
 	 * Otherwise, spring can not decide which service has to be autowired here
 	 * as there are multiple candidates.
@@ -48,27 +64,6 @@ public class DocumentTreeRestController<E extends TreeNode, D extends DocumentTr
 	@Qualifier("docTreeService")
 	public void setService(S service) {
 		this.service = service;
-	}
-
-	/**
-	 * Get an entity by id.
-	 *
-	 * @param id
-	 * @return
-	 */
-	@RequestMapping(value = "/root", method = RequestMethod.GET)
-	public ResponseEntity<E> getRoot() {
-
-		try {
-			// TODO get dynamic to determine ID
-			E entity = this.service.findById(678);
-			LOG.trace("Found " + entity.getClass().getSimpleName()
-					+ " with ID " + entity.getId());
-			return new ResponseEntity<E>(entity, HttpStatus.OK);
-		} catch (Exception e) {
-			LOG.error("Error finding rootNode for doc tree:" + e.getMessage());
-			return new ResponseEntity<E>(HttpStatus.NOT_FOUND);
-		}
 	}
 
 	/**

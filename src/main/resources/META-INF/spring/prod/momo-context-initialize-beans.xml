@@ -297,7 +297,7 @@
         <ref bean="translateToEnModule" />
         <ref bean="translateToMnModule" />
         <ref bean="translationButtonsModule" />
-        <ref bean="rbmaButtonModule" />
+        <ref bean="listDocumentsButtonModule" />
         <ref bean="headerButtonContainer" />
         <ref bean="bmbfLogoModule" />
         <ref bean="headerModule" />
@@ -315,9 +315,6 @@
         <ref bean="defaultWFSResponseInterceptorRule" />
         <ref bean="defaultWCSRequestInterceptorRule" />
         <ref bean="defaultWCSResponseInterceptorRule" />
-
-        <!-- RBMA Tree -->
-        <ref bean="rbmaRootNode" />
 
     </util:list>
 
@@ -6686,16 +6683,16 @@
         </property>
     </bean>
 
-    <!-- River Basin Management Atlas button Module -->
-    <bean id="rbmaButtonModule" class="de.terrestris.shogun2.model.module.Module">
-        <property name="name" value="RBMA Button" />
-        <property name="xtype" value="momo-rbma-button" />
+    <!-- Button to show documents for current app Module -->
+    <bean id="listDocumentsButtonModule" class="de.terrestris.shogun2.model.module.Module">
+        <property name="name" value="List Documents Button" />
+        <property name="xtype" value="momo-list-documents-button" />
         <property name="properties">
             <util:map>
                 <entry key="width" value="180" />
                 <entry key="margin" value="5 0 0 0" />
                 <entry key="iconCls" value="fa fa-file-pdf-o"/>
-                <entry key="text" value="Open RBMA" />
+                <entry key="text" value="Show Documents" />
             </util:map>
         </property>
     </bean>
@@ -6733,7 +6730,7 @@
         </property>
     </bean>
 
-    <!-- Define the header button container for help, translations and RBMA buttons
+    <!-- Define the header button container for help, translations and "show docs" button
     as well as login/logout informations -->
     <bean id="headerButtonContainer" class="de.terrestris.shogun2.model.module.CompositeModule">
         <property name="name" value="Header Button Container" />
@@ -6749,7 +6746,7 @@
             <util:list value-type="de.terrestris.shogun2.model.module.Module">
                 <ref bean="loginButtonModule" />
                 <ref bean="translationButtonsModule" />
-                <ref bean="rbmaButtonModule" />
+                <ref bean="listDocumentsButtonModule" />
             </util:list>
         </property>
     </bean>
@@ -6877,14 +6874,6 @@
         <property name="rule" value="ALLOW"/>
         <property name="service" value="WCS"/>
     </bean>
-
-    <!-- Root of of RBMA tree -->
-    <bean id="rbmaRootNode" class="de.terrestris.momo.model.tree.RbmaTreeFolder">
-        <property name="text" value="River Basin Management Atlas"/>
-        <property name="expanded" value="true"/>
-        <property name="root" value="true"/>
-    </bean>
-
 
     <!-- ******************************************************************* -->
     <!-- ******************************************************************* -->

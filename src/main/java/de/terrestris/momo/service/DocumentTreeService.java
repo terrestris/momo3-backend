@@ -149,6 +149,7 @@ public class DocumentTreeService<E extends TreeNode, D extends DocumentTreeDao<E
 	 * @return
 	 * @throws Exception
 	 */
+	@PreAuthorize("hasRole(@configHolder.getDefaultUserRoleName())")
 	private List<byte[]> getAllDocumentsOfFolder(DocumentTreeFolder folder) throws Exception {
 
 		List<byte[]> documentList = new ArrayList<byte[]>();
