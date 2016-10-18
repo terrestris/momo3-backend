@@ -1,0 +1,55 @@
+component;property;de;en;mn;Dev-status
+MoMo.client.view.button.LoginLogout;config.data.loginBtnText;Login;Login;;tbd
+MoMo.client.view.button.LoginLogout;config.data.logoutBtnText;Logout;Logout;;tbd
+MoMo.client.view.button.LoginLogout;config.data.logoutConfirmMsgText;Möchten Sie sich wirklich ausloggen?;Do you really want to log out?;;OK
+MoMo.client.view.button.Print;config.data.tooltip;Karte drucken;Print map;;OK
+MoMo.client.view.button.Print;config.data.winTitle;Karte drucken;Print map;; - 
+MoMo.client.view.button.ShowMeasureToolsPanel;config.data.tooltip;Messwerkzeuge;Measurement tools;;OK
+MoMo.client.view.button.ShowMetaPanel;config.data.tooltip;Metainformationen anzeigen;Show metadata;;OK
+MoMo.client.view.button.ShowRedliningToolsPanel;config.data.tooltip;Zeichnen;Draw;;OK
+MoMo.client.view.button.ShowWorkstateToolsPanel;config.data.tooltip;Arbeitsstand;Workstate;;OK
+MoMo.client.view.button.StepBack;config.data.tooltip;Vorherige Ansicht;Previous View;;OK
+MoMo.client.view.button.StepForward;config.data.tooltip;Nächste Ansicht;Next View;;OK
+MoMo.client.view.button.Translation;config.data.tooltipDe;de;de;;tbd
+MoMo.client.view.button.Translation;config.data.tooltipEn;en;en;;tbd
+MoMo.client.view.button.Translation;config.data.tooltipMn;mn;mn;;tbd
+MoMo.client.view.button.Translation;config.data.setLanguageCallbackToastText;Applikationssprache ist jetzt {0};Application language is now {0};;-
+MoMo.client.view.button.ZoomToExtent;config.data.tooltip;Auf Gesamtansicht zoomen;Zoom to Extent;;OK
+MoMo.client.view.form.Print;config.data.labelDpi;DPI;DPI;;OK
+MoMo.client.view.form.Print;config.data.printButtonSuffix;herunterladen;download;;OK
+MoMo.client.view.form.Print;config.data.printFormat;pdf;pdf;;OK
+MoMo.client.view.form.Print;config.data.genericFieldSetTitle;Druckeigenschaften;Print properties;;OK
+MoMo.client.view.form.Print;config.data.attributesTitle;Attribute;Attributes;;OK
+MoMo.client.view.form.Print;config.data.scalebarLabel;Maßstabsbalken;Scalebar;;OK
+MoMo.client.view.form.Print;config.data.northArrowLabel;Nordpfeil;North arrow;;OK
+MoMo.client.view.form.Print;config.data.mapTitleLabel;Titel;Title;;-
+MoMo.client.view.panel.LegendTree;config.data.title;Legende;Legend;;OK
+MoMo.client.view.panel.MapMetaInformation;config.data.srsPrefix;Bezugssystem;Reference System;;OK
+MoMo.client.view.panel.MapMetaInformation;config.data.mousePositionLabel;Zeigerposition;Mouse Position;;OK
+MoMo.client.view.panel.MeasurementToolsPanel;config.data.lineTooltip;Strecke messen;Distance measurements;;OK
+MoMo.client.view.panel.MeasurementToolsPanel;config.data.areaTooltip;Fläche messen;Area measurements;;OK
+MoMo.client.view.panel.MeasurementToolsPanel;config.data.clickToDrawText;Klicken zum Messen;Click to measure;;OK
+MoMo.client.view.panel.MeasurementToolsPanel;config.data.continueLineMsg;Klicken zum Zeichnen der Strecke;Click to draw line;;OK
+MoMo.client.view.panel.MeasurementToolsPanel;config.data.continuePolygonMsg;Klicken zum Zeichnen der Fläche;Click to draw area;;OK
+MoMo.client.view.panel.RedliningToolsPanel;config.data.drawPointsBtnText;Punkt zeichnen;Draw Point;;OK
+MoMo.client.view.panel.RedliningToolsPanel;config.data.drawLinesBtnText;Linie zeichnen;Draw Line;;OK
+MoMo.client.view.panel.RedliningToolsPanel;config.data.drawPolygonsBtnText;Polygon zeichen;Draw Polygon;;OK
+MoMo.client.view.panel.RedliningToolsPanel;config.data.drawPostItBtnText;Post-it zeichnen;Draw Post-it;;OK
+MoMo.client.view.panel.RedliningToolsPanel;config.data.copyObjectBtnText;Objekt kopieren;Copy Object;;OK
+MoMo.client.view.panel.RedliningToolsPanel;config.data.moveObjectBtnText;Objekt verschieben;Move Object;;OK
+MoMo.client.view.panel.RedliningToolsPanel;config.data.modifyObjectBtnText;Objekt modifizieren;Modify Object;;OK
+MoMo.client.view.panel.RedliningToolsPanel;config.data.deleteObjectBtnText;Objekt löschen;Delete Object;;OK
+MoMo.client.view.panel.RedliningToolsPanel;config.data.openStyleBtnText;Styler;Styler;;OK
+MoMo.client.view.panel.RedliningToolsPanel;config.data.postItWindowTitle;Post-it Text eingeben;Enter Post-it Text;;OK
+MoMo.client.view.panel.WorkstateToolsPanel;config.data.loadSaveWorkstateBtnText;Arbeitstände laden/speichern;load/save Workstates;;OK
+MoMo.client.view.panel.WorkstateToolsPanel;config.data.permalinkBtnText;Permalink erzeugen;Generate Permalink;; - 
+MoMo.client.view.panel.WorkstateToolsPanel;config.data.permalinkTitle;Link zur Anwendung;URL to application;; - 
+MoMo.client.view.window.RedliningStylerWindow;config.data.title;Zeichnungsstil;Drawing Style;;OK
+MoMo.client.view.window.RedliningStylerWindow;config.data.pointStyleFieldSetTitle;Punktstil;Point Style;;OK
+MoMo.client.view.window.RedliningStylerWindow;config.data.pointStyleRadiusNumberFieldLabel;Punkt Radius;Point Radius;;OK
+MoMo.client.view.window.RedliningStylerWindow;config.data.styleStrokeWidthFieldLabel;Strichstärke;Stroke Width;;OK
+MoMo.client.view.window.RedliningStylerWindow;config.data.styleStrokeColorFieldLabel;Strichfarbe;Stroke Color;;OK
+MoMo.client.view.window.RedliningStylerWindow;config.data.styleFillColorFieldLabel;Füllfarbe;Fill Color;;OK
+MoMo.client.view.window.RedliningStylerWindow;config.data.lineStyleFieldSetTitle;Linienstil;Line Style;;OK
+MoMo.client.view.window.RedliningStylerWindow;config.data.polygonStyleFieldSetTitle;Polygonstil;Polygon Stile;;OK
+MoMo.client.view.window.RedliningStylerWindow;config.data.closeStylerBtnText;Ok;OK;;OK

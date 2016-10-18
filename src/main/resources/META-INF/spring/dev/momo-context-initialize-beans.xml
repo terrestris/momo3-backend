@@ -6682,6 +6682,7 @@
                 <entry key="width" value="40" />
                 <entry key="margin" value="5 10 5 10" />
                 <entry key="cls" value="translation-btn"/>
+                <entry key="isDefaultLanguage" value="true"/>
                 <entry key="iconCls" value="trans-de"/>
             </util:map>
         </property>
@@ -6695,6 +6696,7 @@
                 <entry key="width" value="40" />
                 <entry key="margin" value="5 10 5 10" />
                 <entry key="cls" value="translation-btn"/>
+                <entry key="isDefaultLanguage" value="false"/>
                 <entry key="iconCls" value="trans-en"/>
             </util:map>
         </property>
@@ -6708,6 +6710,7 @@
                 <entry key="width" value="40" />
                 <entry key="margin" value="5 10 5 10" />
                 <entry key="cls" value="translation-btn"/>
+                <entry key="isDefaultLanguage" value="false"/>
                 <entry key="iconCls" value="trans-mn"/>
             </util:map>
         </property>
