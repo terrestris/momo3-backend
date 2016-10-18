@@ -5,8 +5,6 @@ import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 
 import de.terrestris.momo.dao.MomoLayerDao;
@@ -26,26 +24,12 @@ import de.terrestris.shogun2.util.interceptor.WmsRequestInterceptorInterface;
  * @author terrestris GmbH & Co. KG
  *
  */
-public class MomoWmsRequestInterceptor implements WmsRequestInterceptorInterface {
+public class MomoWmsRequestInterceptor extends BaseOgcInterceptor implements WmsRequestInterceptorInterface {
 
 	/**
 	 * The Logger.
 	 */
 	private static final Logger LOG = Logger.getLogger(MomoWmsRequestInterceptor.class);
-
-	/**
-	 *
-	 */
-	@Autowired
-	@Qualifier("userService")
-	private UserService<User, UserDao<User>> userService;
-
-	/**
-	 *
-	 */
-	@Autowired
-	@Qualifier("momoLayerService")
-	private MomoLayerService<MomoLayer, MomoLayerDao<MomoLayer>> momoLayerService;
 
 	/**
 	 *
@@ -64,12 +48,6 @@ public class MomoWmsRequestInterceptor implements WmsRequestInterceptorInterface
 	 */
 	@Value("${momo.maskingStyleName}")
 	private String maskingStyleName;
-
-	/**
-	 *
-	 */
-	@Value("${momo.publicInterceptGeoServerAction}")
-	private String geoserverInterceptorUrl;
 
 	/**
 	 *
