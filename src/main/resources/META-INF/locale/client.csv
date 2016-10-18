@@ -34,6 +34,9 @@ MoMo.client.view.panel.MeasurementToolsPanel;config.data.continuePolygonMsg;Klic
 MoMo.client.view.panel.RedliningToolsPanel;config.data.drawPointsBtnText;Punkt zeichnen;Draw Point;;OK
 MoMo.client.view.panel.RedliningToolsPanel;config.data.drawLinesBtnText;Linie zeichnen;Draw Line;;OK
 MoMo.client.view.panel.RedliningToolsPanel;config.data.drawPolygonsBtnText;Polygon zeichen;Draw Polygon;;OK
+MoMo.client.view.panel.RedliningToolsPanel;config.data.drawCirclesBtnText;Kreis zeichnen;Draw circle;тойрог зур;tbd
+MoMo.client.view.panel.RedliningToolsPanel;config.data.drawRectanglesBtnText;Rechteck zeichnen;Draw rectangle;;tbd
+MoMo.client.view.panel.RedliningToolsPanel;config.data.drawTextBtnText;Beschriftung einfügen;Add label;;tbd
 MoMo.client.view.panel.RedliningToolsPanel;config.data.drawPostItBtnText;Post-it zeichnen;Draw Post-it;;OK
 MoMo.client.view.panel.RedliningToolsPanel;config.data.copyObjectBtnText;Objekt kopieren;Copy Object;;OK
 MoMo.client.view.panel.RedliningToolsPanel;config.data.moveObjectBtnText;Objekt verschieben;Move Object;;OK
