@@ -107,7 +107,7 @@
 
     <beans:bean id="permissionEvaluator" class="de.terrestris.shogun2.security.access.Shogun2PermissionEvaluator">
         <beans:property name="permissionEvaluatorFactory">
-            <beans:bean class="de.terrestris.shogun2.security.access.factory.EntityPermissionEvaluatorFactory" />
+            <beans:bean class="de.terrestris.momo.security.access.factory.MomoPermissionEvaluatorFactory" />
         </beans:property>
     </beans:bean>
 
