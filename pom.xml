@@ -117,6 +117,7 @@
                 <!-- Explicitly include the required resources -->
                 <directory>src/main/resources</directory>
                 <includes>
+                    <include>META-INF/locale/*.csv</include>
                     <include>META-INF/spring/*.xml</include>
                     <include>META-INF/spring/${app.profile}/**</include>
                     <!-- This will include the config of the active profile (only) -->
