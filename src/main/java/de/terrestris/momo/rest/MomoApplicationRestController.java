@@ -82,4 +82,27 @@ public class MomoApplicationRestController<E extends MomoApplication, D extends 
 		}
 	}
 
+	/**
+	 * Create a new document root node for this app
+	 *
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping(value = "/{id}/documentRoots/{docId}", method = RequestMethod.DELETE)
+	public ResponseEntity<?> deleteDocumentRoot(@PathVariable Integer id, @PathVariable Integer docId) {
+
+		try {
+			service.deleteDocumentRoot(id, docId);
+			return new ResponseEntity<>(HttpStatus.OK);
+		} catch (Exception e) {
+			HttpStatus httpStatusCode = HttpStatus.NOT_FOUND;
+			if(e instanceof AccessDeniedException) {
+				httpStatusCode = HttpStatus.FORBIDDEN;
+			}
+			LOG.error("Error deleting a document (root) with id " + docId + " of momo app with ID " + id + ": "
+					+ e.getMessage());
+			return new ResponseEntity<>(httpStatusCode);
+		}
+	}
+
 }

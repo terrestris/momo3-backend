@@ -29,7 +29,7 @@ public class DocumentTreeFolder extends TreeFolder {
 	 * 
 	 */
 	public DocumentTreeFolder() {
-
+		this.setExpanded(true);
 	}
 
 	/**

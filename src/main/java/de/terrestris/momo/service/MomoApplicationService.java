@@ -25,6 +25,7 @@ import de.terrestris.momo.dao.MomoApplicationDao;
 import de.terrestris.momo.dto.ApplicationData;
 import de.terrestris.momo.model.MomoApplication;
 import de.terrestris.momo.model.tree.DocumentTreeFolder;
+import de.terrestris.momo.util.DocumentTreeFolderComparator;
 import de.terrestris.shogun2.dao.ExtentDao;
 import de.terrestris.shogun2.dao.LayerDao;
 import de.terrestris.shogun2.dao.LayoutDao;
@@ -62,6 +63,8 @@ import de.terrestris.shogun2.service.UserService;
 @Service("momoApplicationService")
 public class MomoApplicationService<E extends MomoApplication, D extends MomoApplicationDao<E>>
 		extends ApplicationService<E, D> {
+
+	private static final DocumentTreeFolderComparator DOC_TREE_FOLDER_COMPARATOR = new DocumentTreeFolderComparator();
 
 	private static final String BEAN_ID_DEFAULT_MAP = "defaultMap";
 
@@ -244,7 +247,6 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 			throw new Exception("Could not find momo app with id " + id);
 		}
 
-
 		// create a new root node
 		DocumentTreeFolder newRootDoc = new DocumentTreeFolder();
 		newRootDoc.setRoot(true);
@@ -255,10 +257,44 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 		List<DocumentTreeFolder> documentRoots = app.getDocumentRootNodes();
 		documentRoots.add(newRootDoc);
 
+		Collections.sort(documentRoots, DOC_TREE_FOLDER_COMPARATOR);
+
 		// save the app
 		this.saveOrUpdate(app);
 
 		return newRootDoc;
+	}
+
+	/**
+	 *
+	 * @param id
+	 * @param docId
+	 * @throws Exception
+	 */
+	@PreAuthorize("hasRole(@configHolder.getSuperAdminRoleName())")
+	public void deleteDocumentRoot(Integer id, Integer docId) throws Exception {
+		E app = this.findById(id);
+
+		if(app == null) {
+			throw new Exception("Could not find momo app with id " + id);
+		}
+
+		DocumentTreeFolder doc = this.docTreeService.findById(docId);
+
+		List<DocumentTreeFolder> appDocs = app.getDocumentRootNodes();
+
+		if(!appDocs.contains(doc)) {
+			throw new Exception("MoMo application " + id + " does not have doc " + docId);
+		}
+
+		// remove the doc from the app
+		appDocs.remove(doc);
+
+		// delete the doc
+		docTreeService.delete(doc);
+
+		// update the app
+		this.saveOrUpdate(app);
 	}
 
 	/**

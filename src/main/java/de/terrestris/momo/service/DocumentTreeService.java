@@ -20,6 +20,7 @@ import de.terrestris.momo.model.tree.DocumentTreeFolder;
 import de.terrestris.momo.model.tree.DocumentTreeLeaf;
 import de.terrestris.shogun2.dao.FileDao;
 import de.terrestris.shogun2.model.File;
+import de.terrestris.shogun2.model.tree.TreeFolder;
 import de.terrestris.shogun2.model.tree.TreeNode;
 import de.terrestris.shogun2.service.FileService;
 import de.terrestris.shogun2.service.TreeNodeService;
@@ -37,6 +38,27 @@ public class DocumentTreeService<E extends TreeNode, D extends DocumentTreeDao<E
 
 	@Autowired
 	private FileService<File, FileDao<File>> fileService;
+
+	/**
+	 * In case of a folder: Delete from "bottom up" by stepping down to the
+	 * children and removing them first.
+	 *
+	 * @param e
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	@PreAuthorize("hasRole(@configHolder.getSuperAdminRoleName()) or hasPermission(#e, 'DELETE')")
+	public void delete(E e) {
+
+		if(e instanceof TreeFolder) {
+			List<E> children = (List<E>) ((TreeFolder) e).getChildren();
+			for (E childNode : children) {
+				this.delete(childNode);
+			}
+		}
+
+		dao.delete(e);
+	}
 
 	/**
 	 * @throws Exception
