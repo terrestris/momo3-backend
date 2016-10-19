@@ -256,6 +256,7 @@
         <ref bean="geopics" />
         <ref bean="ammonium" />
         <ref bean="locations_master" />
+        <ref bean="ecotech_locations" />
 
         <!-- Controls -->
         <ref bean="controlAttribution" />
@@ -1830,6 +1831,12 @@
         <property name="layerStyles" value="" />
     </bean>
 
+    <bean id="ecotech_locationsDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:ecotech_locations" />
+        <property name="layerStyles" value="" />
+    </bean>
+
     <bean id="osmWmsLayerAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
         <property name="attribution" value="© &lt;a href='http://www.openstreetmap.org/copyright'&gt;OpenStreetMap contributors&lt;/a&gt; &lt;br&gt;" />
         <property name="maxResolution" ref="res01" />
@@ -3285,6 +3292,13 @@
         <property name="minResolution" ref="res19" />
         <property name="opacity" value="1" />
         <property name="visible" value="false" />
+    </bean>
+
+    <bean id="ecotech_locationsAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="true" />
     </bean>
 
     <bean id="osmWmsLayer" class="de.terrestris.shogun2.model.layer.Layer">
@@ -6197,6 +6211,21 @@
         </property>
     </bean>
 
+    <bean id="ecotech_locations" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="ecotech_locations" />
+        <property name="source" ref="ecotech_locationsDataSource" />
+        <property name="appearance" ref="ecotech_locationsAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="hoverable" value="true" />
+        <property name="chartable" value="true" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
     <!-- Define the Map -->
     <bean id="mapModule" class="de.terrestris.shogun2.model.module.Map">
         <property name="name" value="Main Map" />
@@ -6407,9 +6436,10 @@
                 <ref bean="DYN_93_1370347899084" />
                 <ref bean="DYN_93_1370614843635" />
                 <ref bean="geopics" />
-                <ref bean="ammonium" />
+                <ref bean="ammonium" />-->
                 <ref bean="locations_master" />
-                <ref bean="mongoliaStateCenters" />
+                <ref bean="ecotech_locations" />
+                <!-- <ref bean="mongoliaStateCenters" />
                 <ref bean="osmTopo" />
                 <ref bean="osmWmsLayer" />-->
                 <ref bean="osmWmsLayerGray" />
@@ -6652,6 +6682,7 @@
                 <entry key="width" value="40" />
                 <entry key="margin" value="5 10 5 10" />
                 <entry key="cls" value="translation-btn"/>
+                <entry key="isDefaultLanguage" value="true"/>
                 <entry key="iconCls" value="trans-de"/>
             </util:map>
         </property>
@@ -6665,6 +6696,7 @@
                 <entry key="width" value="40" />
                 <entry key="margin" value="5 10 5 10" />
                 <entry key="cls" value="translation-btn"/>
+                <entry key="isDefaultLanguage" value="false"/>
                 <entry key="iconCls" value="trans-en"/>
             </util:map>
         </property>
@@ -6678,6 +6710,7 @@
                 <entry key="width" value="40" />
                 <entry key="margin" value="5 10 5 10" />
                 <entry key="cls" value="translation-btn"/>
+                <entry key="isDefaultLanguage" value="false"/>
                 <entry key="iconCls" value="trans-mn"/>
             </util:map>
         </property>
