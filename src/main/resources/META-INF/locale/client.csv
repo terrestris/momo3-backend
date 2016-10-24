@@ -1,22 +1,21 @@
 component;property;de;en;mn;Dev-status
-MoMo.client.view.button.ListDocuments;config.data.text;Zeige Dokumente;Show Documents;хараахан орчуулагдаагүй;OK
-MoMo.client.view.button.ListDocuments;config.data.tooltip;Zeige Dokumente;Show Documents;хараахан орчуулагдаагүй;OK
+MoMo.client.view.button.ListDocuments;config.data.text;DMS;DMS;хараахан орчуулагдаагүй;OK
+MoMo.client.view.button.ListDocuments;config.data.tooltip;Dokumentenmanagement;Document management system (DMS);хараахан орчуулагдаагүй;OK
 MoMo.client.view.button.LoginLogout;config.data.loginBtnText;Login;Login;хараахан орчуулагдаагүй; -
-MoMo.client.view.button.LoginLogout;config.data.logoutBtnText;Logout;Logout;хараахан орчуулагдаагүй;NOT OK - not binding
+MoMo.client.view.button.LoginLogout;config.data.logoutBtnText;Logout;Logout;хараахан орчуулагдаагүй;OK
 MoMo.client.view.button.LoginLogout;config.data.logoutConfirmMsgText;Möchten Sie sich wirklich ausloggen?;Do you really want to log out?;хараахан орчуулагдаагүй;OK
 MoMo.client.view.button.Print;config.data.tooltip;Karte drucken;Print map;хараахан орчуулагдаагүй;OK
-MoMo.client.view.button.Print;config.data.winTitle;Karte drucken;Print map;хараахан орчуулагдаагүй;NOT OK - not binding
 MoMo.client.view.button.ShowMeasureToolsPanel;config.data.tooltip;Messwerkzeuge;Measurement tools;хараахан орчуулагдаагүй;OK
 MoMo.client.view.button.ShowMetaPanel;config.data.tooltip;Metainformationen anzeigen;Show metadata;хараахан орчуулагдаагүй;OK
 MoMo.client.view.button.ShowRedliningToolsPanel;config.data.tooltip;Zeichnen;Draw;хараахан орчуулагдаагүй;OK
 MoMo.client.view.button.ShowWorkstateToolsPanel;config.data.tooltip;Arbeitsstand;Workstate;хараахан орчуулагдаагүй;OK
 MoMo.client.view.button.StepBack;config.data.tooltip;Vorherige Ansicht;Previous View;хараахан орчуулагдаагүй;OK
 MoMo.client.view.button.StepForward;config.data.tooltip;Nächste Ansicht;Next View;хараахан орчуулагдаагүй;OK
-MoMo.client.view.button.translation.ToEnglish;config.data.tooltipEn;EN;en;хараахан орчуулагдаагүй;OK
+MoMo.client.view.button.translation.ToEnglish;config.data.tooltipEn;EN;EN;EN;OK
 MoMo.client.view.button.translation.ToEnglish;config.data.setLanguageCallbackToastText;Applikationssprache ist jetzt {0};Application language is now {0};Хэл нь одоо байна {0};OK
-MoMo.client.view.button.translation.ToGerman;config.data.tooltipDe;DE;de;хараахан орчуулагдаагүй;OK
+MoMo.client.view.button.translation.ToGerman;config.data.tooltipDe;DE;DE;DE;OK
 MoMo.client.view.button.translation.ToGerman;config.data.setLanguageCallbackToastText;Applikationssprache ist jetzt {0};Application language is now {0};Хэл нь одоо байна {0};OK
-MoMo.client.view.button.translation.ToMongolian;config.data.tooltipMn;MN;mn;хараахан орчуулагдаагүй;OK
+MoMo.client.view.button.translation.ToMongolian;config.data.tooltipMn;MN;MN;MN;OK
 MoMo.client.view.button.translation.ToMongolian;config.data.setLanguageCallbackToastText;Applikationssprache ist jetzt {0};Application language is now {0};Хэл нь одоо байна {0};OK
 MoMo.client.view.button.ZoomToExtent;config.data.tooltip;Auf Gesamtansicht zoomen;Zoom to Extent;хараахан орчуулагдаагүй;OK
 MoMo.client.view.form.Print;config.data.labelDpi;DPI;DPI;хараахан орчуулагдаагүй;OK
@@ -26,14 +25,14 @@ MoMo.client.view.form.Print;config.data.genericFieldSetTitle;Druckeigenschaften;
 MoMo.client.view.form.Print;config.data.attributesTitle;Attribute;Attributes;хараахан орчуулагдаагүй;OK
 MoMo.client.view.form.Print;config.data.scalebarLabel;Maßstabsbalken;Scalebar;хараахан орчуулагдаагүй;OK
 MoMo.client.view.form.Print;config.data.northArrowLabel;Nordpfeil;North arrow;хараахан орчуулагдаагүй;OK
-MoMo.client.view.form.Print;config.data.mapTitleLabel;Titel;Title;хараахан орчуулагдаагүй;NOT OK - not binding
+MoMo.client.view.form.Print;config.data.mapTitleLabel;Titel;Title;хараахан орчуулагдаагүй;OK
 MoMo.client.view.panel.document.DocumentTree;config.data.title;Dokumentenbaum;Document tree;хараахан орчуулагдаагүй;OK
 MoMo.client.view.panel.document.DocumentTree;config.data.addNewFolderText;Neuen Ordner hinzufügen;Add new folder;хараахан орчуулагдаагүй;OK
 MoMo.client.view.panel.document.DocumentTree;config.data.folderNameText;Ordnername;Folder name;хараахан орчуулагдаагүй;OK
 MoMo.client.view.panel.document.DocumentTree;config.data.folderNamePromptText;Ordnername eingeben;Enter folder name;хараахан орчуулагдаагүй;OK
 MoMo.client.view.panel.document.DocumentTree;config.data.addNewLeafText;Neues Dokument hinzufügen;Add new document;хараахан орчуулагдаагүй;OK
 MoMo.client.view.panel.document.DocumentTree;config.data.leafNameText;Dokumentname;Document name;хараахан орчуулагдаагүй;OK
-MoMo.client.view.panel.document.DocumentTree;config.data.leafNamePromptText;Dokumentname hinzufügen;Enter document name;хараахан орчуулагдаагүй; -
+MoMo.client.view.panel.document.DocumentTree;config.data.leafNamePromptText;Dokumentname hinzufügen;Enter document name;хараахан орчуулагдаагүй;OK
 MoMo.client.view.panel.document.DocumentTree;config.data.addDocumentText;PDF Datei anhängen/ersetzen;Attach/replace PDF document;хараахан орчуулагдаагүй;OK
 MoMo.client.view.panel.document.DocumentTree;config.data.renameFolderText;Ordner umbenennen;Rename folder;хараахан орчуулагдаагүй;OK
 MoMo.client.view.panel.document.DocumentTree;config.data.folderNewNamePromptText;Neuen Ordnernamen eingeben;Enter new folder name;хараахан орчуулагдаагүй;OK
@@ -67,7 +66,7 @@ MoMo.client.view.panel.RedliningToolsPanel;config.data.deleteObjectBtnText;Objek
 MoMo.client.view.panel.RedliningToolsPanel;config.data.openStyleBtnText;Styler;Styler;хараахан орчуулагдаагүй;OK
 MoMo.client.view.panel.RedliningToolsPanel;config.data.postItWindowTitle;Post-it Text eingeben;Enter Post-it Text;хараахан орчуулагдаагүй;OK
 MoMo.client.view.panel.WorkstateToolsPanel;config.data.loadSaveWorkstateBtnText;Arbeitstände laden/speichern;load/save Workstates;хараахан орчуулагдаагүй;OK
-MoMo.client.view.panel.WorkstateToolsPanel;config.data.permalinkBtnText;Permalink erzeugen;Generate Permalink;хараахан орчуулагдаагүй;NOT OK - not binding
+MoMo.client.view.panel.WorkstateToolsPanel;config.data.permalinkBtnTooltip;Permalink erzeugen;Generate Permalink;хараахан орчуулагдаагүй;NOT OK - not binding
 MoMo.client.view.panel.WorkstateToolsPanel;config.data.permalinkTitle;Link zur Anwendung;URL to application;хараахан орчуулагдаагүй;NOT OK - not binding
 MoMo.client.view.window.document.DocumentPdfUpload;config.data.title;PDF Dokumenten-Upload;PDF document upload;хараахан орчуулагдаагүй;OK
 MoMo.client.view.window.document.DocumentPdfUpload;config.data.uploadBtnText;Upload starten;Start upload;хараахан орчуулагдаагүй;OK
@@ -91,9 +90,10 @@ MoMo.client.view.window.RedliningStylerWindow;config.data.styleFillColorFieldLab
 MoMo.client.view.window.RedliningStylerWindow;config.data.lineStyleFieldSetTitle;Linienstil;Line Style;хараахан орчуулагдаагүй;OK
 MoMo.client.view.window.RedliningStylerWindow;config.data.polygonStyleFieldSetTitle;Polygonstil;Polygon Stile;хараахан орчуулагдаагүй;OK
 MoMo.client.view.window.RedliningStylerWindow;config.data.closeStylerBtnText;Ok;OK;хараахан орчуулагдаагүй;OK
+MoMo.view.window.PrintWindow;config.data.title;Karte drucken;Print map;хараахан орчуулагдаагүй;OK
 MoMo.view.window.WaterDataChartWindow;config.data.title;Gewässerparameter;Water parameters;хараахан орчуулагдаагүй;OK
 MoMo.view.window.WaterDataChartWindow;config.data.undoZoomBtnText;Rauszoomen;Zoom Out;хараахан орчуулагдаагүй;OK
-MoMo.view.window.WaterDataChartWindow;config.data.altitude;Höhe;Altitude;хараахан орчуулагдаагүй;NOT OK - not binding
+MoMo.view.window.WaterDataChartWindow;config.data.altitude;Höhe;Altitude;хараахан орчуулагдаагүй;OK
 MoMo.view.window.WaterDataChartWindow;config.data.dateFieldFromLabel;Von;From;хараахан орчуулагдаагүй;OK
 MoMo.view.window.WaterDataChartWindow;config.data.dateFieldToLabel;Bis;To;хараахан орчуулагдаагүй;OK
 MoMo.view.window.WaterDataChartWindow;config.data.updateTimeRangeBtnText;Aktualisieren;Update;хараахан орчуулагдаагүй;OK
