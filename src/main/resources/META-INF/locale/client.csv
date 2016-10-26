@@ -1,58 +1,322 @@
 component;property;de;en;mn;Dev-status
-MoMo.client.view.button.LoginLogout;config.data.loginBtnText;Login;Login;;tbd
-MoMo.client.view.button.LoginLogout;config.data.logoutBtnText;Logout;Logout;;tbd
-MoMo.client.view.button.LoginLogout;config.data.logoutConfirmMsgText;Möchten Sie sich wirklich ausloggen?;Do you really want to log out?;;OK
-MoMo.client.view.button.Print;config.data.tooltip;Karte drucken;Print map;;OK
-MoMo.client.view.button.Print;config.data.winTitle;Karte drucken;Print map;; - 
-MoMo.client.view.button.ShowMeasureToolsPanel;config.data.tooltip;Messwerkzeuge;Measurement tools;;OK
-MoMo.client.view.button.ShowMetaPanel;config.data.tooltip;Metainformationen anzeigen;Show metadata;;OK
-MoMo.client.view.button.ShowRedliningToolsPanel;config.data.tooltip;Zeichnen;Draw;;OK
-MoMo.client.view.button.ShowWorkstateToolsPanel;config.data.tooltip;Arbeitsstand;Workstate;;OK
-MoMo.client.view.button.StepBack;config.data.tooltip;Vorherige Ansicht;Previous View;;OK
-MoMo.client.view.button.StepForward;config.data.tooltip;Nächste Ansicht;Next View;;OK
-MoMo.client.view.button.Translation;config.data.tooltipDe;de;de;;tbd
-MoMo.client.view.button.Translation;config.data.tooltipEn;en;en;;tbd
-MoMo.client.view.button.Translation;config.data.tooltipMn;mn;mn;;tbd
-MoMo.client.view.button.Translation;config.data.setLanguageCallbackToastText;Applikationssprache ist jetzt {0};Application language is now {0};;-
-MoMo.client.view.button.ZoomToExtent;config.data.tooltip;Auf Gesamtansicht zoomen;Zoom to Extent;;OK
-MoMo.client.view.form.Print;config.data.labelDpi;DPI;DPI;;OK
-MoMo.client.view.form.Print;config.data.printButtonSuffix;herunterladen;download;;OK
-MoMo.client.view.form.Print;config.data.printFormat;pdf;pdf;;OK
-MoMo.client.view.form.Print;config.data.genericFieldSetTitle;Druckeigenschaften;Print properties;;OK
-MoMo.client.view.form.Print;config.data.attributesTitle;Attribute;Attributes;;OK
-MoMo.client.view.form.Print;config.data.scalebarLabel;Maßstabsbalken;Scalebar;;OK
-MoMo.client.view.form.Print;config.data.northArrowLabel;Nordpfeil;North arrow;;OK
-MoMo.client.view.form.Print;config.data.mapTitleLabel;Titel;Title;;-
-MoMo.client.view.panel.LegendTree;config.data.title;Legende;Legend;;OK
-MoMo.client.view.panel.MapMetaInformation;config.data.srsPrefix;Bezugssystem;Reference System;;OK
-MoMo.client.view.panel.MapMetaInformation;config.data.mousePositionLabel;Zeigerposition;Mouse Position;;OK
-MoMo.client.view.panel.MeasurementToolsPanel;config.data.lineTooltip;Strecke messen;Distance measurements;;OK
-MoMo.client.view.panel.MeasurementToolsPanel;config.data.areaTooltip;Fläche messen;Area measurements;;OK
-MoMo.client.view.panel.MeasurementToolsPanel;config.data.clickToDrawText;Klicken zum Messen;Click to measure;;OK
-MoMo.client.view.panel.MeasurementToolsPanel;config.data.continueLineMsg;Klicken zum Zeichnen der Strecke;Click to draw line;;OK
-MoMo.client.view.panel.MeasurementToolsPanel;config.data.continuePolygonMsg;Klicken zum Zeichnen der Fläche;Click to draw area;;OK
-MoMo.client.view.panel.RedliningToolsPanel;config.data.drawPointsBtnText;Punkt zeichnen;Draw Point;;OK
-MoMo.client.view.panel.RedliningToolsPanel;config.data.drawLinesBtnText;Linie zeichnen;Draw Line;;OK
-MoMo.client.view.panel.RedliningToolsPanel;config.data.drawPolygonsBtnText;Polygon zeichen;Draw Polygon;;OK
-MoMo.client.view.panel.RedliningToolsPanel;config.data.drawCirclesBtnText;Kreis zeichnen;Draw circle;тойрог зур;tbd
-MoMo.client.view.panel.RedliningToolsPanel;config.data.drawRectanglesBtnText;Rechteck zeichnen;Draw rectangle;;tbd
-MoMo.client.view.panel.RedliningToolsPanel;config.data.drawTextBtnText;Beschriftung einfügen;Add label;;tbd
-MoMo.client.view.panel.RedliningToolsPanel;config.data.drawPostItBtnText;Post-it zeichnen;Draw Post-it;;OK
-MoMo.client.view.panel.RedliningToolsPanel;config.data.copyObjectBtnText;Objekt kopieren;Copy Object;;OK
-MoMo.client.view.panel.RedliningToolsPanel;config.data.moveObjectBtnText;Objekt verschieben;Move Object;;OK
-MoMo.client.view.panel.RedliningToolsPanel;config.data.modifyObjectBtnText;Objekt modifizieren;Modify Object;;OK
-MoMo.client.view.panel.RedliningToolsPanel;config.data.deleteObjectBtnText;Objekt löschen;Delete Object;;OK
-MoMo.client.view.panel.RedliningToolsPanel;config.data.openStyleBtnText;Styler;Styler;;OK
-MoMo.client.view.panel.RedliningToolsPanel;config.data.postItWindowTitle;Post-it Text eingeben;Enter Post-it Text;;OK
-MoMo.client.view.panel.WorkstateToolsPanel;config.data.loadSaveWorkstateBtnText;Arbeitstände laden/speichern;load/save Workstates;;OK
-MoMo.client.view.panel.WorkstateToolsPanel;config.data.permalinkBtnText;Permalink erzeugen;Generate Permalink;; - 
-MoMo.client.view.panel.WorkstateToolsPanel;config.data.permalinkTitle;Link zur Anwendung;URL to application;; - 
-MoMo.client.view.window.RedliningStylerWindow;config.data.title;Zeichnungsstil;Drawing Style;;OK
-MoMo.client.view.window.RedliningStylerWindow;config.data.pointStyleFieldSetTitle;Punktstil;Point Style;;OK
-MoMo.client.view.window.RedliningStylerWindow;config.data.pointStyleRadiusNumberFieldLabel;Punkt Radius;Point Radius;;OK
-MoMo.client.view.window.RedliningStylerWindow;config.data.styleStrokeWidthFieldLabel;Strichstärke;Stroke Width;;OK
-MoMo.client.view.window.RedliningStylerWindow;config.data.styleStrokeColorFieldLabel;Strichfarbe;Stroke Color;;OK
-MoMo.client.view.window.RedliningStylerWindow;config.data.styleFillColorFieldLabel;Füllfarbe;Fill Color;;OK
-MoMo.client.view.window.RedliningStylerWindow;config.data.lineStyleFieldSetTitle;Linienstil;Line Style;;OK
-MoMo.client.view.window.RedliningStylerWindow;config.data.polygonStyleFieldSetTitle;Polygonstil;Polygon Stile;;OK
-MoMo.client.view.window.RedliningStylerWindow;config.data.closeStylerBtnText;Ok;OK;;OK
+MoMo.client.view.button.ListDocuments;config.data.text;DMS;DMS;хараахан орчуулагдаагүй;OK
+MoMo.client.view.button.ListDocuments;config.data.tooltip;Dokumentenmanagement;Document management system (DMS);хараахан орчуулагдаагүй;OK
+MoMo.client.view.button.LoginLogout;config.data.loginBtnText;Login;Login;хараахан орчуулагдаагүй; -
+MoMo.client.view.button.LoginLogout;config.data.logoutBtnText;Logout;Logout;хараахан орчуулагдаагүй;OK
+MoMo.client.view.button.LoginLogout;config.data.logoutConfirmMsgText;Möchten Sie sich wirklich ausloggen?;Do you really want to log out?;хараахан орчуулагдаагүй;OK
+MoMo.client.view.button.Print;config.data.tooltip;Karte drucken;Print map;хараахан орчуулагдаагүй;OK
+MoMo.client.view.button.ShowMeasureToolsPanel;config.data.tooltip;Messwerkzeuge;Measurement tools;хараахан орчуулагдаагүй;OK
+MoMo.client.view.button.ShowMetaPanel;config.data.tooltip;Metainformationen anzeigen;Show metadata;хараахан орчуулагдаагүй;OK
+MoMo.client.view.button.ShowRedliningToolsPanel;config.data.tooltip;Zeichnen;Draw;хараахан орчуулагдаагүй;OK
+MoMo.client.view.button.ShowWorkstateToolsPanel;config.data.tooltip;Arbeitsstand;Workstate;хараахан орчуулагдаагүй;OK
+MoMo.client.view.button.StepBack;config.data.tooltip;Vorherige Ansicht;Previous View;хараахан орчуулагдаагүй;OK
+MoMo.client.view.button.StepForward;config.data.tooltip;Nächste Ansicht;Next View;хараахан орчуулагдаагүй;OK
+MoMo.client.view.button.translation.ToEnglish;config.data.tooltipEn;EN;EN;EN;OK
+MoMo.client.view.button.translation.ToEnglish;config.data.setLanguageCallbackToastText;Applikationssprache ist jetzt {0};Application language is now {0};Хэл нь одоо байна {0};OK
+MoMo.client.view.button.translation.ToGerman;config.data.tooltipDe;DE;DE;DE;OK
+MoMo.client.view.button.translation.ToGerman;config.data.setLanguageCallbackToastText;Applikationssprache ist jetzt {0};Application language is now {0};Хэл нь одоо байна {0};OK
+MoMo.client.view.button.translation.ToMongolian;config.data.tooltipMn;MN;MN;MN;OK
+MoMo.client.view.button.translation.ToMongolian;config.data.setLanguageCallbackToastText;Applikationssprache ist jetzt {0};Application language is now {0};Хэл нь одоо байна {0};OK
+MoMo.client.view.button.ZoomToExtent;config.data.tooltip;Auf Gesamtansicht zoomen;Zoom to Extent;хараахан орчуулагдаагүй;OK
+MoMo.client.view.form.Print;config.data.labelDpi;DPI;DPI;хараахан орчуулагдаагүй;OK
+MoMo.client.view.form.Print;config.data.printButtonSuffix;herunterladen;download;хараахан орчуулагдаагүй;OK
+MoMo.client.view.form.Print;config.data.printFormat;pdf;pdf;хараахан орчуулагдаагүй;OK
+MoMo.client.view.form.Print;config.data.genericFieldSetTitle;Druckeigenschaften;Print properties;хараахан орчуулагдаагүй;OK
+MoMo.client.view.form.Print;config.data.attributesTitle;Attribute;Attributes;хараахан орчуулагдаагүй;OK
+MoMo.client.view.form.Print;config.data.scalebarLabel;Maßstabsbalken;Scalebar;хараахан орчуулагдаагүй;OK
+MoMo.client.view.form.Print;config.data.northArrowLabel;Nordpfeil;North arrow;хараахан орчуулагдаагүй;OK
+MoMo.client.view.form.Print;config.data.mapTitleLabel;Titel;Title;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.document.DocumentTree;config.data.title;Dokumentenbaum;Document tree;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.document.DocumentTree;config.data.addNewFolderText;Neuen Ordner hinzufügen;Add new folder;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.document.DocumentTree;config.data.folderNameText;Ordnername;Folder name;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.document.DocumentTree;config.data.folderNamePromptText;Ordnername eingeben;Enter folder name;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.document.DocumentTree;config.data.addNewLeafText;Neues Dokument hinzufügen;Add new document;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.document.DocumentTree;config.data.leafNameText;Dokumentname;Document name;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.document.DocumentTree;config.data.leafNamePromptText;Dokumentname hinzufügen;Enter document name;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.document.DocumentTree;config.data.addDocumentText;PDF Datei anhängen/ersetzen;Attach/replace PDF document;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.document.DocumentTree;config.data.renameFolderText;Ordner umbenennen;Rename folder;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.document.DocumentTree;config.data.folderNewNamePromptText;Neuen Ordnernamen eingeben;Enter new folder name;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.document.DocumentTree;config.data.deleteFolderText;Ordner löschen;Delete folder;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.document.DocumentTree;config.data.warningTitle;Achtung;Warning;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.document.DocumentTree;config.data.deleteFolderWarnMsgText;Alle enthaltenen Dokumente werden gelöscht. Sind Sie sicher?;All contained documents will be also deleted. Are you sure?;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.document.DocumentTree;config.data.renameLeafText;Dokument umbenennen;Rename document;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.document.DocumentTree;config.data.leafNewNamePromptText;Neuen Dokumentennamen eingeben;Enter new document name;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.document.DocumentTree;config.data.deleteLeafText;Dokument löschen;Delete document;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.document.DocumentTree;config.data.deleteLeafWarnMsgText;Dieses Dokument wird gelöscht. Sind Sie sicher?;This document will be removed from tree. Are you sure?;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.document.DocumentTree;config.data.dragText;Drag and Drop zum Umsortieren;Drag and drop to reorganize;хараахан орчуулагдаагүй; -
+MoMo.client.view.panel.LegendTree;config.data.title;Legende;Legend;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.MapMetaInformation;config.data.srsPrefix;Bezugssystem;Reference System;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.MapMetaInformation;config.data.mousePositionLabel;Zeigerposition;Mouse Position;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.MeasurementToolsPanel;config.data.lineTooltip;Strecke messen;Distance measurements;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.MeasurementToolsPanel;config.data.areaTooltip;Fläche messen;Area measurements;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.MeasurementToolsPanel;config.data.clickToDrawText;Klicken zum Messen;Click to measure;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.MeasurementToolsPanel;config.data.continueLineMsg;Klicken zum Zeichnen der Strecke;Click to draw line;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.MeasurementToolsPanel;config.data.continuePolygonMsg;Klicken zum Zeichnen der Fläche;Click to draw area;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.RedliningToolsPanel;config.data.drawPointsBtnText;Punkt zeichnen;Draw Point;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.RedliningToolsPanel;config.data.drawLinesBtnText;Linie zeichnen;Draw Line;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.RedliningToolsPanel;config.data.drawPolygonsBtnText;Polygon zeichen;Draw Polygon;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.RedliningToolsPanel;config.data.drawCirclesBtnText;Kreis zeichnen;Draw circle;тойрог зур;OK
+MoMo.client.view.panel.RedliningToolsPanel;config.data.drawRectanglesBtnText;Rechteck zeichnen;Draw rectangle;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.RedliningToolsPanel;config.data.drawTextBtnText;Beschriftung einfügen;Add label;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.RedliningToolsPanel;config.data.drawPostItBtnText;Post-it zeichnen;Draw Post-it;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.RedliningToolsPanel;config.data.copyObjectBtnText;Objekt kopieren;Copy Object;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.RedliningToolsPanel;config.data.moveObjectBtnText;Objekt verschieben;Move Object;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.RedliningToolsPanel;config.data.modifyObjectBtnText;Objekt modifizieren;Modify Object;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.RedliningToolsPanel;config.data.deleteObjectBtnText;Objekt löschen;Delete Object;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.RedliningToolsPanel;config.data.openStyleBtnText;Styler;Styler;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.RedliningToolsPanel;config.data.postItWindowTitle;Post-it Text eingeben;Enter Post-it Text;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.WorkstateToolsPanel;config.data.loadSaveWorkstateBtnText;Arbeitstände laden/speichern;load/save Workstates;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.WorkstateToolsPanel;config.data.permalinkBtnTooltip;Permalink erzeugen;Generate Permalink;хараахан орчуулагдаагүй;NOT OK - not binding
+MoMo.client.view.panel.WorkstateToolsPanel;config.data.permalinkTitle;Link zur Anwendung;URL to application;хараахан орчуулагдаагүй;NOT OK - not binding
+MoMo.client.view.window.document.DocumentPdfUpload;config.data.title;PDF Dokumenten-Upload;PDF document upload;хараахан орчуулагдаагүй;OK
+MoMo.client.view.window.document.DocumentPdfUpload;config.data.uploadBtnText;Upload starten;Start upload;хараахан орчуулагдаагүй;OK
+MoMo.client.view.window.document.ListDocumentsWindow;config.data.title;Dokumente;Documents;хараахан орчуулагдаагүй;OK
+MoMo.client.view.window.document.ListDocumentsWindow;config.data.textOpenSelectedDoc;Dokument öffnen;Open selected document;хараахан орчуулагдаагүй;OK
+MoMo.client.view.window.document.ListDocumentsWindow;config.data.textDeleteSelectedDoc;Dokument löschen;Delete selected document;хараахан орчуулагдаагүй;OK
+MoMo.client.view.window.document.ListDocumentsWindow;config.data.textCreateNewDoc;Neues Dokument erstellen;Create new document;хараахан орчуулагдаагүй;OK
+MoMo.client.view.window.document.ListDocumentsWindow;config.data.textPromptMessageNewDoc;Bitte neuen Namen für Dokument eingeben;Please enter a name for the new document;хараахан орчуулагдаагүй;OK
+MoMo.client.view.window.document.ListDocumentsWindow;config.data.textDeleteDoc;Dokument löschen;Delete a document;хараахан орчуулагдаагүй;OK
+MoMo.client.view.window.document.ListDocumentsWindow;config.data.textPromptDeleteDoc;Sind Sie sicher, dass Sie das Dokument {0} löschen wollen?;Are you really sure that you want to delete the document {0} ?;хараахан орчуулагдаагүй;OK
+MoMo.client.view.window.document.ListDocumentsWindow;config.data.textUnknownError;Ein unbekannter Fehler ist aufgetreten;An unknown error occured.;хараахан орчуулагдаагүй; -
+MoMo.client.view.window.document.ListDocumentsWindow;config.data.textCouldNotCreateDocument;Dokument konnte nicht erstellt werden.;Could not create document.;хараахан орчуулагдаагүй; -
+MoMo.client.view.window.document.ListDocumentsWindow;config.data.textCouldNotDeleteDocument;Dokument konnte nicht gelöscht werden.;Could not delete document.;хараахан орчуулагдаагүй; -
+MoMo.client.view.window.document.ListDocumentsWindow;config.data.textSuccessDeleteDoc;Dokument {0} wurde erfolgreich gelöscht.;"Successfully deleted the document ""{0}""";хараахан орчуулагдаагүй;OK
+MoMo.client.view.window.RedliningStylerWindow;config.data.title;Zeichnungsstil;Drawing Style;хараахан орчуулагдаагүй;OK
+MoMo.client.view.window.RedliningStylerWindow;config.data.pointStyleFieldSetTitle;Punktstil;Point Style;хараахан орчуулагдаагүй;OK
+MoMo.client.view.window.RedliningStylerWindow;config.data.pointStyleRadiusNumberFieldLabel;Punkt Radius;Point Radius;хараахан орчуулагдаагүй;OK
+MoMo.client.view.window.RedliningStylerWindow;config.data.styleStrokeWidthFieldLabel;Strichstärke;Stroke Width;хараахан орчуулагдаагүй;OK
+MoMo.client.view.window.RedliningStylerWindow;config.data.styleStrokeColorFieldLabel;Strichfarbe;Stroke Color;хараахан орчуулагдаагүй;OK
+MoMo.client.view.window.RedliningStylerWindow;config.data.styleFillColorFieldLabel;Füllfarbe;Fill Color;хараахан орчуулагдаагүй;OK
+MoMo.client.view.window.RedliningStylerWindow;config.data.lineStyleFieldSetTitle;Linienstil;Line Style;хараахан орчуулагдаагүй;OK
+MoMo.client.view.window.RedliningStylerWindow;config.data.polygonStyleFieldSetTitle;Polygonstil;Polygon Stile;хараахан орчуулагдаагүй;OK
+MoMo.client.view.window.RedliningStylerWindow;config.data.closeStylerBtnText;Ok;OK;хараахан орчуулагдаагүй;OK
+MoMo.view.window.PrintWindow;config.data.title;Karte drucken;Print map;хараахан орчуулагдаагүй;OK
+MoMo.view.window.WaterDataChartWindow;config.data.title;Gewässerparameter;Water parameters;хараахан орчуулагдаагүй;OK
+MoMo.view.window.WaterDataChartWindow;config.data.undoZoomBtnText;Rauszoomen;Zoom Out;хараахан орчуулагдаагүй;OK
+MoMo.view.window.WaterDataChartWindow;config.data.altitude;Höhe;Altitude;хараахан орчуулагдаагүй;OK
+MoMo.view.window.WaterDataChartWindow;config.data.dateFieldFromLabel;Von;From;хараахан орчуулагдаагүй;OK
+MoMo.view.window.WaterDataChartWindow;config.data.dateFieldToLabel;Bis;To;хараахан орчуулагдаагүй;OK
+MoMo.view.window.WaterDataChartWindow;config.data.updateTimeRangeBtnText;Aktualisieren;Update;хараахан орчуулагдаагүй;OK
+MoMo.view.window.WaterDataChartWindow;config.data.chartlegendTemp;Temperatur;Temperature;хараахан орчуулагдаагүй;OK
+MoMo.view.window.WaterDataChartWindow;config.data.chartlegendLeitfaehigkeit;Leitfähigkeit;Conductivity;хараахан орчуулагдаагүй;OK
+MoMo.view.window.WaterDataChartWindow;config.data.chartlegendpH;pH;pH;хараахан орчуулагдаагүй;OK
+MoMo.view.window.WaterDataChartWindow;config.data.chartlegendTruebung;Trübung;Turbidity;хараахан орчуулагдаагүй;OK
+MoMo.view.window.WaterDataChartWindow;config.data.chartlegendChlorophyll;Chlorophyll;Chlorophyll;хараахан орчуулагдаагүй;OK
+MoMo.view.window.WaterDataChartWindow;config.data.chartlegendSauerstoff;Sauerstoffsättigung in %;Oxygen saturation in%;хараахан орчуулагдаагүй;OK
+MoMo.view.window.WaterDataChartWindow;config.data.chartlegendSauerstoff2;Sauerstoffkonzentration;Oxygen concentration;хараахан орчуулагдаагүй;OK
+MoMo.view.window.WaterDataChartWindow;config.data.chartlegendWasserstand;Wasserstand;Water level;хараахан орчуулагдаагүй;OK
+MoMo.view.window.WaterDataChartWindow;config.data.currentDayBtnText;Heute;Today;хараахан орчуулагдаагүй;NOT OK - not binding
+MoMo.view.window.WaterDataChartWindow;config.data.hourLabel;Std;Hours;хараахан орчуулагдаагүй;NOT OK - not binding
+MoMo.view.window.WaterDataChartWindow;config.data.minuteLabel;Min;Minutes;хараахан орчуулагдаагүй;NOT OK - not binding
+BasiGX.view.button.AddWms;config.data.tooltip;WMS hinzufügen;Add WMS;хараахан орчуулагдаагүй; -
+BasiGX.view.button.AddWms;config.data.text;WMS ⊕;WMS ⊕;хараахан орчуулагдаагүй; -
+BasiGX.view.button.AddWms;config.data.windowTitle;WMS hinzufügen;Add WMS;хараахан орчуулагдаагүй; -
+BasiGX.view.button.CoordinateTransform;config.data.tooltip;Koordinaten transformieren und anzeigen;Transform coordinates;хараахан орчуулагдаагүй; -
+BasiGX.view.button.CoordinateTransform;config.data.text;Koordinaten transformieren;Transform coordinates;хараахан орчуулагдаагүй; -
+BasiGX.view.button.CoordinateTransform;config.data.windowTitle;Koordinaten transformieren;Transform coordinates;хараахан орчуулагдаагүй; -
+BasiGX.view.button.Help;config.data.tooltip;Hilfe;Help;хараахан орчуулагдаагүй; -
+BasiGX.view.button.Help;config.data.text;;;хараахан орчуулагдаагүй; -
+BasiGX.view.button.Hsi;config.data.tooltip;Informationsabfrage;Query object information;хараахан орчуулагдаагүй; -
+BasiGX.view.button.Hsi;config.data.text;;;; -
+BasiGX.view.button.Measure;config.data.textline;Strecke messen;Measure line;хараахан орчуулагдаагүй; -
+BasiGX.view.button.Measure;config.data.textpoly;Fläche messen;Measure area;хараахан орчуулагдаагүй; -
+BasiGX.view.button.Measure;config.data.continuePolygonMsg;Klicken zum Zeichnen der Fläche;Click to start measuring the area;хараахан орчуулагдаагүй; -
+BasiGX.view.button.Measure;config.data.continueLineMsg;Klicken zum Zeichnen der Strecke;Click to start measuring the line;хараахан орчуулагдаагүй; -
+BasiGX.view.button.Measure;config.data.clickToDrawText;Klicken zum Messen;Click to start measuring;хараахан орчуулагдаагүй; -
+BasiGX.view.button.Permalink;config.data.tooltip;Permalink erzeugen;Create permalink;хараахан орчуулагдаагүй; -
+BasiGX.view.button.Permalink;config.data.text;Permalink;Permalink;хараахан орчуулагдаагүй; -
+BasiGX.view.button.Permalink;config.data.windowTitle;Link zur Anwendung;Link to application;хараахан орчуулагдаагүй; -
+BasiGX.view.button.ToggleLegend;config.data.tooltip;Layerauswahl;Show legend;хараахан орчуулагдаагүй; -
+BasiGX.view.button.ToggleLegend;config.data.text;;;хараахан орчуулагдаагүй; -
+BasiGX.view.button.ZoomIn;config.data.tooltip;Hineinzoomen;Zoom in;хараахан орчуулагдаагүй; -
+BasiGX.view.button.ZoomIn;config.data.text;;;; -
+BasiGX.view.button.ZoomOut;config.data.tooltip;Herauszoomen;Zoom out;хараахан орчуулагдаагүй; -
+BasiGX.view.button.ZoomOut;config.data.text;;;; -
+BasiGX.view.button.ZoomToExtent;config.data.tooltip;Auf Gesamtansicht zoomen;Zoom to maximum extent;хараахан орчуулагдаагүй; -
+BasiGX.view.button.ZoomToExtent;config.data.text;;;; -
+BasiGX.view.combo.Language;config.data.fieldLabel;;;; -
+BasiGX.view.combo.ScaleCombo;config.data.fieldLabel;;;; -
+BasiGX.view.container.LayerSlider;config.data.disabeldLabelHtml;Aus;Off;хараахан орчуулагдаагүй; -
+BasiGX.view.container.NominatimSearch;config.data.searchTermTextFieldLabel;Suchbegriff;Search term;хараахан орчуулагдаагүй; -
+BasiGX.view.container.NominatimSearch;config.data.searchResultGridTitle;Suchergebnisse;Search results;хараахан орчуулагдаагүй; -
+BasiGX.view.container.NominatimSearch;config.data.resetBtnText;Zurücksetzen;Reset;хараахан орчуулагдаагүй; -
+BasiGX.view.container.OverpassSearch;config.data.searchTermTextFieldLabel;Suchbegriff;Search term;хараахан орчуулагдаагүй; -
+BasiGX.view.container.OverpassSearch;config.data.searchCriteriaGridTitle;Suchkategorien;Search criteria;хараахан орчуулагдаагүй; -
+BasiGX.view.container.OverpassSearch;config.data.searchCriteriaLabelTag;OSM-Tag;OSM-Tag;хараахан орчуулагдаагүй; -
+BasiGX.view.container.OverpassSearch;config.data.searchCriteriaCategoryTag;Kategorie;Category;хараахан орчуулагдаагүй; -
+BasiGX.view.container.OverpassSearch;config.data.searchCriteriaOccurenceTag;Tag-Häufigkeit;Tag-occurence;хараахан орчуулагдаагүй; -
+BasiGX.view.container.OverpassSearch;config.data.searchResultGridTitle;Suchergebnisse;Search results;хараахан орчуулагдаагүй; -
+BasiGX.view.container.OverpassSearch;config.data.resetBtnText;Zurücksetzen;Reset;хараахан орчуулагдаагүй; -
+BasiGX.view.container.OverpassSearch;config.data.noMatchesFoundErrText;Keine passenden Einträge gefunden;No matches found;хараахан орчуулагдаагүй; -
+BasiGX.view.container.RedlineStyler;config.data.pointStyleFieldSetTitle;Punktstil;Point Style;хараахан орчуулагдаагүй; -
+BasiGX.view.container.RedlineStyler;config.data.pointStyleSymbolPanelTitle;Symbol;Symbol;хараахан орчуулагдаагүй; -
+BasiGX.view.container.RedlineStyler;config.data.pointStyleRadiusNumberFieldLabel;Punktradius;Point Radius;хараахан орчуулагдаагүй; -
+BasiGX.view.container.RedlineStyler;config.data.pointStyleStrokeNumberFieldLabel;Strichstärke;Stroke Width;хараахан орчуулагдаагүй; -
+BasiGX.view.container.RedlineStyler;config.data.pointStyleStrokeColorFieldLabel;Strichfarbe;Stroke Color;хараахан орчуулагдаагүй; -
+BasiGX.view.container.RedlineStyler;config.data.pointStyleFillColorFieldLabel;Füllfarbe;Fill Color;хараахан орчуулагдаагүй; -
+BasiGX.view.container.RedlineStyler;config.data.pointStyleGraphicPanelTitle;Grafik;Graphic;хараахан орчуулагдаагүй; -
+BasiGX.view.container.RedlineStyler;config.data.pointStyleChooseImgBtnText;Grafik auswählen;Choose Image;хараахан орчуулагдаагүй; -
+BasiGX.view.container.RedlineStyler;config.data.pointStyleImgOffsetXSliderLabel;X-Versatz;Graphic Offset X;хараахан орчуулагдаагүй; -
+BasiGX.view.container.RedlineStyler;config.data.pointStyleImgOffsetYSliderLabel;Y-Versatz;Graphic Offset Y;хараахан орчуулагдаагүй; -
+BasiGX.view.container.RedlineStyler;config.data.pointStyleImgScaleSliderLabel;Skalierung;Scale;хараахан орчуулагдаагүй; -
+BasiGX.view.container.RedlineStyler;config.data.lineStyleFieldSetTitle;Linienstil;LineString Style;хараахан орчуулагдаагүй; -
+BasiGX.view.container.RedlineStyler;config.data.lineStyleStrokeNumberFieldLabel;Strichstärke;Stroke Width;хараахан орчуулагдаагүй; -
+BasiGX.view.container.RedlineStyler;config.data.lineStyleStrokeColorFieldLabel;Strichfarbe;Stroke Color;хараахан орчуулагдаагүй; -
+BasiGX.view.container.RedlineStyler;config.data.polygonStyleFieldSetTitle;Flächenstil;Polygon Style;хараахан орчуулагдаагүй; -
+BasiGX.view.container.RedlineStyler;config.data.polygonStyleStrokeNumberFieldLabel;Strichstärke;Stroke Width;хараахан орчуулагдаагүй; -
+BasiGX.view.container.RedlineStyler;config.data.polygonStyleStrokeColorFieldLabel;Strichfarbe;Stroke Color;хараахан орчуулагдаагүй; -
+BasiGX.view.container.RedlineStyler;config.data.polygonStyleFillColorFieldLabel;Füllfarbe;Fill Color;хараахан орчуулагдаагүй; -
+BasiGX.view.container.RedlineStyler;config.data.pointGrapicDeletedSuccessMsgText;Die Grafik wurden entfernt. Bitte wählen Sie eine neue aus.;The icon has been deleted. Please reassign a new one.;хараахан орчуулагдаагүй; -
+BasiGX.view.container.RedlineStyler;config.data.pointGrapicDeletedSuccessMsgTitle;Löschen erfolgreich;Deletion succesfull;хараахан орчуулагдаагүй; -
+BasiGX.view.container.RedlineStyler;config.data.graphicPoolWindowTitle;Grafikpool;Graphic Pool;хараахан орчуулагдаагүй; -
+BasiGX.view.container.Redlining;config.data.drawPointsBtnText;Zeichne Punkte;Draw Points;хараахан орчуулагдаагүй; -
+BasiGX.view.container.Redlining;config.data.drawLinesBtnText;Zeichne Linien;Draw Lines;хараахан орчуулагдаагүй; -
+BasiGX.view.container.Redlining;config.data.drawPolygonsBtnText;Zeichne Flächen;Draw Polygons;хараахан орчуулагдаагүй; -
+BasiGX.view.container.Redlining;config.data.drawPostItBtnText;Zeichne Post-It;Draw Post-it;хараахан орчуулагдаагүй; -
+BasiGX.view.container.Redlining;config.data.copyObjectBtnText;Kopiere Objekt;Copy Object;хараахан орчуулагдаагүй; -
+BasiGX.view.container.Redlining;config.data.moveObjectBtnText;Verschiebe Objekt;Move Object;хараахан орчуулагдаагүй; -
+BasiGX.view.container.Redlining;config.data.modifyObjectBtnText;Modifiziere Objekt;Modify Object;хараахан орчуулагдаагүй; -
+BasiGX.view.container.Redlining;config.data.deleteObjectBtnText;Entferne Objekt;Delete Object;хараахан орчуулагдаагүй; -
+BasiGX.view.container.Redlining;config.data.openStyleBtnText;Styler;Styler;хараахан орчуулагдаагүй; -
+BasiGX.view.container.Redlining;config.data.stylerWindowTitle;Styler;Styler;хараахан орчуулагдаагүй; -
+BasiGX.view.container.Redlining;config.data.postItWindowTitle;Post-It Text;Enter the Post-its text;хараахан орчуулагдаагүй; -
+BasiGX.view.container.Redlining;config.data.postItWindowCreatePostItBtnText;Erstelle Post-It;Create Post-it;хараахан орчуулагдаагүй; -
+BasiGX.view.container.WfsSearch;config.data.searchTermTextFieldLabel;Suchbegriff;Search term;хараахан орчуулагдаагүй; -
+BasiGX.view.container.WfsSearch;config.data.searchResultGridTitle;Suchergebnisse;Search results;хараахан орчуулагдаагүй; -
+BasiGX.view.container.WfsSearch;config.data.resetBtnText;Zurücksetzen;Reset;хараахан орчуулагдаагүй; -
+BasiGX.view.form.AddWms;config.data.queryParamsFieldSetTitle;Anfrageparameter;Query parameters;хараахан орчуулагдаагүй; -
+BasiGX.view.form.AddWms;config.data.wmsUrlTextFieldLabel;WMS-URL;WMS-URL;хараахан орчуулагдаагүй; -
+BasiGX.view.form.AddWms;config.data.wmsVersionContainerFieldLabel;Version;Version;хараахан орчуулагдаагүй; -
+BasiGX.view.form.AddWms;config.data.availableLayesFieldSetTitle;Verfügbare Layer;Available layers;хараахан орчуулагдаагүй; -
+BasiGX.view.form.AddWms;config.data.resetBtnText;Zurücksetzen;Reset;хараахан орчуулагдаагүй; -
+BasiGX.view.form.AddWms;config.data.requestLayersBtnText;Verfügbare Layer abfragen;Request available layers;хараахан орчуулагдаагүй; -
+BasiGX.view.form.AddWms;config.data.addCheckedLayersBtnText;Ausgewählte Layer hinzufügen;Add selected layers;хараахан орчуулагдаагүй; -
+BasiGX.view.form.AddWms;config.data.errorIncompatibleWMS;Der angefragte WMS ist nicht kompatibel zur Anwendung;The requested WMS is not compatible with this application;хараахан орчуулагдаагүй; -
+BasiGX.view.form.AddWms;config.data.errorRequestFailed;Die angegebene URL konte nicht abgefragt werden;Could not reach the desired location;хараахан орчуулагдаагүй; -
+BasiGX.view.form.AddWms;config.data.errorCouldntParseResponse;Die erhaltene Antwort konnte nicht erfolgreich geparst werden;Error while reading the response send by the server;хараахан орчуулагдаагүй; -
+BasiGX.view.form.CoordinateTransform;config.data.coordFieldSetTitle;Koordinaten;Coordinates;хараахан орчуулагдаагүй; -
+BasiGX.view.form.CoordinateTransform;config.data.coordXFieldLabel;X-Koordinate;X-Coordinate;хараахан орчуулагдаагүй; -
+BasiGX.view.form.CoordinateTransform;config.data.coordYFieldLabel;Y-Koordinate;Y-Coordinate;хараахан орчуулагдаагүй; -
+BasiGX.view.form.CoordinateTransform;config.data.transformBtnText;Transformieren;Transform;хараахан орчуулагдаагүй; -
+BasiGX.view.form.CoordinateTransform;config.data.resetFormBtnText;Zurücksetzen;Reset;хараахан орчуулагдаагүй; -
+BasiGX.view.form.Permalink;config.data.refreshBtnText;Erneuern;Refresh;хараахан орчуулагдаагүй; -
+BasiGX.view.form.Print;config.data.title;Drucken;Print;хараахан орчуулагдаагүй; -
+BasiGX.view.form.Print;config.data.labelDpi;DPI;DPI;хараахан орчуулагдаагүй; -
+BasiGX.view.form.Print;config.data.printButtonSuffix;anfordern;request;хараахан орчуулагдаагүй; -
+BasiGX.view.form.Print;config.data.downloadButtonPrefix;Download;Download;хараахан орчуулагдаагүй; -
+BasiGX.view.form.Print;config.data.printFormat;pdf;pdf;хараахан орчуулагдаагүй; -
+BasiGX.view.form.Print;config.data.genericFieldSetTitle;Einstellungen;Settings;хараахан орчуулагдаагүй; -
+BasiGX.view.panel.GraphicPool;config.data.delButtonText;Löschen;Delete;хараахан орчуулагдаагүй; -
+BasiGX.view.panel.GraphicPool;config.data.okBtnText;OK;Ok;хараахан орчуулагдаагүй; -
+BasiGX.view.panel.GraphicPool;config.data.msgBoxNoElementSelectedText;Keine Grafik ausgewählt;No image selected;хараахан орчуулагдаагүй; -
+BasiGX.view.panel.GraphicPool;config.data.closeBtnText;Schließen;Close;хараахан орчуулагдаагүй; -
+BasiGX.view.panel.GraphicPool;config.data.chooseImageBtnText;Auswählen;Choose;хараахан орчуулагдаагүй; -
+BasiGX.view.panel.GraphicPool;config.data.uploadBtnText;Hochladen;Upload;хараахан орчуулагдаагүй; -
+BasiGX.view.panel.GraphicPool;config.data.uploadWaitMsg;Bitte warten...;Please wait...;хараахан орчуулагдаагүй; -
+BasiGX.view.panel.GraphicPool;config.data.uploadErrorText;Fehler beim Hochladen;Error on upload check file type and size;хараахан орчуулагдаагүй; -
+BasiGX.view.panel.GraphicPool;config.data.msgConfirmDeletionTpl;Möchten Sie die ausgewählte Grafik wirklich löschen?;Do you really want to delete this picture?;хараахан орчуулагдаагүй; -
+BasiGX.view.panel.GraphicPool;config.data.graphicDeleteInfoSuccess;Grafik erfolgreich entfernt;Image successfully deleted;хараахан орчуулагдаагүй; -
+BasiGX.view.panel.GraphicPool;config.data.graphicDeleteInfoError;Fehler beim Entfernen der Grafik;Image deletion failed;хараахан орчуулагдаагүй; -
+BasiGX.view.panel.GraphicPool;config.data.msgDeletionCancelled;Entfernen abgebrochen;Deletion cancelled.;хараахан орчуулагдаагүй; -
+BasiGX.view.panel.LayerSetChooser;config.data.title;Themen Auswahl;Themes;хараахан орчуулагдаагүй; -
+BasiGX.view.panel.LayerSetChooser;config.data.filterFieldLabel;Filter;Filter;хараахан орчуулагдаагүй; -
+BasiGX.view.panel.MapContainer;config.data.titleLegendPanel;Legende;Legend;хараахан орчуулагдаагүй; -
+BasiGX.view.panel.Menu;config.data.closedMenuTitle;Menu schließen;Close menu;хараахан орчуулагдаагүй; -
+BasiGX.view.panel.Menu;config.data.openedMenuTitle;Menu anzeigen;Show menu;хараахан орчуулагдаагүй; -
+BasiGX.view.view.GraphicPool;config.data.emptyStoreMsg;Keine Daten gefunden;No data found;хараахан орчуулагдаагүй; -
+Ext.Date;monthNames[];Januar,Februar,März,April,Mai,Juni,Juli,August,September,Oktober,November,Dezember;January,February,March,April,May,June,July,August,September,October,November,December;х,а,р,а,а,х,а,н,о,р,ч,у; -
+Ext.Date;defaultFormat;d.m.Y;m/d/Y;хараахан орчуулагдаагүй; -
+Ext.Date;monthNumbers.Jan;0;0;1; -
+Ext.Date;monthNumbers.Feb;1;1;1; -
+Ext.Date;monthNumbers.Mar;2;2;3; -
+Ext.Date;monthNumbers.Apr;3;3;3; -
+Ext.Date;monthNumbers.Mai;4;4;4; -
+Ext.Date;monthNumbers.Jun;5;5;5; -
+Ext.Date;monthNumbers.Jul;6;6;6; -
+Ext.Date;monthNumbers.Aug;7;7;4; -
+Ext.Date;monthNumbers.Sep;8;8;8; -
+Ext.Date;monthNumbers.Okt;9;9;9; -
+Ext.Date;monthNumbers.Nov;10;10;10; -
+Ext.Date;monthNumbers.Dez;11;11;11; -
+Ext.Date;dayNames[];Sonntag,Montag,Dienstag,Mittwoch,Donnerstag,Freitag,Samstag;Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday;х,а,р,а,а,х,а; -
+Ext.form.Basic;waitTitle;Bitte warten...;Please Wait...;хараахан орчуулагдаагүй; -
+Ext.form.CheckboxGroupExt.form.CheckboxGroup;blankText;Du musst mehr als einen Eintrag aus der Gruppe auswählen;You must select at least one item in this group;хараахан орчуулагдаагүй; -
+Ext.form.field.Base;invalidText;Der Wert des Feldes ist nicht korrekt;The value in this field is invalid;хараахан орчуулагдаагүй; -
+Ext.form.field.ComboBox;valueNotFoundText;;;; -
+Ext.form.field.ComboBox;defaultListConfig.loadingText;Lade Daten ...;Loading...;хараахан орчуулагдаагүй; -
+Ext.form.field.Date;disabledDaysText;nicht erlaubt;Disabled;хараахан орчуулагдаагүй; -
+Ext.form.field.Date;disabledDatesText;nicht erlaubt;Disabled;хараахан орчуулагдаагүй; -
+Ext.form.field.Date;minText;Das Datum in diesem Feld muss nach dem {0} liegen;The date in this field must be after {0};хараахан орчуулагдаагүй; -
+Ext.form.field.Date;maxText;Das Datum in diesem Feld muss vor dem {0} liegen;The date in this field must be before {0};хараахан орчуулагдаагүй; -
+Ext.form.field.Date;invalidText;{0} ist kein gültiges Datum - es muss im Format {1} eingegeben werden;{0} is not a valid date - it must be in the format {1};хараахан орчуулагдаагүй; -
+Ext.form.field.Date;format;d.m.Y;m/d/y;m/d/y; -
+Ext.form.field.Date;altFormats;j.n.Y|j.n.y|j.n.|j.|j/n/Y|j/n/y|j-n-y|j-n-Y|j/n|j-n|dm|dmy|dmY|j|Y-n-j|Y-m-d;m/d/Y|m-d-y|m-d-Y|m/d|m-d|md|mdy|mdY|d|Y-m-d;m/d/Y|m-d-y|m-d-Y|m/d|m-d|md|mdy|mdY|d|Y-m-d; -
+Ext.form.field.Date;startDay;1;1;1; -
+Ext.form.field.HtmlEditor;createLinkText;Bitte geben Sie die URL für den Link ein:;Please enter the URL for the link:;хараахан орчуулагдаагүй; -
+Ext.form.field.HtmlEditor;buttonTips.bold.title;Fett (Ctrl+B);Bold (Ctrl+B);хараахан орчуулагдаагүй; -
+Ext.form.field.Number;minText;Der Mindestwert für dieses Feld ist {0};The minimum value for this field is {0};хараахан орчуулагдаагүй; -
+Ext.form.field.Number;maxText;Der Maximalwert für dieses Feld ist {0};The maximum value for this field is {0};хараахан орчуулагдаагүй; -
+Ext.form.field.Number;nanText;{0} ist keine Zahl;{0} is not a valid number;хараахан орчуулагдаагүй; -
+Ext.form.field.Text;minLengthText;Bitte geben Sie mindestens {0} Zeichen ein;The minimum length for this field is {0};хараахан орчуулагдаагүй; -
+Ext.form.field.Text;maxLengthText;Bitte geben Sie maximal {0} Zeichen ein;The maximum length for this field is {0};хараахан орчуулагдаагүй; -
+Ext.form.field.Text;blankText;Dieses Feld darf nicht leer sein;This field is required;хараахан орчуулагдаагүй; -
+Ext.form.field.Text;regexText;;;; -
+Ext.form.field.Text;emptyText;;;; -
+Ext.form.field.Time;maxText;Die Zeit muss gleich oder vor {0} liegen;The time in this field must be equal to or before {0};хараахан орчуулагдаагүй; -
+Ext.form.field.Time;invalidText;{0} ist keine gültige Zeit;{0} is not a valid time;хараахан орчуулагдаагүй; -
+Ext.form.field.Time;format;H:i;g:i A;хараахан орчуулагдаагүй; -
+Ext.form.field.TimeExt.form.field.Time;minText;Die Zeit muss gleich oder nach {0} liegen;The time in this field must be equal to or after {0};хараахан орчуулагдаагүй; -
+Ext.form.field.VTypes;alphaText;Dieses Feld darf nur Buchstaben enthalten und _;This field should only contain letters and _;хараахан орчуулагдаагүй; -
+Ext.form.field.VTypes;alphanumText;Dieses Feld darf nur Buchstaben und Zahlen enthalten und _;This field should only contain letters numbers and _;хараахан орчуулагдаагүй; -
+Ext.form.field.VTypes;emailText;Dieses Feld sollte eine E-Mail-Adresse enthalten. Format: 'user@example.com';This field should be an e-mail address in the format 'user@example.com';хараахан орчуулагдаагүй; -
+Ext.form.field.VTypes;urlText;Dieses Feld sollte eine URL enthalten. Format: http:'www.example.com';This field should be a URL in the format 'http://www.example.com';хараахан орчуулагдаагүй; -
+Ext.form.RadioGroupExt.form.RadioGroup;blankText;Du musst einen Eintrag aus der Gruppe auswählen;You must select one item in this group;хараахан орчуулагдаагүй; -
+Ext.grid.BooleanColumn;falseText;FALSCH;false;хараахан орчуулагдаагүй; -
+Ext.grid.BooleanColumnExt.grid.BooleanColumn;trueText;wahr;true;хараахан орчуулагдаагүй; -
+Ext.grid.DateColumnExt.grid.DateColumn;format;d.m.Y;m/d/Y;m/d/Y; -
+Ext.grid.header.Container;sortDescText;Absteigend sortieren;Sort Descending;хараахан орчуулагдаагүй; -
+Ext.grid.header.Container;sortClearText;Sortierung entfernen;Remove Sorting;хараахан орчуулагдаагүй; -
+Ext.grid.header.Container;columnsText;Spalten;Columns;араахан орчуулагдаагүй; -
+Ext.grid.header.ContainerExt.grid.header.Container;sortAscText;Aufsteigend sortieren;Sort Ascending;хараахан орчуулагдаагүй; -
+Ext.grid.NumberColumnExt.grid.NumberColumn;format;0.000,00/i;0.000,00/i;0.000,00/i; -
+Ext.grid.plugin.DragDrop;dragText;0} Zeile(n) ausgewählt;{0} selected row{1};хараахан орчуулагдаагүй; -
+Ext.grid.PropertyColumnModel;valueText;Wert;Value;хараахан орчуулагдаагүй; -
+Ext.grid.PropertyColumnModel;dateFormat;d.m.Y;m/j/Y;m/j/Y; -
+Ext.grid.PropertyColumnModel;trueText;wahr;true;хараахан орчуулагдаагүй; -
+Ext.grid.PropertyColumnModel;falseText;FALSCH;false;хараахан орчуулагдаагүй; -
+Ext.grid.PropertyColumnModelExt.grid.PropertyColumnModel;nameText;Name;Name;хараахан орчуулагдаагүй; -
+Ext.LoadMask;msg;Lade Daten...;Loading...;хараахан орчуулагдаагүй; -
+Ext.picker.Date;minText;Dieses Datum liegt von dem erstmöglichen Datum;This date is before the minimum date;хараахан орчуулагдаагүй; -
+Ext.picker.Date;maxText;Dieses Datum liegt nach dem letztmöglichen Datum;This date is after the maximum date;хараахан орчуулагдаагүй; -
+Ext.picker.Date;disabledDaysText;;;; -
+Ext.picker.Date;disabledDatesText;;;; -
+Ext.picker.Date;nextText;Nächster Monat (Strg/Control + Rechts);Next Month (Control+Right);хараахан орчуулагдаагүй; -
+Ext.picker.Date;prevText;Vorheriger Monat (Strg/Control + Links);Previous Month (Control+Left);хараахан орчуулагдаагүй; -
+Ext.picker.Date;monthYearText;Monat auswählen (Strg/Control + Hoch/Runter, um ein Jahr auszuwählen);Choose a month (Control+Up/Down to move years);хараахан орчуулагдаагүй; -
+Ext.picker.Date;todayTip;Heute ({0}) (Leertaste);{0} (Spacebar);хараахан орчуулагдаагүй; -
+Ext.picker.Date;format;d.m.Y;m/d/y;m/d/y; -
+Ext.picker.Date;startDay;1;0;0; -
+Ext.picker.Date;todayText; Heute;Today;хараахан орчуулагдаагүй; -
+Ext.picker.Month;okText;Ok;OK;хараахан орчуулагдаагүй; -
+Ext.picker.Month;cancelText;Abbrechen;Cancel;хараахан орчуулагдаагүй; -
+Ext.tab.Tab;closeText;Diesen Tab schließen;Close this Tab;хараахан орчуулагдаагүй; -
+Ext.toolbar.Paging;beforePageText;Seite;Page;хараахан орчуулагдаагүй; -
+Ext.toolbar.Paging;afterPageText;von {0};of {0};хараахан орчуулагдаагүй; -
+Ext.toolbar.Paging;firstText;Erste Seite;First Page;хараахан орчуулагдаагүй; -
+Ext.toolbar.Paging;prevText;vorherige Seite;Previous Page;хараахан орчуулагдаагүй; -
+Ext.toolbar.Paging;nextText;nächste Seite;Next Page;хараахан орчуулагдаагүй; -
+Ext.toolbar.Paging;lastText;letzte Seite;Last Page;хараахан орчуулагдаагүй; -
+Ext.toolbar.Paging;refreshText;Aktualisieren;Refresh;хараахан орчуулагдаагүй; -
+Ext.toolbar.Paging;displayMsg;Anzeige Eintrag {0} - {1} von {2};Displaying {0} - {1} of {2};хараахан орчуулагдаагүй; -
+Ext.toolbar.Paging;emptyMsg;Keine Daten vorhanden;No data to display;хараахан орчуулагдаагүй; -
+Ext.util.Format;thousandSeparator;.;0;0; -
+Ext.util.Format;decimalSeparator;0;.;.; -
+Ext.util.Format;currencySign;€;$;₮; -
+Ext.util.Format;dateFormat;d.m.Y;m/d/Y;m/d/Y; -
+Ext.view.AbstractView;loadingText;Lade Daten...;Loading...;хараахан орчуулагдаагүй; -
+Ext.view.View;emptyText;;;; -
+Ext.window.MessageBox;buttonText.ok;Ok;OK;хараахан орчуулагдаагүй; -
+Ext.window.MessageBox;buttonText.cancel;Abbrechen;Cancel;хараахан орчуулагдаагүй; -
+Ext.window.MessageBox;buttonText.yes;Ja;Yes;хараахан орчуулагдаагүй; -
+Ext.window.MessageBox;buttonText.no;Nein;No;хараахан орчуулагдаагүй; -
+Ext.window.Window;closeToolText;Fenster schließen;close window;хараахан орчуулагдаагүй; -
