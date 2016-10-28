@@ -6468,6 +6468,7 @@
     <!-- Define common map tools -->
     <bean id="zoomInModule" class="de.terrestris.shogun2.model.module.Button">
         <property name="name" value="Zoom in button" />
+        <property name="defaultButton" value="true" />
         <property name="xtype" value="basigx-button-zoomin" />
         <property name="properties">
              <util:map>
@@ -6479,6 +6480,7 @@
 
     <bean id="zoomOutModule" class="de.terrestris.shogun2.model.module.Button">
         <property name="name" value="Zoom out button" />
+        <property name="defaultButton" value="true" />
         <property name="xtype" value="basigx-button-zoomout" />
         <property name="properties">
              <util:map>
@@ -6490,6 +6492,7 @@
 
     <bean id="zoomToExtentModule" class="de.terrestris.shogun2.model.module.Button">
         <property name="name" value="Zoom to extent button" />
+        <property name="defaultButton" value="true" />
         <property name="xtype" value="momo-button-zoomtoextent" />
         <property name="properties">
              <util:map>
@@ -6501,6 +6504,7 @@
 
     <bean id="stepBackModule" class="de.terrestris.shogun2.model.module.Button">
         <property name="name" value="Step back to previous extent button" />
+        <property name="defaultButton" value="true" />
         <property name="xtype" value="momo-button-stepback" />
         <property name="properties">
              <util:map>
@@ -6512,6 +6516,7 @@
 
     <bean id="stepForwardModule" class="de.terrestris.shogun2.model.module.Button">
         <property name="name" value="Step forward to next extent button" />
+        <property name="defaultButton" value="true" />
         <property name="xtype" value="momo-button-stepforward" />
         <property name="properties">
              <util:map>
@@ -6523,6 +6528,7 @@
 
     <bean id="hsiToolsModule" class="de.terrestris.shogun2.model.module.Button">
         <property name="name" value="Activate hover-select tool" />
+        <property name="defaultButton" value="false" />
         <property name="xtype" value="basigx-button-hsi" />
         <property name="properties">
              <util:map>
@@ -6534,6 +6540,7 @@
 
     <bean id="printModule" class="de.terrestris.shogun2.model.module.Button">
         <property name="name" value="Print button" />
+        <property name="defaultButton" value="false" />
         <property name="xtype" value="momo-button-print" />
         <property name="properties">
             <util:map>
@@ -6545,6 +6552,7 @@
 
     <bean id="showMeasureToolsModule" class="de.terrestris.shogun2.model.module.Button">
         <property name="name" value="Show measure tools button" />
+        <property name="defaultButton" value="false" />
         <property name="xtype" value="momo-button-showmeasuretoolspanel" />
         <property name="properties">
              <util:map>
@@ -6556,6 +6564,7 @@
 
     <bean id="showRedliningToolsModule" class="de.terrestris.shogun2.model.module.Button">
         <property name="name" value="Show redlining tools button" />
+        <property name="defaultButton" value="false" />
         <property name="xtype" value="momo-button-showredliningtoolspanel" />
         <property name="properties">
              <util:map>
@@ -6567,6 +6576,7 @@
 
     <bean id="showWorkstateToolsModule" class="de.terrestris.shogun2.model.module.Button">
         <property name="name" value="Show workstate tools button" />
+        <property name="defaultButton" value="false" />
         <property name="xtype" value="momo-button-showworkstatetoolspanel" />
         <property name="properties">
              <util:map>
