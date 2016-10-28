@@ -13,7 +13,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.MapKeyJoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -26,7 +25,6 @@ import de.terrestris.shogun2.model.UserGroup;
  *
  */
 @Entity
-@Table
 public class MomoUserGroup extends UserGroup {
 
 	/**
