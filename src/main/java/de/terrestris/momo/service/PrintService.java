@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.databind.node.TextNode;
 
@@ -99,9 +100,12 @@ public class PrintService {
 
 		if (jsonNode.isArray()) {
 			Iterator<JsonNode> elements = jsonNode.elements();
+			ArrayNode arrNode = new ArrayNode(null);
 			while (elements.hasNext()) {
-				replaceInterceptorUrlsInJson(elements.next());
+				JsonNode newNode = replaceInterceptorUrlsInJson(elements.next());
+				arrNode.add(newNode);
 			}
+			jsonNode = arrNode;
 		} else if (jsonNode.isObject()) {
 			Iterator<String> fieldNames = jsonNode.fieldNames();
 			while (fieldNames.hasNext()) {

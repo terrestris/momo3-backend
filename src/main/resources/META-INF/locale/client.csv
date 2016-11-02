@@ -21,11 +21,27 @@ MoMo.client.view.button.ZoomToExtent;config.data.tooltip;Auf Gesamtansicht zoome
 MoMo.client.view.form.Print;config.data.labelDpi;DPI;DPI;хараахан орчуулагдаагүй;OK
 MoMo.client.view.form.Print;config.data.printButtonSuffix;herunterladen;download;хараахан орчуулагдаагүй;OK
 MoMo.client.view.form.Print;config.data.printFormat;pdf;pdf;хараахан орчуулагдаагүй;OK
+MoMo.client.view.form.Print;config.data.formatComboLabel;Ausgabeformat;Output format;хараахан орчуулагдаагүй;OK
+MoMo.client.view.form.Print;config.data.layoutComboLabel;Vorlage;Template;хараахан орчуулагдаагүй;OK
 MoMo.client.view.form.Print;config.data.genericFieldSetTitle;Druckeigenschaften;Print properties;хараахан орчуулагдаагүй;OK
 MoMo.client.view.form.Print;config.data.attributesTitle;Attribute;Attributes;хараахан орчуулагдаагүй;OK
 MoMo.client.view.form.Print;config.data.scalebarLabel;Maßstabsbalken;Scalebar;хараахан орчуулагдаагүй;OK
 MoMo.client.view.form.Print;config.data.northArrowLabel;Nordpfeil;North arrow;хараахан орчуулагдаагүй;OK
+MoMo.client.view.form.Print;config.data.legendLabel;Legende;Legend;хараахан орчуулагдаагүй;OK
 MoMo.client.view.form.Print;config.data.mapTitleLabel;Titel;Title;хараахан орчуулагдаагүй;OK
+MoMo.client.view.form.Print;config.data.mapNumberLabel;Kartennummer;Map number;хараахан орчуулагдаагүй;OK
+MoMo.client.view.form.Print;config.data.titleAuthorName;Autor(en);Author(s);хараахан орчуулагдаагүй;OK
+MoMo.client.view.form.Print;config.data.titleDataSource;Datengrundlage;Data source;хараахан орчуулагдаагүй;OK
+MoMo.client.view.form.Print;config.data.titleCoordSystemString;Koordinatensystem;Coordinate system;хараахан орчуулагдаагүй;OK
+MoMo.client.view.form.Print;config.data.coordSystemString;WGS 1984 UTM Zone 48N;WGS 1984 UTM Zone 48N;WGS 1984 UTM Zone 48N;OK
+MoMo.client.view.form.Print;config.data.titleProjString;Projektion;Projection;хараахан орчуулагдаагүй;OK
+MoMo.client.view.form.Print;config.data.projString;Transverse Mercator;Transverse Mercator;Transverse Mercator;OK
+MoMo.client.view.form.Print;config.data.titleDatumString;Datum;Datum;хараахан орчуулагдаагүй;OK
+MoMo.client.view.form.Print;config.data.datumString;WGS 1984;WGS 1984;WGS 1984;OK
+MoMo.client.view.form.Print;config.data.titleScale;Maßstab;Scale;хараахан орчуулагдаагүй;OK
+MoMo.client.view.form.Print;config.data.titleDate;Stand;State;хараахан орчуулагдаагүй;OK
+MoMo.client.view.form.Print;config.data.a4LandscapeTemplateValue;A4 Querformat;A4 Portrait;хараахан орчуулагдаагүй;
+MoMo.client.view.form.Print;config.data.a4PortraitTemplateValue;A4 Hochformat;A4 Landscape;хараахан орчуулагдаагүй;
 MoMo.client.view.panel.document.DocumentTree;config.data.title;Dokumentenbaum;Document tree;хараахан орчуулагдаагүй;OK
 MoMo.client.view.panel.document.DocumentTree;config.data.addNewFolderText;Neuen Ordner hinzufügen;Add new folder;хараахан орчуулагдаагүй;OK
 MoMo.client.view.panel.document.DocumentTree;config.data.folderNameText;Ordnername;Folder name;хараахан орчуулагдаагүй;OK
