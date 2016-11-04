@@ -281,6 +281,7 @@
         <ref bean="showMeasureToolsModule" />
         <ref bean="showRedliningToolsModule" />
         <ref bean="showWorkstateToolsModule" />
+        <ref bean="showAddWmsToolsModule" />
 
         <ref bean="showMetaToolbarModule" />
         <ref bean="metaToolbarModule" />
@@ -6615,6 +6616,17 @@
              </util:map>
         </property>
     </bean>
+    
+    <bean id="showAddWmsToolsModule" class="de.terrestris.shogun2.model.module.Button">
+        <property name="name" value="Show addwms tools button" />
+        <property name="xtype" value="momo-button-addwms" />
+        <property name="properties">
+             <util:map>
+                <entry key="scale" value="small" />
+                <entry key="ui" value="momo-tools" />
+             </util:map>
+        </property>
+    </bean>
 
     <bean id="showMetaToolbarModule" class="de.terrestris.shogun2.model.module.Button">
         <property name="name" value="Show meta toolbar button" />
@@ -6657,6 +6669,7 @@
                 <ref bean="showMeasureToolsModule" />
                 <ref bean="showRedliningToolsModule" />
                 <ref bean="showWorkstateToolsModule" />
+                <ref bean="showAddWmsToolsModule" />
             </util:list>
         </property>
     </bean>

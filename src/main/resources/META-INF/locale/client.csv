@@ -1,4 +1,7 @@
 component;property;de;en;mn;Dev-status
+MoMo.client.view.button.AddWms;config.data.title;;;; -
+MoMo.client.view.button.AddWms;config.data.tooltip;WMS hinzufügen;Add WMS;хараахан орчуулагдаагүй; -
+MoMo.client.view.button.AddWms;config.data.windowTitle;WMS hinzufügen;Add WMS;хараахан орчуулагдаагүй; -
 MoMo.client.view.button.ListDocuments;config.data.text;DMS;DMS;хараахан орчуулагдаагүй;OK
 MoMo.client.view.button.ListDocuments;config.data.tooltip;Dokumentenmanagement;Document management system (DMS);хараахан орчуулагдаагүй;OK
 MoMo.client.view.button.LoginLogout;config.data.loginBtnText;Login;Login;хараахан орчуулагдаагүй; -
@@ -125,7 +128,7 @@ MoMo.view.window.WaterDataChartWindow;config.data.currentDayBtnText;Heute;Today;
 MoMo.view.window.WaterDataChartWindow;config.data.hourLabel;Std;Hours;хараахан орчуулагдаагүй;NOT OK - not binding
 MoMo.view.window.WaterDataChartWindow;config.data.minuteLabel;Min;Minutes;хараахан орчуулагдаагүй;NOT OK - not binding
 BasiGX.view.button.AddWms;config.data.tooltip;WMS hinzufügen;Add WMS;хараахан орчуулагдаагүй; -
-BasiGX.view.button.AddWms;config.data.text;WMS ⊕;WMS ⊕;хараахан орчуулагдаагүй; -
+BasiGX.view.button.AddWms;config.data.text;;;; -
 BasiGX.view.button.AddWms;config.data.windowTitle;WMS hinzufügen;Add WMS;хараахан орчуулагдаагүй; -
 BasiGX.view.button.CoordinateTransform;config.data.tooltip;Koordinaten transformieren und anzeigen;Transform coordinates;хараахан орчуулагдаагүй; -
 BasiGX.view.button.CoordinateTransform;config.data.text;Koordinaten transformieren;Transform coordinates;хараахан орчуулагдаагүй; -
