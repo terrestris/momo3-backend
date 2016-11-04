@@ -6247,7 +6247,6 @@
         <property name="appearance" ref="exploitable_groundwaterAppearance" />
         <property name="spatiallyRestricted" value="false" />
         <property name="hoverable" value="true" />
-        <property name="chartable" value="true" />
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
