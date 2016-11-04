@@ -257,6 +257,7 @@
         <ref bean="ammonium" />
         <ref bean="locations_master" />
         <ref bean="ecotech_locations" />
+        <ref bean="exploitable_groundwater" />
 
         <!-- Controls -->
         <ref bean="controlAttribution" />
@@ -280,6 +281,7 @@
         <ref bean="showMeasureToolsModule" />
         <ref bean="showRedliningToolsModule" />
         <ref bean="showWorkstateToolsModule" />
+        <ref bean="showAddWmsToolsModule" />
 
         <ref bean="showMetaToolbarModule" />
         <ref bean="metaToolbarModule" />
@@ -1836,6 +1838,12 @@
         <property name="layerStyles" value="" />
     </bean>
 
+    <bean id="exploitable_groundwaterDataSource" parent="tileWMSDataSourceTemplate">
+        <property name="url" value="/momo/geoserver.action" />
+        <property name="layerNames" value="momo:exploitable_groundwater" />
+        <property name="layerStyles" value="" />
+    </bean>
+
     <bean id="osmWmsLayerAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
         <property name="attribution" value="© &lt;a href='http://www.openstreetmap.org/copyright'&gt;OpenStreetMap contributors&lt;/a&gt; &lt;br&gt;" />
         <property name="maxResolution" ref="res01" />
@@ -3294,6 +3302,13 @@
     </bean>
 
     <bean id="ecotech_locationsAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
+        <property name="maxResolution" ref="res01" />
+        <property name="minResolution" ref="res19" />
+        <property name="opacity" value="1" />
+        <property name="visible" value="true" />
+    </bean>
+
+    <bean id="exploitable_groundwaterAppearance" class="de.terrestris.shogun2.model.layer.appearance.LayerAppearance">
         <property name="maxResolution" ref="res01" />
         <property name="minResolution" ref="res19" />
         <property name="opacity" value="1" />
@@ -6225,6 +6240,20 @@
         </property>
     </bean>
 
+    <bean id="exploitable_groundwater" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="exploitable_groundwater" />
+        <property name="source" ref="exploitable_groundwaterDataSource" />
+        <property name="appearance" ref="exploitable_groundwaterAppearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="hoverable" value="true" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
     <!-- Define the Map -->
     <bean id="mapModule" class="de.terrestris.shogun2.model.module.Map">
         <property name="name" value="Main Map" />
@@ -6438,6 +6467,7 @@
                 <ref bean="ammonium" />-->
                 <ref bean="locations_master" />
                 <ref bean="ecotech_locations" />
+                <ref bean="exploitable_groundwater" />
                 <!-- <ref bean="mongoliaStateCenters" />
                 <ref bean="osmTopo" />
                 <ref bean="osmWmsLayer" />-->
@@ -6467,6 +6497,7 @@
     <!-- Define common map tools -->
     <bean id="zoomInModule" class="de.terrestris.shogun2.model.module.Button">
         <property name="name" value="Zoom in button" />
+        <property name="defaultButton" value="true" />
         <property name="xtype" value="basigx-button-zoomin" />
         <property name="properties">
              <util:map>
@@ -6478,6 +6509,7 @@
 
     <bean id="zoomOutModule" class="de.terrestris.shogun2.model.module.Button">
         <property name="name" value="Zoom out button" />
+        <property name="defaultButton" value="true" />
         <property name="xtype" value="basigx-button-zoomout" />
         <property name="properties">
              <util:map>
@@ -6489,6 +6521,7 @@
 
     <bean id="zoomToExtentModule" class="de.terrestris.shogun2.model.module.Button">
         <property name="name" value="Zoom to extent button" />
+        <property name="defaultButton" value="true" />
         <property name="xtype" value="momo-button-zoomtoextent" />
         <property name="properties">
              <util:map>
@@ -6500,6 +6533,7 @@
 
     <bean id="stepBackModule" class="de.terrestris.shogun2.model.module.Button">
         <property name="name" value="Step back to previous extent button" />
+        <property name="defaultButton" value="true" />
         <property name="xtype" value="momo-button-stepback" />
         <property name="properties">
              <util:map>
@@ -6511,6 +6545,7 @@
 
     <bean id="stepForwardModule" class="de.terrestris.shogun2.model.module.Button">
         <property name="name" value="Step forward to next extent button" />
+        <property name="defaultButton" value="true" />
         <property name="xtype" value="momo-button-stepforward" />
         <property name="properties">
              <util:map>
@@ -6522,6 +6557,7 @@
 
     <bean id="hsiToolsModule" class="de.terrestris.shogun2.model.module.Button">
         <property name="name" value="Activate hover-select tool" />
+        <property name="defaultButton" value="false" />
         <property name="xtype" value="basigx-button-hsi" />
         <property name="properties">
              <util:map>
@@ -6533,6 +6569,7 @@
 
     <bean id="printModule" class="de.terrestris.shogun2.model.module.Button">
         <property name="name" value="Print button" />
+        <property name="defaultButton" value="false" />
         <property name="xtype" value="momo-button-print" />
         <property name="properties">
             <util:map>
@@ -6544,6 +6581,7 @@
 
     <bean id="showMeasureToolsModule" class="de.terrestris.shogun2.model.module.Button">
         <property name="name" value="Show measure tools button" />
+        <property name="defaultButton" value="false" />
         <property name="xtype" value="momo-button-showmeasuretoolspanel" />
         <property name="properties">
              <util:map>
@@ -6555,6 +6593,7 @@
 
     <bean id="showRedliningToolsModule" class="de.terrestris.shogun2.model.module.Button">
         <property name="name" value="Show redlining tools button" />
+        <property name="defaultButton" value="false" />
         <property name="xtype" value="momo-button-showredliningtoolspanel" />
         <property name="properties">
              <util:map>
@@ -6566,7 +6605,19 @@
 
     <bean id="showWorkstateToolsModule" class="de.terrestris.shogun2.model.module.Button">
         <property name="name" value="Show workstate tools button" />
+        <property name="defaultButton" value="false" />
         <property name="xtype" value="momo-button-showworkstatetoolspanel" />
+        <property name="properties">
+             <util:map>
+                <entry key="scale" value="small" />
+                <entry key="ui" value="momo-tools" />
+             </util:map>
+        </property>
+    </bean>
+    
+    <bean id="showAddWmsToolsModule" class="de.terrestris.shogun2.model.module.Button">
+        <property name="name" value="Show addwms tools button" />
+        <property name="xtype" value="momo-button-addwms" />
         <property name="properties">
              <util:map>
                 <entry key="scale" value="small" />
@@ -6616,6 +6667,7 @@
                 <ref bean="showMeasureToolsModule" />
                 <ref bean="showRedliningToolsModule" />
                 <ref bean="showWorkstateToolsModule" />
+                <ref bean="showAddWmsToolsModule" />
             </util:list>
         </property>
     </bean>
