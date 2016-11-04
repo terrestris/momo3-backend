@@ -287,8 +287,7 @@
         <ref bean="mapModule" />
         <ref bean="toolsModule" />
 
-        <ref bean="gazetteerSearchModule" />
-        <ref bean="gazetteerGridModule" />
+        <ref bean="multiSearchModule" />
 
         <ref bean="mapContainer" />
 
@@ -6641,7 +6640,6 @@
                 <ref bean="showMetaToolbarModule" />
                 <ref bean="metaToolbarModule" />
                 <ref bean="toolsModule" />
-                <ref bean="gazetteerGridModule" />
             </util:list>
         </property>
     </bean>
@@ -6784,24 +6782,19 @@
         </property>
     </bean>
 
-    <!--  Define the Gazetteer Search -->
-    <bean id="gazetteerSearchModule" class="de.terrestris.shogun2.model.module.Module">
-        <property name="name" value="Gazetteer Search" />
-        <property name="xtype" value="basigx_form_field_gazetteercombo" />
+    <!--  Define the Search -->
+    <bean id="multiSearchModule" class="de.terrestris.shogun2.model.module.Module">
+        <property name="name" value="Gazetteer and Object Search" />
+        <property name="xtype" value="momo-combo-multisearch" />
         <property name="properties">
             <util:map>
                 <entry key="margin" value="30 0 10 130" />
                 <entry key="width" value="600" />
-                <entry key="emptyText" value="Gazetteer Suche..." />
+                <entry key="emptyText" value="..." />
                 <entry key="hideTrigger" value="true" />
                 <entry key="minChars" value="3"/>
             </util:map>
         </property>
-    </bean>
-
-    <bean id="gazetteerGridModule" class="de.terrestris.shogun2.model.module.Module">
-        <property name="name" value="Gazetteer Grid" />
-        <property name="xtype" value="basigx_grid_gazetteergrid" />
     </bean>
 
     <bean id="headerModule" class="de.terrestris.shogun2.model.module.CompositeModule">
@@ -6821,7 +6814,7 @@
             <util:list value-type="de.terrestris.shogun2.model.module.Module">
                 <ref bean="bmbfLogoModule" />
                 <ref bean="headerLogoModule" />
-                <ref bean="gazetteerSearchModule" />
+                <ref bean="multiSearchModule" />
                 <ref bean="headerButtonContainer" />
             </util:list>
         </property>
@@ -6850,7 +6843,6 @@
                 <ref bean="mapContainer" />
                 <ref bean="headerModule" />
                 <ref bean="layerTreeModule" />
-                <ref bean="gazetteerGridModule" />
             </util:list>
         </property>
     </bean>
