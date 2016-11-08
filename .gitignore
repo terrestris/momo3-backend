@@ -18,6 +18,8 @@ tmp
 .settings
 .project
 wtpmodules
+.idea
+momo.iml
 
 #npm
 src/main/webapp/npm-debug.log
