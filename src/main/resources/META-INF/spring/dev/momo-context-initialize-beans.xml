@@ -6837,7 +6837,7 @@
     <!--  Define the Search -->
     <bean id="multiSearchModule" class="de.terrestris.shogun2.model.module.Module">
         <property name="name" value="Gazetteer and Object Search" />
-        <property name="xtype" value="momo-combo-multisearch" />
+        <property name="xtype" value="momo-form-field-multisearch" />
         <property name="properties">
             <util:map>
                 <entry key="margin" value="30 0 10 130" />

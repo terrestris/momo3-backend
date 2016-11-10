@@ -21,14 +21,15 @@ MoMo.client.view.button.translation.ToGerman;config.data.setLanguageCallbackToas
 MoMo.client.view.button.translation.ToMongolian;config.data.tooltipMn;MN;MN;MN;OK
 MoMo.client.view.button.translation.ToMongolian;config.data.setLanguageCallbackToastText;Applikationssprache ist jetzt {0};Application language is now {0};Хэл нь одоо байна {0};OK
 MoMo.client.view.button.ZoomToExtent;config.data.tooltip;Auf Gesamtansicht zoomen;Zoom to Extent;хараахан орчуулагдаагүй;OK
-MoMo.client.view.combo.MultiSearchCombo;config.data.emptyText;Suche ...;Search ...; хараахан орчуулагдаагүй; -
-MoMo.client.view.window.MultiSearchSettingsWindow;config.data.title;Sucheinstellungen;Search Settings; хараахан орчуулагдаагүй; -
-MoMo.client.view.window.MultiSearchSettingsWindow;config.data.generalSettingsLabel;Allgemeine Einstellungen;General Settings; хараахан орчуулагдаагүй; -
-MoMo.client.view.window.MultiSearchSettingsWindow;config.data.limitCboxLabel;Auf den sichtbaren Kartenbereich einschränken;Limit to visible extent;хараахан орчуулагдаагүй; -
-MoMo.client.view.window.MultiSearchSettingsWindow;config.data.gazetteerLabel;Gazetteer Suche verwenden;Use Gazetteer Search; хараахан орчуулагдаагүй; -
-MoMo.client.view.window.MultiSearchSettingsWindow;config.data.objectSearchLabel;Object Suche verwenden;Use Object Search; хараахан орчуулагдаагүй; -
-MoMo.client.view.window.MultiSearchSettingsWindow;config.data.objectSearchLayersLabel;Layer für Objektsuche;Layer for Object Search; хараахан орчуулагдаагүй; -
-MoMo.client.view.window.MultiSearchSettingsWindow;config.data.saveBtnText;Sucheinstellungen speichern;Save search settings; хараахан орчуулагдаагүй; -
+MoMo.client.view.container.MultiSearchSettings;config.data.title;Sucheinstellungen;Search Settings; хараахан орчуулагдаагүй; -
+MoMo.client.view.container.MultiSearchSettings;config.data.generalSettingsLabel;Allgemeine Einstellungen;General Settings; хараахан орчуулагдаагүй; -
+MoMo.client.view.container.MultiSearchSettings;config.data.limitCboxLabel;Auf den sichtbaren Kartenbereich einschränken;Limit to visible extent;хараахан орчуулагдаагүй; -
+MoMo.client.view.container.MultiSearchSettings;config.data.gazetteerLabel;Gazetteer Suche verwenden;Use Gazetteer Search; хараахан орчуулагдаагүй; -
+MoMo.client.view.container.MultiSearchSettings;config.data.objectSearchLabel;Object Suche verwenden;Use Object Search; хараахан орчуулагдаагүй; -
+MoMo.client.view.container.MultiSearchSettings;config.data.objectSearchLayersLabel;Layer für Objektsuche;Layer for Object Search; хараахан орчуулагдаагүй; -
+MoMo.client.view.container.MultiSearchSettings;config.data.saveBtnText;Sucheinstellungen speichern;Save search settings; хараахан орчуулагдаагүй; -
+MoMo.client.view.form.field.MultiSearchCombo;config.data.emptyText;Suche ...;Search ...; хараахан орчуулагдаагүй; -
+MoMo.client.view.form.field.MultiSearchCombo;config.data.settingsWindowTitle;Sucheinstellungen;Search Settings; хараахан орчуулагдаагүй; -
 MoMo.client.view.form.Print;config.data.labelDpi;DPI;DPI;хараахан орчуулагдаагүй;OK
 MoMo.client.view.form.Print;config.data.printButtonSuffix;herunterladen;download;хараахан орчуулагдаагүй;OK
 MoMo.client.view.form.Print;config.data.printFormat;pdf;pdf;хараахан орчуулагдаагүй;OK
@@ -53,8 +54,8 @@ MoMo.client.view.form.Print;config.data.titleScale;Maßstab;Scale;харааха
 MoMo.client.view.form.Print;config.data.titleDate;Stand;State;хараахан орчуулагдаагүй;OK
 MoMo.client.view.form.Print;config.data.a4LandscapeTemplateValue;A4 Querformat;A4 Portrait;хараахан орчуулагдаагүй;
 MoMo.client.view.form.Print;config.data.a4PortraitTemplateValue;A4 Hochformat;A4 Landscape;хараахан орчуулагдаагүй;
-MoMo.client.view.grid.GazetteerGrid;config.data.title;Gazetteer Suche;Gazetteer Search;хараахан орчуулагдаагүй; -
-MoMo.client.view.grid.GazetteerGrid;config.data.hideToolTooltip;Gazetteer Suche verbergen;Hide Gazetteer Search;хараахан орчуулагдаагүй; -
+MoMo.client.view.grid.MultiSearchGazetteerGrid;config.data.title;Gazetteer Suche;Gazetteer Search;хараахан орчуулагдаагүй; -
+MoMo.client.view.grid.MultiSearchGazetteerGrid;config.data.hideToolTooltip;Gazetteer Suche verbergen;Hide Gazetteer Search;хараахан орчуулагдаагүй; -
 MoMo.client.view.grid.ObjectSearchGrid;config.data.title;Objektsuche;Object Search;хараахан орчуулагдаагүй; -
 MoMo.client.view.grid.ObjectSearchGrid;config.data.hideToolTooltip;Objektsuche verbergen;Hide Object Search;хараахан орчуулагдаагүй; -
 MoMo.client.view.panel.document.DocumentTree;config.data.title;Dokumentenbaum;Document tree;хараахан орчуулагдаагүй;OK
