@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OrderColumn;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -14,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import de.terrestris.momo.model.tree.DocumentTreeFolder;
+import de.terrestris.momo.model.tree.LayerTreeFolder;
 import de.terrestris.shogun2.model.Application;
 
 /**
@@ -44,7 +46,14 @@ public class MomoApplication extends Application {
 	private List<DocumentTreeFolder> documentRootNodes = new ArrayList<DocumentTreeFolder>();
 
 	/**
-	 * 
+	 *
+	 */
+	@ManyToOne
+	@JoinColumn(name="LAYERTREE_ROOTNODE_ID")
+	private LayerTreeFolder layerTree;
+
+	/**
+	 *
 	 */
 	public MomoApplication() {
 	}
@@ -63,5 +72,18 @@ public class MomoApplication extends Application {
 		this.documentRootNodes = documentRootNodes;
 	}
 
+	/**
+	 * @return the layerTree
+	 */
+	public LayerTreeFolder getLayerTree() {
+		return layerTree;
+	}
+
+	/**
+	 * @param layerTree the layerTree to set
+	 */
+	public void setLayerTree(LayerTreeFolder layerTree) {
+		this.layerTree = layerTree;
+	}
 
 }
