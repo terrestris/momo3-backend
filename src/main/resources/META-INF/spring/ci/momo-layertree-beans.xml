@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Root of the layer tree of the momo default app -->
+    <bean id="defaultAppLayerTreeRootNode" class="de.terrestris.momo.model.tree.LayerTreeFolder">
+        <property name="text" value="" />
+        <property name="expanded" value="true" />
+        <property name="root" value="true" />
+    </bean>
+
+    <!-- Folder 1 -->
+    <bean id="layerTreeFolder1" class="de.terrestris.momo.model.tree.LayerTreeFolder">
+        <property name="parentFolder" ref="defaultAppLayerTreeRootNode" />
+        <property name="index" value="0" />
+        <property name="checked" value="true" />
+        <property name="text" value="Fachlayer" />
+        <property name="expanded" value="true" />
+    </bean>
+
+    <!-- Layer 1.1 -->
+    <bean id="layerTreeLeaf1.1" class="de.terrestris.momo.model.tree.LayerTreeLeaf">
+        <property name="parentFolder" ref="layerTreeFolder1" />
+        <property name="index" value="0" />
+        <property name="checked" value="true" />
+        <property name="layer" ref="02_surface_water_bodies_32648" />
+    </bean>
+
+    <!-- Layer 1.2 -->
+    <bean id="layerTreeLeaf1.2" class="de.terrestris.momo.model.tree.LayerTreeLeaf">
+        <property name="parentFolder" ref="layerTreeFolder1" />
+        <property name="index" value="1" />
+        <property name="checked" value="true" />
+        <property name="layer" ref="01_kharaa_river_basin_32648" />
+    </bean>
+
+    <!-- Folder 2 -->
+    <bean id="layerTreeFolder2" class="de.terrestris.momo.model.tree.LayerTreeFolder">
+        <property name="parentFolder" ref="defaultAppLayerTreeRootNode" />
+        <property name="index" value="2" />
+        <property name="checked" value="true" />
+        <property name="text" value="Hintergrundlayer" />
+        <property name="expanded" value="false" />
+    </bean>
+
+    <!-- Layer 2.1 -->
+    <bean id="layerTreeLeaf2.1" class="de.terrestris.momo.model.tree.LayerTreeLeaf">
+        <property name="parentFolder" ref="layerTreeFolder2" />
+        <property name="index" value="0" />
+        <property name="checked" value="true" />
+        <property name="layer" ref="osmWmsLayerGray" />
+    </bean>
+
+</beans>

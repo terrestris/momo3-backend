@@ -259,6 +259,14 @@
         <ref bean="ecotech_locations" />
         <ref bean="exploitable_groundwater" />
 
+        <!-- LayerTree for default application -->
+        <ref bean="defaultAppLayerTreeRootNode" />
+        <ref bean="layerTreeFolder1" />
+        <ref bean="layerTreeLeaf1.1" />
+        <ref bean="layerTreeLeaf1.2" />
+        <ref bean="layerTreeFolder2" />
+        <ref bean="layerTreeLeaf2.1" />
+
         <!-- Controls -->
         <ref bean="controlAttribution" />
         <ref bean="controlZoom" />
@@ -3316,13 +3324,13 @@
         <property name="visible" value="true" />
     </bean>
 
-    <bean id="osmWmsLayer" class="de.terrestris.shogun2.model.layer.Layer">
+    <bean id="osmWmsLayer" class="de.terrestris.momo.model.MomoLayer">
         <property name="name" value="OSM-WMS" />
         <property name="source" ref="osmWmsLayerDataSource" />
         <property name="appearance" ref="osmWmsLayerAppearance" />
     </bean>
 
-    <bean id="osmWmsLayerGray" class="de.terrestris.shogun2.model.layer.Layer">
+    <bean id="osmWmsLayerGray" class="de.terrestris.momo.model.MomoLayer">
         <property name="name" value="OSM-WMS GRAY" />
         <property name="source" ref="osmWmsLayerGrayDataSource" />
         <property name="appearance" ref="osmWmsLayerAppearance" />
@@ -6615,7 +6623,7 @@
              </util:map>
         </property>
     </bean>
-    
+
     <bean id="showAddWmsToolsModule" class="de.terrestris.shogun2.model.module.Button">
         <property name="name" value="Show addwms tools button" />
         <property name="xtype" value="momo-button-addwms" />
@@ -6920,6 +6928,7 @@
         <property name="name" value="Default Application" />
         <property name="description" value="Default Application" />
         <property name="viewport" ref="viewportModule" />
+        <property name="layerTree" ref="defaultAppLayerTreeRootNode" />
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
