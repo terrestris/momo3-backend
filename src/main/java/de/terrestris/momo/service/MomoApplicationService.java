@@ -21,10 +21,12 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import de.terrestris.momo.dao.DocumentTreeDao;
+import de.terrestris.momo.dao.LayerTreeDao;
 import de.terrestris.momo.dao.MomoApplicationDao;
 import de.terrestris.momo.dto.ApplicationData;
 import de.terrestris.momo.model.MomoApplication;
 import de.terrestris.momo.model.tree.DocumentTreeFolder;
+import de.terrestris.momo.model.tree.LayerTreeFolder;
 import de.terrestris.momo.util.DocumentTreeFolderComparator;
 import de.terrestris.shogun2.dao.ExtentDao;
 import de.terrestris.shogun2.dao.LayerDao;
@@ -126,6 +128,10 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 	@Qualifier("docTreeService")
 	private DocumentTreeService<DocumentTreeFolder, DocumentTreeDao<DocumentTreeFolder>> docTreeService;
 
+	@Autowired
+	@Qualifier("layerTreeService")
+	private LayerTreeService<LayerTreeFolder, LayerTreeDao<LayerTreeFolder>> layerTreeService;
+
 	/**
 	 * Default constructor, which calls the type-constructor
 	 */
@@ -177,6 +183,8 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 		Point2D.Double center = applicationData.getCenter();
 		Integer zoom = applicationData.getZoom();
 
+		Integer layerTreeId = applicationData.getLayerTree();
+
 		// create a new application
 		MomoApplication application = new MomoApplication();
 
@@ -187,19 +195,25 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 		application.setOpen(isPublic);
 		application.setActive(isActive);
 
+		LayerTreeFolder layerTreeRootNode = this.layerTreeService.findById(layerTreeId);
+		application.setLayerTree(layerTreeRootNode);
+
 		// 1. map config
 		MapConfig mapConfig = buildMapConfig(projection, center, zoom);
 
-		// 2. map
-		Map map = buildMapModule(mapConfig);
+		// 2. get the map layers from the provided layerTree
+		List<Layer> mapLayers = this.layerTreeService.getAllMapLayersFromTreeFolder(layerTreeRootNode);
 
-		// 3. map container
+		// 3. map
+		Map map = buildMapModule(mapConfig, mapLayers);
+
+		// 4. map container
 		CompositeModule mapContainer = buildMapContainer(map);
 
-		// 4. viewport
+		// 5. viewport
 		CompositeModule viewport = buildViewport(mapContainer);
 
-		// 5. finalize...
+		// 6. finalize...
 		application.setViewport(viewport);
 		dao.saveOrUpdate((E) application);
 
@@ -301,7 +315,6 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 	 * @param mapContainer
 	 * @return
 	 */
-
 	private CompositeModule buildViewport(CompositeModule mapContainer) {
 		CompositeModule viewport = new CompositeModule();
 		viewport.setXtype("viewport");
@@ -361,7 +374,7 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 	 * @param mapConfig
 	 * @return
 	 */
-	private Map buildMapModule(MapConfig mapConfig) {
+	private Map buildMapModule(MapConfig mapConfig, List<Layer> mapLayers) {
 		Map map = (Map) applicationContext.getBean(BEAN_ID_DEFAULT_MAP);
 		map.setMapConfig(mapConfig);
 
@@ -369,6 +382,8 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 		final Set<MapControl> mapControls = new HashSet<MapControl>(
 				mapControlService.getDao().findByCriteria(areDefaultMapControl));
 		map.setMapControls(mapControls);
+
+		map.setMapLayers(mapLayers);
 
 		mapService.saveOrUpdate(map);
 		return map;

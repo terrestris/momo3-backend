@@ -20,6 +20,7 @@ public class ApplicationData {
 	private String projection;
 	private Point2D.Double center;
 	private Integer zoom;
+	private Integer layerTree;
 
 	/**
 	 *
@@ -140,5 +141,18 @@ public class ApplicationData {
 		this.zoom = zoom;
 	}
 
+	/**
+	 * @return the layerTree
+	 */
+	public Integer getLayerTree() {
+		return layerTree;
+	}
+
+	/**
+	 * @param layerTree the layerTree to set
+	 */
+	public void setLayerTree(Integer layerTree) {
+		this.layerTree = layerTree;
+	}
 
 }
