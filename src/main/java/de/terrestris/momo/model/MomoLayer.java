@@ -35,11 +35,16 @@ public class MomoLayer extends Layer {
 	 *
 	 */
 	private Boolean hoverable;
-	
+
 	/**
 	 *
 	 */
 	private Boolean chartable;
+
+	/**
+	 *
+	 */
+	private String dataType;
 
 	/**
 	 *
@@ -90,6 +95,20 @@ public class MomoLayer extends Layer {
 	}
 
 	/**
+	 * @return the dataType
+	 */
+	public String getDataType() {
+		return dataType;
+	}
+
+	/**
+	 * @param dataType the dataType to set
+	 */
+	public void setDataType(String dataType) {
+		this.dataType = dataType;
+	}
+
+	/**
 	 * @see java.lang.Object#hashCode()
 	 *
 	 *      According to
@@ -105,6 +124,7 @@ public class MomoLayer extends Layer {
 				append(getSpatiallyRestricted()).
 				append(getHoverable()).
 				append(getChartable()).
+				append(getDataType()).
 				toHashCode();
 	}
 
@@ -127,6 +147,7 @@ public class MomoLayer extends Layer {
 				append(getSpatiallyRestricted(), other.getSpatiallyRestricted()).
 				append(getHoverable(), other.getHoverable()).
 				append(getChartable(), other.getChartable()).
+				append(getDataType(), other.getDataType()).
 				isEquals();
 	}
 

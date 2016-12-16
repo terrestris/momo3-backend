@@ -71,7 +71,7 @@ public class GeoServerImporterController {
 			@RequestParam("file") MultipartFile file,
 			@RequestParam(value = "fileProjection", required = false) String fileProjection,
 			@RequestParam("layerName") String layerName,
-			@RequestParam("layerType") String layerType,
+			@RequestParam("dataType") String dataType,
 			@RequestParam("layerDescription") String layerDescription,
 			@RequestParam("layerOpacity") Double layerOpacity,
 			@RequestParam("layerHoverTemplate") String layerHoverTemplate) {
@@ -100,7 +100,7 @@ public class GeoServerImporterController {
 					file,
 					fileProjection,
 					layerName,
-					layerType,
+					dataType,
 					layerDescription,
 					layerOpacity,
 					layerHoverTemplate
@@ -139,7 +139,7 @@ public class GeoServerImporterController {
 	@RequestMapping(value = "/update-crs-for-import.action", method = {RequestMethod.POST})
 	public ResponseEntity<?> updateCrsForImport(
 			@RequestParam("layerName") String layerName,
-			@RequestParam("layerType") String layerType,
+			@RequestParam("dataType") String dataType,
 			@RequestParam("layerDescription") String layerDescription,
 			@RequestParam("layerOpacity") Double layerOpacity,
 			@RequestParam("layerHoverTemplate") String layerHoverTemplate,
@@ -153,7 +153,7 @@ public class GeoServerImporterController {
 		try {
 			responseMap = this.service.updateCrsForImport(
 					layerName,
-					layerType,
+					dataType,
 					layerDescription,
 					layerOpacity,
 					layerHoverTemplate,

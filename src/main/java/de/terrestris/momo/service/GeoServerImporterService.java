@@ -328,6 +328,7 @@ public class GeoServerImporterService {
 
 		layer.setName(layerName);
 		layer.setSpatiallyRestricted(true);
+		layer.setDataType(layerDataType);
 		layer.setHoverable(true);
 
 		layerService.saveOrUpdate(layer);
