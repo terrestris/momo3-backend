@@ -92,4 +92,119 @@
     <bean id="wfsRequestInterceptor" class="de.terrestris.momo.interceptor.MomoWfsRequestInterceptor" />
     <bean id="wfsResponseInterceptor" class="de.terrestris.momo.interceptor.MomoWfsResponseInterceptor" />
 
+    <!-- The GeoServer connection parameters -->
+    <bean id="geoServerScheme" class="java.lang.String">
+        <constructor-arg value="${geoserver.scheme}"></constructor-arg>
+    </bean>
+
+    <bean id="geoServerHost" class="java.lang.String">
+        <constructor-arg value="${geoserver.host}"></constructor-arg>
+    </bean>
+
+    <bean id="geoServerPort" class="java.lang.Integer">
+        <constructor-arg value="${geoserver.port}"></constructor-arg>
+    </bean>
+
+    <bean id="geoServerBasePath" class="java.lang.String">
+        <constructor-arg value="${geoserver.basePath}"></constructor-arg>
+    </bean>
+
+    <bean id="geoServerBaseURL" class="java.lang.String">
+        <constructor-arg value="${geoserver.scheme}://${geoserver.host}:${geoserver.port}${geoserver.basePath}"></constructor-arg>
+    </bean>
+
+    <bean id="geoServerUsername" class="java.lang.String">
+        <constructor-arg value="${geoserver.username}"></constructor-arg>
+    </bean>
+
+    <bean id="geoServerPassword" class="java.lang.String">
+        <constructor-arg value="${geoserver.password}"></constructor-arg>
+    </bean>
+
+    <bean id="geoServerDefaultWorkspace" class="java.lang.String">
+        <constructor-arg value="${geoserver.defaultWorkspace}"></constructor-arg>
+    </bean>
+
+    <bean id="geoServerDefaultDatastore" class="java.lang.String">
+        <constructor-arg value="${geoserver.defaultDatastore}"></constructor-arg>
+    </bean>
+
+    <bean id="geoServerDefaultSrs" class="java.lang.String">
+        <constructor-arg value="${geoserver.defaultSRS}"></constructor-arg>
+    </bean>
+
+    <bean id="geoServerRestBasePath" class="java.lang.String">
+        <constructor-arg value="${geoserver.rest.basePath}"></constructor-arg>
+    </bean>
+
+    <bean id="geoServerImporterBasePath" class="java.lang.String">
+        <constructor-arg value="${geoserver.importer.basePath}"></constructor-arg>
+    </bean>
+
+    <bean id="geoServerImporterBaseURL" class="java.lang.String">
+        <constructor-arg value="${geoserver.scheme}://${geoserver.host}:${geoserver.port}${geoserver.basePath}${geoserver.rest.basePath}${geoserver.importer.basePath}"></constructor-arg>
+    </bean>
+
+    <bean id="geoServerImporterPerformGdalAddo" class="java.lang.Boolean">
+        <constructor-arg value="${geoserver.importer.raster.performGdalAddo}"></constructor-arg>
+    </bean>
+
+    <bean id="geoServerImporterGdalAddoLevels" class="java.lang.String">
+        <constructor-arg value="${geoserver.importer.raster.gdalAddoLevels}"></constructor-arg>
+    </bean>
+
+    <bean id="geoServerImporterPerformGdalWarp" class="java.lang.Boolean">
+        <constructor-arg value="${geoserver.importer.raster.performGdalWarp}"></constructor-arg>
+    </bean>
+
+    <bean id="geoServerSshUserName" class="java.lang.String">
+        <constructor-arg value="${geoserver.ssh.username}"></constructor-arg>
+    </bean>
+
+    <bean id="geoServerSshPort" class="java.lang.String">
+        <constructor-arg value="${geoserver.ssh.port}"></constructor-arg>
+    </bean>
+
+    <bean id="geoServerSshKeyPath" class="java.lang.String">
+        <constructor-arg value="${geoserver.ssh.keyPath}"></constructor-arg>
+    </bean>
+
+    <bean id="geoServerDataDir" class="java.lang.String">
+        <constructor-arg value="${geoserver.data.dir}"></constructor-arg>
+    </bean>
+
+    <!-- GeoServerReader -->
+    <bean id="geoServerReaderDao" class="de.terrestris.momo.dao.GeoserverReaderDao">
+        <constructor-arg ref="geoServerBaseURL" />
+        <constructor-arg ref="geoServerUsername" />
+        <constructor-arg ref="geoServerPassword" />
+        <property name="workspace">
+            <ref bean="geoServerDefaultWorkspace" />
+        </property>
+        <property name="datastore">
+            <ref bean="geoServerDefaultDatastore" />
+        </property>
+    </bean>
+
+    <!-- GeoServerPublisher -->
+    <bean id="geoServerPublisherDao" class="de.terrestris.momo.dao.GeoserverPublisherDao">
+        <constructor-arg ref="geoServerBaseURL" />
+        <constructor-arg ref="geoServerUsername" />
+        <constructor-arg ref="geoServerPassword" />
+        <property name="workspace">
+            <ref bean="geoServerDefaultWorkspace" />
+        </property>
+        <property name="datastore">
+            <ref bean="geoServerDefaultDatastore" />
+        </property>
+    </bean>
+
+    <!-- GeoServer Importer Publisher -->
+    <bean id="geoServerRESTImporterPublisher" class="de.terrestris.momo.util.importer.RESTImporterPublisher">
+        <constructor-arg ref="geoServerImporterBaseURL"></constructor-arg>
+        <constructor-arg ref="geoServerDefaultSrs"></constructor-arg>
+        <constructor-arg ref="geoServerUsername"></constructor-arg>
+        <constructor-arg ref="geoServerPassword"></constructor-arg>
+    </bean>
+
 </beans>
