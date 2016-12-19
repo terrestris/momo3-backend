@@ -13,6 +13,17 @@
 
     <name>momo</name>
 
+    <repositories>
+        <repository>
+            <id>GeoSolutions</id>
+            <url>http://maven.geo-solutions.it/</url>
+        </repository>
+        <repository>
+            <id>GeoTools</id>
+            <url>https://download.osgeo.org/webdav/geotools/</url>
+        </repository>
+    </repositories>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
@@ -55,7 +66,17 @@
         <maven-war-plugin.version>2.6</maven-war-plugin.version>
 
         <commons-fileupload.version>1.3.1</commons-fileupload.version>
+        <commons-dbutils.version>1.6</commons-dbutils.version>
+
         <pdfbox.version>2.0.2</pdfbox.version>
+
+        <geoserver-manager.version>1.7-SNAPSHOT</geoserver-manager.version>
+
+        <geotools.version>16.0</geotools.version>
+
+        <jsch.version>0.1.54</jsch.version>
+
+        <slf4j.version>1.5.11</slf4j.version>
 
         <downloadSources>true</downloadSources>
         <downloadJavadocs>false</downloadJavadocs>
@@ -398,11 +419,58 @@
             <version>${commons-fileupload.version}</version>
         </dependency>
 
+        <!-- Apache Commons DbUtils -->
+        <dependency>
+            <groupId>commons-dbutils</groupId>
+            <artifactId>commons-dbutils</artifactId>
+            <version>${commons-dbutils.version}</version>
+        </dependency>
+
         <!-- The Apache PDFBox library is an open source Java tool for working with PDF documents. -->
         <dependency>
             <groupId>org.apache.pdfbox</groupId>
             <artifactId>pdfbox</artifactId>
             <version>${pdfbox.version}</version>
+        </dependency>
+
+        <!-- GeoServer Manager -->
+        <dependency>
+            <groupId>it.geosolutions</groupId>
+            <artifactId>geoserver-manager</artifactId>
+            <version>${geoserver-manager.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-codec</groupId>
+                    <artifactId>commons-codec</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.geotools/gt-main -->
+        <dependency>
+            <groupId>org.geotools</groupId>
+            <artifactId>gt-main</artifactId>
+            <version>${geotools.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.geotools/gt-epsg-hsql -->
+        <dependency>
+            <groupId>org.geotools</groupId>
+            <artifactId>gt-epsg-hsql</artifactId>
+            <version>${geotools.version}</version>
+        </dependency>
+
+        <!-- Jsch for remote SSH execution -->
+        <dependency>
+            <groupId>com.jcraft</groupId>
+            <artifactId>jsch</artifactId>
+            <version>${jsch.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.version}</version>
         </dependency>
 
     </dependencies>
