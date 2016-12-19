@@ -183,6 +183,7 @@
                         lib/jsonix/**,
                         lib/geotiff.js/**,
                         lib/jszip/**,
+                        lib/ogc-schemas/**,
                         lib/proj4/**,
                         lib/proj4-defs/**
                     </warSourceIncludes>
