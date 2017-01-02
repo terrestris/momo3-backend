@@ -10,9 +10,11 @@
 [submodule "src/main/webapp/lib/BasiGX"]
 	path = src/main/webapp/lib/BasiGX
 	url = https://github.com/terrestris/BasiGX
+        branch = master
 [submodule "src/main/webapp/lib/geoext3"]
 	path = src/main/webapp/lib/geoext3
 	url = https://github.com/geoext/geoext3
+        branch = master
 [submodule "src/main/webapp/lib/jsonix"]
 	path = src/main/webapp/lib/jsonix
 	url = https://github.com/highsource/jsonix
