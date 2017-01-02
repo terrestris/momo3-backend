@@ -12,6 +12,7 @@ import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
+import de.terrestris.momo.dao.GeoserverReaderDao;
 import de.terrestris.momo.dao.MomoLayerDao;
 import de.terrestris.momo.model.MomoLayer;
 import de.terrestris.shogun2.model.layer.source.ImageWmsLayerDataSource;
@@ -40,6 +41,12 @@ public class MomoLayerService<E extends MomoLayer, D extends MomoLayerDao<E>>
 	private String geoServerBaseUrl;
 
 	/**
+	 *
+	 */
+	@Autowired
+	private GeoserverReaderDao gsReaderDao;
+
+	/**
 	 * We have to use {@link Qualifier} to define the correct dao here.
 	 * Otherwise, spring can not decide which dao has to be autowired here
 	 * as there are multiple candidates.
@@ -49,6 +56,19 @@ public class MomoLayerService<E extends MomoLayer, D extends MomoLayerDao<E>>
 	@Qualifier("momoLayerDao")
 	public void setDao(D dao) {
 		this.dao = dao;
+	}
+
+	/**
+	 *
+	 * @param layerId
+	 * @return
+	 * @throws Exception
+	 */
+	@PreAuthorize("isAuthenticated()")
+	public String getLayerExtent(Integer layerId) throws Exception {
+		MomoLayer layer = this.findById(layerId);
+		String extent = gsReaderDao.getLayerExtent(layer);
+		return extent;
 	}
 
 	/**
