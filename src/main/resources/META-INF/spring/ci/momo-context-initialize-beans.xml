@@ -3854,6 +3854,7 @@
     </bean>
 
     <bean id="blue_marble" class="de.terrestris.momo.model.MomoLayer">
+        <property name="dataType" value="Raster" />
         <property name="name" value="blue_marble" />
         <property name="source" ref="blue_marbleDataSource" />
         <property name="appearance" ref="blue_marbleAppearance" />
@@ -3924,6 +3925,7 @@
     </bean>
 
     <bean id="DEM_30m" class="de.terrestris.momo.model.MomoLayer">
+        <property name="dataType" value="Raster" />
         <property name="name" value="DEM_30m" />
         <property name="source" ref="DEM_30mDataSource" />
         <property name="appearance" ref="DEM_30mAppearance" />
@@ -3938,6 +3940,7 @@
     </bean>
 
     <bean id="DEM_Mongolia_900m" class="de.terrestris.momo.model.MomoLayer">
+        <property name="dataType" value="Raster" />
         <property name="name" value="DEM_Mongolia_900m" />
         <property name="source" ref="DEM_Mongolia_900mDataSource" />
         <property name="appearance" ref="DEM_Mongolia_900mAppearance" />
@@ -4218,6 +4221,7 @@
     </bean>
 
     <bean id="ortho_drone_oczipka" class="de.terrestris.momo.model.MomoLayer">
+        <property name="dataType" value="Raster" />
         <property name="name" value="ortho_drone_oczipka" />
         <property name="source" ref="ortho_drone_oczipkaDataSource" />
         <property name="appearance" ref="ortho_drone_oczipkaAppearance" />
@@ -4932,6 +4936,7 @@
     </bean>
 
     <bean id="TM5_2010" class="de.terrestris.momo.model.MomoLayer">
+        <property name="dataType" value="Raster" />
         <property name="name" value="TM5_2010" />
         <property name="source" ref="TM5_2010DataSource" />
         <property name="appearance" ref="TM5_2010Appearance" />
