@@ -21,6 +21,15 @@ MoMo.client.view.button.translation.ToGerman;config.data.setLanguageCallbackToas
 MoMo.client.view.button.translation.ToMongolian;config.data.tooltipMn;MN;MN;MN;OK
 MoMo.client.view.button.translation.ToMongolian;config.data.setLanguageCallbackToastText;Applikationssprache ist jetzt {0};Application language is now {0};Хэл нь одоо байна {0};OK
 MoMo.client.view.button.ZoomToExtent;config.data.tooltip;Auf Gesamtansicht zoomen;Zoom to Extent;хараахан орчуулагдаагүй;OK
+MoMo.client.view.container.MultiSearchSettings;config.data.title;Sucheinstellungen;Search Settings; хараахан орчуулагдаагүй; -
+MoMo.client.view.container.MultiSearchSettings;config.data.generalSettingsLabel;Allgemeine Einstellungen;General Settings; хараахан орчуулагдаагүй; -
+MoMo.client.view.container.MultiSearchSettings;config.data.limitCboxLabel;Auf den sichtbaren Kartenbereich einschränken;Limit to visible extent;хараахан орчуулагдаагүй; -
+MoMo.client.view.container.MultiSearchSettings;config.data.gazetteerLabel;Gazetteer Suche verwenden;Use Gazetteer Search; хараахан орчуулагдаагүй; -
+MoMo.client.view.container.MultiSearchSettings;config.data.objectSearchLabel;Object Suche verwenden;Use Object Search; хараахан орчуулагдаагүй; -
+MoMo.client.view.container.MultiSearchSettings;config.data.objectSearchLayersLabel;Layer für Objektsuche;Layer for Object Search; хараахан орчуулагдаагүй; -
+MoMo.client.view.container.MultiSearchSettings;config.data.saveBtnText;Sucheinstellungen speichern;Save search settings; хараахан орчуулагдаагүй; -
+MoMo.client.view.form.field.MultiSearchCombo;config.data.emptyText;Suche ...;Search ...; хараахан орчуулагдаагүй; -
+MoMo.client.view.form.field.MultiSearchCombo;config.data.settingsWindowTitle;Sucheinstellungen;Search Settings; хараахан орчуулагдаагүй; -
 MoMo.client.view.form.Print;config.data.labelDpi;DPI;DPI;хараахан орчуулагдаагүй;OK
 MoMo.client.view.form.Print;config.data.printButtonSuffix;herunterladen;download;хараахан орчуулагдаагүй;OK
 MoMo.client.view.form.Print;config.data.printFormat;pdf;pdf;хараахан орчуулагдаагүй;OK
@@ -45,6 +54,10 @@ MoMo.client.view.form.Print;config.data.titleScale;Maßstab;Scale;харааха
 MoMo.client.view.form.Print;config.data.titleDate;Stand;State;хараахан орчуулагдаагүй;OK
 MoMo.client.view.form.Print;config.data.a4LandscapeTemplateValue;A4 Querformat;A4 Portrait;хараахан орчуулагдаагүй;
 MoMo.client.view.form.Print;config.data.a4PortraitTemplateValue;A4 Hochformat;A4 Landscape;хараахан орчуулагдаагүй;
+MoMo.client.view.grid.MultiSearchGazetteerGrid;config.data.title;Gazetteer Suche;Gazetteer Search;хараахан орчуулагдаагүй; -
+MoMo.client.view.grid.MultiSearchGazetteerGrid;config.data.hideToolTooltip;Gazetteer Suche verbergen;Hide Gazetteer Search;хараахан орчуулагдаагүй; -
+MoMo.client.view.grid.ObjectSearchGrid;config.data.title;Objektsuche;Object Search;хараахан орчуулагдаагүй; -
+MoMo.client.view.grid.ObjectSearchGrid;config.data.hideToolTooltip;Objektsuche verbergen;Hide Object Search;хараахан орчуулагдаагүй; -
 MoMo.client.view.panel.document.DocumentTree;config.data.title;Dokumentenbaum;Document tree;хараахан орчуулагдаагүй;OK
 MoMo.client.view.panel.document.DocumentTree;config.data.addNewFolderText;Neuen Ordner hinzufügen;Add new folder;хараахан орчуулагдаагүй;OK
 MoMo.client.view.panel.document.DocumentTree;config.data.folderNameText;Ordnername;Folder name;хараахан орчуулагдаагүй;OK
@@ -305,6 +318,8 @@ Ext.grid.PropertyColumnModel;trueText;wahr;true;хараахан орчуула�
 Ext.grid.PropertyColumnModel;falseText;FALSCH;false;хараахан орчуулагдаагүй; -
 Ext.grid.PropertyColumnModelExt.grid.PropertyColumnModel;nameText;Name;Name;хараахан орчуулагдаагүй; -
 Ext.LoadMask;msg;Lade Daten...;Loading...;хараахан орчуулагдаагүй; -
+Ext.grid.Panel;collapsible;Einklappen;Collapse panel;хараахан орчуулагдаагүй; -
+Ext.grid.Panel;collapsibleText;Einklappen;Collapse panel;хараахан орчуулагдаагүй; -
 Ext.picker.Date;minText;Dieses Datum liegt von dem erstmöglichen Datum;This date is before the minimum date;хараахан орчуулагдаагүй; -
 Ext.picker.Date;maxText;Dieses Datum liegt nach dem letztmöglichen Datum;This date is after the maximum date;хараахан орчуулагдаагүй; -
 Ext.picker.Date;disabledDaysText;;;; -
