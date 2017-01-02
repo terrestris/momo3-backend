@@ -3,7 +3,12 @@
  */
 package de.terrestris.momo.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -11,6 +16,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
+import de.terrestris.momo.model.tree.LayerTreeLeaf;
 import de.terrestris.shogun2.model.layer.Layer;
 
 /**
@@ -45,6 +51,13 @@ public class MomoLayer extends Layer {
 	 *
 	 */
 	private String dataType;
+
+	/**
+	 *
+	 */
+	@OneToMany(cascade = CascadeType.REMOVE)
+	@JoinColumn(name="LAYER_ID")
+	private List<LayerTreeLeaf> layerTreeLeaves;
 
 	/**
 	 *
