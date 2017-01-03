@@ -96,5 +96,22 @@ public class MomoApplicationController<E extends MomoApplication, D extends Momo
 	        return new ResponseEntity<E>(app, HttpStatus.CREATED);
 	}
 
+	/**
+	 * @param name
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value="update.action", method = RequestMethod.POST)
+	public ResponseEntity<?> updateMomoApplication(@RequestBody ApplicationData applicationData) {
 
+		E app = null;
+		try {
+			app = (E) service.updateMomoApplication(applicationData);
+		} catch (Exception e) {
+			final String msg = e.getMessage();
+			LOG.error("Could not update MOMO application: " + msg);
+			return new ResponseEntity<>(ResultSet.error(msg), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		return new ResponseEntity<E>(app, HttpStatus.CREATED);
+	}
 }

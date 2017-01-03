@@ -295,6 +295,64 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 		return appCopy;
 	}
 
+	/**
+	 *
+	 * @param isActive
+	 * @param isPublic
+	 * @param language
+	 * @return
+	 * @throws Exception
+	 * @throws InvocationTargetException
+	 */
+	@SuppressWarnings("unchecked")
+	@PreAuthorize("hasRole(@configHolder.getSuperAdminRoleName())")
+	public MomoApplication updateMomoApplication(ApplicationData applicationData) throws Exception {
+
+		String name = applicationData.getName();
+		String description = applicationData.getDescription();
+		String language = applicationData.getLanguage();
+		Boolean isPublic = applicationData.getIsPublic();
+		Boolean isActive = applicationData.getIsActive();
+
+		String projection = applicationData.getProjection();
+		Point2D.Double center = applicationData.getCenter();
+		Integer zoom = applicationData.getZoom();
+
+		// get application
+		MomoApplication application = dao.findById(applicationData.getId());
+
+		if(application == null){
+			throw new RuntimeException("Couldn't find application with id " + applicationData.getId());
+		}
+
+		// set properties
+		application.setName(name);
+		application.setDescription(description);
+		application.setLanguage(Locale.forLanguageTag(language));
+		application.setOpen(isPublic);
+		application.setActive(isActive);
+
+		List<Module> modules = application.getViewport().getSubModules();
+		for (Module module : modules) {
+		if (module.getName().equalsIgnoreCase("Map Container")) {
+				CompositeModule appMapContainer = (CompositeModule) module;
+			List<Module> subModules = appMapContainer.getSubModules();
+				for (Module subModule : subModules) {
+					if (Map.class.isAssignableFrom(subModule.getClass())) {
+						Map map = (Map) subModule;
+						MapConfig mapConfig = map.getMapConfig();
+						mapConfig.setCenter(center);
+						mapConfig.setProjection(projection);
+						mapConfig.setZoom(zoom);
+						mapConfigService.getDao().saveOrUpdate(mapConfig);
+					}
+				}
+			}
+		}
+		dao.saveOrUpdate((E) application);
+
+		return application;
+	}
 
 	/**
 	 * @param id
