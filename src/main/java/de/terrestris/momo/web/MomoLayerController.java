@@ -1,6 +1,7 @@
 package de.terrestris.momo.web;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import de.terrestris.momo.dao.MomoLayerDao;
 import de.terrestris.momo.model.MomoLayer;
 import de.terrestris.momo.service.MomoLayerService;
+import de.terrestris.shogun2.util.data.ResultSet;
 import de.terrestris.shogun2.web.LayerController;
 
 /**
@@ -40,6 +42,23 @@ public class MomoLayerController<E extends MomoLayer, D extends MomoLayerDao<E>,
 		this.service = service;
 	}
 	
+	/**
+	 *
+	 * @return
+	 */
+	@RequestMapping(value = "/getLayerExtent.action", method = RequestMethod.GET)
+	public @ResponseBody Map<String, Object> getLayerExtent(
+			@RequestParam("layerId") Integer layerId) {
+
+		try {
+			String extent = this.service.getLayerExtent(layerId);
+			return ResultSet.success(extent);
+		} catch (Exception e) {
+			return ResultSet.error("Could not get the layers extent: " +
+					e.getMessage());
+		}
+	}
+
 	/**
 	 *
 	 * @return
