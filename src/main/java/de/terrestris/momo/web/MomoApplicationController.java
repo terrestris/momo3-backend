@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import de.terrestris.momo.dao.MomoApplicationDao;
 import de.terrestris.momo.dto.ApplicationData;
@@ -73,5 +74,27 @@ public class MomoApplicationController<E extends MomoApplication, D extends Momo
 		}
 		return new ResponseEntity<E>(app, HttpStatus.CREATED);
 	}
+
+	/**
+	 *
+	 * @param appId
+	 * @param appName
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value="copy.action", method = RequestMethod.POST)
+	public ResponseEntity<?> copyMomoApplication(
+            @RequestParam("appId") String appId, @RequestParam("appName") String appName) {
+	        E app = null;
+	        try {
+	                app = (E) service.copyApp(appId, appName);
+	        } catch (Exception e) {
+	                final String msg = e.getMessage();
+	                LOG.error("Could not copy a layer: " + msg);
+	                return new ResponseEntity<>(ResultSet.error(msg), HttpStatus.INTERNAL_SERVER_ERROR);
+	        }
+	        return new ResponseEntity<E>(app, HttpStatus.CREATED);
+	}
+
 
 }

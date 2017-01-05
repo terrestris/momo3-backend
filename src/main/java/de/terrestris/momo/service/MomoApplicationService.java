@@ -225,6 +225,78 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 	}
 
 	/**
+	 *
+	 * @param appId
+	 * @param appName
+	 * @return
+	 * @throws Exception
+	 */
+	@SuppressWarnings("unchecked")
+	@PreAuthorize("hasRole(@configHolder.getSuperAdminRoleName()) or hasPermission(#appId, 'de.terrestris.momo.model.MomoApplication', 'READ')")
+	public MomoApplication copyApp(String appId, String appName) throws Exception {
+		if (appId == null || appName == null) {
+			return null;
+		}
+		MomoApplication app = dao.findById(Integer.valueOf(appId));
+		MomoApplication appCopy = new MomoApplication();
+
+		appCopy.setName(appName);
+		appCopy.setDescription(app.getDescription());
+		appCopy.setLanguage(app.getLanguage());
+		appCopy.setActive(app.getActive());
+		appCopy.setOpen(app.getOpen());
+
+		Integer layerTreeId = app.getLayerTree().getId();
+		LayerTreeFolder layerTreeRootNode = this.layerTreeService.findById(layerTreeId);
+		appCopy.setLayerTree(layerTreeRootNode);
+
+		// 1. map config
+		String projection = "EPSG:3857";
+		Point2D.Double center = new Point2D.Double(0,0);
+		Integer zoom = 0;
+		List<Module> modules = app.getViewport().getSubModules();
+		for (Module module : modules) {
+			if (module.getName().equalsIgnoreCase("Map Container")) {
+				CompositeModule appMapContainer = (CompositeModule) module;
+				List<Module> subModules = appMapContainer.getSubModules();
+				for (Module subModule : subModules) {
+					if (Map.class.isAssignableFrom(subModule.getClass())) {
+						Map map = (Map) subModule;
+						projection = map.getMapConfig().getProjection();
+						center = (Point2D.Double) map.getMapConfig().getCenter();
+						zoom = map.getMapConfig().getZoom();
+					}
+				}
+			}
+		}
+
+		MapConfig mapConfig = buildMapConfig(projection, center, zoom);
+
+		// 2. get the map layers from the provided layerTree
+		List<Layer> mapLayers = this.layerTreeService.getAllMapLayersFromTreeFolder(layerTreeRootNode);
+
+		// 3. map
+		Map map = buildMapModule(mapConfig, mapLayers);
+
+		// 4. map container
+		CompositeModule mapContainer = buildMapContainer(map);
+
+		// 5. viewport
+		CompositeModule viewport = buildViewport(mapContainer);
+
+		// 6. finalize...
+		appCopy.setViewport(viewport);
+		dao.saveOrUpdate((E) appCopy);
+
+		// grant admins rights to current user
+		User currentUser = userService.getUserBySession();
+		addAndSaveUserPermissions((E) appCopy, currentUser, Permission.ADMIN);
+
+		return appCopy;
+	}
+
+
+	/**
 	 * @param id
 	 * @return
 	 * @throws Exception
