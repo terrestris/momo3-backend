@@ -4,8 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,12 +21,10 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.jcraft.jsch.JSchException;
 
-import de.terrestris.momo.dao.GeoserverReaderDao;
 import de.terrestris.momo.dao.MomoLayerDao;
 import de.terrestris.momo.model.MomoLayer;
 import de.terrestris.momo.util.importer.ImporterException;
 import de.terrestris.momo.util.importer.RESTImporterPublisher;
-import de.terrestris.momo.util.importer.communication.RESTData;
 import de.terrestris.momo.util.importer.communication.RESTImport;
 import de.terrestris.momo.util.importer.communication.RESTImportTask;
 import de.terrestris.momo.util.importer.communication.RESTImportTaskList;
@@ -166,11 +162,11 @@ public class GeoServerImporterService {
 //	@Qualifier("geoServerDataSource")
 //	private DataSource geoServerDataSource;
 
-	/**
-	 * The reader dao
-	 */
-	@Autowired
-	private GeoserverReaderDao gsReaderDao;
+//	/**
+//	 * The reader dao
+//	 */
+//	@Autowired
+//	private GeoserverReaderDao gsReaderDao;
 
 	/**
 	 *
@@ -216,10 +212,10 @@ public class GeoServerImporterService {
 	 * @throws HttpException
 	 * @throws URISyntaxException
 	 */
-	private boolean createReprojectTransformTask(Integer importJobId, Integer taskId, String sourceSrs)
-			throws URISyntaxException, HttpException {
-		return this.publisher.createReprojectTransformTask(importJobId, taskId, sourceSrs);
-	}
+//	private boolean createReprojectTransformTask(Integer importJobId, Integer taskId, String sourceSrs)
+//			throws URISyntaxException, HttpException {
+//		return this.publisher.createReprojectTransformTask(importJobId, taskId, sourceSrs);
+//	}
 
 	/**
 	 *
@@ -465,8 +461,11 @@ public class GeoServerImporterService {
 			Integer importTaskId = importTask.getId();
 			LOG.info("Successfully created Task with ID " + importTaskId + " for ImportJob " + importJobId);
 
-			createTransformTask(fileProjection, layerType, importJobId,
-					importTaskId);
+			// skip transformation as this would reproject everything to 32648, which should get
+			// displayed on the clientside in 3857, which makes no sense for layers that are not
+			// spatially contained in mongolia
+//			createTransformTask(fileProjection, layerType, importJobId,
+//					importTaskId);
 		}
 
 		responseMap = runJobAndCreateLayer(layerName, layerType,
@@ -538,65 +537,65 @@ public class GeoServerImporterService {
 	 * @throws JsonMappingException
 	 * @throws JsonParseException
 	 */
-	private void createTransformTask(String fileProjection, String layerType,
-			Integer importJobId, Integer importTaskId)
-			throws URISyntaxException, HttpException, JsonParseException, JsonMappingException, IOException {
-		if (layerType.equalsIgnoreCase("raster")) {
-
-			Boolean doTransformation = true;
-
-			if(StringUtils.isEmpty(fileProjection)){
-				fileProjection = this.publisher.getLayer(importJobId, importTaskId).getSrs();
-				if(StringUtils.isEmpty(fileProjection)){
-					LOG.info("Can't add transformation to importTask " + importTaskId +
-							" as source srs and no custom fileProjection is given.");
-					doTransformation = false;
-				}
-			}
-
-			// calculate image transformation
-			if (this.geoServerImporterPerformGdalWarp && doTransformation) {
-				LOG.info("Perform gdalwarp transform to target SRS during import");
-				ArrayList<String> optsGdalWarp = new ArrayList<String>();
-				optsGdalWarp.add("-t_srs");
-				optsGdalWarp.add(this.geoServerDefaultSrs);
-
-				optsGdalWarp.add("-s_srs");
-				optsGdalWarp.add(fileProjection);
-
-				if (this.createGdalWarpTask(importJobId, importTaskId, optsGdalWarp)) {
-					LOG.info("Successfully created the gdal_warp task");
-				} else {
-					LOG.error("Could not create gdal_warp task.");
-				}
-			}
-
-			if (this.geoServerImporterPerformGdalAddo) {
-				LOG.info("Perform gdaladdo transform for levels: " + this.geoServerImporterGdalAddoLevels);
-				List<String> optsGdalAddo = Arrays.asList(new String[] { "-r", "cubic" });
-
-				String[] levelsStr = StringUtils.split(this.geoServerImporterGdalAddoLevels, ",");
-				List<Integer> levelsGdalAddo = new ArrayList<Integer>();
-				for (String levelStr : levelsStr) {
-					levelsGdalAddo.add(new Integer(levelStr));
-				}
-				Boolean gdalAddoTaskSuccess = this.createGdalAddOverviewTask(importJobId, importTaskId,
-						optsGdalAddo, levelsGdalAddo);
-				if (!gdalAddoTaskSuccess) {
-					LOG.error("Could not create gdalAddoTask task.");
-				}
-				LOG.info("Successfully created the gdalAddoTasks");
-			}
-
-		} else if (layerType.equalsIgnoreCase("vector")) {
-			LOG.info("Create ReprojectTransformTask for vector layer");
-			Boolean transformTask = this.createReprojectTransformTask(importJobId, importTaskId, fileProjection);
-			if (!transformTask) {
-				LOG.error("Could not create transform task.");
-			}
-			LOG.info("Successfully created the TransformTask");
-		}
-	}
+//	private void createTransformTask(String fileProjection, String layerType,
+//			Integer importJobId, Integer importTaskId)
+//			throws URISyntaxException, HttpException, JsonParseException, JsonMappingException, IOException {
+//		if (layerType.equalsIgnoreCase("raster")) {
+//
+//			Boolean doTransformation = true;
+//
+//			if(StringUtils.isEmpty(fileProjection)){
+//				fileProjection = this.publisher.getLayer(importJobId, importTaskId).getSrs();
+//				if(StringUtils.isEmpty(fileProjection)){
+//					LOG.info("Can't add transformation to importTask " + importTaskId +
+//							" as source srs and no custom fileProjection is given.");
+//					doTransformation = false;
+//				}
+//			}
+//
+//			// calculate image transformation
+//			if (this.geoServerImporterPerformGdalWarp && doTransformation) {
+//				LOG.info("Perform gdalwarp transform to target SRS during import");
+//				ArrayList<String> optsGdalWarp = new ArrayList<String>();
+//				optsGdalWarp.add("-t_srs");
+//				optsGdalWarp.add(this.geoServerDefaultSrs);
+//
+//				optsGdalWarp.add("-s_srs");
+//				optsGdalWarp.add(fileProjection);
+//
+//				if (this.createGdalWarpTask(importJobId, importTaskId, optsGdalWarp)) {
+//					LOG.info("Successfully created the gdal_warp task");
+//				} else {
+//					LOG.error("Could not create gdal_warp task.");
+//				}
+//			}
+//
+//			if (this.geoServerImporterPerformGdalAddo) {
+//				LOG.info("Perform gdaladdo transform for levels: " + this.geoServerImporterGdalAddoLevels);
+//				List<String> optsGdalAddo = Arrays.asList(new String[] { "-r", "cubic" });
+//
+//				String[] levelsStr = StringUtils.split(this.geoServerImporterGdalAddoLevels, ",");
+//				List<Integer> levelsGdalAddo = new ArrayList<Integer>();
+//				for (String levelStr : levelsStr) {
+//					levelsGdalAddo.add(new Integer(levelStr));
+//				}
+//				Boolean gdalAddoTaskSuccess = this.createGdalAddOverviewTask(importJobId, importTaskId,
+//						optsGdalAddo, levelsGdalAddo);
+//				if (!gdalAddoTaskSuccess) {
+//					LOG.error("Could not create gdalAddoTask task.");
+//				}
+//				LOG.info("Successfully created the gdalAddoTasks");
+//			}
+//
+//		} else if (layerType.equalsIgnoreCase("vector")) {
+//			LOG.info("Create ReprojectTransformTask for vector layer");
+//			Boolean transformTask = this.createReprojectTransformTask(importJobId, importTaskId, fileProjection);
+//			if (!transformTask) {
+//				LOG.error("Could not create transform task.");
+//			}
+//			LOG.info("Successfully created the TransformTask");
+//		}
+//	}
 
 
 	/**
@@ -702,7 +701,10 @@ public class GeoServerImporterService {
 			String fileProjection) throws JsonParseException, JsonMappingException, URISyntaxException, HttpException, IOException, ImporterException, JSchException {
 		RESTImportTask importTask = this.publisher.getRESTImportTask(importJobId, taskId);
 		this.publisher.updateSrsForRESTImportTask(importJobId, importTask, fileProjection);
-		createTransformTask(fileProjection, layerType, importJobId, importTask.getId());
+		// skip transformation as this would reproject everything to 32648, which should get
+		// displayed on the clientside in 3857, which makes no sense for layers that are not
+		// spatially contained in mongolia
+//		createTransformTask(fileProjection, layerType, importJobId, importTask.getId());
 		return this.runJobAndCreateLayer(layerName, layerType, layerDescription, layerOpacity, layerHoverTemplate, importJobId);
 	}
 
@@ -725,30 +727,30 @@ public class GeoServerImporterService {
 		return responseMap;
 	}
 
-	/**
-	 * @param layer
-	 * @param importJobId
-	 * @throws Exception
-	 *
-	 */
-	private void deleteTemporaryShapeFiles(MomoLayer layer, Integer importJobId) throws Exception {
-
-		RESTData data = publisher.getDataOfImportTask(importJobId, 0);
-
-		String fileUrl = data.getLocation(); // something like /var/lib/tomcat7/webapps/geoserver/data/uploads/tmp638865446314869143
-		String command = "sudo rm -R " + fileUrl + ";";
-		try {
-			Map<String, Object> result = sshService.execCommand(command);
-			if (result.get("success").equals(false)) {
-				throw new RuntimeException(result.get("message").toString());
-			} else {
-				LOG.debug("Successfully deleted the temporary vector shapefile " +
-						"on the geoserver machine in " + fileUrl);
-			}
-		} catch (JSchException | IOException e1) {
-			throw new RuntimeException(e1.getMessage());
-		}
-
-	}
+//	/**
+//	 * @param layer
+//	 * @param importJobId
+//	 * @throws Exception
+//	 *
+//	 */
+//	private void deleteTemporaryShapeFiles(MomoLayer layer, Integer importJobId) throws Exception {
+//
+//		RESTData data = publisher.getDataOfImportTask(importJobId, 0);
+//
+//		String fileUrl = data.getLocation(); // something like /var/lib/tomcat7/webapps/geoserver/data/uploads/tmp638865446314869143
+//		String command = "sudo rm -R " + fileUrl + ";";
+//		try {
+//			Map<String, Object> result = sshService.execCommand(command);
+//			if (result.get("success").equals(false)) {
+//				throw new RuntimeException(result.get("message").toString());
+//			} else {
+//				LOG.debug("Successfully deleted the temporary vector shapefile " +
+//						"on the geoserver machine in " + fileUrl);
+//			}
+//		} catch (JSchException | IOException e1) {
+//			throw new RuntimeException(e1.getMessage());
+//		}
+//
+//	}
 
 }
