@@ -21,6 +21,7 @@ public class ApplicationData {
 	private Point2D.Double center;
 	private Integer zoom;
 	private Integer layerTree;
+	private Integer id;
 
 	/**
 	 *
@@ -153,6 +154,20 @@ public class ApplicationData {
 	 */
 	public void setLayerTree(Integer layerTree) {
 		this.layerTree = layerTree;
+	}
+
+	/**
+	 * @return the id
+	 */
+	public Integer getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 }
