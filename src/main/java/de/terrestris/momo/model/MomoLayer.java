@@ -55,6 +55,11 @@ public class MomoLayer extends Layer {
 	/**
 	 *
 	 */
+	private String metadataIdentifier;
+
+	/**
+	 *
+	 */
 	@OneToMany(cascade = CascadeType.REMOVE)
 	@JoinColumn(name="LAYER_ID")
 	private List<LayerTreeLeaf> layerTreeLeaves;
@@ -170,6 +175,20 @@ public class MomoLayer extends Layer {
 	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this, ToStringStyle.DEFAULT_STYLE);
+	}
+
+	/**
+	 * @return the metadataIdentifier
+	 */
+	public String getMetadataIdentifier() {
+		return metadataIdentifier;
+	}
+
+	/**
+	 * @param metadataIdentifier the metadataIdentifier to set
+	 */
+	public void setMetadataIdentifier(String metadataIdentifier) {
+		this.metadataIdentifier = metadataIdentifier;
 	}
 
 }
