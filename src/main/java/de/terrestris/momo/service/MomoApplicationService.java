@@ -340,6 +340,15 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 				for (Module subModule : subModules) {
 					if (Map.class.isAssignableFrom(subModule.getClass())) {
 						Map map = (Map) subModule;
+
+						// update the mapLayers array of the application
+						Integer layerTreeId = application.getLayerTree().getId();
+						LayerTreeFolder layerTreeRootNode = this.layerTreeService.findById(layerTreeId);
+						List<Layer> mapLayers = this.layerTreeService.getAllMapLayersFromTreeFolder(layerTreeRootNode);
+						map.setMapLayers(mapLayers);
+						mapService.saveOrUpdate(map);
+
+						// update the mapconfig
 						MapConfig mapConfig = map.getMapConfig();
 						mapConfig.setCenter(center);
 						mapConfig.setProjection(projection);
@@ -349,6 +358,7 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 				}
 			}
 		}
+
 		dao.saveOrUpdate((E) application);
 
 		return application;
