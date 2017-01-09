@@ -29,14 +29,14 @@ public class MetadataService {
 	@Autowired
 	@Qualifier("geoNetworkCswUrl")
 	private String cswUrl;
-	
+
 	/**
 	 *
 	 */
 	@Autowired
 	@Qualifier("geoNetworkUsername")
 	private String username;
-	
+
 	/**
 	 *
 	 */
@@ -50,7 +50,7 @@ public class MetadataService {
 	private static final Logger LOG = Logger.getLogger(MetadataService.class);
 
 	/**
-	 * 
+	 *
 	 * @param body
 	 * @return
 	 * @throws URISyntaxException
@@ -58,9 +58,11 @@ public class MetadataService {
 	 * @throws IOException
 	 */
 	public String cswRequest(String xml) throws URISyntaxException, HttpException, IOException {
-		ContentType contentType = ContentType.APPLICATION_XML;
+		ContentType contentType = ContentType.APPLICATION_XML.withCharset("UTF-8");
+
 		UsernamePasswordCredentials credentials = new UsernamePasswordCredentials(username, password);
 		Response response = HttpUtil.post(cswUrl, xml, contentType, credentials);
+
 		LOG.debug("Sending new CSW Request");
 		return new String(response.getBody(), "UTF-8");
 	}
