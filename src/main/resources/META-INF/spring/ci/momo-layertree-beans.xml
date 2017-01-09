@@ -26,6 +26,7 @@
         <property name="index" value="0" />
         <property name="checked" value="true" />
         <property name="layer" ref="02_surface_water_bodies_32648" />
+        <property name="text" value="02_surface_water_bodies_32648" />
     </bean>
 
     <!-- Layer 1.2 -->
@@ -34,6 +35,7 @@
         <property name="index" value="1" />
         <property name="checked" value="true" />
         <property name="layer" ref="01_kharaa_river_basin_32648" />
+        <property name="text" value="01_kharaa_river_basin_32648" />
     </bean>
 
     <!-- Folder 2 -->
@@ -51,6 +53,7 @@
         <property name="index" value="0" />
         <property name="checked" value="true" />
         <property name="layer" ref="osmWmsLayerGray" />
+        <property name="text" value="OSM-WMS GRAY" />
     </bean>
 
 </beans>
