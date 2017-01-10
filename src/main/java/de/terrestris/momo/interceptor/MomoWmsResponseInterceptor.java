@@ -45,31 +45,38 @@ public class MomoWmsResponseInterceptor implements WmsResponseInterceptorInterfa
 	@Override
 	public Response interceptGetMap(MutableHttpServletRequest mutableRequest, Response response) {
 
-		byte[] inputBytes = response.getBody();
+		// This code has been taken on hold as it currently modifies all
+		// wms responses and makes e.g. raster data look ugly due to
+		// wrong set transparencies. In the future this should be applied
+		// on layers that really need to be restricted and the tolerance
+		// value should be investigated further, as it currently also matches
+		// gray values even if the color to match is a kind of pink...
 
-		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-		byte[] outputBytes = null;
-
-		try {
-			Color maskingColor = Color.decode(maskingColorHex);
-			BufferedImage bufferedInputImage = GraphicsUtil.byteArrayToImage(inputBytes);
-
-			Image transparentImage = GraphicsUtil.makeColorTransparent(bufferedInputImage, maskingColor, maskingColorTolerance);
-
-			BufferedImage bufferedOutputImage = GraphicsUtil.imageToBufferedImage(transparentImage);
-
-			// TODO handle format (png) dynamically!?
-			ImageIO.write(bufferedOutputImage, "png", outputStream);
-			outputBytes = outputStream.toByteArray();
-
-			LOG.trace("Successfully intercepted/processed image response data (GetMap)");
-		} catch (Exception e) {
-			LOG.error("Could not intercept/process image response data (GetMap): " + e.getMessage());
-		}
-
-		if(outputBytes != null) {
-			response.setBody(outputBytes);
-		}
+//		byte[] inputBytes = response.getBody();
+//
+//		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+//		byte[] outputBytes = null;
+//
+//		try {
+//			Color maskingColor = Color.decode(maskingColorHex);
+//			BufferedImage bufferedInputImage = GraphicsUtil.byteArrayToImage(inputBytes);
+//
+//			Image transparentImage = GraphicsUtil.makeColorTransparent(bufferedInputImage, maskingColor, maskingColorTolerance);
+//
+//			BufferedImage bufferedOutputImage = GraphicsUtil.imageToBufferedImage(transparentImage);
+//
+//			// TODO handle format (png) dynamically!?
+//			ImageIO.write(bufferedOutputImage, "png", outputStream);
+//			outputBytes = outputStream.toByteArray();
+//
+//			LOG.trace("Successfully intercepted/processed image response data (GetMap)");
+//		} catch (Exception e) {
+//			LOG.error("Could not intercept/process image response data (GetMap): " + e.getMessage());
+//		}
+//
+//		if(outputBytes != null) {
+//			response.setBody(outputBytes);
+//		}
 
 		return response;
 	}
