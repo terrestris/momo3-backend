@@ -37,7 +37,7 @@ public class MetadataController {
 			String response = this.metadataService.cswRequest(decodedXML);
 			return ResultSet.success(response);
 		} catch (URISyntaxException | HttpException | IOException e) {
-			return ResultSet.error("Error while updating Sld: " + e.getMessage());
+			return ResultSet.error("Error during csw-transaction: " + e.getMessage());
 		}
 	}
 
