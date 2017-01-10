@@ -93,6 +93,39 @@
     <bean id="wfsRequestInterceptor" class="de.terrestris.momo.interceptor.MomoWfsRequestInterceptor" />
     <bean id="wfsResponseInterceptor" class="de.terrestris.momo.interceptor.MomoWfsResponseInterceptor" />
 
+    <!-- The GeoNetwork connection parameters -->
+    <bean id="geoNetworkScheme" class="java.lang.String">
+        <constructor-arg value="${geonetwork.scheme}"></constructor-arg>
+    </bean>
+
+    <bean id="geoNetworkHost" class="java.lang.String">
+        <constructor-arg value="${geonetwork.host}"></constructor-arg>
+    </bean>
+
+    <bean id="geoNetworkPort" class="java.lang.Integer">
+        <constructor-arg value="${geonetwork.port}"></constructor-arg>
+    </bean>
+
+    <bean id="geoNetworkBasePath" class="java.lang.String">
+        <constructor-arg value="${geonetwork.basePath}"></constructor-arg>
+    </bean>
+
+    <bean id="geoNetworkCswPath" class="java.lang.String">
+        <constructor-arg value="${geonetwork.cswPath}"></constructor-arg>
+    </bean>
+
+    <bean id="geoNetworkCswUrl" class="java.lang.String">
+        <constructor-arg value="${geonetwork.scheme}://${geonetwork.host}:${geonetwork.port}${geonetwork.basePath}${geonetwork.cswPath}"></constructor-arg>
+    </bean>
+
+    <bean id="geoNetworkUsername" class="java.lang.String">
+        <constructor-arg value="${geonetwork.username}"></constructor-arg>
+    </bean>
+
+    <bean id="geoNetworkPassword" class="java.lang.String">
+        <constructor-arg value="${geonetwork.password}"></constructor-arg>
+    </bean>
+
     <!-- The GeoServer connection parameters -->
     <bean id="geoServerScheme" class="java.lang.String">
         <constructor-arg value="${geoserver.scheme}"></constructor-arg>
