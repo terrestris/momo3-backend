@@ -6512,6 +6512,7 @@
         <property name="name" value="Zoom in button" />
         <property name="defaultButton" value="true" />
         <property name="xtype" value="basigx-button-zoomin" />
+        <property name="glyph" value="xf00e@FontAwesome" />
         <property name="properties">
              <util:map>
                 <entry key="scale" value="small" />
@@ -6524,6 +6525,7 @@
         <property name="name" value="Zoom out button" />
         <property name="defaultButton" value="true" />
         <property name="xtype" value="basigx-button-zoomout" />
+        <property name="glyph" value="xf010@FontAwesome" />
         <property name="properties">
              <util:map>
                 <entry key="scale" value="small" />
@@ -6536,6 +6538,7 @@
         <property name="name" value="Zoom to extent button" />
         <property name="defaultButton" value="true" />
         <property name="xtype" value="momo-button-zoomtoextent" />
+        <property name="glyph" value="xf0b2@FontAwesome" />
         <property name="properties">
              <util:map>
                 <entry key="scale" value="small" />
@@ -6548,6 +6551,7 @@
         <property name="name" value="Step back to previous extent button" />
         <property name="defaultButton" value="true" />
         <property name="xtype" value="momo-button-stepback" />
+        <property name="glyph" value="xf060@FontAwesome" />
         <property name="properties">
              <util:map>
                 <entry key="scale" value="small" />
@@ -6560,6 +6564,7 @@
         <property name="name" value="Step forward to next extent button" />
         <property name="defaultButton" value="true" />
         <property name="xtype" value="momo-button-stepforward" />
+        <property name="glyph" value="xf061@FontAwesome" />
         <property name="properties">
              <util:map>
                 <entry key="scale" value="small" />
@@ -6572,6 +6577,7 @@
         <property name="name" value="Activate hover-select tool" />
         <property name="defaultButton" value="false" />
         <property name="xtype" value="basigx-button-hsi" />
+        <property name="glyph" value="xf05a@FontAwesome" />
         <property name="properties">
              <util:map>
                 <entry key="scale" value="small" />
@@ -6584,6 +6590,7 @@
         <property name="name" value="Print button" />
         <property name="defaultButton" value="false" />
         <property name="xtype" value="momo-button-print" />
+        <property name="glyph" value="xf02f@FontAwesome" />
         <property name="properties">
             <util:map>
                 <entry key="printUrl" value="${printservlet.interceptorUrl}"/>
@@ -6596,6 +6603,7 @@
         <property name="name" value="Show measure tools button" />
         <property name="defaultButton" value="false" />
         <property name="xtype" value="momo-button-showmeasuretoolspanel" />
+        <property name="glyph" value="xf105@Flaticon" />
         <property name="properties">
              <util:map>
                 <entry key="scale" value="small" />
@@ -6608,6 +6616,7 @@
         <property name="name" value="Show redlining tools button" />
         <property name="defaultButton" value="false" />
         <property name="xtype" value="momo-button-showredliningtoolspanel" />
+        <property name="glyph" value="xf040@FontAwesome" />
         <property name="properties">
              <util:map>
                 <entry key="scale" value="small" />
@@ -6620,6 +6629,7 @@
         <property name="name" value="Show workstate tools button" />
         <property name="defaultButton" value="false" />
         <property name="xtype" value="momo-button-showworkstatetoolspanel" />
+        <property name="glyph" value="xf108@FontAwesome" />
         <property name="properties">
              <util:map>
                 <entry key="scale" value="small" />
@@ -6631,6 +6641,7 @@
     <bean id="showAddWmsToolsModule" class="de.terrestris.shogun2.model.module.Button">
         <property name="name" value="Show addwms tools button" />
         <property name="xtype" value="momo-button-addwms" />
+        <property name="glyph" value="xf278@FontAwesome" />
         <property name="properties">
              <util:map>
                 <entry key="scale" value="small" />
@@ -6642,6 +6653,7 @@
     <bean id="showMetaToolbarModule" class="de.terrestris.shogun2.model.module.Button">
         <property name="name" value="Show meta toolbar button" />
         <property name="xtype" value="momo-button-showmetapanel" />
+        <property name="glyph" value="xf278@FontAwesome" />
         <property name="properties">
              <util:map>
                 <entry key="scale" value="small" />

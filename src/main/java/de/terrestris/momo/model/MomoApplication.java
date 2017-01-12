@@ -8,6 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OrderColumn;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -17,6 +18,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import de.terrestris.momo.model.tree.DocumentTreeFolder;
 import de.terrestris.momo.model.tree.LayerTreeFolder;
 import de.terrestris.shogun2.model.Application;
+import de.terrestris.shogun2.model.module.Module;
 
 /**
  *
@@ -55,6 +57,12 @@ public class MomoApplication extends Application {
 	/**
 	 *
 	 */
+	@OneToMany
+	private List<Module> activeTools = new ArrayList<Module>();
+
+	/**
+	 *
+	 */
 	public MomoApplication() {
 	}
 
@@ -84,6 +92,20 @@ public class MomoApplication extends Application {
 	 */
 	public void setLayerTree(LayerTreeFolder layerTree) {
 		this.layerTree = layerTree;
+	}
+
+	/**
+	 * @return the activeTools
+	 */
+	public List<Module> getActiveTools() {
+		return activeTools;
+	}
+
+	/**
+	 * @param activeTools the activeTools to set
+	 */
+	public void setActiveTools(List<Module> activeTools) {
+		this.activeTools = activeTools;
 	}
 
 }
