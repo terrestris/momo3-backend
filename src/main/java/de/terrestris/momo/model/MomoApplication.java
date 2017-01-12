@@ -57,7 +57,13 @@ public class MomoApplication extends Application {
 	/**
 	 *
 	 */
-	@OneToMany
+	@ManyToMany
+	@JoinTable(
+		name = "MOMOAPPS_ACTIVETOOLS",
+		joinColumns = { @JoinColumn(name = "MOMOAPP_ID") },
+		inverseJoinColumns = { @JoinColumn(name = "ACTIVETOOL_ID") }
+	)
+	@OrderColumn(name = "IDX")
 	private List<Module> activeTools = new ArrayList<Module>();
 
 	/**

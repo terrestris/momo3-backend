@@ -182,6 +182,7 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 		String projection = applicationData.getProjection();
 		Point2D.Double center = applicationData.getCenter();
 		Integer zoom = applicationData.getZoom();
+		List<Integer> activeTools = applicationData.getActiveTools();
 
 		Integer layerTreeId = applicationData.getLayerTree();
 
@@ -194,6 +195,11 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 		application.setLanguage(Locale.forLanguageTag(language));
 		application.setOpen(isPublic);
 		application.setActive(isActive);
+
+		for (Integer activeToolId : activeTools) {
+			Module module = moduleService.findById(activeToolId);
+			application.getActiveTools().add(module);
+		}
 
 		LayerTreeFolder layerTreeRootNode = this.layerTreeService.findById(layerTreeId);
 		application.setLayerTree(layerTreeRootNode);
@@ -245,6 +251,7 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 		appCopy.setLanguage(app.getLanguage());
 		appCopy.setActive(app.getActive());
 		appCopy.setOpen(app.getOpen());
+		appCopy.setActiveTools(app.getActiveTools());
 
 		Integer layerTreeId = app.getLayerTree().getId();
 		LayerTreeFolder layerTreeRootNode = this.layerTreeService.findById(layerTreeId);
