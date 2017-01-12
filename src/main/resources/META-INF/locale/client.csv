@@ -33,6 +33,9 @@ MoMo.client.view.form.field.MultiSearchCombo;config.data.settingsWindowTitle;Suc
 MoMo.client.view.form.Print;config.data.labelDpi;DPI;DPI;хараахан орчуулагдаагүй;OK
 MoMo.client.view.form.Print;config.data.printButtonSuffix;herunterladen;download;хараахан орчуулагдаагүй;OK
 MoMo.client.view.form.Print;config.data.printFormat;pdf;pdf;хараахан орчуулагдаагүй;OK
+MoMo.client.view.form.Print;config.data.printDownload;Download;Download;хараахан орчуулагдаагүй;OK
+MoMo.client.view.form.Print;config.data.printErrorTitle;Fehler;Error;хараахан орчуулагдаагүй;OK
+MoMo.client.view.form.Print;config.data.printErrorMsg;Fehler beim Druck;Error while printing;хараахан орчуулагдаагүй;OK
 MoMo.client.view.form.Print;config.data.formatComboLabel;Ausgabeformat;Output format;хараахан орчуулагдаагүй;OK
 MoMo.client.view.form.Print;config.data.layoutComboLabel;Vorlage;Template;хараахан орчуулагдаагүй;OK
 MoMo.client.view.form.Print;config.data.genericFieldSetTitle;Druckeigenschaften;Print properties;хараахан орчуулагдаагүй;OK
