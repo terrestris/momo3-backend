@@ -317,6 +317,7 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 		String projection = applicationData.getProjection();
 		Point2D.Double center = applicationData.getCenter();
 		Integer zoom = applicationData.getZoom();
+		List<Integer> activeTools = applicationData.getActiveTools();
 
 		// get application
 		MomoApplication application = dao.findById(applicationData.getId());
@@ -331,6 +332,12 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 		application.setLanguage(Locale.forLanguageTag(language));
 		application.setOpen(isPublic);
 		application.setActive(isActive);
+		application.getActiveTools().clear();
+
+		for (Integer activeToolId : activeTools) {
+			Module module = moduleService.findById(activeToolId);
+			application.getActiveTools().add(module);
+		}
 
 		List<Module> modules = application.getViewport().getSubModules();
 		for (Module module : modules) {

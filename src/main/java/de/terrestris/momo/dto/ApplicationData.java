@@ -1,6 +1,7 @@
 package de.terrestris.momo.dto;
 
 import java.awt.geom.Point2D;
+import java.util.List;
 
 /**
  *
@@ -22,6 +23,7 @@ public class ApplicationData {
 	private Integer zoom;
 	private Integer layerTree;
 	private Integer id;
+	private List<Integer> activeTools;
 
 	/**
 	 *
@@ -169,5 +171,21 @@ public class ApplicationData {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
+	/**
+	 * @return the activeTools
+	 */
+	public List<Integer> getActiveTools() {
+		return activeTools;
+	}
+
+	/**
+	 * @param activeTools the activeTools to set
+	 */
+	public void setActiveTools(List<Integer> activeTools) {
+		this.activeTools = activeTools;
+	}
+
+
 
 }
