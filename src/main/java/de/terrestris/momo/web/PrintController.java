@@ -14,6 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -94,7 +95,7 @@ public class PrintController {
 	}
 
 	/**
-	 * Forwarding the buildreport.pdf request, intercepting payload to replace
+	 * Forwarding the report.pdf request, intercepting payload to replace
 	 * interceptor urls with absolute urls
 	 *
 	 * @param printSpec
@@ -102,17 +103,66 @@ public class PrintController {
 	 * @param printApp
 	 * @return
 	 */
-	@RequestMapping(value = "/print/{printApp}/buildreport.{format}", method = {RequestMethod.GET, RequestMethod.POST})
-	public @ResponseBody ResponseEntity<byte[]> intercept(@RequestParam("spec") String printSpec,
+	@RequestMapping(value = "/print/{printApp}/report.{format}", method = {RequestMethod.GET, RequestMethod.POST})
+	public @ResponseBody ResponseEntity<byte[]> intercept(@RequestBody String printSpec,
 			HttpServletRequest request, @PathVariable("printApp") String printApp,
 			@PathVariable("format") String format) {
-		LOG.debug("Requested to intercept a print 'buildreport' request");
+		LOG.debug("Requested to intercept a print 'report' request");
 
 		try {
 			Response response = service.interceptPrint(printSpec, request, printApp, format);
 			return new ResponseEntity<byte[]>(response.getBody(), response.getHeaders(), response.getStatusCode());
 		} catch (Exception e) {
 			LOG.error("Error intercepting a print 'buildreport' request: ", e);
+			HttpHeaders headers = new HttpHeaders();
+			headers.setContentType(MediaType.APPLICATION_JSON);
+			return new ResponseEntity<byte[]>(new byte[0], headers, HttpStatus.NOT_FOUND);
+		}
+	}
+
+	/**
+	 *
+	 * @param printSpec
+	 * @param request
+	 * @param printApp
+	 * @param format
+	 * @return
+	 */
+	@RequestMapping(value = "/print/{printApp}/report/{identifier}", method = {RequestMethod.GET, RequestMethod.POST})
+	public @ResponseBody ResponseEntity<byte[]> interceptReportDownload(
+			HttpServletRequest request, @PathVariable("printApp") String printApp,
+			@PathVariable("identifier") String identifier) {
+		LOG.debug("Requested to intercept a print 'download' request");
+
+		try {
+			Response response = service.interceptPrintDownload(request, printApp, identifier);
+			return new ResponseEntity<byte[]>(response.getBody(), response.getHeaders(), response.getStatusCode());
+		} catch (Exception e) {
+			LOG.error("Error intercepting a print 'download' request: ", e);
+			HttpHeaders headers = new HttpHeaders();
+			headers.setContentType(MediaType.APPLICATION_JSON);
+			return new ResponseEntity<byte[]>(new byte[0], headers, HttpStatus.NOT_FOUND);
+		}
+	}
+
+	/**
+	 *
+	 * @param request
+	 * @param printApp
+	 * @param identifier
+	 * @return
+	 */
+	@RequestMapping(value = "/print/{printApp}/status/{identifier}", method = {RequestMethod.GET, RequestMethod.POST})
+	public @ResponseBody ResponseEntity<byte[]> interceptStatus(
+			HttpServletRequest request, @PathVariable("printApp") String printApp,
+			@PathVariable("identifier") String identifier) {
+		LOG.debug("Requested to intercept a 'status' request");
+
+		try {
+			Response response = service.interceptStatus(request, printApp, identifier);
+			return new ResponseEntity<byte[]>(response.getBody(), response.getHeaders(), response.getStatusCode());
+		} catch (Exception e) {
+			LOG.error("Error intercepting a print 'status' request: ", e);
 			HttpHeaders headers = new HttpHeaders();
 			headers.setContentType(MediaType.APPLICATION_JSON);
 			return new ResponseEntity<byte[]>(new byte[0], headers, HttpStatus.NOT_FOUND);

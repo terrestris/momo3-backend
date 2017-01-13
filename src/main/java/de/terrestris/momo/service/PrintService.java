@@ -1,11 +1,14 @@
 package de.terrestris.momo.service;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.http.HttpException;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.log4j.Logger;
@@ -81,7 +84,7 @@ public class PrintService {
 
 			List<NameValuePair> queryParams = new ArrayList<NameValuePair>(1);
 			queryParams.add(new BasicNameValuePair("spec",replacedTree.toString()));
-			String url = printservletBaseUrl + "print/" + printApp + "/buildreport." + format;
+			String url = printservletBaseUrl + "print/" + printApp + "/report." + format;
 			response = HttpUtil.post(url, queryParams);
 		} catch (Exception e) {
 			LOG.error("Error on intercepting a print request: " + e.getMessage(), e);
@@ -150,5 +153,19 @@ public class PrintService {
 			}
 		}
 		return jsonTree;
+	}
+
+	public Response interceptStatus(HttpServletRequest request, String printApp, String identifier) throws UnsupportedEncodingException, URISyntaxException, HttpException {
+		identifier = identifier.split(".json")[0];
+		String url = printservletBaseUrl + "print/" + printApp + "/status/" + identifier + ".json";
+		Response response = HttpUtil.get(url);
+		return response;
+	}
+
+	public Response interceptPrintDownload(HttpServletRequest request, String printApp, String identifier) throws URISyntaxException, HttpException {
+		identifier = identifier.split(".json")[0];
+		String url = printservletBaseUrl + "print/" + printApp + "/report/" + identifier;
+		Response response = HttpUtil.get(url);
+		return response;
 	}
 }
