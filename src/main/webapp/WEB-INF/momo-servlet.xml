@@ -42,6 +42,10 @@
 
     <annotation-config />
 
+    <beans:bean id="handlerMapping" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+        <beans:property name="alwaysUseFullPath" value="true"/>
+    </beans:bean>
+
     <!-- We configured the DispatcherServlet with the mapping "/", but we want
      all requests to static resources (e.g., *.js or *.css) mapped to the
      DefaultServlet -->
