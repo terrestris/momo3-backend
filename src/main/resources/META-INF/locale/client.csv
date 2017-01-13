@@ -54,6 +54,27 @@ MoMo.client.view.form.Print;config.data.titleScale;Maßstab;Scale;харааха
 MoMo.client.view.form.Print;config.data.titleDate;Stand;State;хараахан орчуулагдаагүй;OK
 MoMo.client.view.form.Print;config.data.a4LandscapeTemplateValue;A4 Querformat;A4 Portrait;хараахан орчуулагдаагүй;
 MoMo.client.view.form.Print;config.data.a4PortraitTemplateValue;A4 Hochformat;A4 Landscape;хараахан орчуулагдаагүй;
+MoMo.client.view.grid.ApplicationState;config.data.columnDescriptionText;Beschreibung;Description;хараахан орчуулагдаагүй;OK
+MoMo.client.view.grid.ApplicationState;config.data.columnUrlText;Link zum Arbeitsstand;Link to application state;хараахан орчуулагдаагүй;OK
+MoMo.client.view.grid.ApplicationState;config.data.columnLastModifiedText;Letzte Änderung;Last modification;хараахан орчуулагдаагүй;OK
+MoMo.client.view.grid.ApplicationState;config.data.urlColumnLinkText;Link;Link;хараахан орчуулагдаагүй;OK
+MoMo.client.view.grid.ApplicationState;config.data.deleteBtnText;Löschen;Delete;хараахан орчуулагдаагүй;OK
+MoMo.client.view.grid.ApplicationState;config.data.loadBtnText;Laden;Load;хараахан орчуулагдаагүй;OK
+MoMo.client.view.grid.ApplicationState;config.data.createBtnText;Speichen;Save;хараахан орчуулагдаагүй;OK
+MoMo.client.view.grid.ApplicationState;config.data.copyToClipboardSuccessMsg;URL erfolgreich in den Zwischenspeicher kopiert.;Successfully copied the URL to clipboard.;хараахан орчуулагдаагүй;OK
+MoMo.client.view.grid.ApplicationState;config.data.copyToClipboardFailureMsg;Fehler beim Speichern der URL in den Zwischenspeicher!;Could not copy the URL to clipboard.;хараахан орчуулагдаагүй;OK
+MoMo.client.view.grid.ApplicationState;config.data.noSelectionAvailableMsg;Keine Selektion vorhanden!;No selection available!;хараахан орчуулагдаагүй;OK
+MoMo.client.view.grid.ApplicationState;config.data.loadStateSuccessMsg;Arbeitsstand erfolgreich geladen.;Successfully loaded the application state.;хараахан орчуулагдаагүй;OK
+MoMo.client.view.grid.ApplicationState;config.data.loadStateFailureMsg;Fehler beim Laden des Arbeitsstands!;Could not load the application state!;хараахан орчуулагдаагүй;OK
+MoMo.client.view.grid.ApplicationState;config.data.createStatePromptMsg;Bitte geben Sie eine Kurzbeschreibung für den neuen Arbeitsstand ein:;Please enter a short description for the application state to create:;хараахан орчуулагдаагүй;OK
+MoMo.client.view.grid.ApplicationState;config.data.createStateSuccessMsg;Arbeitsstand erfolgreich angelegt.;Successfully created the application state.;хараахан орчуулагдаагүй;OK
+MoMo.client.view.grid.ApplicationState;config.data.createStateFailureMsg;Fehler beim Anlegen des Arbeitsstands!;Could not create the application state!;хараахан орчуулагдаагүй;OK
+MoMo.client.view.grid.ApplicationState;config.data.deleteStateConfirmMsg;Den ausgewählten Arbeitsstand wirklich löschen?;Do you really want to delete the selected application state?;хараахан орчуулагдаагүй;OK
+MoMo.client.view.grid.ApplicationState;config.data.deleteStateSuccessMsg;Arbeitsstand erfolgreich gelöscht.;Successfully removed the application state.;хараахан орчуулагдаагүй;OK
+MoMo.client.view.grid.ApplicationState;config.data.deleteStateFailureMsg;Fehler beim Löschen des Arbeitsstands!;Could not delete the application state!;хараахан орчуулагдаагүй;OK
+MoMo.client.view.grid.ApplicationState;config.data.updateStatePromptMsg;Den ausgewählten Arbeitsstand wirklich überschreiben?;Do you really want to overwrite the selected application state?;хараахан орчуулагдаагүй;OK
+MoMo.client.view.grid.ApplicationState;config.data.updateStateSuccessMsg;Arbeitsstand erfolgreich aktualisiert.;Successfully updated the application state.;хараахан орчуулагдаагүй;OK
+MoMo.client.view.grid.ApplicationState;config.data.updateStateFailureMsg;Fehler bei Aktualisierung des Arbeitsstands!;Could not update the application state!;хараахан орчуулагдаагүй;OK
 MoMo.client.view.grid.MultiSearchGazetteerGrid;config.data.title;Gazetteer Suche;Gazetteer Search;хараахан орчуулагдаагүй; -
 MoMo.client.view.grid.MultiSearchGazetteerGrid;config.data.hideToolTooltip;Gazetteer Suche verbergen;Hide Gazetteer Search;хараахан орчуулагдаагүй; -
 MoMo.client.view.grid.ObjectSearchGrid;config.data.title;Objektsuche;Object Search;хараахан орчуулагдаагүй; -
@@ -100,6 +121,7 @@ MoMo.client.view.panel.RedliningToolsPanel;config.data.postItWindowTitle;Post-it
 MoMo.client.view.panel.WorkstateToolsPanel;config.data.loadSaveWorkstateBtnText;Arbeitstände laden/speichern;load/save Workstates;хараахан орчуулагдаагүй;OK
 MoMo.client.view.panel.WorkstateToolsPanel;config.data.permalinkBtnTooltip;Permalink erzeugen;Generate Permalink;хараахан орчуулагдаагүй;NOT OK - not binding
 MoMo.client.view.panel.WorkstateToolsPanel;config.data.permalinkTitle;Link zur Anwendung;URL to application;хараахан орчуулагдаагүй;NOT OK - not binding
+MoMo.client.view.panel.WorkstateToolsPanel;config.data.applicationStateWinTitle;Arbeitsstände;Application states;хараахан орчуулагдаагүй;OK
 MoMo.client.view.window.document.DocumentPdfUpload;config.data.title;PDF Dokumenten-Upload;PDF document upload;хараахан орчуулагдаагүй;OK
 MoMo.client.view.window.document.DocumentPdfUpload;config.data.uploadBtnText;Upload starten;Start upload;хараахан орчуулагдаагүй;OK
 MoMo.client.view.window.document.ListDocumentsWindow;config.data.title;Dokumente;Documents;хараахан орчуулагдаагүй;OK
