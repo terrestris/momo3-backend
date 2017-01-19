@@ -121,6 +121,7 @@ MoMo.client.view.panel.RedliningToolsPanel;config.data.modifyObjectBtnText;Objek
 MoMo.client.view.panel.RedliningToolsPanel;config.data.deleteObjectBtnText;Objekt löschen;Delete Object;хараахан орчуулагдаагүй;OK
 MoMo.client.view.panel.RedliningToolsPanel;config.data.openStyleBtnText;Styler;Styler;хараахан орчуулагдаагүй;OK
 MoMo.client.view.panel.RedliningToolsPanel;config.data.postItWindowTitle;Post-it Text eingeben;Enter Post-it Text;хараахан орчуулагдаагүй;OK
+MoMo.client.view.panel.RedliningToolsPanel;config.data.textWindowTitle;Beschriftungstext eingeben;Enter label text;хараахан орчуулагдаагүй;OK
 MoMo.client.view.panel.WorkstateToolsPanel;config.data.loadSaveWorkstateBtnText;Arbeitstände laden/speichern;load/save Workstates;хараахан орчуулагдаагүй;OK
 MoMo.client.view.panel.WorkstateToolsPanel;config.data.permalinkBtnTooltip;Permalink erzeugen;Generate Permalink;хараахан орчуулагдаагүй;NOT OK - not binding
 MoMo.client.view.panel.WorkstateToolsPanel;config.data.permalinkTitle;Link zur Anwendung;URL to application;хараахан орчуулагдаагүй;NOT OK - not binding
