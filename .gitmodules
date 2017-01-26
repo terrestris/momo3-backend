@@ -29,4 +29,4 @@
 	url = https://github.com/openlayers/ol3.git # by tag v3.17.1 (eb92c26)
 [submodule "src/main/webapp/lib/proj4"]
 	path = src/main/webapp/lib/proj4
-	url = http://gitlab.intranet.terrestris.de/libraries/proj4js-2.3.6.git
+	url = https://github.com/proj4js/proj4js.git
