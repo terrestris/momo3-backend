@@ -6653,7 +6653,7 @@
     <bean id="showMetaToolbarModule" class="de.terrestris.shogun2.model.module.Button">
         <property name="name" value="Show meta toolbar button" />
         <property name="xtype" value="momo-button-showmetapanel" />
-        <property name="glyph" value="xf278@FontAwesome" />
+        <property name="glyph" value="xf0ac@FontAwesome" />
         <property name="properties">
              <util:map>
                 <entry key="scale" value="small" />
