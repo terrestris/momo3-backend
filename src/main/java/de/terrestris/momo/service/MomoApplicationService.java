@@ -251,7 +251,15 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 		appCopy.setLanguage(app.getLanguage());
 		appCopy.setActive(app.getActive());
 		appCopy.setOpen(app.getOpen());
-		appCopy.setActiveTools(app.getActiveTools());
+
+		List<Module> activeTools = app.getActiveTools();
+		List<Module> copyActiveTools = new ArrayList<>();
+
+		for (Module module : activeTools) {
+			copyActiveTools.add(module);
+		}
+
+		appCopy.setActiveTools(copyActiveTools);
 
 		Integer layerTreeId = app.getLayerTree().getId();
 		LayerTreeFolder layerTreeRootNode = this.layerTreeService.findById(layerTreeId);
