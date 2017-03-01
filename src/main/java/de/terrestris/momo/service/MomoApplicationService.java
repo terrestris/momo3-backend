@@ -261,9 +261,8 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 
 		appCopy.setActiveTools(copyActiveTools);
 
-		Integer layerTreeId = app.getLayerTree().getId();
-		LayerTreeFolder layerTreeRootNode = this.layerTreeService.findById(layerTreeId);
-		appCopy.setLayerTree(layerTreeRootNode);
+		LayerTreeFolder layerTree = this.layerTreeService.cloneAndPersistTreeNode(app.getLayerTree());
+		appCopy.setLayerTree(layerTree);
 
 		// 1. map config
 		String projection = "EPSG:3857";
@@ -288,7 +287,7 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 		MapConfig mapConfig = buildMapConfig(projection, center, zoom);
 
 		// 2. get the map layers from the provided layerTree
-		List<Layer> mapLayers = this.layerTreeService.getAllMapLayersFromTreeFolder(layerTreeRootNode);
+		List<Layer> mapLayers = this.layerTreeService.getAllMapLayersFromTreeFolder(layerTree);
 
 		// 3. map
 		Map map = buildMapModule(mapConfig, mapLayers);
