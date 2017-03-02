@@ -82,6 +82,26 @@
         <constructor-arg value="${login.changePasswordPath}"></constructor-arg>
     </bean>
 
+    <!-- The (relative) URL used for redirects after a login error-->
+    <bean id="redirectPathLoginError" class="java.lang.String">
+        <constructor-arg value="${login.redirectPathLoginError}"></constructor-arg>
+    </bean>
+
+    <!-- The (relative) URL used for redirects after a login attempt from a not-activated user-->
+    <bean id="redirectPathForDisabledUser" class="java.lang.String">
+        <constructor-arg value="${login.redirectPathForDisabledUser}"></constructor-arg>
+    </bean>
+
+    <!-- The (relative) URL used for redirects after user activation error -->
+    <bean id="redirectPathAfterActivationError" class="java.lang.String">
+        <constructor-arg value="${login.redirectPathAfterActivationError}"></constructor-arg>
+    </bean>
+
+        <!-- The (relative) URL used for redirects after user activation error -->
+    <bean id="redirectPathAfterRegistrationCompleted" class="java.lang.String">
+        <constructor-arg value="${login.redirectPathAfterRegistrationCompleted}"></constructor-arg>
+    </bean>
+
     <!-- The GeoServer Namespace to URI map used in the Interceptor -->
     <util:properties id="geoServerNameSpaces" location="classpath*:META-INF/config/${app.profile}/geoServerNameSpaces.properties" />
 

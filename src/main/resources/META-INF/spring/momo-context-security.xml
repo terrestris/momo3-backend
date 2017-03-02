@@ -36,7 +36,7 @@
             login-processing-url="/doLogin"
             username-parameter="username"
             password-parameter="password"
-            authentication-failure-url="/login?error"
+            authentication-failure-handler-ref="momoAuthenticationFailureHandler"
             default-target-url="/admin"
             />
         <logout logout-url="/logout" />
@@ -50,9 +50,10 @@
         <intercept-url pattern="/index.html" access="permitAll" />
         <intercept-url pattern="/login/**" access="permitAll" />
         <intercept-url pattern="/user/register.action" access="permitAll" />
-        <intercept-url pattern="/user/activate.action" access="permitAll" />
+        <intercept-url pattern="/momousers/activateAccount.action" access="permitAll" />
         <intercept-url pattern="/user/resetPassword.action" access="permitAll" />
         <intercept-url pattern="/user/changePassword.action" access="permitAll" />
+        <intercept-url pattern="/momousers/resendToken.action" access="permitAll" />
         <intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
 
         <!-- Allow iFrames within the same domain, this is especially needed
@@ -109,6 +110,9 @@
         <beans:property name="permissionEvaluatorFactory">
             <beans:bean class="de.terrestris.momo.security.access.factory.MomoPermissionEvaluatorFactory" />
         </beans:property>
+    </beans:bean>
+
+    <beans:bean id="momoAuthenticationFailureHandler" class="de.terrestris.momo.security.MomoAuthenticationFailureHandler">
     </beans:bean>
 
     <!-- http://static.springsource.org/spring-security/site/docs/3.0.x/apidocs/org/springframework/security/access/hierarchicalroles/RoleHierarchyImpl.html -->
