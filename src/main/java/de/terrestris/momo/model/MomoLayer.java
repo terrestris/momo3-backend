@@ -8,6 +8,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -17,6 +18,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 import de.terrestris.momo.model.tree.LayerTreeLeaf;
+import de.terrestris.shogun2.model.User;
 import de.terrestris.shogun2.model.layer.Layer;
 
 /**
@@ -63,6 +65,12 @@ public class MomoLayer extends Layer {
 	@OneToMany(cascade = CascadeType.REMOVE)
 	@JoinColumn(name="LAYER_ID")
 	private List<LayerTreeLeaf> layerTreeLeaves;
+
+	/**
+	 *
+	 */
+	@ManyToOne
+	private User owner;
 
 	/**
 	 *
@@ -127,6 +135,34 @@ public class MomoLayer extends Layer {
 	}
 
 	/**
+	 * @return the metadataIdentifier
+	 */
+	public String getMetadataIdentifier() {
+		return metadataIdentifier;
+	}
+
+	/**
+	 * @param metadataIdentifier the metadataIdentifier to set
+	 */
+	public void setMetadataIdentifier(String metadataIdentifier) {
+		this.metadataIdentifier = metadataIdentifier;
+	}
+
+	/**
+	 * @return the owner
+	 */
+	public User getOwner() {
+		return owner;
+	}
+
+	/**
+	 * @param owner the owner to set
+	 */
+	public void setOwner(User owner) {
+		this.owner = owner;
+	}
+
+	/**
 	 * @see java.lang.Object#hashCode()
 	 *
 	 *      According to
@@ -175,20 +211,6 @@ public class MomoLayer extends Layer {
 	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this, ToStringStyle.DEFAULT_STYLE);
-	}
-
-	/**
-	 * @return the metadataIdentifier
-	 */
-	public String getMetadataIdentifier() {
-		return metadataIdentifier;
-	}
-
-	/**
-	 * @param metadataIdentifier the metadataIdentifier to set
-	 */
-	public void setMetadataIdentifier(String metadataIdentifier) {
-		this.metadataIdentifier = metadataIdentifier;
 	}
 
 }

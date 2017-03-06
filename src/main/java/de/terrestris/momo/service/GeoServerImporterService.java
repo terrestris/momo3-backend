@@ -327,6 +327,8 @@ public class GeoServerImporterService {
 		layer.setDataType(layerDataType);
 		layer.setHoverable(true);
 
+		layer.setOwner(currentUser);
+
 		layerService.saveOrUpdate(layer);
 		layerService.addAndSaveUserPermissions(layer, currentUser, Permission.ADMIN);
 
