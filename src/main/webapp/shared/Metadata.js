@@ -189,8 +189,9 @@ Ext.define('MoMo.shared.MetadataUtil', {
             var xml = this.parseXml(xmlString);
             var identifierNodes = xml.getElementsByTagName('identifier');
             var uuid;
-            if(!Ext.isEmpty(identifierNodes) && identifierNodes[0].innerHTML){
-                uuid = identifierNodes[0].innerHTML;
+            if(!Ext.isEmpty(identifierNodes) && identifierNodes[0] &&
+                identifierNodes[0].innerHTML){
+                    uuid = identifierNodes[0].innerHTML;
             }
             return uuid;
         },
