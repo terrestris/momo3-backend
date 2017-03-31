@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
@@ -19,10 +20,11 @@ import de.terrestris.momo.model.security.UserGroupRole;
 /**
  *
  * terrestris GmbH & Co. KG
- * @author ahenn
+ * @author Andre Henn
+ * @author Daniel Koch
  * @date 31.03.2017
  *
- * TODO documentation
+ * Custom serializer for instances of {@link MomoUser}
  */
 public class MomoUserSerializer extends StdSerializer<MomoUser>{
 
@@ -57,13 +59,18 @@ public class MomoUserSerializer extends StdSerializer<MomoUser>{
 		generator.writeStringField("accountName", momoUser.getAccountName());
 		generator.writeBooleanField("active", momoUser.isActive());
 
+		/**
+		 * serializes role / groups in the following way [{{ROLENAME}}_GROUP_{{GROUP_ID}}], eg.
+		 * ["ROLE_SUBADMIN_GROUP_13", "ROLE_EDITOR_GROUP_14", "ROLE_USER_GROUP_15"]
+		 */
 		List<UserGroupRole> listRolesPerGroup = this.userGroupRoleDao.findUserRoles(momoUser);
 		ArrayList<String> groupRoleNames = new ArrayList<>(listRolesPerGroup.size());
 		for (UserGroupRole ugr : listRolesPerGroup) {
 			String roleName = ugr.getRole().getName();
-			String groupName = ugr.getGroup().getName();
+			Integer groupId = ugr.getGroup().getId();
+			String[] parts = {roleName, "GROUP", Integer.toString(groupId)};
 
-			groupRoleNames.add(roleName+"_"+groupName);
+			groupRoleNames.add(StringUtils.join(parts, '_'));
 		}
 
 		generator.writeObjectField("groupRoles", groupRoleNames);
