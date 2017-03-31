@@ -14,9 +14,12 @@ import javax.persistence.JoinTable;
 import javax.persistence.MapKeyJoinColumn;
 import javax.persistence.OneToMany;
 
+import org.apache.log4j.Logger;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import de.terrestris.momo.model.security.LayerPermissionCollection;
+import de.terrestris.shogun2.model.Role;
 import de.terrestris.shogun2.model.User;
 import de.terrestris.shogun2.model.UserGroup;
 
@@ -26,6 +29,11 @@ import de.terrestris.shogun2.model.UserGroup;
  */
 @Entity
 public class MomoUserGroup extends UserGroup {
+
+	/**
+	 * The Logger
+	 */
+	private static final Logger LOG = Logger.getLogger(MomoUserGroup.class);
 
 	/**
 	 *
@@ -56,6 +64,45 @@ public class MomoUserGroup extends UserGroup {
 	 * Default Constructor
 	 */
 	public MomoUserGroup() {
+	}
+
+	/**
+	 *
+	 */
+	@Override
+	@Deprecated
+	public Set<User> getMembers() {
+		LOG.warn("Please do not use this method.");
+		return null;
+	}
+
+	/**
+	 *
+	 */
+	@Override
+	@Deprecated
+	public void setMembers(Set<User> users) {
+		LOG.warn("Please do not use this method.");
+		// TODO What to do here?
+	}
+
+	/**
+	 * @return the roles
+	 */
+	@Override
+	@Deprecated
+	public Set<Role> getRoles() {
+		LOG.warn("Please do not use this method.");
+		return null;
+	}
+
+	/**
+	 * @param roles the roles to set
+	 */
+	@Override
+	@Deprecated
+	public void setRoles(Set<Role> roles) {
+		LOG.warn("Please do not use this method.");
 	}
 
 	/**

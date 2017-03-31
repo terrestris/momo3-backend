@@ -82,7 +82,10 @@
     </beans:bean>
 
     <!-- Custom Authentication Provider -->
-    <beans:bean id="shogun2AuthenticationProvider" class="de.terrestris.shogun2.security.Shogun2AuthenticationProvider">
+<!--     <beans:bean id="shogun2AuthenticationProvider" class="de.terrestris.shogun2.security.Shogun2AuthenticationProvider"> -->
+<!--         <beans:property name="passwordEncoder" ref="bcryptEncoder" /> -->
+<!--     </beans:bean> -->
+    <beans:bean id="shogun2AuthenticationProvider" class="de.terrestris.momo.security.MomoAuthenticationProvider">
         <beans:property name="passwordEncoder" ref="bcryptEncoder" />
     </beans:bean>
 
@@ -119,7 +122,7 @@
     <beans:bean id="roleHierarchy"  class="org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl">
         <beans:property name="hierarchy">
             <beans:value>
-                ${role.superAdminRoleName} > ${role.defaultUserRoleName}
+                ${role.superAdminRoleName} > ${role.subAdminRoleName} > ${role.editorRoleName} > ${role.defaultUserRoleName}
             </beans:value>
         </beans:property>
     </beans:bean>

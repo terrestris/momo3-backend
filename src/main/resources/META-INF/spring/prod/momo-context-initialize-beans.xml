@@ -334,7 +334,7 @@
         <property name="description" value="Administrator Role"/>
     </bean>
     <bean id="userRole" class="de.terrestris.shogun2.model.Role">
-        <property name="name" value="${role.defaultUserRoleName}"/>
+        <property name="name" value="${role.userRoleName}"/>
         <property name="description" value="User Role"/>
     </bean>
 
