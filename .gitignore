@@ -27,6 +27,7 @@ src/main/webapp/lib/*
 !src/main/webapp/lib/datetimeux/
 !src/main/webapp/lib/proj4-defs
 !src/main/webapp/lib/ogc-schemas
+!src/main/webapp/lib/opentype.js
 
 src/main/webapp/META-INF/MANIFEST.MF
 .externalToolBuilders/
