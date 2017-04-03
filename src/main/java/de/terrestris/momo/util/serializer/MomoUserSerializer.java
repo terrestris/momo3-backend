@@ -16,6 +16,7 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import de.terrestris.momo.dao.UserGroupRoleDao;
 import de.terrestris.momo.model.MomoUser;
 import de.terrestris.momo.model.security.UserGroupRole;
+import de.terrestris.momo.service.UserGroupRoleService;
 
 /**
  *
@@ -31,8 +32,8 @@ public class MomoUserSerializer extends StdSerializer<MomoUser>{
 	private static final long serialVersionUID = 1L;
 
 	@Autowired
-	@Qualifier("userGroupRoleDao")
-	private UserGroupRoleDao<UserGroupRole> userGroupRoleDao;
+	@Qualifier("userGroupRoleService")
+	private UserGroupRoleService<UserGroupRole, UserGroupRoleDao<UserGroupRole>> userGroupRoleService;
 
 	/**
 	 *
@@ -63,7 +64,7 @@ public class MomoUserSerializer extends StdSerializer<MomoUser>{
 		 * serializes role / groups in the following way [{{ROLENAME}}_GROUP_{{GROUP_ID}}], eg.
 		 * ["ROLE_SUBADMIN_GROUP_13", "ROLE_EDITOR_GROUP_14", "ROLE_USER_GROUP_15"]
 		 */
-		List<UserGroupRole> listRolesPerGroup = this.userGroupRoleDao.findUserRoles(momoUser);
+		List<UserGroupRole> listRolesPerGroup = this.userGroupRoleService.findUserGroupRolesBy(momoUser);
 		ArrayList<String> groupRoleNames = new ArrayList<>(listRolesPerGroup.size());
 		for (UserGroupRole ugr : listRolesPerGroup) {
 			String roleName = ugr.getRole().getName();
