@@ -1,7 +1,6 @@
 package de.terrestris.momo.security;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
@@ -15,11 +14,12 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
 import de.terrestris.momo.dao.UserGroupRoleDao;
+import de.terrestris.momo.model.MomoUser;
 import de.terrestris.momo.model.security.UserGroupRole;
+import de.terrestris.momo.service.UserGroupRoleService;
 import de.terrestris.shogun2.dao.UserDao;
 import de.terrestris.shogun2.model.Role;
 import de.terrestris.shogun2.model.User;
@@ -49,13 +49,7 @@ public class MomoAuthenticationProvider extends Shogun2AuthenticationProvider {
 	 *
 	 */
 	@Autowired
-	private UserGroupRoleDao<UserGroupRole> userGroupRoleDao;
-
-	/**
-	 *
-	 */
-	@Autowired
-	private PasswordEncoder passwordEncoder;
+	private UserGroupRoleService<UserGroupRole, UserGroupRoleDao<UserGroupRole>> userGroupRoleService;
 
 	/**
 	 *
@@ -79,7 +73,7 @@ public class MomoAuthenticationProvider extends Shogun2AuthenticationProvider {
 
 		LOG.debug("Trying to authenticate User '" + accountName + "'");
 
-		User user = userDao.findByAccountName(accountName);
+		MomoUser user = (MomoUser) userDao.findByAccountName(accountName);
 
 		// prepare set of authorities
 		Set<GrantedAuthority> grantedAuthorities = new HashSet<GrantedAuthority>();
@@ -97,9 +91,9 @@ public class MomoAuthenticationProvider extends Shogun2AuthenticationProvider {
 			encryptedPassword = user.getPassword();
 
 			// check if rawPassword matches the hash from db
-			if (passwordEncoder.matches(rawPassword, encryptedPassword)) {
+			if (getPasswordEncoder().matches(rawPassword, encryptedPassword)) {
 
-				Set<Role> allUserRoles = getAllUserRoles(user);
+				Set<Role> allUserRoles = userGroupRoleService.findAllUserRoles(user);
 
 				// create granted authorities for the security context
 				for (Role role : allUserRoles) {
@@ -149,33 +143,6 @@ public class MomoAuthenticationProvider extends Shogun2AuthenticationProvider {
 	public boolean supports(Class<?> authentication) {
 		return (UsernamePasswordAuthenticationToken.class
 				.isAssignableFrom(authentication));
-	}
-
-	/**
-	 * @param user
-	 * @param userGroups
-	 * @return
-	 */
-	private Set<Role> getAllUserRoles(User user) {
-		Set<Role> allUserRoles = new HashSet<Role>();
-
-		if (user != null) {
-			List<UserGroupRole> result = userGroupRoleDao.findUserRoles(user);
-
-			for (UserGroupRole userGroupRole : result) {
-
-				// Get the user roles
-				Role userRole = userGroupRole.getRole();
-				allUserRoles.add(userRole);
-
-//				// Get the userGroup roles
-//				UserGroup userGroup = userGroupRole.getGroup();
-//				Set<Role> userGroupRoles = userGroup.getRoles();
-//				allUserRoles.addAll(userGroupRoles);
-			}
-		}
-
-		return allUserRoles;
 	}
 
 	/**

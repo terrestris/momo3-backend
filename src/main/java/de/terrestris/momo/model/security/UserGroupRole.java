@@ -12,8 +12,6 @@ import de.terrestris.momo.model.MomoUser;
 import de.terrestris.momo.model.MomoUserGroup;
 import de.terrestris.shogun2.model.PersistentObject;
 import de.terrestris.shogun2.model.Role;
-import de.terrestris.shogun2.model.User;
-import de.terrestris.shogun2.model.UserGroup;
 
 /**
  *
@@ -32,7 +30,7 @@ public class UserGroupRole extends PersistentObject {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * TODO Introduce MomoUser?
+	 *
 	 */
 	@OneToOne
 	MomoUser user;
@@ -56,9 +54,31 @@ public class UserGroupRole extends PersistentObject {
 	}
 
 	/**
+	 * 
+	 * @param user
+	 * @param userGroup
+	 */
+	public UserGroupRole(MomoUser user, MomoUserGroup userGroup) {
+		this.user = user;
+		this.group = userGroup;
+	}
+
+	/**
+	 *
+	 * @param user
+	 * @param userGroup
+	 * @param role
+	 */
+	public UserGroupRole(MomoUser user, MomoUserGroup userGroup, Role role) {
+		this.user = user;
+		this.group = userGroup;
+		this.role = role;
+	}
+
+	/**
 	 * @return the user
 	 */
-	public User getUser() {
+	public MomoUser getUser() {
 		return user;
 	}
 
@@ -72,7 +92,7 @@ public class UserGroupRole extends PersistentObject {
 	/**
 	 * @return the group
 	 */
-	public UserGroup getGroup() {
+	public MomoUserGroup getGroup() {
 		return group;
 	}
 
