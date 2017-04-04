@@ -54,6 +54,7 @@
         <intercept-url pattern="/user/resetPassword.action" access="permitAll" />
         <intercept-url pattern="/user/changePassword.action" access="permitAll" />
         <intercept-url pattern="/momousers/resendToken.action" access="permitAll" />
+        <intercept-url pattern="/entitypermission/**" access="hasRole('ROLE_EDITOR')" />
         <intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
 
         <!-- Allow iFrames within the same domain, this is especially needed
