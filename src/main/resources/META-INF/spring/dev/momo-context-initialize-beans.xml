@@ -7162,6 +7162,7 @@
             <!-- Allow that the default user to READ this application -->
             <util:map>
                 <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
+                <entry key-ref="arkhangaiSubAdmin" value-ref="fullAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
