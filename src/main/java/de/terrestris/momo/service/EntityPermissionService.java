@@ -90,7 +90,7 @@ public class EntityPermissionService<E extends PersistentObject> {
 			entityPermissionTypeEnvelope.setType(entityClass.getSimpleName());
 
 			// Get the permissions, either for group or user.
-			if (targetEntity.equalsIgnoreCase("MomoGroup")) {
+			if (targetEntity.equalsIgnoreCase("MomoUserGroup")) {
 				Set<EntityPermissionEnvelope> permissions = getUserGroupPermissions(layer);
 				entityPermissionTypeEnvelope.setPermissions(permissions);
 			} else if (targetEntity.equalsIgnoreCase("MomoUser")) {
@@ -110,7 +110,7 @@ public class EntityPermissionService<E extends PersistentObject> {
 			entityPermissionTypeEnvelope.setType(entityClass.getSimpleName());
 
 			// Get the permissions, either for group or user.
-			if (targetEntity.equalsIgnoreCase("MomoGroup")) {
+			if (targetEntity.equalsIgnoreCase("MomoUserGroup")) {
 				Set<EntityPermissionEnvelope> permissions = getUserGroupPermissions(app);
 				entityPermissionTypeEnvelope.setPermissions(permissions);
 			} else if (targetEntity.equalsIgnoreCase("MomoUser")) {
