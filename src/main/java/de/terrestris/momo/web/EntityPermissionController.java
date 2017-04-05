@@ -14,11 +14,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import de.terrestris.momo.model.security.EntityPermissionTypeEnvelope;
 import de.terrestris.momo.service.EntityPermissionService;
+import de.terrestris.shogun2.model.PersistentObject;
 import de.terrestris.shogun2.util.data.ResultSet;
 
 @Controller
 @RequestMapping("/rest/entitypermission")
-public class EntityPermissionController {
+public class EntityPermissionController<E extends PersistentObject> {
 
 	/**
 	 * The Logger.
@@ -30,12 +31,13 @@ public class EntityPermissionController {
 	 */
 	@Autowired
 	@Qualifier("entityPermissionService")
-	private EntityPermissionService service;
+	private EntityPermissionService<E> service;
 
 	/**
+	 * e.g.
+	 * http://localhost:8080/momo/rest/entitypermission/MomoLayer/42/MomoUser
 	 *
-	 * http://localhost:8080/momo/entitypermission/getEntityPermissions.action?entityId=1&entityClass=MomoApplication&targetEntity=2
-	 *
+	 * @param entityType
 	 * @param entityId
 	 * @param targetEntity
 	 * @return
@@ -47,7 +49,6 @@ public class EntityPermissionController {
 			@PathVariable("targetEntity") String targetEntity) {
 
 		try {
-
 			Class<?> clazz = Class.forName("de.terrestris.momo.model." + entityType);
 
 			EntityPermissionTypeEnvelope entityPermission = service.getEntityPermission(
@@ -65,7 +66,10 @@ public class EntityPermissionController {
 	}
 
 	/**
-	 * 
+	 *
+	 * @param entityType
+	 * @param entityId
+	 * @param targetEntity
 	 * @param envelope
 	 * @return
 	 */
@@ -76,11 +80,14 @@ public class EntityPermissionController {
 			@PathVariable("targetEntity") String targetEntity,
 			@RequestBody EntityPermissionTypeEnvelope envelope) {
 		try {
-			EntityPermissionTypeEnvelope entityPermission = service.createOrUpdateEntityPermission(
-					envelope, targetEntity);
+			EntityPermissionTypeEnvelope entityPermission = service.createOrUpdateEntityPermission(envelope, entityType, entityId, targetEntity);
 			return ResultSet.success(entityPermission);
+		} catch (ClassNotFoundException cnfe) {
+			String responseMsg = "Error during update / create of entityPermission: Could not find class: " + cnfe.getMessage();
+			LOG.error(responseMsg);
+			return ResultSet.error(responseMsg);
 		} catch (Exception e) {
-			String responseMsg = "Error while updating the entity permission: " + e.getMessage();
+			String responseMsg = "Error during update / create of entity permission: " + e.getMessage();
 			LOG.error(responseMsg);
 			return ResultSet.error(responseMsg);
 		}
@@ -89,14 +96,14 @@ public class EntityPermissionController {
 	/**
 	 * @return the service
 	 */
-	public EntityPermissionService getService() {
+	public EntityPermissionService<E> getService() {
 		return service;
 	}
 
 	/**
 	 * @param service the service to set
 	 */
-	public void setService(EntityPermissionService service) {
+	public void setService(EntityPermissionService<E> service) {
 		this.service = service;
 	}
 
