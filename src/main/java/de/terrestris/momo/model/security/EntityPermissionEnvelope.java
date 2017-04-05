@@ -9,7 +9,9 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+import de.terrestris.momo.util.serializer.EntityPermissionEnvelopeSerializer;
 import de.terrestris.shogun2.model.PersistentObject;
 import de.terrestris.shogun2.model.security.PermissionCollection;
 
@@ -20,6 +22,7 @@ import de.terrestris.shogun2.model.security.PermissionCollection;
  *
  * @param <E>
  */
+@JsonSerialize(using = EntityPermissionEnvelopeSerializer.class)
 public class EntityPermissionEnvelope {
 
 	/**
@@ -32,14 +35,8 @@ public class EntityPermissionEnvelope {
 	@JsonIdentityReference(alwaysAsId = true)
 	@JsonTypeInfo(
 			use = JsonTypeInfo.Id.CLASS,
-//			include = JsonTypeInfo.Id.CUSTOM,
 			property = "type"
-//			visible = true
 	)
-//	@JsonSubTypes({
-//			@Type(value = MomoUser.class, name = "MomoUser"),
-//			@Type(value = MomoUserGroup.class, name = "MomoUserGroup"),
-//	})
 	private PersistentObject targetEntity;
 
 	/**

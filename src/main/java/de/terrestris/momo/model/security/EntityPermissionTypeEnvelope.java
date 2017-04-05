@@ -11,20 +11,22 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+import de.terrestris.momo.util.serializer.EntityPermissionTypeEnvelopeSerializer;
 import de.terrestris.shogun2.model.PersistentObject;
 
-//@JsonTypeInfo(
-//		use = JsonTypeInfo.Id.NAME,
-//		include = JsonTypeInfo.As.PROPERTY,
-//		property = "type",
-//		visible = true
-//)
-//@JsonSubTypes({
-//		@Type(value = MomoLayer.class, name = "MomoLayer"),
-//		@Type(value = MomoApplication.class, name = "MomoApplication"),
-//})
-//@JsonDeserialize(using = EntityPermissionTypeEnvelopeDeserializer.class)
+/**
+ *
+ * terrestris GmbH & Co. KG
+ * @author Daniel Koch
+ * @author Andre Henn
+ *
+ * @date 05.04.2017
+ *
+ * TODO documentation
+ */
+@JsonSerialize(using = EntityPermissionTypeEnvelopeSerializer.class)
 public class EntityPermissionTypeEnvelope {
 
 	/**
@@ -37,14 +39,8 @@ public class EntityPermissionTypeEnvelope {
 	@JsonIdentityReference(alwaysAsId = true)
 	@JsonTypeInfo(
 			use = JsonTypeInfo.Id.CLASS,
-//			include = JsonTypeInfo.Id.CUSTOM,
 			property = "type"
-//			visible = true
 	)
-//	@JsonSubTypes({
-//		@Type(value = MomoApplication.class, name = "MomoApplication"),
-//		@Type(value = MomoLayer.class, name = "MomoLayer"),
-//})
 	private PersistentObject targetEntity;
 
 	/**
