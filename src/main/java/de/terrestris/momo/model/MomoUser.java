@@ -6,6 +6,9 @@ import javax.persistence.Entity;
 
 import org.apache.log4j.Logger;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+import de.terrestris.momo.util.serializer.MomoUserSerializer;
 import de.terrestris.shogun2.model.Role;
 import de.terrestris.shogun2.model.User;
 import de.terrestris.shogun2.model.UserGroup;
@@ -18,8 +21,7 @@ import de.terrestris.shogun2.model.UserGroup;
  *
  */
 @Entity
-// TODO Reimplement me again!
-//@JsonSerialize(using = MomoUserSerializer.class)
+@JsonSerialize(using = MomoUserSerializer.class)
 public class MomoUser extends User {
 
 	/**
