@@ -168,6 +168,7 @@ public class EntityPermissionService<E extends PersistentObject> {
 	}
 
 	/**
+	 * Helper method to check if path parameters of request are in sync with details provided request object
 	 *
 	 * @param envelope
 	 * @param classNameOfTarget
@@ -178,6 +179,8 @@ public class EntityPermissionService<E extends PersistentObject> {
 	private void checkPathParametersWithEnvelopeObject(EntityPermissionTypeEnvelope envelope, String classNameOfTarget,
 			Integer entityIdOfTarget, String entityNameOfPermissionHolder) throws Exception {
 
+		LOG.debug("Check if path parameters are in sync with request object...");
+
 		if (entityIdOfTarget.compareTo(envelope.getTargetEntity().getId()) != 0) {
 			String msg = "ID of entity " + envelope.getTargetEntity() + " does not match ID "+ entityIdOfTarget + " provided in path.";
 			LOG.error(msg);
@@ -187,7 +190,7 @@ public class EntityPermissionService<E extends PersistentObject> {
 		final String fullQualifiedClassName = "de.terrestris.momo.model." + classNameOfTarget;
 		String providedClassNameInJson = envelope.getTargetEntity().getClass().getName();
 		if (!StringUtils.equals(providedClassNameInJson, fullQualifiedClassName)) {
-			String msg = "Class name in path " + classNameOfTarget + " does not match with class name  "+ classNameOfTarget + " provided in path.";
+			String msg = "Class name in path " + classNameOfTarget + " does not match with class name  "+ providedClassNameInJson + " provided in path.";
 			LOG.error(msg);
 			throw new Exception(msg);
 		}
@@ -197,11 +200,13 @@ public class EntityPermissionService<E extends PersistentObject> {
 		for (EntityPermissionEnvelope permission : permissions) {
 			String permissionTargetClassName = permission.getTargetEntity().getClass().getName();
 			if (permission.getTargetEntity() != null && !StringUtils.equals(permissionTargetClassName, fullQualifiedClassForEntityPermissionHolder)) {
-				String msg = "Class name in path " + entityNameOfPermissionHolder + " does not match with class name  "+ fullQualifiedClassForEntityPermissionHolder + " provided in path.";
+				String msg = "Class name in path " + entityNameOfPermissionHolder + " does not match with class name  "+ permissionTargetClassName + " provided in path.";
 				LOG.error(msg);
 				throw new Exception(msg);
 			}
 		}
+
+		LOG.debug("Parameters and request object are in sync.");
 	}
 
 	/**
