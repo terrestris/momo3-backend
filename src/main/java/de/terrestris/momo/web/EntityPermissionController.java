@@ -17,8 +17,7 @@ import de.terrestris.momo.service.EntityPermissionService;
 import de.terrestris.shogun2.util.data.ResultSet;
 
 @Controller
-//@RequestMapping("/rest/entitypermission")
-@RequestMapping("/entitypermission")
+@RequestMapping("/rest/entitypermission")
 public class EntityPermissionController {
 
 	/**
