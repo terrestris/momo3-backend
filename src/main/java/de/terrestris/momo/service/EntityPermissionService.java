@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -41,7 +42,7 @@ public class EntityPermissionService<E extends PersistentObject> {
 	 * The Logger.
 	 */
 	private static final Logger LOG = Logger.getLogger(EntityPermissionService.class);
-	
+
 	@Autowired
 	@Qualifier("momoLayerDao")
 	private MomoLayerDao<? extends MomoLayer> momoLayerDao;
@@ -89,10 +90,10 @@ public class EntityPermissionService<E extends PersistentObject> {
 			entityPermissionTypeEnvelope.setType(entityClass.getSimpleName());
 
 			// Get the permissions, either for group or user.
-			if (targetEntity.equalsIgnoreCase("Group")) {
+			if (targetEntity.equalsIgnoreCase("MomoGroup")) {
 				Set<EntityPermissionEnvelope> permissions = getUserGroupPermissions(layer);
 				entityPermissionTypeEnvelope.setPermissions(permissions);
-			} else if (targetEntity.equalsIgnoreCase("User")) {
+			} else if (targetEntity.equalsIgnoreCase("MomoUser")) {
 				Set<EntityPermissionEnvelope> permissions = getUserPermissions(layer);
 				entityPermissionTypeEnvelope.setPermissions(permissions);
 			} else {
@@ -109,10 +110,10 @@ public class EntityPermissionService<E extends PersistentObject> {
 			entityPermissionTypeEnvelope.setType(entityClass.getSimpleName());
 
 			// Get the permissions, either for group or user.
-			if (targetEntity.equalsIgnoreCase("Group")) {
+			if (targetEntity.equalsIgnoreCase("MomoGroup")) {
 				Set<EntityPermissionEnvelope> permissions = getUserGroupPermissions(app);
 				entityPermissionTypeEnvelope.setPermissions(permissions);
-			} else if (targetEntity.equalsIgnoreCase("User")) {
+			} else if (targetEntity.equalsIgnoreCase("MomoUser")) {
 				Set<EntityPermissionEnvelope> permissions = getUserPermissions(app);
 				entityPermissionTypeEnvelope.setPermissions(permissions);
 			} else {
@@ -125,45 +126,82 @@ public class EntityPermissionService<E extends PersistentObject> {
 		return entityPermissionTypeEnvelope;
 	}
 
-
 	/**
 	 *
-	 * TODO: check if envelope and get path are in sync!
-	 *
 	 * @param envelope
+	 * @param classNameOfTarget
+	 * @param entityIdOfTarget
+	 * @param entityNameOfPermissionHolder
 	 * @return
 	 * @throws Exception
 	 */
-	public EntityPermissionTypeEnvelope createOrUpdateEntityPermission(
-			EntityPermissionTypeEnvelope envelope, String entityNameOfPermissionHolder) throws Exception {
+	public EntityPermissionTypeEnvelope createOrUpdateEntityPermission(EntityPermissionTypeEnvelope envelope,
+				String classNameOfTarget, Integer entityIdOfTarget, String entityNameOfPermissionHolder)
+						throws Exception {
 
 		PersistentObject targetEntity = envelope.getTargetEntity();
 		Set<EntityPermissionEnvelope> permissionEnvelopes = envelope.getPermissions();
 
+		// check if path parameters are in sync with object in provided JSON
+		checkPathParametersWithEnvelopeObject(envelope, classNameOfTarget, entityIdOfTarget, entityNameOfPermissionHolder);
+
 		if (targetEntity instanceof MomoLayer) {
 			// Get the layer entity by the passed ID.
 			MomoLayer layer = momoLayerDao.findById(targetEntity.getId());
-
 			if (layer == null) {
 				throw new NotFoundException("Could not find MomoLayer with ID " + targetEntity.getId());
 			}
 
 			setPermissionsForEntity(layer, permissionEnvelopes);
-
 		} else if (targetEntity instanceof MomoApplication) {
 			MomoApplication app = momoApplicationDao.findById(targetEntity.getId());
-
 			if (app == null) {
 				throw new NotFoundException("Could not find MomoApplication with ID " + targetEntity.getId());
 			}
 
 			setPermissionsForEntity(app, permissionEnvelopes);
-
 		} else {
 			throw new NotFoundException(targetEntity.getClass().getSimpleName() + " is not a valid entityClass");
 		}
 
 		return getEntityPermission(targetEntity.getId(), entityNameOfPermissionHolder , targetEntity.getClass());
+	}
+
+	/**
+	 *
+	 * @param envelope
+	 * @param classNameOfTarget
+	 * @param entityIdOfTarget
+	 * @param entityNameOfPermissionHolder
+	 * @throws Exception
+	 */
+	private void checkPathParametersWithEnvelopeObject(EntityPermissionTypeEnvelope envelope, String classNameOfTarget,
+			Integer entityIdOfTarget, String entityNameOfPermissionHolder) throws Exception {
+
+		if (entityIdOfTarget.compareTo(envelope.getTargetEntity().getId()) != 0) {
+			String msg = "ID of entity " + envelope.getTargetEntity() + " does not match ID "+ entityIdOfTarget + " provided in path.";
+			LOG.error(msg);
+			throw new Exception(msg);
+		}
+
+		final String fullQualifiedClassName = "de.terrestris.momo.model." + classNameOfTarget;
+		String providedClassNameInJson = envelope.getTargetEntity().getClass().getName();
+		if (!StringUtils.equals(providedClassNameInJson, fullQualifiedClassName)) {
+			String msg = "Class name in path " + classNameOfTarget + " does not match with class name  "+ classNameOfTarget + " provided in path.";
+			LOG.error(msg);
+			throw new Exception(msg);
+		}
+
+		final String fullQualifiedClassForEntityPermissionHolder = "de.terrestris.momo.model." + entityNameOfPermissionHolder;
+		Set<EntityPermissionEnvelope> permissions = envelope.getPermissions();
+		for (EntityPermissionEnvelope permission : permissions) {
+			String permissionTargetClassName = permission.getTargetEntity().getClass().getName();
+			if (permission.getTargetEntity() != null && !StringUtils.equals(permissionTargetClassName, fullQualifiedClassForEntityPermissionHolder)) {
+				String msg = "Class name in path " + entityNameOfPermissionHolder + " does not match with class name  "+ fullQualifiedClassForEntityPermissionHolder + " provided in path.";
+				LOG.error(msg);
+				throw new Exception(msg);
+			}
+		}
 	}
 
 	/**
@@ -213,13 +251,13 @@ public class EntityPermissionService<E extends PersistentObject> {
 
 	/**
 	 *
-	 * @param layer
+	 * @param entity
 	 * @param permissionEnvelopes
+	 * @throws NotFoundException
 	 * @throws Exception
 	 */
 	@SuppressWarnings("unchecked")
-	private void setPermissionsForEntity(PersistentObject entity, Set<EntityPermissionEnvelope> permissionEnvelopes)
-			throws Exception {
+	private void setPermissionsForEntity(PersistentObject entity, Set<EntityPermissionEnvelope> permissionEnvelopes) throws NotFoundException {
 
 		for (EntityPermissionEnvelope permission : permissionEnvelopes) {
 			// Get the permissions, either for group or user.
@@ -234,7 +272,7 @@ public class EntityPermissionService<E extends PersistentObject> {
 			}
 
 			Set<Permission> permissionCollectionSetToRemove = getPermissionsToRemove(permissionCollectionSet);
-			
+
 			Permission[] permissionsArrayToSet = permissionCollectionSet.toArray(new Permission[permissionCollectionSet.size()]);
 			Permission[] permissionsArrayToRemove = permissionCollectionSetToRemove.toArray(new Permission[permissionCollectionSetToRemove.size()]);
 
@@ -255,18 +293,18 @@ public class EntityPermissionService<E extends PersistentObject> {
 					permissionAwareCrudService.removeAndSaveUserPermissions((E) entity, momoUser, permissionsArrayToRemove);
 				}
 			} else {
-				throw new Exception("TODO");
+				throw new NotFoundException("Class of targetEntity currently not mapped (Only MomoUser and MomoApplication avaliable).");
 			}
 		}
 	}
 
 	/**
-	 * 
+	 *
 	 * @param permissionCollectionSet
 	 * @return
 	 */
 	private static Set<Permission> getPermissionsToRemove(Set<Permission> permissionCollectionSet) {
-		
+
 		if (permissionCollectionSet.contains(Permission.ADMIN)) {
 			LOG.debug("Requested to set ADMIN permissions.");
 			return new HashSet<Permission>();

@@ -44,7 +44,7 @@
         <!-- As CSRF protection is enabled by default in Spring Security 4,
              the logout-url will only work with POST requests. To work with
              GET requests CSRF has to be disabled -->
-        <csrf disabled="false"/>
+        <csrf disabled="true"/>
 
         <!-- URL security -->
         <intercept-url pattern="/index.html" access="permitAll" />
