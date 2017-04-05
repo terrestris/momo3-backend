@@ -1,30 +1,30 @@
-package de.terrestris.momo.web;
+package de.terrestris.momo.rest;
 
 import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import de.terrestris.momo.model.security.EntityPermissionTypeEnvelope;
 import de.terrestris.momo.service.EntityPermissionService;
 import de.terrestris.shogun2.model.PersistentObject;
 import de.terrestris.shogun2.util.data.ResultSet;
 
-@Controller
+@RestController
 @RequestMapping("/rest/entitypermission")
-public class EntityPermissionController<E extends PersistentObject> {
+public class EntityPermissionRestController<E extends PersistentObject> {
 
 	/**
 	 * The Logger.
 	 */
-	private static final Logger LOG = Logger.getLogger(EntityPermissionController.class);
+	private static final Logger LOG = Logger.getLogger(EntityPermissionRestController.class);
 
 	/**
 	 * The autowired service class.
