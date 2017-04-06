@@ -5,6 +5,7 @@ package de.terrestris.momo.security.access.factory;
 
 import de.terrestris.momo.model.MomoApplication;
 import de.terrestris.momo.model.MomoLayer;
+import de.terrestris.momo.model.MomoUser;
 import de.terrestris.momo.model.MomoUserGroup;
 import de.terrestris.momo.model.tree.DocumentTreeFolder;
 import de.terrestris.momo.model.tree.DocumentTreeLeaf;
@@ -14,6 +15,7 @@ import de.terrestris.momo.security.access.entity.DocumentTreeLeafPermissionEvalu
 import de.terrestris.momo.security.access.entity.LayerAppearancePermissionEvaluator;
 import de.terrestris.momo.security.access.entity.MomoLayerPermissionEvaluator;
 import de.terrestris.momo.security.access.entity.MomoUserGroupPermissionEvaluator;
+import de.terrestris.momo.security.access.entity.MomoUserPermissionEvaluator;
 import de.terrestris.momo.security.access.entity.TreeNodePermissionEvaluator;
 import de.terrestris.shogun2.model.PersistentObject;
 import de.terrestris.shogun2.model.layer.appearance.LayerAppearance;
@@ -56,6 +58,9 @@ public class MomoPermissionEvaluatorFactory<E extends PersistentObject> extends 
 		}
 		if(MomoUserGroup.class.isAssignableFrom(entityClass)) {
 			return new MomoUserGroupPermissionEvaluator();
+		}
+		if(MomoUser.class.isAssignableFrom(entityClass)) {
+			return new MomoUserPermissionEvaluator();
 		}
 
 		// call SHOGun2 implementation otherwise
