@@ -54,7 +54,7 @@ public class UserGroupRole extends PersistentObject {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param user
 	 * @param userGroup
 	 */
