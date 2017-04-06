@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import de.terrestris.momo.dao.MomoUserDao;
+import de.terrestris.momo.model.MomoUser;
 import de.terrestris.momo.service.MomoUserService;
-import de.terrestris.shogun2.dao.UserDao;
-import de.terrestris.shogun2.model.User;
 import de.terrestris.shogun2.util.application.Shogun2ContextUtil;
 import de.terrestris.shogun2.util.data.ResultSet;
 import de.terrestris.shogun2.web.UserController;
@@ -29,19 +29,23 @@ import de.terrestris.shogun2.web.UserController;
  */
 @Controller
 @RequestMapping("/momousers")
-public class MomoUserController<E extends User, D extends UserDao<E>, S extends MomoUserService<E, D>>
+public class MomoUserController<E extends MomoUser, D extends MomoUserDao<E>, S extends MomoUserService<E, D>>
 		extends UserController<E, D, S> {
 
 	/**
-	 * We have to use {@link Qualifier} to define the correct service here.
-	 * Otherwise, spring can not decide which service has to be autowired here
-	 * as there are multiple candidates.
+	 * Default constructor, which calls the type-constructor
 	 */
-	@Override
-	@Autowired
-	@Qualifier("momoUserService")
-	public void setService(S service) {
-		this.service = service;
+	@SuppressWarnings("unchecked")
+	public MomoUserController() {
+		this((Class<E>) MomoUser.class);
+	}
+
+	/**
+	 * Constructor that sets the concrete entity class for the controller.
+	 * Subclasses MUST call this constructor.
+	 */
+	protected MomoUserController(Class<E> entityClass) {
+		super(entityClass);
 	}
 
 	@Autowired
@@ -97,5 +101,17 @@ public class MomoUserController<E extends User, D extends UserDao<E>, S extends 
 			LOG.error("Could not send the registration mail: " + e.getMessage());
 			return ResultSet.error("An error has occurred during your request.");
 		}
+	}
+
+	/**
+	 * We have to use {@link Qualifier} to define the correct service here.
+	 * Otherwise, spring can not decide which service has to be autowired here
+	 * as there are multiple candidates.
+	 */
+	@Override
+	@Autowired
+	@Qualifier("momoUserService")
+	public void setService(S service) {
+		this.service = service;
 	}
 }
