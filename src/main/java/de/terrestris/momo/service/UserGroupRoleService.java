@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.log4j.Logger;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,11 +57,6 @@ public class UserGroupRoleService<E extends UserGroupRole, D extends UserGroupRo
 	public void setDao(D dao) {
 		this.dao = dao;
 	}
-
-	/**
-	 * The Logger
-	 */
-	private static final Logger LOG = Logger.getLogger(UserGroupRoleService.class);
 
 	/**
 	 *

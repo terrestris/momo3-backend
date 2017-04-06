@@ -6,14 +6,13 @@ package de.terrestris.momo.security.access.entity;
 import de.terrestris.shogun2.model.User;
 import de.terrestris.shogun2.model.layer.appearance.LayerAppearance;
 import de.terrestris.shogun2.model.security.Permission;
-import de.terrestris.shogun2.security.access.entity.PersistentObjectPermissionEvaluator;
 
 /**
  * @author Johannes Weskamm
  * @param <E>
  *
  */
-public class LayerAppearancePermissionEvaluator<E extends LayerAppearance> extends PersistentObjectPermissionEvaluator<E> {
+public class LayerAppearancePermissionEvaluator<E extends LayerAppearance> extends MomoPersistentObjectPermissionEvaluator<E> {
 
 	/**
 	 * Default constructor
