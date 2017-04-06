@@ -67,9 +67,15 @@ public class MomoUserSerializer extends StdSerializer<MomoUser>{
 		List<UserGroupRole> listRolesPerGroup = this.userGroupRoleService.findUserGroupRolesBy(momoUser);
 		ArrayList<String> groupRoleNames = new ArrayList<>(listRolesPerGroup.size());
 		for (UserGroupRole ugr : listRolesPerGroup) {
-			String roleName = ugr.getRole().getName();
-			Integer groupId = ugr.getGroup().getId();
-			String[] parts = {roleName, "GROUP", Integer.toString(groupId)};
+			String roleName = null;
+			if (ugr.getRole() != null) {
+				roleName = ugr.getRole().getName();
+			}
+			String groupId = null;
+			if (ugr.getGroup() != null) {
+				groupId = Integer.toString(ugr.getGroup().getId());
+			}
+			String[] parts = {roleName, "GROUP", groupId};
 
 			groupRoleNames.add(StringUtils.join(parts, '_'));
 		}
