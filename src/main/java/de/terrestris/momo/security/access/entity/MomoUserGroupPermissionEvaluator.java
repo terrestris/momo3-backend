@@ -3,13 +3,7 @@
  */
 package de.terrestris.momo.security.access.entity;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-
-import de.terrestris.momo.dao.UserGroupRoleDao;
 import de.terrestris.momo.model.MomoUserGroup;
-import de.terrestris.momo.model.security.UserGroupRole;
-import de.terrestris.momo.service.UserGroupRoleService;
 import de.terrestris.shogun2.model.User;
 import de.terrestris.shogun2.model.security.Permission;
 import de.terrestris.shogun2.security.access.entity.UserGroupPermissionEvaluator;
@@ -39,13 +33,6 @@ public class MomoUserGroupPermissionEvaluator<E extends MomoUserGroup> extends U
 	protected MomoUserGroupPermissionEvaluator(Class<E> entityClass) {
 		super(entityClass);
 	}
-
-	/**
-	 *
-	 */
-	@Autowired
-	@Qualifier("userGroupRoleService")
-	private UserGroupRoleService<UserGroupRole, UserGroupRoleDao<UserGroupRole>> userGroupRoleService;
 
 	/**
 	 * Always grants right to READ, UPDATE and CREATE this entity.
