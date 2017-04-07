@@ -12,13 +12,13 @@ import de.terrestris.shogun2.model.security.Permission;
  * @param <E>
  *
  */
-public class ApplicationPermissionEvaluator<E extends MomoApplication> extends MomoPersistentObjectPermissionEvaluator<E> {
+public class MomoApplicationPermissionEvaluator<E extends MomoApplication> extends MomoPersistentObjectPermissionEvaluator<E> {
 
 	/**
 	 * Default constructor
 	 */
 	@SuppressWarnings("unchecked")
-	public ApplicationPermissionEvaluator() {
+	public MomoApplicationPermissionEvaluator() {
 		this((Class<E>) MomoApplication.class);
 	}
 
@@ -27,7 +27,7 @@ public class ApplicationPermissionEvaluator<E extends MomoApplication> extends M
 	 *
 	 * @param entityClass
 	 */
-	protected ApplicationPermissionEvaluator(Class<E> entityClass) {
+	protected MomoApplicationPermissionEvaluator(Class<E> entityClass) {
 		super(entityClass);
 	}
 
