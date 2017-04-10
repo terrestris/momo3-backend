@@ -10,11 +10,11 @@ import de.terrestris.momo.model.MomoUserGroup;
 import de.terrestris.momo.model.security.UserGroupRole;
 import de.terrestris.momo.model.tree.DocumentTreeFolder;
 import de.terrestris.momo.model.tree.DocumentTreeLeaf;
-import de.terrestris.momo.security.access.entity.MomoApplicationPermissionEvaluator;
 import de.terrestris.momo.security.access.entity.DocumentTreeFolderPermissionEvaluator;
 import de.terrestris.momo.security.access.entity.DocumentTreeLeafPermissionEvaluator;
 import de.terrestris.momo.security.access.entity.LayerAppearancePermissionEvaluator;
 import de.terrestris.momo.security.access.entity.MomoAlwaysAllowReadPermissionEvaluator;
+import de.terrestris.momo.security.access.entity.MomoApplicationPermissionEvaluator;
 import de.terrestris.momo.security.access.entity.MomoLayerPermissionEvaluator;
 import de.terrestris.momo.security.access.entity.MomoPersistentObjectPermissionEvaluator;
 import de.terrestris.momo.security.access.entity.MomoUserGroupPermissionEvaluator;
@@ -81,7 +81,6 @@ public class MomoPermissionEvaluatorFactory<E extends PersistentObject> extends 
 		if(UserGroupRole.class.isAssignableFrom(entityClass)) {
 			return new UserGroupRolePermissionEvaluator();
 		}
-
 		if(PermissionCollection.class.isAssignableFrom(entityClass)) {
 			return new PermissionCollectionPermissionEvaluator();
 		}
