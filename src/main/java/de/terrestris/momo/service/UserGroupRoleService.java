@@ -145,10 +145,6 @@ public class UserGroupRoleService<E extends UserGroupRole, D extends UserGroupRo
 	 */
 	@SuppressWarnings("unchecked")
 	public List<UserGroupRole> findUserGroupRolesBy(MomoUser user) {
-		if (user == null) {
-			return null;
-		}
-
 		return (List<UserGroupRole>) this.dao.findAllWhereFieldEquals(
 				"user", user);
 	}
@@ -160,10 +156,6 @@ public class UserGroupRoleService<E extends UserGroupRole, D extends UserGroupRo
 	 */
 	@SuppressWarnings("unchecked")
 	public List<UserGroupRole> findUserGroupRolesBy(MomoUserGroup userGroup) {
-		if (userGroup == null) {
-			return null;
-		}
-
 		return (List<UserGroupRole>) this.dao.findAllWhereFieldEquals(
 				"group", userGroup);
 	}
@@ -175,10 +167,6 @@ public class UserGroupRoleService<E extends UserGroupRole, D extends UserGroupRo
 	 */
 	@SuppressWarnings("unchecked")
 	public List<UserGroupRole> findUserGroupRolesBy(Role role) {
-		if (role == null ) {
-			return null;
-		}
-
 		return (List<UserGroupRole>) this.dao.findAllWhereFieldEquals(
 				"role", role);
 	}
@@ -191,9 +179,6 @@ public class UserGroupRoleService<E extends UserGroupRole, D extends UserGroupRo
 	 */
 	@SuppressWarnings("unchecked")
 	public List<UserGroupRole> findUserGroupRolesBy(MomoUser user, MomoUserGroup userGroup) {
-		if (user == null || userGroup == null) {
-			return null;
-		}
 
 		final Criterion and = Restrictions.and(
 				Restrictions.eq("user", user),
@@ -212,10 +197,6 @@ public class UserGroupRoleService<E extends UserGroupRole, D extends UserGroupRo
 	 */
 	@SuppressWarnings("unchecked")
 	public List<UserGroupRole> findUserGroupRolesBy(MomoUser user, MomoUserGroup userGroup, Role role) {
-		if (user == null || userGroup == null || role == null) {
-			return null;
-		}
-
 		final Criterion and = Restrictions.and(
 				Restrictions.eq("user", user),
 				Restrictions.eq("group", userGroup),
@@ -232,15 +213,27 @@ public class UserGroupRoleService<E extends UserGroupRole, D extends UserGroupRo
 	 * @return
 	 */
 	public boolean isUserMemberInUserGroup(MomoUser user, MomoUserGroup userGroup) {
-		if (user == null || userGroup == null) {
-			return false;
-		}
-
 		final Criterion and = Restrictions.and(
 				Restrictions.eq("user", user),
 				Restrictions.eq("group", userGroup)
 		);
 
+		return (this.dao.getTotalCount(and).longValue() > 0);
+	}
+
+	/**
+	 *
+	 * @param user
+	 * @param userGroup
+	 * @param role
+	 * @return
+	 */
+	public boolean hasUserRoleInGroup(MomoUser user, MomoUserGroup userGroup, Role role) {
+		final Criterion and = Restrictions.and(
+				Restrictions.eq("user", user),
+				Restrictions.eq("group", userGroup),
+				Restrictions.eq("role", role)
+		);
 		return (this.dao.getTotalCount(and).longValue() > 0);
 	}
 
