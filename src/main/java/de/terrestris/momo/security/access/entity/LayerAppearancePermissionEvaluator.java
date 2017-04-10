@@ -3,6 +3,7 @@
  */
 package de.terrestris.momo.security.access.entity;
 
+import de.terrestris.momo.util.security.MomoSecurityUtil;
 import de.terrestris.shogun2.model.User;
 import de.terrestris.shogun2.model.layer.appearance.LayerAppearance;
 import de.terrestris.shogun2.model.security.Permission;
@@ -35,28 +36,14 @@ public class LayerAppearancePermissionEvaluator<E extends LayerAppearance> exten
 	 * Always grants right to READ, UPDATE and CREATE this entity.
 	 */
 	@Override
-	public boolean hasPermission(User user, E entity, Permission permission) {
+	public boolean hasPermission(User user, E appearance, Permission permission) {
 
-		// always grant READ right for this entity
-		if (permission.equals(Permission.READ)) {
-			LOG.trace("Granting READ for LayerAppearance.");
+		if (permission.equals(Permission.CREATE) && (appearance == null || appearance.getId() == null) &&
+				! MomoSecurityUtil.currentUserIsUserInAnyGroup()) {
 			return true;
 		}
 
-		// always grant CREATE right for this entity
-		if (permission.equals(Permission.CREATE)) {
-			LOG.trace("Granting CREATE for LayerAppearance.");
-			return true;
-		}
-
-		// always grant CREATE right for this entity
-		if (permission.equals(Permission.UPDATE)) {
-			LOG.trace("Granting CREATE for LayerAppearance.");
-			return true;
-		}
-
-		// call parent implementation from SHOGun2
-		return super.hasPermission(user, entity, permission);
+		return hasDefaultMomoPermission(user, appearance, permission);
 	}
 
 }

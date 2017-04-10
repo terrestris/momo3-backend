@@ -4,6 +4,7 @@
 package de.terrestris.momo.security.access.entity;
 
 import de.terrestris.momo.model.MomoLayer;
+import de.terrestris.momo.util.security.MomoSecurityUtil;
 import de.terrestris.shogun2.model.User;
 import de.terrestris.shogun2.model.security.Permission;
 
@@ -36,7 +37,8 @@ public class MomoLayerPermissionEvaluator<E extends MomoLayer> extends MomoPersi
 	@Override
 	public boolean hasPermission(User user, E layer, Permission permission) {
 
-		if (permission.equals(Permission.CREATE) && layer == null) {
+		if (permission.equals(Permission.CREATE) && (layer == null || layer.getId() == null) &&
+				! MomoSecurityUtil.currentUserIsUserInAnyGroup()) {
 			return true;
 		}
 
