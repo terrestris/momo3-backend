@@ -61,6 +61,10 @@ public class MomoPersistentObjectPermissionEvaluator<E extends PersistentObject>
 	protected boolean hasDefaultMomoPermission(User user, E entity, Permission permission) {
 		boolean hasPermission = false;
 
+		if (entity == null) {
+			return false;
+		}
+
 		MomoUser momoUser = (MomoUser) user;
 
 		final String simpleClassName = getEntityClass().getSimpleName();
@@ -68,20 +72,25 @@ public class MomoPersistentObjectPermissionEvaluator<E extends PersistentObject>
 		String grantMsg = "Granting %s access on secured object \"%s\" with ID %s";
 		String restrictMsg = "Restricting %s access on secured object \"%s\" with ID %s";
 
-		PermissionCollection userPermissions = entity.getUserPermissions().get(momoUser);
-		if (userPermissions != null && userPermissions.getPermissions().contains(permission)) {
-			LOG.trace(String.format(grantMsg, permission, simpleClassName, entity.getId()));
-			hasPermission = true;
+		Map<User, PermissionCollection> permissionsForUser = entity.getUserPermissions();
+		if (permissionsForUser != null) {
+			PermissionCollection userPermissions = permissionsForUser.get(momoUser);
+			if (userPermissions != null && userPermissions.getPermissions().contains(permission)) {
+				LOG.trace(String.format(grantMsg, permission, simpleClassName, entity.getId()));
+				hasPermission = true;
+			}
 		}
 
 		if (!hasPermission) {
 			Map<UserGroup, PermissionCollection> userGroupPermissionsOfCurrentUser = entity.getGroupPermissions();
-			for (UserGroup group : userGroupPermissionsOfCurrentUser.keySet()) {
-				PermissionCollection permissionsForGroup = userGroupPermissionsOfCurrentUser.get(group);
-				if (permissionsForGroup != null) {
-					if (permissionsForGroup.getPermissions().contains(permission)) {
-						LOG.trace(String.format(grantMsg, permission, simpleClassName, entity.getId()));
-						hasPermission = true;
+			if (userGroupPermissionsOfCurrentUser != null) {
+				for (UserGroup group : userGroupPermissionsOfCurrentUser.keySet()) {
+					PermissionCollection permissionsForGroup = userGroupPermissionsOfCurrentUser.get(group);
+					if (permissionsForGroup != null) {
+						if (permissionsForGroup.getPermissions().contains(permission)) {
+							LOG.trace(String.format(grantMsg, permission, simpleClassName, entity.getId()));
+							hasPermission = true;
+						}
 					}
 				}
 			}
