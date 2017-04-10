@@ -13,7 +13,6 @@ import de.terrestris.shogun2.model.security.Permission;
  *
  */
 public class MomoLayerPermissionEvaluator<E extends MomoLayer> extends MomoPersistentObjectPermissionEvaluator<E> {
-
 	/**
 	 * Default constructor
 	 */
@@ -35,30 +34,13 @@ public class MomoLayerPermissionEvaluator<E extends MomoLayer> extends MomoPersi
 	 * Always grants right to READ, UPDATE and CREATE this entity.
 	 */
 	@Override
-	public boolean hasPermission(User user, E entity, Permission permission) {
+	public boolean hasPermission(User user, E layer, Permission permission) {
 
-//		// always grant READ right for this entity
-//		if (permission.equals(Permission.READ)) {
-//			LOG.trace("Granting READ for layer.");
-//			return true;
-//		}
-//
-//		// always grant CREATE right for this entity
-//		if (permission.equals(Permission.CREATE)) {
-//			LOG.trace("Granting CREATE for layer.");
-//			return true;
-//		}
-//
-//		// always grant CREATE right for this entity
-//		if (permission.equals(Permission.UPDATE)) {
-//			if (entity.getOwner().getId().equals(user.getId())) {
-//				LOG.trace("Granting UPDATE for layer.");
-//				return true;
-//			}
-//		}
+		if (permission.equals(Permission.CREATE) && layer == null) {
+			return true;
+		}
 
-		// call parent implementation from SHOGun2
-		return super.hasPermission(user, entity, permission);
+		return hasDefaultMomoPermission(user, layer, permission);
 	}
 
 }

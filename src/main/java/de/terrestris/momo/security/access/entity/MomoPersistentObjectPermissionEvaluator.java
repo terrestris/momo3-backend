@@ -21,7 +21,7 @@ import de.terrestris.shogun2.model.security.PermissionCollection;
 import de.terrestris.shogun2.security.access.entity.PersistentObjectPermissionEvaluator;
 
 /**
- * 
+ *
  * @author Daniel Koch
  * @author terrestris GmbH & Co. KG
  *
@@ -46,10 +46,50 @@ public class MomoPersistentObjectPermissionEvaluator<E extends PersistentObject>
 		super(entityClass);
 		SpringBeanAutowiringSupport.processInjectionBasedOnCurrentContext(this);
 	}
-	
+
 	@Autowired
 	@Qualifier("userGroupRoleService")
-	private UserGroupRoleService<UserGroupRole, UserGroupRoleDao<UserGroupRole>> userGroupeRoleService;
+	private UserGroupRoleService<UserGroupRole, UserGroupRoleDao<UserGroupRole>> userGroupRoleService;
+
+	/**
+	 *
+	 * @param user
+	 * @param entity
+	 * @param permission
+	 * @return
+	 */
+	protected boolean hasDefaultMomoPermission(User user, E entity, Permission permission) {
+		boolean hasPermission = false;
+
+		MomoUser momoUser = (MomoUser) user;
+
+		final String simpleClassName = getEntityClass().getSimpleName();
+
+		String grantMsg = "Granting %s access on secured object \"%s\" with ID %s";
+		String restrictMsg = "Restricting %s access on secured object \"%s\" with ID %s";
+
+		PermissionCollection userPermissions = entity.getUserPermissions().get(momoUser);
+		if (userPermissions != null && userPermissions.getPermissions().contains(permission)) {
+			LOG.trace(String.format(grantMsg, permission, simpleClassName, entity.getId()));
+			hasPermission = true;
+		}
+
+		if (!hasPermission) {
+			Map<UserGroup, PermissionCollection> userGroupPermissionsOfCurrentUser = entity.getGroupPermissions();
+			for (UserGroup group : userGroupPermissionsOfCurrentUser.keySet()) {
+				PermissionCollection permissionsForGroup = userGroupPermissionsOfCurrentUser.get(group);
+				if (permissionsForGroup != null) {
+					if (permissionsForGroup.getPermissions().contains(permission)) {
+						LOG.trace(String.format(grantMsg, permission, simpleClassName, entity.getId()));
+						hasPermission = true;
+					}
+				}
+			}
+		}
+
+		LOG.trace(String.format(restrictMsg, permission, simpleClassName, entity.getId()));
+		return hasPermission;
+	}
 
 	/**
 	 *
@@ -67,7 +107,7 @@ public class MomoPersistentObjectPermissionEvaluator<E extends PersistentObject>
 
 		for (UserGroup userGroup : userGroupsWithPermissions) {
 
-			Set<MomoUser> userGroupMembers = userGroupeRoleService.findAllUserGroupMembers((MomoUserGroup) userGroup);
+			Set<MomoUser> userGroupMembers = userGroupRoleService.findAllUserGroupMembers((MomoUserGroup) userGroup);
 			if (userGroupMembers.contains(user)) {
 				Set<Permission> groupPermissions = groupPermissionsMap.get(userGroup).getPermissions();
 				aggregatedGroupPermissions.addAll(groupPermissions);
@@ -79,18 +119,18 @@ public class MomoPersistentObjectPermissionEvaluator<E extends PersistentObject>
 	}
 
 	/**
-	 * @return the userGroupeRoleService
+	 * @return the userGroupRoleService
 	 */
-	public UserGroupRoleService<UserGroupRole, UserGroupRoleDao<UserGroupRole>> getUserGroupeRoleService() {
-		return userGroupeRoleService;
+	public UserGroupRoleService<UserGroupRole, UserGroupRoleDao<UserGroupRole>> getUserGroupRoleService() {
+		return userGroupRoleService;
 	}
 
 	/**
-	 * @param userGroupeRoleService the userGroupeRoleService to set
+	 * @param userGroupRoleService the userGroupRoleService to set
 	 */
-	public void setUserGroupeRoleService(
-			UserGroupRoleService<UserGroupRole, UserGroupRoleDao<UserGroupRole>> userGroupeRoleService) {
-		this.userGroupeRoleService = userGroupeRoleService;
+	public void setUserGroupRoleService(
+			UserGroupRoleService<UserGroupRole, UserGroupRoleDao<UserGroupRole>> userGroupRoleService) {
+		this.userGroupRoleService = userGroupRoleService;
 	}
 
 }
