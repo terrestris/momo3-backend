@@ -30,6 +30,7 @@
         <ref bean="bayankhongorSubAdmin"/>
         <ref bean="bayanOelgiiSubAdmin"/>
         <ref bean="bulganSubAdmin"/>
+        <ref bean="inactiveAfterRegistrationUser"/>
 
         <!-- UserGroups -->
         <ref bean="adminUserGroup"/>
@@ -40,9 +41,17 @@
         <ref bean="bulganGroup"/>
 
         <!-- UserGroupRoles -->
-        <ref bean="arkhangaiSubAdminUserGroupRole1"/>
-        <ref bean="arkhangaiSubAdminUserGroupRole2"/>
-        <ref bean="arkhangaiSubAdminUserGroupRole3"/>
+        <ref bean="adminUserUserGroupRole"/>
+        <ref bean="defaultUserUserGroupRole"/>
+        <ref bean="arkhangaiSubAdminUserGroupRole"/>
+        <ref bean="arkhangaiSubAdminUserGroupRoleTest1"/>
+        <ref bean="arkhangaiSubAdminUserGroupRoleTest2"/>
+        <ref bean="bayankhongorSubAdminUserGroupRole"/>
+        <ref bean="bayanOelgiiSubAdminUserGroupRole"/>
+        <ref bean="bayanOelgiiSubAdminUserGroupRoleTest1"/>
+        <ref bean="bayanOelgiiSubAdminUserGroupRoleTest2"/>
+        <ref bean="bulganSubAdminUserGroupRole"/>
+        <ref bean="inactiveAfterRegistrationUserGroupRole"/>
 
         <!-- Layouts -->
         <ref bean="borderLayout"/>
@@ -68,10 +77,12 @@
         <ref bean="osmWmsLayer" />
         <ref bean="osmWmsLayerGray" />
         <ref bean="mongoliaStateCenters" />
-        <ref bean="mongoliaStateCentersArkhangai" />
         <ref bean="osmTopo" />
         <ref bean="01_kharaa_river_basin_32648" />
         <ref bean="01_kharaa_subbasins_32648" />
+
+        <ref bean="01_kharaa_subbasins_32648_arkhangaiSubAdmin" />
+
         <ref bean="02_surface_water_bodies_32648" />
         <ref bean="02_surface_water_bodies_corr_32648" />
         <ref bean="03_groundwater_bodies_32648" />
@@ -373,11 +384,6 @@
         <!-- This will be encrypted when the init service saves the user. -->
         <property name="password" value="shogun2"/>
         <property name="active" value="true"/>
-        <property name="roles">
-            <util:set id="adminUserRoles">
-                <ref bean="adminRole"/>
-            </util:set>
-        </property>
     </bean>
     <bean id="defaultUser" class="de.terrestris.momo.model.MomoUser">
         <property name="firstName" value="Users first name"/>
@@ -386,11 +392,6 @@
         <!-- This will be encrypted when the init service saves the user. -->
         <property name="password" value="shogun2"/>
         <property name="active" value="true"/>
-        <property name="roles">
-            <util:set id="defaultUserRoles">
-                <ref bean="userRole"/>
-            </util:set>
-        </property>
     </bean>
     <bean id="arkhangaiSubAdmin" class="de.terrestris.momo.model.MomoUser">
         <property name="firstName" value="Arkhangai"/>
@@ -399,11 +400,6 @@
         <!-- This will be encrypted when the init service saves the user. -->
         <property name="password" value="shogun2"/>
         <property name="active" value="true"/>
-        <property name="roles">
-            <util:set id="defaultUserRoles">
-<!--                 <ref bean="subAdminRole"/> -->
-            </util:set>
-        </property>
     </bean>
     <bean id="bayankhongorSubAdmin" class="de.terrestris.momo.model.MomoUser">
         <property name="firstName" value="Bayankhongor"/>
@@ -412,11 +408,6 @@
         <!-- This will be encrypted when the init service saves the user. -->
         <property name="password" value="shogun2"/>
         <property name="active" value="true"/>
-        <property name="roles">
-            <util:set id="defaultUserRoles">
-<!--                 <ref bean="subAdminRole"/> -->
-            </util:set>
-        </property>
     </bean>
     <bean id="bayanOelgiiSubAdmin" class="de.terrestris.momo.model.MomoUser">
         <property name="firstName" value="Bayan-Ölgii"/>
@@ -425,11 +416,6 @@
         <!-- This will be encrypted when the init service saves the user. -->
         <property name="password" value="shogun2"/>
         <property name="active" value="true"/>
-        <property name="roles">
-            <util:set id="defaultUserRoles">
-<!--                 <ref bean="subAdminRole"/> -->
-            </util:set>
-        </property>
     </bean>
     <bean id="bulganSubAdmin" class="de.terrestris.momo.model.MomoUser">
         <property name="firstName" value="Bulgan"/>
@@ -438,41 +424,24 @@
         <!-- This will be encrypted when the init service saves the user. -->
         <property name="password" value="shogun2"/>
         <property name="active" value="true"/>
-        <property name="roles">
-            <util:set id="defaultUserRoles">
-<!--                 <ref bean="subAdminRole"/> -->
-            </util:set>
-        </property>
+    </bean>
+    <bean id="inactiveAfterRegistrationUser" class="de.terrestris.momo.model.MomoUser">
+        <property name="firstName" value="Vinnie"/>
+        <property name="lastName" value="Jones"/>
+        <property name="accountName" value="inactiveUser"/>
+        <!-- This will be encrypted when the init service saves the user. -->
+        <property name="password" value="shogun2"/>
+        <property name="active" value="false"/>
     </bean>
 
     <!-- Define userGroups -->
     <bean id="adminUserGroup" class="de.terrestris.momo.model.MomoUserGroup">
         <property name="name" value="Admin User Group"/>
         <property name="owner" ref="adminUser"/>
-        <property name="members">
-            <util:set id="adminUserGroupMembers">
-                <ref bean="adminUser"/>
-            </util:set>
-        </property>
-        <property name="roles">
-            <util:set id="adminUserGroupRoles">
-                <ref bean="adminRole"/>
-            </util:set>
-        </property>
     </bean>
     <bean id="defaultUserGroup" class="de.terrestris.momo.model.MomoUserGroup">
         <property name="name" value="Default User Group"/>
         <property name="owner" ref="adminUser"/>
-        <property name="members">
-            <util:set id="defaultUserGroupMembers">
-                <ref bean="defaultUser"/>
-            </util:set>
-        </property>
-        <property name="roles">
-            <util:set id="defaultUserGroupRoles">
-                <ref bean="userRole"/>
-            </util:set>
-        </property>
         <property name="maskingValues">
             <util:set id="defaultUserGroupRoles">
                 <value>14</value>
@@ -483,74 +452,74 @@
     <bean id="arkhangaiGroup" class="de.terrestris.momo.model.MomoUserGroup">
         <property name="name" value="Arkhangai Group"/>
         <property name="owner" ref="arkhangaiSubAdmin"/>
-        <property name="members">
-            <util:set id="defaultUserGroupMembers">
-<!--                 <ref bean="arkhangaiSubAdmin"/> -->
-<!--                 <ref bean="bayankhongorSubAdmin"/> -->
-            </util:set>
-        </property>
-        <property name="roles">
-            <util:set id="defaultUserGroupRoles">
-<!--                 <ref bean="userRole"/> -->
-            </util:set>
-        </property>
     </bean>
     <bean id="bayankhongorGroup" class="de.terrestris.momo.model.MomoUserGroup">
         <property name="name" value="Bayankhongor Group"/>
         <property name="owner" ref="bayankhongorSubAdmin"/>
-        <property name="members">
-            <util:set id="defaultUserGroupMembers">
-<!--                 <ref bean="bayankhongorSubAdmin"/> -->
-            </util:set>
-        </property>
-        <property name="roles">
-            <util:set id="defaultUserGroupRoles">
-<!--                 <ref bean="userRole"/> -->
-            </util:set>
-        </property>
     </bean>
     <bean id="bayanOelgiiGroup" class="de.terrestris.momo.model.MomoUserGroup">
         <property name="name" value="Bayan-Ölgii Group"/>
         <property name="owner" ref="bayanOelgiiSubAdmin"/>
-        <property name="members">
-            <util:set id="defaultUserGroupMembers">
-<!--                 <ref bean="bayanOelgiiSubAdmin"/> -->
-            </util:set>
-        </property>
-        <property name="roles">
-            <util:set id="defaultUserGroupRoles">
-<!--                 <ref bean="userRole"/> -->
-            </util:set>
-        </property>
     </bean>
     <bean id="bulganGroup" class="de.terrestris.momo.model.MomoUserGroup">
         <property name="name" value="Bulgan Group"/>
         <property name="owner" ref="bulganSubAdmin"/>
-        <property name="members">
-            <util:set id="defaultUserGroupMembers">
-<!--                 <ref bean="bulganSubAdmin"/> -->
-            </util:set>
-        </property>
-        <property name="roles">
-            <util:set id="defaultUserGroupRoles">
-<!--                 <ref bean="userRole"/> -->
-            </util:set>
-        </property>
     </bean>
 
-    <bean id="arkhangaiSubAdminUserGroupRole1" class="de.terrestris.momo.model.security.UserGroupRole">
+    <!-- Define userGroupRoles -->
+    <bean id="adminUserUserGroupRole" class="de.terrestris.momo.model.security.UserGroupRole">
+        <property name="user" ref="adminUser"/>
+        <property name="group" ref="adminUserGroup"/>
+        <property name="role" ref="adminRole"/>
+    </bean>
+    <bean id="defaultUserUserGroupRole" class="de.terrestris.momo.model.security.UserGroupRole">
+        <property name="user" ref="defaultUser"/>
+        <property name="group" ref="defaultUserGroup"/>
+        <property name="role" ref="userRole"/>
+    </bean>
+    <bean id="arkhangaiSubAdminUserGroupRole" class="de.terrestris.momo.model.security.UserGroupRole">
         <property name="user" ref="arkhangaiSubAdmin"/>
         <property name="group" ref="arkhangaiGroup"/>
         <property name="role" ref="subAdminRole"/>
     </bean>
-    <bean id="arkhangaiSubAdminUserGroupRole2" class="de.terrestris.momo.model.security.UserGroupRole">
+    <bean id="arkhangaiSubAdminUserGroupRoleTest1" class="de.terrestris.momo.model.security.UserGroupRole">
         <property name="user" ref="arkhangaiSubAdmin"/>
         <property name="group" ref="bayankhongorGroup"/>
         <property name="role" ref="editorRole"/>
     </bean>
-    <bean id="arkhangaiSubAdminUserGroupRole3" class="de.terrestris.momo.model.security.UserGroupRole">
+    <bean id="arkhangaiSubAdminUserGroupRoleTest2" class="de.terrestris.momo.model.security.UserGroupRole">
         <property name="user" ref="arkhangaiSubAdmin"/>
         <property name="group" ref="bayanOelgiiGroup"/>
+        <property name="role" ref="userRole"/>
+    </bean>
+    <bean id="bayankhongorSubAdminUserGroupRole" class="de.terrestris.momo.model.security.UserGroupRole">
+        <property name="user" ref="bayankhongorSubAdmin"/>
+        <property name="group" ref="bayankhongorGroup"/>
+        <property name="role" ref="subAdminRole"/>
+    </bean>
+    <bean id="bayanOelgiiSubAdminUserGroupRole" class="de.terrestris.momo.model.security.UserGroupRole">
+        <property name="user" ref="bayanOelgiiSubAdmin"/>
+        <property name="group" ref="bayanOelgiiGroup"/>
+        <property name="role" ref="subAdminRole"/>
+    </bean>
+    <bean id="bayanOelgiiSubAdminUserGroupRoleTest1" class="de.terrestris.momo.model.security.UserGroupRole">
+        <property name="user" ref="bayanOelgiiSubAdmin"/>
+        <property name="group" ref="arkhangaiGroup"/>
+        <property name="role" ref="userRole"/>
+    </bean>
+    <bean id="bayanOelgiiSubAdminUserGroupRoleTest2" class="de.terrestris.momo.model.security.UserGroupRole">
+        <property name="user" ref="bayanOelgiiSubAdmin"/>
+        <property name="group" ref="bayankhongorGroup"/>
+        <property name="role" ref="userRole"/>
+    </bean>
+    <bean id="bulganSubAdminUserGroupRole" class="de.terrestris.momo.model.security.UserGroupRole">
+        <property name="user" ref="bulganSubAdmin"/>
+        <property name="group" ref="bulganGroup"/>
+        <property name="role" ref="subAdminRole"/>
+    </bean>
+    <bean id="inactiveAfterRegistrationUserGroupRole" class="de.terrestris.momo.model.security.UserGroupRole">
+        <property name="user" ref="inactiveAfterRegistrationUser"/>
+        <!-- Inactive users aren't members of any group -->
         <property name="role" ref="userRole"/>
     </bean>
 
@@ -3494,30 +3463,9 @@
         <property name="spatiallyRestricted" value="true" />
         <property name="hoverable" value="true" />
         <property name="userPermissions">
-            <!-- Allow that the default user to READ this application -->
+            <!-- Allow that the default user to READ this layer -->
             <util:map>
                 <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
-            </util:map>
-        </property>
-    </bean>
-
-    <!-- This is copy of mongoliaStateCenters with different userPermissions -->
-    <bean id="mongoliaStateCentersArkhangai" class="de.terrestris.momo.model.MomoLayer">
-        <property name="name" value="Mongolia state centers Arkhangai" />
-        <property name="source" ref="mongoliaStateCentersDataSource" />
-        <property name="appearance" ref="mongoliaStateCentersAppearance" />
-        <property name="spatiallyRestricted" value="true" />
-        <property name="hoverable" value="true" />
-        <property name="userPermissions">
-            <!-- Allow that the default user to READ this application -->
-            <util:map>
-<!--                 <entry key-ref="arkhangaiSubAdmin" value-ref="arkhangaiSubAdminPermissionCollection" /> -->
-            </util:map>
-        </property>
-        <property name="groupPermissions">
-            <!-- Allow that the default user to READ this application -->
-            <util:map>
-                <entry key-ref="arkhangaiGroup" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3560,6 +3508,21 @@
             <!-- Allow that the default user to READ this application -->
             <util:map>
                 <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
+            </util:map>
+        </property>
+    </bean>
+
+    <!-- DELETE ME -->
+    <bean id="01_kharaa_subbasins_32648_arkhangaiSubAdmin" class="de.terrestris.momo.model.MomoLayer">
+        <property name="name" value="01_kharaa_subbasins_32648" />
+        <property name="source" ref="01_kharaa_subbasins_32648DataSource" />
+        <property name="appearance" ref="01_kharaa_subbasins_32648Appearance" />
+        <property name="spatiallyRestricted" value="false" />
+        <property name="hoverable" value="true" />
+        <property name="userPermissions">
+            <!-- Allow that the default user to READ this application -->
+            <util:map>
+                <entry key-ref="arkhangaiSubAdmin" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
