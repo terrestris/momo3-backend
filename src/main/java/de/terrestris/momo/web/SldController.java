@@ -34,9 +34,12 @@ public class SldController {
 	private SldService sldService;
 
 	@RequestMapping(value = "/update.action", method = {RequestMethod.POST})
-	public @ResponseBody Map<String, Object> updateSld(@RequestParam String sldName, @RequestParam String sld){
+	public @ResponseBody Map<String, Object> updateSld(
+			@RequestParam String sldName,
+			@RequestParam String sld,
+			@RequestParam Integer layerId) {
 		try {
-			this.sldService.updateSld(sldName, sld);
+			this.sldService.updateSld(layerId, sldName, sld);
 			LOG.debug("Updated Sld " + sldName);
 			return ResultSet.success("Updated Sld " + sldName);
 		} catch (Exception e) {
