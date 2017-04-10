@@ -22,7 +22,7 @@ import de.terrestris.momo.util.config.MomoConfigHolder;
 @Component
 public class MomoSecurityUtil {
 
-	private static MomoConfigHolder configHolder;
+	public static MomoConfigHolder configHolder;
 
 	/**
 	 *
@@ -109,7 +109,7 @@ public class MomoSecurityUtil {
 	 */
 	@Autowired
 	@Qualifier("momoConfigHolder")
-	public static void setConfigHolder(MomoConfigHolder configHolder) {
+	public void setConfigHolder(MomoConfigHolder configHolder) {
 		MomoSecurityUtil.configHolder = configHolder;
 	}
 
