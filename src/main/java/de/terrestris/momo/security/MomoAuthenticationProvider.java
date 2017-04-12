@@ -6,6 +6,7 @@ import java.util.Set;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -16,13 +17,12 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.transaction.annotation.Transactional;
 
+import de.terrestris.momo.dao.MomoUserDao;
 import de.terrestris.momo.dao.UserGroupRoleDao;
 import de.terrestris.momo.model.MomoUser;
 import de.terrestris.momo.model.security.UserGroupRole;
 import de.terrestris.momo.service.UserGroupRoleService;
-import de.terrestris.shogun2.dao.UserDao;
 import de.terrestris.shogun2.model.Role;
-import de.terrestris.shogun2.model.User;
 import de.terrestris.shogun2.security.Shogun2AuthenticationProvider;
 
 /**
@@ -43,7 +43,8 @@ public class MomoAuthenticationProvider extends Shogun2AuthenticationProvider {
 	 *
 	 */
 	@Autowired
-	private UserDao<User> userDao;
+	@Qualifier("momoUserDao")
+	private MomoUserDao<MomoUser> momoUserDao;
 
 	/**
 	 *
@@ -73,7 +74,7 @@ public class MomoAuthenticationProvider extends Shogun2AuthenticationProvider {
 
 		LOG.debug("Trying to authenticate User '" + accountName + "'");
 
-		MomoUser user = (MomoUser) userDao.findByAccountName(accountName);
+		MomoUser user = (MomoUser) momoUserDao.findByAccountName(accountName);
 
 		// prepare set of authorities
 		Set<GrantedAuthority> grantedAuthorities = new HashSet<GrantedAuthority>();
