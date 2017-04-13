@@ -3,8 +3,8 @@
  */
 package de.terrestris.momo.security.access.entity;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 
 import java.util.HashMap;
@@ -41,6 +41,7 @@ import de.terrestris.shogun2.model.security.PermissionCollection;
 /**
  *
  * @author Daniel Koch
+ * @author Andre Henn
  * @author terrestris GmbH & Co. KG
  *
  */
@@ -130,15 +131,15 @@ public class MomoLayerPermissionEvaluatorTest {
 
 	@Test
 	public void hasPermission_shouldDenyWithoutUserNorGroupPermissions() throws NoSuchFieldException, IllegalAccessException {
-		Set<Permission> readPermission = new HashSet<Permission>();
-		readPermission.add(Permission.READ);
-		readPermission.add(Permission.CREATE);
-		readPermission.add(Permission.UPDATE);
-		readPermission.add(Permission.DELETE);
+		Set<Permission> permissionsToCheck = new HashSet<Permission>();
+		permissionsToCheck.add(Permission.READ);
+		permissionsToCheck.add(Permission.CREATE);
+		permissionsToCheck.add(Permission.UPDATE);
+		permissionsToCheck.add(Permission.DELETE);
 
-		for (Permission permission : readPermission) {
+		for (Permission permission : permissionsToCheck) {
 			boolean permissionResult = momoLayerPermissionEvaluator.hasPermission(accessUser, testLayer, permission);
-			assertThat(permissionResult, equalTo(false));
+			assertFalse(permissionResult);
 		}
 	}
 
@@ -156,16 +157,16 @@ public class MomoLayerPermissionEvaluatorTest {
 		testLayer.setUserPermissions(userPermissions);
 
 		boolean permissionResult = momoLayerPermissionEvaluator.hasPermission(accessUser, testLayer, Permission.READ);
-		assertThat(permissionResult, equalTo(true));
+		assertTrue(permissionResult);
 	}
 
 	@Test
 	public void hasPermission_shouldAllowUpdateForUserGrantedFromUserPermissions() throws NoSuchFieldException, IllegalAccessException {
-		Set<Permission> readPermission = new HashSet<Permission>();
-		readPermission.add(Permission.UPDATE);
+		Set<Permission> updatePermission = new HashSet<Permission>();
+		updatePermission.add(Permission.UPDATE);
 
 		PermissionCollection permCollection = new PermissionCollection();
-		permCollection.setPermissions(readPermission);
+		permCollection.setPermissions(updatePermission);
 		IdHelper.setIdOnPersistentObject(permCollection, 333);
 
 		HashMap<User, PermissionCollection> userPermissions = new HashMap<User, PermissionCollection>();
@@ -173,16 +174,16 @@ public class MomoLayerPermissionEvaluatorTest {
 		testLayer.setUserPermissions(userPermissions);
 
 		boolean permissionResult = momoLayerPermissionEvaluator.hasPermission(accessUser, testLayer, Permission.UPDATE);
-		assertThat(permissionResult, equalTo(true));
+		assertTrue(permissionResult);
 	}
 
 	@Test
 	public void hasPermission_shouldAllowDeleteForUserGrantedFromUserPermissions() throws NoSuchFieldException, IllegalAccessException {
-		Set<Permission> readPermission = new HashSet<Permission>();
-		readPermission.add(Permission.DELETE);
+		Set<Permission> deletePermission = new HashSet<Permission>();
+		deletePermission.add(Permission.DELETE);
 
 		PermissionCollection permCollection = new PermissionCollection();
-		permCollection.setPermissions(readPermission);
+		permCollection.setPermissions(deletePermission);
 		IdHelper.setIdOnPersistentObject(permCollection, 333);
 
 		HashMap<User, PermissionCollection> userPermissions = new HashMap<User, PermissionCollection>();
@@ -190,7 +191,7 @@ public class MomoLayerPermissionEvaluatorTest {
 		testLayer.setUserPermissions(userPermissions);
 
 		boolean permissionResult = momoLayerPermissionEvaluator.hasPermission(accessUser, testLayer, Permission.DELETE);
-		assertThat(permissionResult, equalTo(true));
+		assertTrue(permissionResult);
 	}
 
 	@Test
@@ -207,7 +208,7 @@ public class MomoLayerPermissionEvaluatorTest {
 		testLayer.setGroupPermissions(groupPermissions);
 
 		boolean permissionResult = momoLayerPermissionEvaluator.hasPermission(accessUser, testLayer, Permission.DELETE);
-		assertThat(permissionResult, equalTo(true));
+		assertTrue(permissionResult);
 	}
 
 	@Test
@@ -224,14 +225,13 @@ public class MomoLayerPermissionEvaluatorTest {
 		testLayer.setGroupPermissions(groupPermissions);
 
 		boolean permissionResult = momoLayerPermissionEvaluator.hasPermission(accessUser, testLayer, Permission.UPDATE);
-		assertThat(permissionResult, equalTo(true));
+		assertTrue(permissionResult);
 	}
 
 	@Test
 	public void hasPermission_shouldDenyCreateForDefaultUser() throws NoSuchFieldException, IllegalAccessException {
 		// prepare a user that
 		final Role role = new Role(defaultUserRoleName);
-
 		IdHelper.setIdOnPersistentObject(role, 44);
 
 		Set<Role> userRoles = new HashSet<Role>();
@@ -239,11 +239,38 @@ public class MomoLayerPermissionEvaluatorTest {
 
 		loginMockUser(userRoles);
 
-		Set<Permission> readPermission = new HashSet<Permission>();
-		readPermission.add(Permission.CREATE);
+		boolean permissionResult = momoLayerPermissionEvaluator.hasPermission(accessUser, null, Permission.CREATE);
+		assertFalse(permissionResult);
+	}
+
+	@Test
+	public void hasPermission_shouldAllowCreateForEditorUser() throws NoSuchFieldException, IllegalAccessException {
+		// prepare a user that
+		final Role role = new Role(editorRoleName);
+		IdHelper.setIdOnPersistentObject(role, 44);
+
+		Set<Role> userRoles = new HashSet<Role>();
+		userRoles.add(role);
+
+		loginMockUser(userRoles);
 
 		boolean permissionResult = momoLayerPermissionEvaluator.hasPermission(accessUser, null, Permission.CREATE);
-		assertThat(permissionResult, equalTo(false));
+		assertTrue(permissionResult);
+	}
+
+	@Test
+	public void hasPermission_shouldAllowCreateForSubAdminUser() throws NoSuchFieldException, IllegalAccessException {
+		// prepare a user that
+		final Role role = new Role(subAdminRoleName);
+		IdHelper.setIdOnPersistentObject(role, 44);
+
+		Set<Role> userRoles = new HashSet<Role>();
+		userRoles.add(role);
+
+		loginMockUser(userRoles);
+
+		boolean permissionResult = momoLayerPermissionEvaluator.hasPermission(accessUser, null, Permission.CREATE);
+		assertTrue(permissionResult);
 	}
 
 	@Test
@@ -260,7 +287,34 @@ public class MomoLayerPermissionEvaluatorTest {
 		testLayer.setGroupPermissions(groupPermissions);
 
 		boolean permissionResult = momoLayerPermissionEvaluator.hasPermission(accessUser, testLayer, Permission.READ);
-		assertThat(permissionResult, equalTo(true));
+		assertTrue(permissionResult);
+	}
+
+	/**
+	 * Always allow CRUD for owned Layer..
+	 * @throws NoSuchFieldException
+	 * @throws IllegalAccessException
+	 */
+	@Test
+	public void hasPermission_shouldAllowCrudForUserOwningLayerWithEmptyUserPermissionsAndEmptyGroupPermissions() throws NoSuchFieldException, IllegalAccessException {
+		HashMap<UserGroup, PermissionCollection> emptyGroupPermissions = new HashMap<UserGroup, PermissionCollection>();
+		testLayer.setGroupPermissions(emptyGroupPermissions);
+
+		HashMap<User, PermissionCollection> emptyUserPermissions = new HashMap<User, PermissionCollection>();
+		testLayer.setUserPermissions(emptyUserPermissions);
+
+		testLayer.setOwner(accessUser);
+
+		Set<Permission> permissionsToCheck = new HashSet<Permission>();
+		permissionsToCheck.add(Permission.READ);
+		permissionsToCheck.add(Permission.CREATE);
+		permissionsToCheck.add(Permission.UPDATE);
+		permissionsToCheck.add(Permission.DELETE);
+
+		for (Permission permission : permissionsToCheck) {
+			boolean permissionResult = momoLayerPermissionEvaluator.hasPermission(accessUser, testLayer, permission);
+			assertTrue(permissionResult);
+		}
 	}
 
 }

@@ -35,7 +35,7 @@ public class MomoSecurityUtil {
 
 		if (principal instanceof MomoUser) {
 			for (GrantedAuthority authority : authorities) {
-				if(authority.getAuthority().equals(configHolder.getSubAdminRoleName())) {
+				if(authority.getAuthority().equals(configHolder.getSuperAdminRoleName())) {
 					return true;
 				}
 			}
@@ -48,7 +48,7 @@ public class MomoSecurityUtil {
 	 *
 	 * @return
 	 */
-	public static boolean currentUserIsSubAdminInAnyGroup(){
+	public static boolean currentUserHasRoleSubAdmin(){
 		final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		final Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
 		final Object principal = authentication.getPrincipal();
@@ -68,7 +68,7 @@ public class MomoSecurityUtil {
 	 *
 	 * @return
 	 */
-	public static boolean currentUserIsEditorInAnyGroup(){
+	public static boolean currentUsersHighestRoleIsEditor(){
 		final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		final Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
 		final Object principal = authentication.getPrincipal();
@@ -76,7 +76,7 @@ public class MomoSecurityUtil {
 		if (principal instanceof MomoUser) {
 			for (GrantedAuthority authority : authorities) {
 				if(authority.getAuthority().equals(configHolder.getEditorRoleName())) {
-					return true;
+					return !MomoSecurityUtil.currentUserHasRoleSubAdmin();
 				}
 			}
 		}
@@ -88,14 +88,15 @@ public class MomoSecurityUtil {
 	 *
 	 * @return
 	 */
-	public static boolean currentUserIsUserInAnyGroup(){
+	public static boolean currentUsersHighestRoleIsDefaultUser(){
 		final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		final Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
 		final Object principal = authentication.getPrincipal();
 
 		if (principal instanceof MomoUser) {
 			for (GrantedAuthority authority : authorities) {
-				if(authority.getAuthority().equals(configHolder.getDefaultUserRoleName())) {
+				// if user's highest role is ROLE_USER, the list of authorities will always have one single element
+				if(authority.getAuthority().equals(configHolder.getDefaultUserRoleName()) && authorities.size() == 1) {
 					return true;
 				}
 			}
