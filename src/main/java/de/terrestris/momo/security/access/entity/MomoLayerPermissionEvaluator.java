@@ -37,8 +37,14 @@ public class MomoLayerPermissionEvaluator<E extends MomoLayer> extends MomoPersi
 	@Override
 	public boolean hasPermission(User user, E layer, Permission permission) {
 
+		// all users but default users are allowed to create layers
 		if (permission.equals(Permission.CREATE) && (layer == null || layer.getId() == null) &&
-				! MomoSecurityUtil.currentUserIsUserInAnyGroup()) {
+				! MomoSecurityUtil.currentUsersHighestRoleIsDefaultUser()) {
+			return true;
+		}
+
+		// if user is the owner of the entity => return true
+		if (layer != null && layer.getOwner() != null && layer.getOwner().equals(user)) {
 			return true;
 		}
 

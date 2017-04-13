@@ -38,8 +38,9 @@ public class LayerAppearancePermissionEvaluator<E extends LayerAppearance> exten
 	@Override
 	public boolean hasPermission(User user, E appearance, Permission permission) {
 
+		// all users but default users are allowed to create layers and their appearances
 		if (permission.equals(Permission.CREATE) && (appearance == null || appearance.getId() == null) &&
-				! MomoSecurityUtil.currentUserIsUserInAnyGroup()) {
+				! MomoSecurityUtil.currentUsersHighestRoleIsDefaultUser()) {
 			return true;
 		}
 

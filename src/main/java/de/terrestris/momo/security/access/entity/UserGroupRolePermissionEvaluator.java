@@ -87,7 +87,7 @@ public class UserGroupRolePermissionEvaluator<E extends UserGroupRole> extends M
 		if (permission.equals(Permission.CREATE)) {
 			// Deny CREATE right for this entity, if:
 			//   * The user is default user only.
-			boolean isDefaultUser = MomoSecurityUtil.currentUserIsUserInAnyGroup();
+			boolean isDefaultUser = MomoSecurityUtil.currentUsersHighestRoleIsDefaultUser();
 			if (isDefaultUser) {
 				LOG.trace(String.format(restrictMsg, permission, simpleClassName, userGroupRole.getId()));
 				return false;
@@ -136,7 +136,7 @@ public class UserGroupRolePermissionEvaluator<E extends UserGroupRole> extends M
 		if (permission.equals(Permission.UPDATE)) {
 			// Deny UPDATE right for this entity, if:
 			//   * The user is default user only.
-			boolean isDefaultUser = MomoSecurityUtil.currentUserIsUserInAnyGroup();
+			boolean isDefaultUser = MomoSecurityUtil.currentUsersHighestRoleIsDefaultUser();
 			if (isDefaultUser) {
 				LOG.trace(String.format(restrictMsg, permission, simpleClassName, userGroupRole.getId()));
 				return false;
