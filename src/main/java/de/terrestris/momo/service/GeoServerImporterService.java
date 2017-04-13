@@ -29,11 +29,13 @@ import de.terrestris.momo.util.importer.communication.RESTImport;
 import de.terrestris.momo.util.importer.communication.RESTImportTask;
 import de.terrestris.momo.util.importer.communication.RESTImportTaskList;
 import de.terrestris.momo.util.importer.communication.RESTLayer;
+import de.terrestris.shogun2.dao.LayerAppearanceDao;
 import de.terrestris.shogun2.dao.UserDao;
 import de.terrestris.shogun2.model.User;
 import de.terrestris.shogun2.model.layer.appearance.LayerAppearance;
 import de.terrestris.shogun2.model.layer.source.TileWmsLayerDataSource;
 import de.terrestris.shogun2.model.security.Permission;
+import de.terrestris.shogun2.service.LayerAppearanceService;
 import de.terrestris.shogun2.service.UserService;
 import de.terrestris.shogun2.util.data.ResultSet;
 import de.terrestris.shogun2.util.enumeration.InterceptorEnum.RuleType;
@@ -140,6 +142,13 @@ public class GeoServerImporterService {
 	@Autowired
 	@Qualifier("momoLayerService")
 	private MomoLayerService<MomoLayer, MomoLayerDao<MomoLayer>> layerService;
+
+	/**
+	 *
+	 */
+	@Autowired
+	@Qualifier("layerAppearanceService")
+	private LayerAppearanceService<LayerAppearance, LayerAppearanceDao<LayerAppearance>> layerAppearanceService;
 
 	/**
 	 *
@@ -331,6 +340,9 @@ public class GeoServerImporterService {
 
 		layerService.saveOrUpdate(layer);
 		layerService.addAndSaveUserPermissions(layer, currentUser, Permission.ADMIN);
+
+		//  also update appearance
+		layerAppearanceService.addAndSaveUserPermissions(appearance, currentUser, Permission.ADMIN);
 
 		// Now insert special rules to always modify any OGC requests:
 		this.momoInterceptorRuleService.createAllRelevantOgcRules(endpoint, RuleType.MODIFY);
