@@ -43,6 +43,21 @@ public class MomoUser extends User {
 	/**
 	 *
 	 */
+	private String department;
+
+	/**
+	 *
+	 */
+	private String telephone;
+
+	/**
+	 *
+	 */
+	private String profileImage;
+
+	/**
+	 *
+	 */
 	@Override
 	@Deprecated
 	public Set<UserGroup> getUserGroups() {
@@ -84,6 +99,48 @@ public class MomoUser extends User {
 		LOG.warn("Calling the method setRoles() has no effect. "
 				+ "To set the roles of a certain user, please make "
 				+ "use of the UserGroupRoleService.");
+	}
+
+	/**
+	 * @return the department
+	 */
+	public String getDepartment() {
+		return department;
+	}
+
+	/**
+	 * @param department the department to set
+	 */
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+
+	/**
+	 * @return the telephone
+	 */
+	public String getTelephone() {
+		return telephone;
+	}
+
+	/**
+	 * @param telephone the telephone to set
+	 */
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
+	}
+
+	/**
+	 * @return the profileImage
+	 */
+	public String getProfileImage() {
+		return profileImage;
+	}
+
+	/**
+	 * @param profileImage the profileImage to set
+	 */
+	public void setProfileImage(String profileImage) {
+		this.profileImage = profileImage;
 	}
 
 }

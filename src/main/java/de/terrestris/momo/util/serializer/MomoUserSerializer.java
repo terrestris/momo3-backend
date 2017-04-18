@@ -52,14 +52,16 @@ public class MomoUserSerializer extends StdSerializer<MomoUser>{
 	public void serialize(MomoUser momoUser, JsonGenerator generator, SerializerProvider provider) throws IOException {
 		generator.writeStartObject();
 		generator.writeNumberField("id", momoUser.getId());
-		generator.writeStringField("firstName", momoUser.getFirstName());
-		generator.writeStringField("lastName", momoUser.getLastName());
-		generator.writeStringField("email", momoUser.getEmail());
-		generator.writeObjectField("birthday", momoUser.getBirthday());
-		generator.writeObjectField("language", momoUser.getLanguage());
 		generator.writeStringField("accountName", momoUser.getAccountName());
 		generator.writeBooleanField("active", momoUser.isActive());
-
+		generator.writeObjectField("birthday", momoUser.getBirthday());
+		generator.writeStringField("department", momoUser.getDepartment());
+		generator.writeStringField("email", momoUser.getEmail());
+		generator.writeStringField("firstName", momoUser.getFirstName());
+		generator.writeObjectField("language", momoUser.getLanguage());
+		generator.writeStringField("lastName", momoUser.getLastName());
+		generator.writeStringField("profileImage", momoUser.getProfileImage());
+		generator.writeStringField("telephone", momoUser.getTelephone());
 		/**
 		 * serializes role / groups in the following way [{{ROLENAME}}_GROUP_{{GROUP_ID}}], eg.
 		 * ["ROLE_SUBADMIN_GROUP_13", "ROLE_EDITOR_GROUP_14", "ROLE_USER_GROUP_15"]

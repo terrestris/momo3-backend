@@ -77,6 +77,48 @@
         <property name="text" value="${mail.resetPasswordMailMessageTemplateText}" />
     </bean>
 
+    <!-- The change permissions mail message template in english -->
+    <bean id="changePermissionsMailMessageTemplate-en" class="org.springframework.mail.SimpleMailMessage">
+        <property name="from" value="${mail.defaultSender}" />
+        <property name="subject" value="${mail.en.changePermissionsMailMessageTemplateSubject}" />
+        <property name="text" value="${mail.en.changePermissionsMailMessageTemplateText}" />
+    </bean>
+
+    <!-- The change permissions mail message template in mongolian -->
+    <bean id="changePermissionsMailMessageTemplate-mn" class="org.springframework.mail.SimpleMailMessage">
+        <property name="from" value="${mail.defaultSender}" />
+        <property name="subject" value="${mail.mn.changePermissionsMailMessageTemplateSubject}" />
+        <property name="text" value="${mail.mn.changePermissionsMailMessageTemplateText}" />
+    </bean>
+
+    <!-- The change permissions mail message template in german -->
+    <bean id="changePermissionsMailMessageTemplate-de" class="org.springframework.mail.SimpleMailMessage">
+        <property name="from" value="${mail.defaultSender}" />
+        <property name="subject" value="${mail.de.changePermissionsMailMessageTemplateSubject}" />
+        <property name="text" value="${mail.de.changePermissionsMailMessageTemplateText}" />
+    </bean>
+
+    <!-- The change personal details and permissions mail message template for the user itself in english-->
+    <bean id="changePermissionsMailMessageTemplateForUser-en" class="org.springframework.mail.SimpleMailMessage">
+        <property name="from" value="${mail.defaultSender}" />
+        <property name="subject" value="${mail.en.changePermissionsMailMessageTemplateSubjectForUser}" />
+        <property name="text" value="${mail.en.changePermissionsMailMessageTemplateTextForUser}" />
+    </bean>
+
+    <!-- The change personal details and permissions mail message template for the user itself in mongolian-->
+    <bean id="changePermissionsMailMessageTemplateForUser-mn" class="org.springframework.mail.SimpleMailMessage">
+        <property name="from" value="${mail.defaultSender}" />
+        <property name="subject" value="${mail.mn.changePermissionsMailMessageTemplateSubjectForUser}" />
+        <property name="text" value="${mail.mn.changePermissionsMailMessageTemplateTextForUser}" />
+    </bean>
+
+    <!-- The change personal details and permissions mail message template for the user itself in german-->
+    <bean id="changePermissionsMailMessageTemplateForUser-de" class="org.springframework.mail.SimpleMailMessage">
+        <property name="from" value="${mail.defaultSender}" />
+        <property name="subject" value="${mail.de.changePermissionsMailMessageTemplateSubjectForUser}" />
+        <property name="text" value="${mail.de.changePermissionsMailMessageTemplateTextForUser}" />
+    </bean>
+
     <!-- The (relative) URL to your change password client component -->
     <bean id="changePasswordPath" class="java.lang.String">
         <constructor-arg value="${login.changePasswordPath}"></constructor-arg>
