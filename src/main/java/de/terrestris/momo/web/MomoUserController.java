@@ -3,6 +3,7 @@ package de.terrestris.momo.web;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -99,6 +101,39 @@ public class MomoUserController<E extends MomoUser, D extends MomoUserDao<E>, S 
 					+ "Please check your mails!");
 		} catch (Exception e) {
 			LOG.error("Could not send the registration mail: " + e.getMessage());
+			return ResultSet.error("An error has occurred during your request.");
+		}
+	}
+
+	/**
+	 * Updates the users personal credentials and, if a change in permissions
+	 * is made, will contact a subadmin / superadmin to make the appropriate changes
+	 *
+	 * @param request
+	 * @param email
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value = "/update.action", method = RequestMethod.POST)
+	public @ResponseBody Map<String, Object> update(HttpServletRequest request,
+			@RequestBody Map<String, Object> params) {
+		LOG.debug("Requested to update a user");
+		String firstName = (String) params.get("firstName");
+		String lastName = (String) params.get("lastName");
+		String email = (String) params.get("email");
+		String telephone = (String) params.get("telephone");
+		String department = (String) params.get("department");
+		String profileImage = (String) params.get("profileImage");
+		String language = (String) params.get("language");
+		HashMap<String, String> permissions = (HashMap<String, String>) params.get("permissions");
+
+		try {
+			service.updateUser(firstName, lastName, email, telephone, department,
+					profileImage, language, permissions);
+			LOG.info("Successfully updated a user");
+			return ResultSet.success("ok");
+		} catch (Exception e) {
+			LOG.error("Could not update the user: " + e.getMessage());
 			return ResultSet.error("An error has occurred during your request.");
 		}
 	}
