@@ -4,6 +4,7 @@
 package de.terrestris.momo.security.access.entity;
 
 import de.terrestris.momo.model.MomoUserGroup;
+import de.terrestris.momo.util.security.MomoSecurityUtil;
 import de.terrestris.shogun2.model.User;
 import de.terrestris.shogun2.model.security.Permission;
 import de.terrestris.shogun2.security.access.entity.UserGroupPermissionEvaluator;
@@ -48,8 +49,11 @@ public class MomoUserGroupPermissionEvaluator<E extends MomoUserGroup> extends U
 		// Always restrict CREATE right for this entity. Only ROLE_SUPERADMIN
 		// is allowed to create one.
 		if (permission.equals(Permission.CREATE)) {
-			LOG.trace(String.format(restrictMsg, permission, simpleClassName, userGroup.getId()));
-			return false;
+			// Allow create of groups only for ROLE_SUPERADMIN or ROLE_SUBADMIN
+			if (MomoSecurityUtil.currentUserIsSuperAdmin() || MomoSecurityUtil.currentUserHasRoleSubAdmin()){
+				LOG.trace(String.format(grantMsg, permission, simpleClassName, userGroup.getId()));
+				return true;
+			}
 		}
 
 		// Always grant READ right for this entity.
@@ -60,7 +64,7 @@ public class MomoUserGroupPermissionEvaluator<E extends MomoUserGroup> extends U
 
 		// Grant UPDATE right for this entity, if the user is the owner.
 		if (permission.equals(Permission.UPDATE)) {
-			if (userGroup.getOwner().getId().equals(user.getId())) {
+			if (userGroup.getOwner() != null && userGroup.getOwner().getId().equals(user.getId())) {
 				LOG.trace(String.format(grantMsg, permission, simpleClassName, userGroup.getId()));
 				return true;
 			}
@@ -68,7 +72,7 @@ public class MomoUserGroupPermissionEvaluator<E extends MomoUserGroup> extends U
 
 		// Grant DELETE right for this entity, if the user is the owner.
 		if (permission.equals(Permission.DELETE)) {
-			if (userGroup.getOwner().getId().equals(user.getId())) {
+			if (userGroup.getOwner() != null && userGroup.getOwner().getId().equals(user.getId())) {
 				LOG.trace(String.format(grantMsg, permission, simpleClassName, userGroup.getId()));
 				return true;
 			}
