@@ -52,8 +52,8 @@
         <intercept-url pattern="/login/**" access="permitAll" />
         <intercept-url pattern="/momousers/register.action" access="permitAll" />
         <intercept-url pattern="/momousers/activateAccount.action" access="permitAll" />
-        <intercept-url pattern="/user/resetPassword.action" access="permitAll" />
-        <intercept-url pattern="/user/changePassword.action" access="permitAll" />
+        <intercept-url pattern="/momousers/resetPassword.action" access="permitAll" />
+        <intercept-url pattern="/momousers/changePassword.action" access="permitAll" />
         <intercept-url pattern="/momousers/resendToken.action" access="permitAll" />
         <intercept-url pattern="/entitypermission/**" access="hasRole('ROLE_EDITOR')" />
         <intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
