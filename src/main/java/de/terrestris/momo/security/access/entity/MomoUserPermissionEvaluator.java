@@ -116,4 +116,11 @@ public class MomoUserPermissionEvaluator<E extends MomoUser> extends UserPermiss
 		// return super.hasPermission(user, userGroup, permission);
 	}
 
+	/**
+	 * @param momoConfigHolder the momoConfigHolder to set
+	 */
+	public void setMomoConfigHolder(MomoConfigHolder momoConfigHolder) {
+		this.momoConfigHolder = momoConfigHolder;
+	}
+
 }
