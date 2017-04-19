@@ -30,7 +30,7 @@ import de.terrestris.shogun2.model.security.Permission;
 /**
  *
  * terrestris GmbH & Co. KG
- * 
+ *
  * @author Andre Henn
  * @date 18.04.2017
  *
@@ -120,48 +120,67 @@ public class MomoUserGroupPermissionEvaluatorTest {
 	}
 
 	@Test
-	public void hasPermission_shouldAllowCreateForUserWithRoleSuperAdminOrSubAdmin() {
+	public void hasPermission_shouldAllowCreateForUserWithRoleSuperAdmin() {
 		final Permission createPermission = Permission.CREATE;
 
 		final Role roleSuperAdmin = new Role(superAdminRoleName);
-		final Role roleSubAdmin = new Role(subAdminRoleName);
 		Set<Role> userRoles = new HashSet<Role>();
 		userRoles.add(roleSuperAdmin);
-		userRoles.add(roleSubAdmin);
 
-		for (Role currentRole : userRoles) {
-			HashSet<Role> currentRoleSet = new HashSet<Role>();
-			currentRoleSet.add(currentRole);
-			loginMockUser(currentRoleSet);
+		loginMockUser(userRoles);
 
-			boolean permissionResult = momoUserGroupPermissionEvaluator.hasPermission(accessUser, userGroupToTest,
-					createPermission);
-			assertTrue("Current ROLE: " + currentRole.getName() + " should have " + createPermission.name()
-					+ " permission for Group " + userGroupToTest.getName() + "!", permissionResult);
-		}
-
+		boolean permissionResult = momoUserGroupPermissionEvaluator.hasPermission(accessUser, userGroupToTest,
+				createPermission);
+		assertTrue("Current ROLE: " + roleSuperAdmin.getName() + " should have " + createPermission.name()
+				+ " permission for Group " + userGroupToTest.getName() + "!", permissionResult);
 	}
 
 	@Test
-	public void hasPermission_shouldDenyCreateForUserWithRoleEditorOrDefaultUser() {
+	public void hasPermission_shouldAllowCreateForUserWithRoleSubAdmin() {
+		final Permission createPermission = Permission.CREATE;
+
+		final Role roleSubAdmin = new Role(subAdminRoleName);
+		Set<Role> userRoles = new HashSet<Role>();
+		userRoles.add(roleSubAdmin);
+
+		loginMockUser(userRoles);
+
+		boolean permissionResult = momoUserGroupPermissionEvaluator.hasPermission(accessUser, userGroupToTest,
+				createPermission);
+		assertTrue("Current ROLE: " + roleSubAdmin.getName() + " should have " + createPermission.name()
+				+ " permission for Group " + userGroupToTest.getName() + "!", permissionResult);
+	}
+
+	@Test
+	public void hasPermission_shouldDenyCreateForUserWithRoleEditor() {
 		final Permission createPermission = Permission.CREATE;
 
 		final Role editorRole = new Role(editorRoleName);
-		final Role defaultUserRole = new Role(defaultUserRoleName);
 		Set<Role> userRoles = new HashSet<Role>();
 		userRoles.add(editorRole);
+
+		loginMockUser(userRoles);
+
+		boolean permissionResult = momoUserGroupPermissionEvaluator.hasPermission(accessUser, userGroupToTest,
+				createPermission);
+		assertFalse("Current ROLE: " + editorRole.getName() + " should NOT have " + createPermission.name()
+				+ " permission for Group " + userGroupToTest.getName() + "!", permissionResult);
+	}
+
+	@Test
+	public void hasPermission_shouldDenyCreateForUserWithRoleDefaultUser() {
+		final Permission createPermission = Permission.CREATE;
+
+		final Role defaultUserRole = new Role(defaultUserRoleName);
+		Set<Role> userRoles = new HashSet<Role>();
 		userRoles.add(defaultUserRole);
 
-		for (Role currentRole : userRoles) {
-			HashSet<Role> currentRoleSet = new HashSet<Role>();
-			currentRoleSet.add(currentRole);
-			loginMockUser(currentRoleSet);
+		loginMockUser(userRoles);
 
-			boolean permissionResult = momoUserGroupPermissionEvaluator.hasPermission(accessUser, userGroupToTest,
-					createPermission);
-			assertFalse("Current ROLE: " + currentRole.getName() + " should NOT have " + createPermission.name()
-					+ " permission for Group " + userGroupToTest.getName() + "!", permissionResult);
-		}
+		boolean permissionResult = momoUserGroupPermissionEvaluator.hasPermission(accessUser, userGroupToTest,
+				createPermission);
+		assertFalse("Current ROLE: " + defaultUserRole.getName() + " should NOT have " + createPermission.name()
+				+ " permission for Group " + userGroupToTest.getName() + "!", permissionResult);
 	}
 
 	@Test
@@ -187,6 +206,8 @@ public class MomoUserGroupPermissionEvaluatorTest {
 					createPermission);
 			assertTrue("Current ROLE: " + currentRole.getName() + " should have " + createPermission.name()
 					+ " permission for Group " + userGroupToTest.getName() + "!", permissionResult);
+
+			logoutMockUser();
 		}
 	}
 

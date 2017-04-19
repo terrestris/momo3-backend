@@ -152,6 +152,8 @@ public class MomoUserPermissionEvaluatorTest {
 				boolean permissionResult = momoUserPermissionEvaluator.hasPermission(accessUser, testUser, permissionToCheck);
 				assertFalse("Current ROLE: " + role.getName() + " should NOT have " + permissionToCheck.name() + " permission!", permissionResult);
 			}
+
+			logoutMockUser();
 		}
 	}
 
@@ -217,6 +219,8 @@ public class MomoUserPermissionEvaluatorTest {
 				boolean permissionResult = momoUserPermissionEvaluator.hasPermission(accessUser, accessUser, permissionToCheck);
 				assertTrue("Current ROLE: " + role.getName() + " should have " + permissionToCheck.name() + " permission!", permissionResult);
 			}
+
+			logoutMockUser();
 		}
 	}
 
@@ -244,6 +248,8 @@ public class MomoUserPermissionEvaluatorTest {
 			// check if user is allowed to edit / read his own entity
 			boolean permissionResult = momoUserPermissionEvaluator.hasPermission(accessUser, accessUser, createPermission);
 			assertFalse("Current ROLE: " + role.getName() + " should NOT have " + createPermission.name() + " permission!", permissionResult);
+
+			logoutMockUser();
 		}
 	}
 
