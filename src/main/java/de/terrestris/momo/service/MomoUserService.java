@@ -7,12 +7,15 @@ import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.http.client.utils.URIBuilder;
+import org.hibernate.criterion.Restrictions;
+import org.hibernate.criterion.SimpleExpression;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.mail.SimpleMailMessage;
@@ -20,18 +23,25 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.util.UriUtils;
 
+import de.terrestris.momo.dao.MomoLayerDao;
 import de.terrestris.momo.dao.MomoUserDao;
 import de.terrestris.momo.dao.MomoUserGroupDao;
 import de.terrestris.momo.dao.UserGroupRoleDao;
+import de.terrestris.momo.model.MomoLayer;
 import de.terrestris.momo.model.MomoUser;
 import de.terrestris.momo.model.MomoUserGroup;
 import de.terrestris.momo.model.security.UserGroupRole;
+import de.terrestris.shogun2.dao.GenericHibernateDao;
 import de.terrestris.shogun2.dao.RoleDao;
 import de.terrestris.shogun2.dao.UserGroupDao;
+import de.terrestris.shogun2.model.PersistentObject;
 import de.terrestris.shogun2.model.Role;
 import de.terrestris.shogun2.model.User;
 import de.terrestris.shogun2.model.UserGroup;
+import de.terrestris.shogun2.model.security.Permission;
+import de.terrestris.shogun2.model.security.PermissionCollection;
 import de.terrestris.shogun2.model.token.RegistrationToken;
+import de.terrestris.shogun2.service.PermissionAwareCrudService;
 import de.terrestris.shogun2.service.RoleService;
 import de.terrestris.shogun2.service.UserService;
 import de.terrestris.shogun2.util.application.Shogun2ContextUtil;
@@ -98,10 +108,22 @@ public class MomoUserService<E extends MomoUser, D extends MomoUserDao<E>>
 	private MomoUserGroupDao<MomoUserGroup> momoUserGroupDao;
 
 	/**
+	 *
+	 */
+	@Autowired
+	@Qualifier("momoLayerDao")
+	private MomoLayerDao<MomoLayer> layerDao;
+
+	/**
 	 * Role service
 	 */
 	@Autowired
+	@Qualifier("roleService")
 	protected RoleService<Role, RoleDao<Role>> roleService;
+
+	@Autowired
+	@Qualifier("permissionAwareCrudService")
+	private PermissionAwareCrudService<PersistentObject, GenericHibernateDao<PersistentObject, Integer>> permissionAwareCrudService;
 
 	/**
 	 *
@@ -327,6 +349,62 @@ public class MomoUserService<E extends MomoUser, D extends MomoUserDao<E>>
 				}
 			}
 		}
+	}
+
+	/**
+	 * Deletes a user and its entities
+	 * TODO: What shall happen exactly? really delete all entities?
+	 * TODO: currenlty only layers get deleted, what about the others?
+	 *
+	 */
+	@SuppressWarnings("unchecked")
+	public void deleteUser() {
+
+		LOG.info("Trying to delete a user");
+
+		MomoUser user = getUserBySession();
+		if (user == null) {
+			throw new RuntimeException("User to delete could not be found");
+		}
+
+		List<UserGroupRole> userGroupRoles = userGroupRoleService.findUserGroupRolesBy(user);
+		for (UserGroupRole userGroupRole : userGroupRoles) {
+			userGroupRoleService.delete(userGroupRole);
+			LOG.debug("Deleted a user group role");
+		}
+
+		// Delete all remaining PermissionCollections for this user, e.g. webmap
+		Map<PersistentObject, PermissionCollection> entityPermissionCollectionsForUser =
+				dao.findAllUserPermissionsOfUser(user);
+		Set<PersistentObject> entitiesWithPermissions = entityPermissionCollectionsForUser.keySet();
+
+		for (PersistentObject persistentObject : entitiesWithPermissions) {
+			// INFO: The hashcode of the persistentObject differs here, thats why we cannot use a call like
+			// PermissionCollection permissionsOnEntity = entityPermissionCollectionsForUser.get(persistentObject);
+			// to get the collection. So we get it by matching classname and id
+			Set<Entry<PersistentObject, PermissionCollection>> entries = entityPermissionCollectionsForUser.entrySet();
+			for (Entry<PersistentObject, PermissionCollection> entry : entries) {
+				if (entry.getKey().getId().equals(persistentObject.getId()) &&
+					entry.getKey().getClass().equals(persistentObject.getClass())) {
+					PermissionCollection permissionsOnEntity = entry.getValue();
+					Set<Permission> permissionsSet = permissionsOnEntity.getPermissions();
+					Permission[] permissionsArray = permissionsSet.toArray(new Permission[permissionsSet.size()]);
+					permissionAwareCrudService.removeAndSaveUserPermissions(persistentObject, user, permissionsArray);
+					LOG.debug("Removed a permission collection for the user");
+					break;
+				}
+			}
+		}
+
+		// delete all layers of user where he is owner
+		final SimpleExpression isOwner = Restrictions.eq("owner", user);
+		List<MomoLayer> usersLayers = layerDao.findByCriteria(isOwner);
+		for (MomoLayer momoLayer : usersLayers) {
+			layerDao.delete(momoLayer);
+			LOG.info("Delete a layer the user has created");
+		}
+
+		dao.delete((E) user);
 	}
 
 	/**

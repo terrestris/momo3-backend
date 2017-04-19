@@ -139,6 +139,26 @@ public class MomoUserController<E extends MomoUser, D extends MomoUserDao<E>, S 
 	}
 
 	/**
+	 * Deletes a user and its entities
+	 *
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value = "/delete.action", method = RequestMethod.POST)
+	public @ResponseBody Map<String, Object> delete(HttpServletRequest request) {
+
+		try {
+			service.deleteUser();
+			LOG.info("Successfully deleted a user");
+			return ResultSet.success("ok");
+		} catch (Exception e) {
+			LOG.error("Could not delete the user: " + e.getMessage());
+			return ResultSet.error(
+					"An error has occurred during your deleteion request: " + e.getMessage());
+		}
+	}
+
+	/**
 	 * We have to use {@link Qualifier} to define the correct service here.
 	 * Otherwise, spring can not decide which service has to be autowired here
 	 * as there are multiple candidates.
