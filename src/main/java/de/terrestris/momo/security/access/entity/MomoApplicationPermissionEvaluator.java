@@ -4,6 +4,7 @@
 package de.terrestris.momo.security.access.entity;
 
 import de.terrestris.momo.model.MomoApplication;
+import de.terrestris.momo.util.security.MomoSecurityUtil;
 import de.terrestris.shogun2.model.User;
 import de.terrestris.shogun2.model.security.Permission;
 
@@ -32,25 +33,21 @@ public class MomoApplicationPermissionEvaluator<E extends MomoApplication> exten
 	}
 
 	/**
-	 * Always grants right to READ and CREATE this entity.
+	 *
 	 */
 	@Override
-	public boolean hasPermission(User user, E entity, Permission permission) {
+	public boolean hasPermission(User user, E application, Permission permission) {
 
-		// always grant READ right for this entity
-		if (permission.equals(Permission.READ)) {
-			LOG.trace("Granting READ for application.");
+		// all users but default users and editors are allowed to create applications
+		if (permission.equals(Permission.CREATE) && (application == null || application.getId() == null) &&
+				! MomoSecurityUtil.currentUsersHighestRoleIsDefaultUser() && ! MomoSecurityUtil.currentUsersHighestRoleIsEditor()) {
 			return true;
 		}
 
-		// always grant CREATE right for this entity
-		if (permission.equals(Permission.CREATE)) {
-			LOG.trace("Granting CREATE for application.");
-			return true;
-		}
-
-		// call parent implementation from SHOGun2
-		return super.hasPermission(user, entity, permission);
+		/**
+		 * by default look for granted rights
+		 */
+		return hasDefaultMomoPermission(user, application, permission);
 	}
 
 }
