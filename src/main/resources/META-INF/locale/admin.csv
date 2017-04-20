@@ -52,8 +52,14 @@ MoMo.admin.view.grid.LayerList;config.data.i18n.layerlistSettings;Layer Einstell
 MoMo.admin.view.grid.LayerList;config.data.i18n.layerlistStyle;Layer Stil-Einstellungen;Layer stylesettings;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.LayerList;config.data.i18n.layerlistDownload;Layer Download;Download layer;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.LayerList;config.data.i18n.layerlistPreview;Layervorschau;Preview Layer;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupGridTitle;Gruppen;Groups;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupGridCreateGroup;Erstellen;Create;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupGridDeleteGroup;Löschen;Delete;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupGridFilterByName;Filtern über Name;Filter by name;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupGridRefresh;Aktualisieren;Refresh;хараахан орчуулагдаагүй; -
 MoMo.admin.view.viewport.Viewport;config.data.i18n.applicationsMenuTitle;Applikationen;Applications;хараахан орчуулагдаагүй; -
 MoMo.admin.view.viewport.Viewport;config.data.i18n.layersMenuTitle;Layer;Layers;хараахан орчуулагдаагүй; -
+MoMo.admin.view.viewport.Viewport;config.data.i18n.usersMenuTitle;Benutzer;Users;хараахан орчуулагдаагүй; -
 MoMo.admin.view.viewport.Viewport;config.data.i18n.groupsMenuTitle;Gruppen;Groups;хараахан орчуулагдаагүй; -
 MoMo.admin.view.viewport.Viewport;config.data.i18n.profileMenuTitle;Profil;Profile;хараахан орчуулагдаагүй; -
 Ext.Date;monthNames[];Januar,Februar,März,April,Mai,Juni,Juli,August,September,Oktober,November,Dezember;January,February,March,April,May,June,July,August,September,October,November,December;х,а,р,а,а,х,а,н,о,р,ч,у; -
