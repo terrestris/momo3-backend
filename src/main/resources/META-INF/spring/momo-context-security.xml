@@ -9,7 +9,7 @@
 
     <!-- Authentication Manager -->
     <authentication-manager alias="authenticationManager">
-        <authentication-provider ref="shogun2AuthenticationProvider" />
+        <authentication-provider ref="momoAuthenticationProvider" />
     </authentication-manager>
 
     <!-- Remove the security for static resources to allow caching
@@ -27,8 +27,6 @@
 
     <!-- Remove security for print requests, where we cannot include csrf tokens -->
     <http pattern="/print/**" security="none" />
-
-
 
     <!-- Web/URL security -->
     <http auto-config="true" use-expressions="true" access-decision-manager-ref="accessDecisionManager">
@@ -52,11 +50,12 @@
         <!-- URL security -->
         <intercept-url pattern="/index.html" access="permitAll" />
         <intercept-url pattern="/login/**" access="permitAll" />
-        <intercept-url pattern="/user/register.action" access="permitAll" />
+        <intercept-url pattern="/momousers/register.action" access="permitAll" />
         <intercept-url pattern="/momousers/activateAccount.action" access="permitAll" />
-        <intercept-url pattern="/user/resetPassword.action" access="permitAll" />
-        <intercept-url pattern="/user/changePassword.action" access="permitAll" />
+        <intercept-url pattern="/momousers/resetPassword.action" access="permitAll" />
+        <intercept-url pattern="/momousers/changePassword.action" access="permitAll" />
         <intercept-url pattern="/momousers/resendToken.action" access="permitAll" />
+        <intercept-url pattern="/entitypermission/**" access="hasRole('ROLE_EDITOR')" />
         <intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
 
         <!-- Allow iFrames within the same domain, this is especially needed
@@ -74,8 +73,6 @@
         <expression-handler ref="methodExpressionHandler" />
     </global-method-security>
 
-
-
     <!-- BEANS -->
 
     <!-- bcrypt password encoder -->
@@ -85,7 +82,7 @@
     </beans:bean>
 
     <!-- Custom Authentication Provider -->
-    <beans:bean id="shogun2AuthenticationProvider" class="de.terrestris.shogun2.security.Shogun2AuthenticationProvider">
+    <beans:bean id="momoAuthenticationProvider" class="de.terrestris.momo.security.MomoAuthenticationProvider">
         <beans:property name="passwordEncoder" ref="bcryptEncoder" />
     </beans:bean>
 
@@ -122,7 +119,9 @@
     <beans:bean id="roleHierarchy"  class="org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl">
         <beans:property name="hierarchy">
             <beans:value>
-                ${role.superAdminRoleName} > ${role.defaultUserRoleName}
+                ${role.superAdminRoleName} > ${role.subAdminRoleName}
+                ${role.subAdminRoleName} > ${role.editorRoleName}
+                ${role.editorRoleName} > ${role.defaultUserRoleName}
             </beans:value>
         </beans:property>
     </beans:bean>

@@ -30,9 +30,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import de.terrestris.momo.service.MomoImageFileService;
 import de.terrestris.shogun2.dao.ImageFileDao;
 import de.terrestris.shogun2.model.ImageFile;
-import de.terrestris.shogun2.service.ImageFileService;
 import de.terrestris.shogun2.util.data.ResultSet;
 import de.terrestris.shogun2.web.ImageFileController;
 
@@ -42,7 +42,7 @@ import de.terrestris.shogun2.web.ImageFileController;
  */
 @Controller
 @RequestMapping("/momoimage")
-public class MomoImageFileController<E extends ImageFile, D extends ImageFileDao<E>, S extends ImageFileService<E, D>>
+public class MomoImageFileController<E extends ImageFile, D extends ImageFileDao<E>, S extends MomoImageFileService<E, D>>
 		extends ImageFileController<E, D, S> {
 
 	/**
@@ -52,7 +52,7 @@ public class MomoImageFileController<E extends ImageFile, D extends ImageFileDao
 	 */
 	@Override
 	@Autowired
-	@Qualifier("imageFileService")
+	@Qualifier("momoImageFileService")
 	public void setService(S service) {
 		this.service = service;
 	}

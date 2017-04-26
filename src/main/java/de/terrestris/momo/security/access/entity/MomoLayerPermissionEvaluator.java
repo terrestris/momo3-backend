@@ -4,17 +4,16 @@
 package de.terrestris.momo.security.access.entity;
 
 import de.terrestris.momo.model.MomoLayer;
+import de.terrestris.momo.util.security.MomoSecurityUtil;
 import de.terrestris.shogun2.model.User;
 import de.terrestris.shogun2.model.security.Permission;
-import de.terrestris.shogun2.security.access.entity.PersistentObjectPermissionEvaluator;
 
 /**
  * @author Johannes Weskamm
  * @param <E>
  *
  */
-public class MomoLayerPermissionEvaluator<E extends MomoLayer> extends PersistentObjectPermissionEvaluator<E> {
-
+public class MomoLayerPermissionEvaluator<E extends MomoLayer> extends MomoPersistentObjectPermissionEvaluator<E> {
 	/**
 	 * Default constructor
 	 */
@@ -36,29 +35,20 @@ public class MomoLayerPermissionEvaluator<E extends MomoLayer> extends Persisten
 	 * Always grants right to READ, UPDATE and CREATE this entity.
 	 */
 	@Override
-	public boolean hasPermission(User user, E entity, Permission permission) {
+	public boolean hasPermission(User user, E layer, Permission permission) {
 
-		// always grant READ right for this entity
-		if (permission.equals(Permission.READ)) {
-			LOG.trace("Granting READ for layer.");
+		// all users but default users are allowed to create layers
+		if (permission.equals(Permission.CREATE) && (layer == null || layer.getId() == null) &&
+				! MomoSecurityUtil.currentUsersHighestRoleIsDefaultUser()) {
 			return true;
 		}
 
-		// always grant CREATE right for this entity
-		if (permission.equals(Permission.CREATE)) {
-			LOG.trace("Granting CREATE for layer.");
+		// if user is the owner of the entity => return true
+		if (layer != null && layer.getOwner() != null && layer.getOwner().equals(user)) {
 			return true;
 		}
-		// always grant CREATE right for this entity
-		if (permission.equals(Permission.UPDATE)) {
-			if (entity.getOwner().getId().equals(user.getId())) {
-				LOG.trace("Granting UPDATE for layer.");
-				return true;
-			}
-		}
 
-		// call parent implementation from SHOGun2
-		return super.hasPermission(user, entity, permission);
+		return hasDefaultMomoPermission(user, layer, permission);
 	}
 
 }

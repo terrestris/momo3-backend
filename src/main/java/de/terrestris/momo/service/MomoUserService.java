@@ -4,19 +4,45 @@ import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.http.client.utils.URIBuilder;
+import org.hibernate.criterion.Restrictions;
+import org.hibernate.criterion.SimpleExpression;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.util.UriUtils;
 
-import de.terrestris.shogun2.dao.UserDao;
+import de.terrestris.momo.dao.MomoLayerDao;
+import de.terrestris.momo.dao.MomoUserDao;
+import de.terrestris.momo.dao.MomoUserGroupDao;
+import de.terrestris.momo.dao.UserGroupRoleDao;
+import de.terrestris.momo.model.MomoLayer;
+import de.terrestris.momo.model.MomoUser;
+import de.terrestris.momo.model.MomoUserGroup;
+import de.terrestris.momo.model.security.UserGroupRole;
+import de.terrestris.shogun2.dao.GenericHibernateDao;
+import de.terrestris.shogun2.dao.RoleDao;
+import de.terrestris.shogun2.dao.UserGroupDao;
+import de.terrestris.shogun2.model.PersistentObject;
+import de.terrestris.shogun2.model.Role;
 import de.terrestris.shogun2.model.User;
+import de.terrestris.shogun2.model.UserGroup;
+import de.terrestris.shogun2.model.security.Permission;
+import de.terrestris.shogun2.model.security.PermissionCollection;
 import de.terrestris.shogun2.model.token.RegistrationToken;
+import de.terrestris.shogun2.service.PermissionAwareCrudService;
+import de.terrestris.shogun2.service.RoleService;
 import de.terrestris.shogun2.service.UserService;
 import de.terrestris.shogun2.util.application.Shogun2ContextUtil;
 import de.terrestris.shogun2.util.mail.MailPublisher;
@@ -31,11 +57,135 @@ import javassist.NotFoundException;
  * @param <D>
  */
 @Service("momoUserService")
-public class MomoUserService<E extends User, D extends UserDao<E>>
+public class MomoUserService<E extends MomoUser, D extends MomoUserDao<E>>
 		extends UserService<E, D> {
 
+	/**
+	 * Default constructor, which calls the type-constructor
+	 */
+	@SuppressWarnings("unchecked")
+	public MomoUserService() {
+		this((Class<E>) MomoUser.class);
+	}
+
+	/**
+	 * Constructor that sets the concrete entity class for the service.
+	 * Subclasses MUST call this constructor.
+	 */
+	protected MomoUserService(Class<E> entityClass) {
+		super(entityClass);
+	}
+
+	/**
+	 *
+	 */
 	@Autowired
 	private MailPublisher mailPublisher;
+
+	/**
+	 *
+	 */
+	@Autowired
+	@Qualifier("userGroupRoleDao")
+	private UserGroupRoleDao<UserGroupRole> userGroupRoleDao;
+
+	@Autowired
+	@Qualifier("userGroupRoleService")
+	private UserGroupRoleService<UserGroupRole, UserGroupRoleDao<UserGroupRole>> userGroupRoleService;
+
+	/**
+	 *
+	 */
+	@Autowired
+	@Qualifier("userGroupDao")
+	private UserGroupDao<UserGroup> userGroupDao;
+
+	/**
+	 *
+	 */
+	@Autowired
+	@Qualifier("momoUserGroupDao")
+	private MomoUserGroupDao<MomoUserGroup> momoUserGroupDao;
+
+	/**
+	 *
+	 */
+	@Autowired
+	@Qualifier("momoLayerDao")
+	private MomoLayerDao<MomoLayer> layerDao;
+
+	/**
+	 * Role service
+	 */
+	@Autowired
+	@Qualifier("roleService")
+	protected RoleService<Role, RoleDao<Role>> roleService;
+
+	@Autowired
+	@Qualifier("permissionAwareCrudService")
+	private PermissionAwareCrudService<PersistentObject, GenericHibernateDao<PersistentObject, Integer>> permissionAwareCrudService;
+
+	/**
+	 *
+	 */
+	@Autowired
+	@Qualifier("changePermissionsMailMessageTemplate-en")
+	private SimpleMailMessage changePermissionsMailMessageTemplate_en;
+
+	/**
+	 *
+	 */
+	@Autowired
+	@Qualifier("changePermissionsMailMessageTemplate-mn")
+	private SimpleMailMessage changePermissionsMailMessageTemplate_mn;
+
+	/**
+	 *
+	 */
+	@Autowired
+	@Qualifier("changePermissionsMailMessageTemplate-de")
+	private SimpleMailMessage changePermissionsMailMessageTemplate_de;
+
+	/**
+	 *
+	 * @param token
+	 * @return
+	 * @throws Exception
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	public void activateUser(String tokenValue) throws Exception {
+
+		RegistrationToken token = registrationTokenService.findByTokenValue(tokenValue);
+
+		LOG.debug("Trying to activate user account with token: " + tokenValue);
+
+		// throws Exception if token is not valid
+		registrationTokenService.validateToken(token);
+
+		// set active=true
+		E user = (E) token.getUser();
+		user.setActive(true);
+
+		// Add the UserGroupRole for the newly activated user with DEFAULT_USER role.
+		if (this.getDefaultUserRole() != null) {
+			UserGroupRole userGroupRole = new UserGroupRole();
+			userGroupRole.setUser(user);
+			userGroupRole.setRole(this.roleService.findByRoleName(
+					this.getDefaultUserRole().getName()));
+
+			userGroupRoleDao.saveOrUpdate(userGroupRole);
+		}
+
+		// update the user
+		dao.saveOrUpdate((E) user);
+
+		// delete the token
+		registrationTokenService.deleteTokenAfterActivation(token);
+
+		LOG.info("The user '" + user.getAccountName()
+				+ "' has successfully been activated.");
+	}
 
 	/**
 	 *
@@ -106,4 +256,247 @@ public class MomoUserService<E extends User, D extends UserDao<E>>
 		// And send the mail
 		mailPublisher.sendMail(registrationActivationMsg);
 	}
+
+	/**
+	 * Updates the users personal credentials and, if a change in permissions
+	 * is made, will contact a subadmin / superadmin to make the appropriate changes
+	 *
+	 * @param firstName
+	 * @param lastName
+	 * @param email
+	 * @param telephone
+	 * @param department
+	 * @param profileImage
+	 * @param language
+	 * @param permissions
+	 */
+	@SuppressWarnings("unchecked")
+	public void updateUser(String firstName,String lastName,String email,String telephone,String department,
+			String profileImage, String language, HashMap<String,String> permissions) {
+		E user = getUserBySession();
+		user.setFirstName(firstName);
+		user.setLastName(lastName);
+		user.setEmail(email);
+		user.setTelephone(telephone);
+		user.setDepartment(department);
+		user.setProfileImage(profileImage);
+		user.setLanguage(new Locale(language));
+
+		dao.saveOrUpdate(user);
+
+		// now handle the permission changes
+		Role subadminRole = roleService.findByRoleName("ROLE_SUBADMIN");
+		Role superadminRole = roleService.findByRoleName("ROLE_ADMIN");
+		MomoUser superadmin = null;
+		List<MomoUser> allUsers = (List<MomoUser>) dao.findAll();
+		for (MomoUser momoUser : allUsers) {
+			Set<Role> roles = userGroupRoleService.findAllUserRoles(momoUser);
+			if (roles.contains(superadminRole)) {
+				superadmin = momoUser;
+			}
+		}
+
+		for (Entry<String, String> entry : permissions.entrySet()) {
+			Integer groupId = Integer.valueOf(entry.getKey());
+			String wantedRole = entry.getValue();
+
+			// 1.) If user wants to become subadmin -> ask the superadmin for permission
+			// 2.) If user wants to become editor -> ask the subadmin for permission
+			// 3.) If user wants to become user -> ask the subadmin for permission
+			// 4.) If user removed all rights in group -> ask the subadmin for permission
+			// 4.) If no subadmin found for case 3., 4. and 5. -> ask the superadmin for permission
+			MomoUserGroup group = momoUserGroupDao.findById(groupId);
+
+			if (group != null) {
+				MomoUser subadminForGroup = null;
+				Set<MomoUser> momoUsers = userGroupRoleService.findAllUserGroupMembers(group);
+				for (MomoUser momoUser : momoUsers) {
+					if (userGroupRoleService.hasUserRoleInGroup(momoUser, group, subadminRole)) {
+						subadminForGroup = momoUser;
+					}
+				}
+				if (wantedRole.equals("ROLE_SUBADMIN")) {
+					//sendmail to superadmin
+					if (superadmin != null) {
+						sendPermissionChangeMail(superadmin, wantedRole, group, user);
+					}
+				} else if (wantedRole.equals("ROLE_EDITOR") ||
+						wantedRole.equals("ROLE_USER") ||
+						wantedRole.equals("REMOVE")) {
+					//send mail to subadmin, or, if not available, to the superadmin
+					sendMailToSubadminOrSuperadmin(subadminForGroup, superadmin, wantedRole, group, user);
+				}
+			}
+		}
+	}
+
+	/**
+	 * Deletes a user and its entities
+	 * TODO: What shall happen exactly? really delete all entities?
+	 * TODO: currenlty only layers get deleted, what about the others?
+	 *
+	 */
+	@SuppressWarnings("unchecked")
+	public void deleteUser() {
+
+		LOG.info("Trying to delete a user");
+
+		MomoUser user = getUserBySession();
+		if (user == null) {
+			throw new RuntimeException("User to delete could not be found");
+		}
+
+		List<UserGroupRole> userGroupRoles = userGroupRoleService.findUserGroupRolesBy(user);
+		for (UserGroupRole userGroupRole : userGroupRoles) {
+			userGroupRoleService.delete(userGroupRole);
+			LOG.debug("Deleted a user group role");
+		}
+
+		// Delete all remaining PermissionCollections for this user, e.g. webmap
+		Map<PersistentObject, PermissionCollection> entityPermissionCollectionsForUser =
+				dao.findAllUserPermissionsOfUser(user);
+		Set<PersistentObject> entitiesWithPermissions = entityPermissionCollectionsForUser.keySet();
+
+		for (PersistentObject persistentObject : entitiesWithPermissions) {
+			// INFO: The hashcode of the persistentObject differs here, thats why we cannot use a call like
+			// PermissionCollection permissionsOnEntity = entityPermissionCollectionsForUser.get(persistentObject);
+			// to get the collection. So we get it by matching classname and id
+			Set<Entry<PersistentObject, PermissionCollection>> entries = entityPermissionCollectionsForUser.entrySet();
+			for (Entry<PersistentObject, PermissionCollection> entry : entries) {
+				if (entry.getKey().getId().equals(persistentObject.getId()) &&
+					entry.getKey().getClass().equals(persistentObject.getClass())) {
+					PermissionCollection permissionsOnEntity = entry.getValue();
+					Set<Permission> permissionsSet = permissionsOnEntity.getPermissions();
+					Permission[] permissionsArray = permissionsSet.toArray(new Permission[permissionsSet.size()]);
+					permissionAwareCrudService.removeAndSaveUserPermissions(persistentObject, user, permissionsArray);
+					LOG.debug("Removed a permission collection for the user");
+					break;
+				}
+			}
+		}
+
+		// delete all layers of user where he is owner
+		final SimpleExpression isOwner = Restrictions.eq("owner", user);
+		List<MomoLayer> usersLayers = layerDao.findByCriteria(isOwner);
+		for (MomoLayer momoLayer : usersLayers) {
+			layerDao.delete(momoLayer);
+			LOG.info("Delete a layer the user has created");
+		}
+
+		dao.delete((E) user);
+	}
+
+	/**
+	 * Sends mail to a subadmin of the group and, if not available, to the
+	 * superadmin as fallback
+	 *
+	 * @param subadminForGroup
+	 * @param superadmin
+	 * @param wantedRole
+	 * @param group
+	 * @param user
+	 */
+	public void sendMailToSubadminOrSuperadmin(MomoUser subadminForGroup, MomoUser superadmin,
+			String wantedRole, MomoUserGroup group, MomoUser user) {
+		if (subadminForGroup != null) {
+			//sendmail to subadmin
+			sendPermissionChangeMail(subadminForGroup, wantedRole, group, user);
+		} else if (superadmin != null) {
+			//sendmail to superadmin
+			sendPermissionChangeMail(superadmin, wantedRole, group, user);
+		} else {
+			throw new RuntimeException("Could neither find a subadmin, nor a superadmin!");
+		}
+	}
+
+	/**
+	 * Sends the final mail to the subadmin or superadmin with the request
+	 * for changed permissions. Language of the receiver is taken into account
+	 *
+	 * @param receiver
+	 * @param wantedRole
+	 * @param group
+	 * @param user
+	 */
+	public void sendPermissionChangeMail(MomoUser receiver, String wantedRole,
+			MomoUserGroup group, MomoUser user) {
+
+		String lang = "en";
+		if (receiver.getLanguage() != null) {
+			lang = receiver.getLanguage().toLanguageTag();
+		}
+		String email = receiver.getEmail();
+		if (email == null) {
+			throw new RuntimeException("User has no mailadress attached, cancelled sending of mail");
+		}
+
+		SimpleMailMessage changePermissionMailTemplateMsg = null;
+		// Create a thread safe "copy" of the template message, depending on the users language
+		if (lang.equals("de")) {
+			changePermissionMailTemplateMsg = new SimpleMailMessage(
+					getChangePermissionsMailMessageTemplate_de()
+			);
+		} else if (lang.equals("mn")) {
+			changePermissionMailTemplateMsg = new SimpleMailMessage(
+					getChangePermissionsMailMessageTemplate_mn()
+			);
+		} else {
+			changePermissionMailTemplateMsg = new SimpleMailMessage(
+					getChangePermissionsMailMessageTemplate_en()
+			);
+		}
+
+		// Prepare a personalized mail in the correct language
+		changePermissionMailTemplateMsg.setTo(email);
+		changePermissionMailTemplateMsg.setText(
+				String.format(
+						changePermissionMailTemplateMsg.getText(),
+						receiver.getFirstName(),
+						receiver.getLastName(),
+						group.getName(),
+						wantedRole,
+						user.getFirstName(),
+						user.getLastName(),
+						user.getEmail(),
+						user.getDepartment(),
+						user.getTelephone()
+				)
+		);
+		// and send the mail
+		mailPublisher.sendMail(changePermissionMailTemplateMsg);
+	}
+
+	/**
+	 * We have to use {@link Qualifier} to define the correct dao here.
+	 * Otherwise, spring can not decide which dao has to be autowired here
+	 * as there are multiple candidates.
+	 */
+	@Override
+	@Autowired
+	@Qualifier("momoUserDao")
+	public void setDao(D dao) {
+		this.dao = dao;
+	}
+
+	/**
+	 * @return the changePermissionsMailMessageTemplate_en
+	 */
+	public SimpleMailMessage getChangePermissionsMailMessageTemplate_en() {
+		return changePermissionsMailMessageTemplate_en;
+	}
+
+	/**
+	 * @return the changePermissionsMailMessageTemplate_mn
+	 */
+	public SimpleMailMessage getChangePermissionsMailMessageTemplate_mn() {
+		return changePermissionsMailMessageTemplate_mn;
+	}
+
+	/**
+	 * @return the changePermissionsMailMessageTemplate_de
+	 */
+	public SimpleMailMessage getChangePermissionsMailMessageTemplate_de() {
+		return changePermissionsMailMessageTemplate_de;
+	}
+
 }

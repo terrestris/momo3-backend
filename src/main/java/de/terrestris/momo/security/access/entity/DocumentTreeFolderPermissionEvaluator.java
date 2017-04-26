@@ -6,14 +6,13 @@ package de.terrestris.momo.security.access.entity;
 import de.terrestris.momo.model.tree.DocumentTreeFolder;
 import de.terrestris.shogun2.model.User;
 import de.terrestris.shogun2.model.security.Permission;
-import de.terrestris.shogun2.security.access.entity.PersistentObjectPermissionEvaluator;
 
 /**
  * @author Nils Bühner
  * @param <E>
  *
  */
-public class DocumentTreeFolderPermissionEvaluator<E extends DocumentTreeFolder> extends PersistentObjectPermissionEvaluator<E> {
+public class DocumentTreeFolderPermissionEvaluator<E extends DocumentTreeFolder> extends MomoPersistentObjectPermissionEvaluator<E> {
 
 	/**
 	 * Default constructor

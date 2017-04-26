@@ -319,7 +319,7 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 	 * @throws InvocationTargetException
 	 */
 	@SuppressWarnings("unchecked")
-	@PreAuthorize("hasRole(@configHolder.getSuperAdminRoleName())")
+	@PreAuthorize("hasRole(@configHolder.getSuperAdminRoleName()) or hasPermission(#appId, 'de.terrestris.momo.model.MomoApplication', 'UPDATE')")
 	public MomoApplication updateMomoApplication(ApplicationData applicationData) throws Exception {
 
 		String name = applicationData.getName();
