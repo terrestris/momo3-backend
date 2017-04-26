@@ -19,6 +19,8 @@
 
         <!-- Roles -->
         <ref bean="adminRole"/>
+        <ref bean="subAdminRole"/>
+        <ref bean="editorRole"/>
         <ref bean="userRole"/>
 
         <!-- Users -->
