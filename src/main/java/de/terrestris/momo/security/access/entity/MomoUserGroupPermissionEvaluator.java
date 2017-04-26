@@ -3,7 +3,13 @@
  */
 package de.terrestris.momo.security.access.entity;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
+import de.terrestris.momo.dao.UserGroupRoleDao;
 import de.terrestris.momo.model.MomoUserGroup;
+import de.terrestris.momo.model.security.UserGroupRole;
+import de.terrestris.momo.service.UserGroupRoleService;
 import de.terrestris.momo.util.security.MomoSecurityUtil;
 import de.terrestris.shogun2.model.User;
 import de.terrestris.shogun2.model.security.Permission;
@@ -35,6 +41,10 @@ public class MomoUserGroupPermissionEvaluator<E extends MomoUserGroup> extends U
 		super(entityClass);
 	}
 
+	@Autowired
+	@Qualifier("userGroupRoleService")
+	private UserGroupRoleService<UserGroupRole, UserGroupRoleDao<UserGroupRole>> userGroupRoleService;
+
 	/**
 	 * Always grants right to READ, UPDATE and CREATE this entity.
 	 */
@@ -46,10 +56,8 @@ public class MomoUserGroupPermissionEvaluator<E extends MomoUserGroup> extends U
 		String grantMsg = "Granting %s access on secured object \"%s\" with ID %s";
 		String restrictMsg = "Restricting %s access on secured object \"%s\" with ID %s";
 
-		// Always restrict CREATE right for this entity. Only ROLE_SUPERADMIN
-		// is allowed to create one.
+		// Allow create of groups only for ROLE_SUPERADMIN or ROLE_SUBADMIN
 		if (permission.equals(Permission.CREATE)) {
-			// Allow create of groups only for ROLE_SUPERADMIN or ROLE_SUBADMIN
 			if (MomoSecurityUtil.currentUserIsSuperAdmin() || MomoSecurityUtil.currentUserHasRoleSubAdmin()){
 				LOG.trace(String.format(grantMsg, permission, simpleClassName, userGroup.getId()));
 				return true;
@@ -62,17 +70,19 @@ public class MomoUserGroupPermissionEvaluator<E extends MomoUserGroup> extends U
 			return true;
 		}
 
-		// Grant UPDATE right for this entity, if the user is the owner.
+		// Grant UPDATE right for this entity, if the user is superadmin or the owner.
 		if (permission.equals(Permission.UPDATE)) {
-			if (userGroup.getOwner() != null && userGroup.getOwner().getId().equals(user.getId())) {
+			if (MomoSecurityUtil.currentUserIsSuperAdmin() || userGroup.getOwner() != null &&
+					userGroup.getOwner().getId().equals(user.getId())) {
 				LOG.trace(String.format(grantMsg, permission, simpleClassName, userGroup.getId()));
 				return true;
 			}
 		}
 
-		// Grant DELETE right for this entity, if the user is the owner.
+		// Grant DELETE right for this entity, if the user is superadmin or the owner.
 		if (permission.equals(Permission.DELETE)) {
-			if (userGroup.getOwner() != null && userGroup.getOwner().getId().equals(user.getId())) {
+			if (MomoSecurityUtil.currentUserIsSuperAdmin() || userGroup.getOwner() != null &&
+					userGroup.getOwner().getId().equals(user.getId())) {
 				LOG.trace(String.format(grantMsg, permission, simpleClassName, userGroup.getId()));
 				return true;
 			}

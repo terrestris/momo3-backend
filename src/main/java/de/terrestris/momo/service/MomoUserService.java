@@ -148,27 +148,6 @@ public class MomoUserService<E extends MomoUser, D extends MomoUserDao<E>>
 
 	/**
 	 *
-	 */
-	@Autowired
-	@Qualifier("changePermissionsMailMessageTemplateForUser-en")
-	private SimpleMailMessage changePermissionsMailMessageTemplateForUser_en;
-
-	/**
-	 *
-	 */
-	@Autowired
-	@Qualifier("changePermissionsMailMessageTemplateForUser-mn")
-	private SimpleMailMessage changePermissionsMailMessageTemplateForUser_mn;
-
-	/**
-	 *
-	 */
-	@Autowired
-	@Qualifier("changePermissionsMailMessageTemplateForUser-de")
-	private SimpleMailMessage changePermissionsMailMessageTemplateForUser_de;
-
-	/**
-	 *
 	 * @param token
 	 * @return
 	 * @throws Exception
@@ -518,27 +497,6 @@ public class MomoUserService<E extends MomoUser, D extends MomoUserDao<E>>
 	 */
 	public SimpleMailMessage getChangePermissionsMailMessageTemplate_de() {
 		return changePermissionsMailMessageTemplate_de;
-	}
-
-	/**
-	 * @return the changePermissionsMailMessageTemplateForUser_en
-	 */
-	public SimpleMailMessage getChangePermissionsMailMessageTemplateForUser_en() {
-		return changePermissionsMailMessageTemplateForUser_en;
-	}
-
-	/**
-	 * @return the changePermissionsMailMessageTemplateForUser_mn
-	 */
-	public SimpleMailMessage getChangePermissionsMailMessageTemplateForUser_mn() {
-		return changePermissionsMailMessageTemplateForUser_mn;
-	}
-
-	/**
-	 * @return the changePermissionsMailMessageTemplateForUser_de
-	 */
-	public SimpleMailMessage getChangePermissionsMailMessageTemplateForUser_de() {
-		return changePermissionsMailMessageTemplateForUser_de;
 	}
 
 }

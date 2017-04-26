@@ -92,7 +92,7 @@ public class UserGroupRolePermissionEvaluator<E extends UserGroupRole> extends M
 				LOG.trace(String.format(restrictMsg, permission, simpleClassName, userGroupRole.getId()));
 				return false;
 			}
-
+			// TODO check why a user may create any usergrouprole for himself??
 			if (user.equals(userGroupRole.getUser()) ||
 					userGroupRoleService.hasUserRoleInGroup((MomoUser) user, userGroup,
 							roleService.findByRoleName(subAdminRoleName))) {
@@ -131,8 +131,8 @@ public class UserGroupRolePermissionEvaluator<E extends UserGroupRole> extends M
 			}
 		}
 
-		// Always restrict UPDATE right for this entity. Only ROLE_SUPERADMIN
-		// is allowed to update one.
+		// Always restrict UPDATE right for this entity. Only ROLE_SUPERADMIN and ROLE_SUBADMIN
+		// are allowed to update one.
 		if (permission.equals(Permission.UPDATE)) {
 			// Deny UPDATE right for this entity, if:
 			//   * The user is default user only.

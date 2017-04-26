@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import de.terrestris.momo.dao.MomoUserGroupDao;
-import de.terrestris.momo.model.MomoUser;
 import de.terrestris.momo.model.MomoUserGroup;
 import de.terrestris.momo.service.MomoUserGroupService;
 import de.terrestris.shogun2.rest.UserGroupRestController;
