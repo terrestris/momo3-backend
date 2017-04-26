@@ -57,6 +57,42 @@ MoMo.admin.view.grid.GroupList;config.data.i18n.groupGridCreateGroup;Erstellen;C
 MoMo.admin.view.grid.GroupList;config.data.i18n.groupGridDeleteGroup;Löschen;Delete;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.GroupList;config.data.i18n.groupGridFilterByName;Filtern über Name;Filter by name;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.GroupList;config.data.i18n.groupGridRefresh;Aktualisieren;Refresh;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupSettings;Einstellungen;Settings;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupCreationTitle;Neue Gruppe;Group creation;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupCreationText;Bitte geben Sie den Namen der Gruppe ein;Please enter the name of the group to create;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupCreatedSuccessText;Gruppe erstellt;Group created;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupCreatedFailureText;Gruppe konnte nicht erstellt werden;Group could not be created;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupDeletionNoSelectionText;Bitte wählen Sie zuerst eine Gruppe;Please select a group before;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupDeletionText;Wollen Sie diese Gruppe wirklich löschen?;Are you sure you want to delete this group?;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupDeletionTitle;Löschen;Deletion;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupDeletionSuccessText;Gruppe gelöscht;Group deleted successfully;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupDeletionFailureText;Gruppe konnte nicht gelöscht werden;Group could not be deleted;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupModifyText;Bitte geben Sie einen neuen Gruppennamen ein;Please enter a new name for the group;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupModifyTitle;Bearbeiten;Edit;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupModifySuccessText;Gruppe erfolgreich bearbeitet;Group edited successfully;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupModifyFailureText;Gruppe konnte nicht bearbeitet werden;Group edit failed;хараахан орчуулагдаагүй; -
+MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelTitle;Gruppen und Berechtigungen;Groups and permissions;хараахан орчуулагдаагүй; -
+MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelActionSuccess;Ok;Success;хараахан орчуулагдаагүй; -
+MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelActionFailure;Fehler;Error;хараахан орчуулагдаагүй; -
+MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelSaveButtonText;Speichern;Save;хараахан орчуулагдаагүй; -
+MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelUpdateSuccessText;Berechtigungen aktualisiert;Permissions updated;хараахан орчуулагдаагүй; -
+MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelUpdateFailureText;Berechtigungen konnten nicht aktualisiert werden;Permissions could not be updated;хараахан орчуулагдаагүй; -
+MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelPermissionGridDescription;Verwalten Sie hier die Berechtigungen der Nutzer innerhalb der Gruppen.<br>Wenn sich für einen Nutzer die Rolle / Berechtigung ändert, wird dieser per Email darüber informiert;Here you can manage all users permissions for the different groups.<br>The User you are changing the permissions for will be notified via email about his new roles and groups;хараахан орчуулагдаагүй; -
+MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelEditPermissionsTitle;Berechtigungen;Permissions;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupPermissionGridPanelGroupColumnName;Gruppe;Group;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupPermissionGridPanelSubadminColumnName;Sub-Admin;Sub-Admin;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupPermissionGridPanelEditorColumnName;Editor;Editor;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupPermissionGridPanelUserColumnName;Benutzer;User;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserBtnText;Benutzer hinzufügen;Add user;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserTitle;Benutzer zu Gruppe hinzufügen;Add user to group;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserText;Wählen Sie einen Benutzer, Gruppe und Rolle, die Sie hinzufügen möchten;Select a user, group and role you want to add;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserSelectGroupTitle;Wählen Sie eine Gruppe;Select a group;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserSelectUserTitle;Wählen Sie einen Benutzer;Select a user;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserSelectRoleTitle;Wählen Sie eine Rolle;Select a role;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserSaveBtnText;Speichern;Save;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserSelectFirst;Bitte machen Sie gültige Angaben;Please select valid options;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserSuccess;Einstellungen gespeichert;Settings saved;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserFail;Einstellungen konnten nicht gespeichert werden;Settings could not be saved;хараахан орчуулагдаагүй; -
 MoMo.admin.view.viewport.Viewport;config.data.i18n.applicationsMenuTitle;Applikationen;Applications;хараахан орчуулагдаагүй; -
 MoMo.admin.view.viewport.Viewport;config.data.i18n.layersMenuTitle;Layer;Layers;хараахан орчуулагдаагүй; -
 MoMo.admin.view.viewport.Viewport;config.data.i18n.usersMenuTitle;Benutzer;Users;хараахан орчуулагдаагүй; -
