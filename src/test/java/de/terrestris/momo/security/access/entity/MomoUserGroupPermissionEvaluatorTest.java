@@ -215,6 +215,11 @@ public class MomoUserGroupPermissionEvaluatorTest {
 	public void hasPermission_shouldAllowUpdateForOwnedGroupsOnly() {
 		final Permission updatePermission = Permission.UPDATE;
 
+		final Role defaultUserRole = new Role(defaultUserRoleName);
+		Set<Role> userRoles = new HashSet<Role>();
+		userRoles.add(defaultUserRole);
+
+		loginMockUser(userRoles);
 		// accessUser is Owner of the group
 		userGroupToTest.setOwner(accessUser);
 
@@ -228,6 +233,11 @@ public class MomoUserGroupPermissionEvaluatorTest {
 	public void hasPermission_shouldDenyUpdateForNonOwnedGroups() {
 		final Permission updatePermission = Permission.UPDATE;
 
+		final Role defaultUserRole = new Role(defaultUserRoleName);
+		Set<Role> userRoles = new HashSet<Role>();
+		userRoles.add(defaultUserRole);
+
+		loginMockUser(userRoles);
 		// accessUser is not owner of the group
 		userGroupToTest.setOwner(testUser2);
 
@@ -241,6 +251,11 @@ public class MomoUserGroupPermissionEvaluatorTest {
 	public void hasPermission_shouldAllowDeleteForOwnedGroupsOnly() {
 		final Permission deletePermission = Permission.DELETE;
 
+		final Role defaultUserRole = new Role(defaultUserRoleName);
+		Set<Role> userRoles = new HashSet<Role>();
+		userRoles.add(defaultUserRole);
+
+		loginMockUser(userRoles);
 		// accessUser is Owner of the group
 		userGroupToTest.setOwner(accessUser);
 
@@ -254,6 +269,11 @@ public class MomoUserGroupPermissionEvaluatorTest {
 	public void hasPermission_shouldDenyDeleteForNonOwnedGroups() {
 		final Permission deletePermission = Permission.DELETE;
 
+		final Role defaultUserRole = new Role(defaultUserRoleName);
+		Set<Role> userRoles = new HashSet<Role>();
+		userRoles.add(defaultUserRole);
+
+		loginMockUser(userRoles);
 		// accessUser is not owner of the group
 		userGroupToTest.setOwner(testUser2);
 
