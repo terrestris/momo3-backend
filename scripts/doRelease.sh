@@ -25,13 +25,41 @@ if [[ ! $DEVELOPMENT_VERSION =~ ^([0-9]+\.[0-9]+\.[0-9])(\-SNAPSHOT)$ ]]; then
     exit 1
 fi
 
+# Check if the input parameter RELEASE_DESCRIPTION is valid
+RELEASE_DESCRIPTION="$3"
+if [[ -z $RELEASE_DESCRIPTION ]]; then
+    echo "Error: RELEASE_DESCRIPTION must be set"
+    exit 1
+fi
+
+COMMIT_PREFIX="[AUTOCOMMIT]"
+RELEASE_COMMIT_MSG="$COMMIT_PREFIX Set version for the release ($RELEASE_VERSION)"
+PREPARE_NEXT_DEV_ITERATION_COMMIT_MSG="$COMMIT_PREFIX Set version for the next development iteration ($DEVELOPMENT_VERSION)"
+
 SCRIPTDIR=`dirname "$0"`
 
 pushd $SCRIPTDIR/..
 
-mvn release:clean
-mvn release:prepare --batch-mode -DreleaseVersion=$RELEASE_VERSION -DdevelopmentVersion=$DEVELOPMENT_VERSION
-mvn release:perform --batch-mode
+# Check for any local modifications
+mvn scm:check-local-modification
+
+# Set the release version
+mvn versions:set -DnewVersion="$RELEASE_VERSION"
+
+# Build/Verify the application
+mvn verify -Dskip-build-javascript-resources=false
+
+# Commit the release version (checkin I of II)
+mvn scm:checkin -Dmessage="$RELEASE_COMMIT_MSG"
+
+# Create the tagged release on GitHub
+mvn github-release:release -DreleaseDescription="$RELEASE_DESCRIPTION"
+
+# Set the next development version
+mvn versions:set -DnewVersion="$DEVELOPMENT_VERSION"
+
+# Commit the next development version (checkin II of II)
+mvn scm:checkin -Dmessage="$PREPARE_NEXT_DEV_ITERATION_COMMIT_MSG"
 
 popd
 
