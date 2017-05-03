@@ -82,6 +82,8 @@
 
         <slf4j.version>1.5.11</slf4j.version>
 
+        <github-release-plugin.version>1.2.0</github-release-plugin.version>
+
         <hamcrest.version>1.3</hamcrest.version>
         <spring.version>4.3.7.RELEASE</spring.version>
         <mockito.version>1.10.19</mockito.version>
@@ -419,26 +421,30 @@
             </plugin>
 
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
-                <version>${maven-release-plugin.version}</version>
+                <groupId>de.jutzig</groupId>
+                <artifactId>github-release-plugin</artifactId>
+                <version>${github-release-plugin.version}</version>
                 <configuration>
-                    <autoVersionSubmodules>true</autoVersionSubmodules>
-                    <tagNameFormat>v@{project.version}</tagNameFormat>
-                    <!-- The version to release, e.g. 0.0.1 -->
-                    <releaseVersion>${releaseVersion}</releaseVersion>
-                    <!-- The version to set for the next development
-                         cycle, e.g. 0.0.2-SNAPSHOT -->
-                    <developmentVersion>${developmentVersion}</developmentVersion>
-                    <!-- Disable the release profile that is part of the
-                         Maven Super POM since we are using our own profile -->
-                    <useReleaseProfile>false</useReleaseProfile>
-                    <goals>deploy</goals>
-                    <allowTimestampedSnapshots>true</allowTimestampedSnapshots>
-                    <arguments>
-                        <!-- Don't build the JavaScript resources -->
-                        -Dskip-build-javascript-resources=true
-                    </arguments>
+                    <!-- The description to be used in the release, may be
+                         edited afterwards via GitHub UI. -->
+                    <description>${releaseDescription}</description>
+                    <!-- The name of the release, typically the current
+                         version number. -->
+                    <releaseName>${project.version}</releaseName>
+                    <!-- The name of the corresponding relase tag, typically
+                         the current version number. -->
+                    <tag>${project.version}</tag>
+                    <!-- A list of files to be added to the release, typically
+                         we want to add the build artifact of the current
+                         release only. -->
+                    <fileSets>
+                        <fileSet>
+                            <directory>${project.build.directory}</directory>
+                            <includes>
+                                <include>${project.artifactId}*.war</include>
+                            </includes>
+                        </fileSet>
+                    </fileSets>
                 </configuration>
             </plugin>
 
@@ -561,6 +567,12 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
             <version>${slf4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>de.jutzig</groupId>
+            <artifactId>github-release-plugin</artifactId>
+            <version>${github-release-plugin.version}</version>
         </dependency>
 
         <!-- Spring test -->
