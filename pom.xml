@@ -12,9 +12,8 @@
 
     <scm>
         <url>https://github.com/terrestris/momo3-backend</url>
-        <connection>scm:git:git://github.com/terrestris/momo3-backend.git</connection>
+        <connection>scm:git:git@github.com:terrestris/momo3-backend.git</connection>
         <developerConnection>scm:git:git@github.com:terrestris/momo3-backend.git</developerConnection>
-        <tag>HEAD</tag>
     </scm>
 
     <repositories>
