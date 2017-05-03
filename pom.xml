@@ -34,22 +34,6 @@
              available in the PATH. -->
         <sencha.cmd.executable>sencha</sencha.cmd.executable>
 
-        <!-- SCM settings used to checkout other git repositories into this
-             webapp, e.g. the momo3-frontend -->
-
-        <!--
-         | IMPORTANT:
-         |
-         | When you invoke tasks that need the following property, like…
-         |     mvn scm:checkout
-         | …remember to pass your github handle via the commandline:
-         |     mvn scm:checkout -Dmaven-scm-plugin.git-username=YOUR_GITHUB_ID
-         |
-         +-->
-        <maven-scm-plugin.git-username>{{USERNAME}}</maven-scm-plugin.git-username>
-        <!-- The type of connection to use (connection or developerConnection) -->
-        <maven-scm-plugin.connection-type>developerConnection</maven-scm-plugin.connection-type>
-
         <!-- Skip the creation of the JavaScript applications (login, client,
              admin) per default. Create with production profile only. -->
         <skip-build-javascript-resources>true</skip-build-javascript-resources>
@@ -398,26 +382,6 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-
-            <!-- Checkout/clone the shogun2 client to this application. For
-                 checkout just run mvn scm:checkout in your app directory -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-scm-plugin</artifactId>
-                <version>${maven-scm-plugin.version}</version>
-                <configuration>
-                    <!-- The directory to checkout the sources to for the
-                        bootstrap and checkout goals -->
-                    <checkoutDirectory>${project.basedir}/src/main/webapp/client</checkoutDirectory>
-                    <!-- The type of connection to use (connection or developerConnection) -->
-                    <connectionType>${maven-scm-plugin.connection-type}</connectionType>
-                    <!-- The base repository -->
-                    <connectionUrl>scm:git:https://github.com/terrestris/momo3-frontend.git</connectionUrl>
-                    <!-- IMPORTANT: Set your git username here! (Assuming
-                        you have fork already) -->
-                    <developerConnectionUrl>scm:git:https://github.com/${maven-scm-plugin.git-username}/momo3-frontend.git</developerConnectionUrl>
-                </configuration>
             </plugin>
 
             <plugin>
