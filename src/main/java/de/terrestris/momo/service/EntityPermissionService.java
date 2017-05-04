@@ -24,6 +24,7 @@ import de.terrestris.momo.model.MomoUser;
 import de.terrestris.momo.model.MomoUserGroup;
 import de.terrestris.momo.model.security.EntityPermissionEnvelope;
 import de.terrestris.momo.model.security.EntityPermissionTypeEnvelope;
+import de.terrestris.momo.util.config.MomoConfigHolder;
 import de.terrestris.shogun2.dao.GenericHibernateDao;
 import de.terrestris.shogun2.model.PersistentObject;
 import de.terrestris.shogun2.model.User;
@@ -62,6 +63,10 @@ public class EntityPermissionService<E extends PersistentObject> {
 	@Autowired
 	@Qualifier("permissionAwareCrudService")
 	private PermissionAwareCrudService<E, GenericHibernateDao<E,Integer>> permissionAwareCrudService;
+
+	@Autowired
+	@Qualifier("momoConfigHolder")
+	private MomoConfigHolder momoConfigHolder;
 
 	/**
 	 *
@@ -135,6 +140,7 @@ public class EntityPermissionService<E extends PersistentObject> {
 	 * @return
 	 * @throws Exception
 	 */
+	@PreAuthorize("hasRole(@momoConfigHolder.getEditorRoleName())")
 	public EntityPermissionTypeEnvelope createOrUpdateEntityPermission(EntityPermissionTypeEnvelope envelope,
 				String classNameOfTarget, Integer entityIdOfTarget, String entityNameOfPermissionHolder)
 						throws Exception {

@@ -43,6 +43,15 @@ MoMo.admin.view.grid.ApplicationList;config.data.i18n.applicationsFilterByName;F
 MoMo.admin.view.grid.ApplicationList;config.data.i18n.applicationsRefreshText;Aktualisieren;Refresh;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.ApplicationList;config.data.i18n.applicationsSettings;Einstellungen;Settings;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.ApplicationList;config.data.i18n.applicationsPreview;Öffnen;Open;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.EntityPermissions;config.data.i18n.usersColumnTitle;Benutzer;User;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.EntityPermissions;config.data.i18n.groupsColumnTitle;Gruppe;Group;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.EntityPermissions;config.data.i18n.readPermissionColumnTitle;Lesen;Read;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.EntityPermissions;config.data.i18n.updatePermissionColumnTitle;Ändern;Update;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.EntityPermissions;config.data.i18n.deletePermissionColumnTitle;Löschen;Delete;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.EntityPermissions;config.data.i18n.permissionsUpdatesSuccessTitle;Ok;Success;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.EntityPermissions;config.data.i18n.permissionsUpdatesSuccessText;Berechtigungen aktualisiert;Permissions updated;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.EntityPermissions;config.data.i18n.permissionsUpdatesFailureTitle;Fehler;Failure;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.EntityPermissions;config.data.i18n.permissionsUpdatesFailureText;Berechtigungen konnten nicht aktualisiert werden;Permissions failed to update;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.LayerList;config.data.i18n.layerlistTitle;Alle Layer;All layers;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.LayerList;config.data.i18n.layerlistCreateLayer;Erstellen;Create;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.LayerList;config.data.i18n.layerlistDeleteLayer;Löschen;Delete;хараахан орчуулагдаагүй; -
@@ -79,6 +88,10 @@ MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelUpdateSuccessText;Be
 MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelUpdateFailureText;Berechtigungen konnten nicht aktualisiert werden;Permissions could not be updated;хараахан орчуулагдаагүй; -
 MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelPermissionGridDescription;Verwalten Sie hier die Berechtigungen der Nutzer innerhalb der Gruppen.<br>Wenn sich für einen Nutzer die Rolle / Berechtigung ändert, wird dieser per Email darüber informiert;Here you can manage all users permissions for the different groups.<br>The User you are changing the permissions for will be notified via email about his new roles and groups;хараахан орчуулагдаагүй; -
 MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelEditPermissionsTitle;Berechtigungen;Permissions;хараахан орчуулагдаагүй; -
+MoMo.admin.view.panel.application.Permissions;config.data.i18n.applicationpermissionstitle;Berechtigungen;Permissions;хараахан орчуулагдаагүй; -
+MoMo.admin.view.panel.application.Permissions;config.data.i18n.applicationpermissionsdescriptionText;Hier können die Berechtigungen an dieser Applikation für Benutzer und Gruppen eingerichtet werden.<br>Wenn Sie einen neue Applikation anlegen, müssen Sie diese zunächst speichern, bevor die Berechtigungen vergeben werden können;Here you can manage what users and groups may see, edit and delete this application.<br>If you are creating a new application, you will need to save it first before you can set the permissions;хараахан орчуулагдаагүй; -
+MoMo.admin.view.panel.layer.Permissions;config.data.i18n.layerpermissionstitle;Berechtigungen;Permissions;хараахан орчуулагдаагүй; -
+MoMo.admin.view.panel.layer.Permissions;config.data.i18n.layerpermissionsdescriptionText;Hier können die Berechtigungen an diesem Layer für Benutzer und Gruppen eingerichtet werden.<br>Wenn Sie einen neuen Layer anlegen, müssen Sie diesen zunächst speichern, bevor die Berechtigungen vergeben werden können;Here you can manage what users and groups may see, edit and delete this layer.<br>If you are creating a new layer, you will need to save it first before you can set the permissions;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupPermissionGridPanelGroupColumnName;Gruppe;Group;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupPermissionGridPanelSubadminColumnName;Sub-Admin;Sub-Admin;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupPermissionGridPanelEditorColumnName;Editor;Editor;хараахан орчуулагдаагүй; -
@@ -93,6 +106,8 @@ MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserSaveBtnTex
 MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserSelectFirst;Bitte machen Sie gültige Angaben;Please select valid options;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserSuccess;Einstellungen gespeichert;Settings saved;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserFail;Einstellungen konnten nicht gespeichert werden;Settings could not be saved;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.permissionsUpdatesSuccessText;Berechtigungen aktualisiert;Permissions updated;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.permissionsUpdatesFailureText;Berechtigungen konnten nicht aktualisiert werden;Permissions failed to update;хараахан орчуулагдаагүй; -
 MoMo.admin.view.viewport.Viewport;config.data.i18n.applicationsMenuTitle;Applikationen;Applications;хараахан орчуулагдаагүй; -
 MoMo.admin.view.viewport.Viewport;config.data.i18n.layersMenuTitle;Layer;Layers;хараахан орчуулагдаагүй; -
 MoMo.admin.view.viewport.Viewport;config.data.i18n.usersMenuTitle;Benutzer;Users;хараахан орчуулагдаагүй; -
