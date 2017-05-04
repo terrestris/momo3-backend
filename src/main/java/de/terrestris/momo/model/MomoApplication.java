@@ -17,6 +17,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import de.terrestris.momo.model.tree.DocumentTreeFolder;
 import de.terrestris.momo.model.tree.LayerTreeFolder;
 import de.terrestris.shogun2.model.Application;
+import de.terrestris.shogun2.model.User;
 import de.terrestris.shogun2.model.module.Module;
 
 /**
@@ -68,6 +69,12 @@ public class MomoApplication extends Application {
 	/**
 	 *
 	 */
+	@ManyToOne
+	private User owner;
+
+	/**
+	 *
+	 */
 	public MomoApplication() {
 	}
 
@@ -111,6 +118,20 @@ public class MomoApplication extends Application {
 	 */
 	public void setActiveTools(List<Module> activeTools) {
 		this.activeTools = activeTools;
+	}
+
+	/**
+	 * @return the owner
+	 */
+	public User getOwner() {
+		return owner;
+	}
+
+	/**
+	 * @param owner the owner to set
+	 */
+	public void setOwner(User owner) {
+		this.owner = owner;
 	}
 
 }

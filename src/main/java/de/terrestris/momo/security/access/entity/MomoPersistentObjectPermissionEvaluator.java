@@ -75,17 +75,22 @@ public class MomoPersistentObjectPermissionEvaluator<E extends PersistentObject>
 		Map<User, PermissionCollection> permissionsForUser = entity.getUserPermissions();
 		if (permissionsForUser != null) {
 			PermissionCollection userPermissions = permissionsForUser.get(momoUser);
-			if (userPermissions != null && userPermissions.getPermissions().contains(permission)) {
+			if (userPermissions != null && (userPermissions.getPermissions().contains(permission) ||
+					userPermissions.getPermissions().contains(Permission.ADMIN))) {
 				LOG.trace(String.format(grantMsg, permission, simpleClassName, entity.getId()));
 				hasPermission = true;
 			}
 		}
 
 		if (!hasPermission) {
-			Map<UserGroup, PermissionCollection> userGroupPermissionsOfCurrentUser = entity.getGroupPermissions();
-			if (userGroupPermissionsOfCurrentUser != null) {
-				for (UserGroup group : userGroupPermissionsOfCurrentUser.keySet()) {
-					PermissionCollection permissionsForGroup = userGroupPermissionsOfCurrentUser.get(group);
+			Map<UserGroup, PermissionCollection> userGroupPermissions = entity.getGroupPermissions();
+			if (userGroupPermissions != null) {
+				for (UserGroup group : userGroupPermissions.keySet()) {
+					MomoUserGroup momoUserGroup = (MomoUserGroup) group;
+					if (!userGroupRoleService.isUserMemberInUserGroup(momoUser, momoUserGroup)) {
+						continue;
+					}
+					PermissionCollection permissionsForGroup = userGroupPermissions.get(group);
 					if (permissionsForGroup != null) {
 						if (permissionsForGroup.getPermissions().contains(permission)) {
 							LOG.trace(String.format(grantMsg, permission, simpleClassName, entity.getId()));

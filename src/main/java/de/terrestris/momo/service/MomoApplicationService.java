@@ -28,6 +28,7 @@ import de.terrestris.momo.model.MomoApplication;
 import de.terrestris.momo.model.tree.DocumentTreeFolder;
 import de.terrestris.momo.model.tree.LayerTreeFolder;
 import de.terrestris.momo.util.DocumentTreeFolderComparator;
+import de.terrestris.momo.util.config.MomoConfigHolder;
 import de.terrestris.shogun2.dao.ExtentDao;
 import de.terrestris.shogun2.dao.LayerDao;
 import de.terrestris.shogun2.dao.LayoutDao;
@@ -132,6 +133,10 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 	@Qualifier("layerTreeService")
 	private LayerTreeService<LayerTreeFolder, LayerTreeDao<LayerTreeFolder>> layerTreeService;
 
+	@Autowired
+	@Qualifier("momoConfigHolder")
+	private MomoConfigHolder momoConfigHolder;
+
 	/**
 	 * Default constructor, which calls the type-constructor
 	 */
@@ -170,9 +175,9 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 	 * @throws InvocationTargetException
 	 */
 	@SuppressWarnings("unchecked")
-	@PreAuthorize("hasRole(@configHolder.getSuperAdminRoleName())")
+	@PreAuthorize("hasRole(@momoConfigHolder.getSubAdminRoleName())")
 	public MomoApplication createMomoApplication(ApplicationData applicationData) throws Exception {
-
+		User user = userService.getUserBySession();
 		String name = applicationData.getName();
 		String description = applicationData.getDescription();
 		String language = applicationData.getLanguage();
@@ -195,6 +200,7 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 		application.setLanguage(Locale.forLanguageTag(language));
 		application.setOpen(isPublic);
 		application.setActive(isActive);
+		application.setOwner(user);
 
 		for (Integer activeToolId : activeTools) {
 			Module module = moduleService.findById(activeToolId);
@@ -239,11 +245,11 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 	 */
 	@SuppressWarnings("unchecked")
 	@PreAuthorize("hasRole(@configHolder.getSuperAdminRoleName()) or hasPermission(#appId, 'de.terrestris.momo.model.MomoApplication', 'READ')")
-	public MomoApplication copyApp(String appId, String appName) throws Exception {
+	public MomoApplication copyApp(Integer appId, String appName) throws Exception {
 		if (appId == null || appName == null) {
 			return null;
 		}
-		MomoApplication app = dao.findById(Integer.valueOf(appId));
+		MomoApplication app = dao.findById(appId);
 		MomoApplication appCopy = new MomoApplication();
 
 		appCopy.setName(appName);
@@ -320,7 +326,7 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 	 */
 	@SuppressWarnings("unchecked")
 	@PreAuthorize("hasRole(@configHolder.getSuperAdminRoleName()) or hasPermission(#appId, 'de.terrestris.momo.model.MomoApplication', 'UPDATE')")
-	public MomoApplication updateMomoApplication(ApplicationData applicationData) throws Exception {
+	public MomoApplication updateMomoApplication(Integer appId, ApplicationData applicationData) throws Exception {
 
 		String name = applicationData.getName();
 		String description = applicationData.getDescription();
@@ -367,7 +373,7 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 						LayerTreeFolder layerTreeRootNode = this.layerTreeService.findById(layerTreeId);
 						List<Layer> mapLayers = this.layerTreeService.getAllMapLayersFromTreeFolder(layerTreeRootNode);
 						map.setMapLayers(mapLayers);
-						mapService.saveOrUpdate(map);
+						mapService.getDao().saveOrUpdate(map);
 
 						// update the mapconfig
 						MapConfig mapConfig = map.getMapConfig();

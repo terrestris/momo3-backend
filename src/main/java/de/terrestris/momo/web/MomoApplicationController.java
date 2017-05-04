@@ -86,8 +86,9 @@ public class MomoApplicationController<E extends MomoApplication, D extends Momo
 	public ResponseEntity<?> copyMomoApplication(
             @RequestParam("appId") String appId, @RequestParam("appName") String appName) {
 	        E app = null;
+	        Integer appIdInt = Integer.valueOf(appId);
 	        try {
-	                app = (E) service.copyApp(appId, appName);
+	                app = (E) service.copyApp(appIdInt, appName);
 	        } catch (Exception e) {
 	                final String msg = e.getMessage();
 	                LOG.error("Could not copy a layer: " + msg);
@@ -105,8 +106,9 @@ public class MomoApplicationController<E extends MomoApplication, D extends Momo
 	public ResponseEntity<?> updateMomoApplication(@RequestBody ApplicationData applicationData) {
 
 		E app = null;
+		Integer appId = applicationData.getId();
 		try {
-			app = (E) service.updateMomoApplication(applicationData);
+			app = (E) service.updateMomoApplication(appId, applicationData);
 		} catch (Exception e) {
 			final String msg = e.getMessage();
 			LOG.error("Could not update MOMO application: " + msg);

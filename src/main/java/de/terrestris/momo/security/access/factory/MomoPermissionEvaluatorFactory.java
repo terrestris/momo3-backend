@@ -12,7 +12,11 @@ import de.terrestris.momo.model.tree.DocumentTreeFolder;
 import de.terrestris.momo.model.tree.DocumentTreeLeaf;
 import de.terrestris.momo.security.access.entity.DocumentTreeFolderPermissionEvaluator;
 import de.terrestris.momo.security.access.entity.DocumentTreeLeafPermissionEvaluator;
+import de.terrestris.momo.security.access.entity.ExtentPermissionEvaluator;
 import de.terrestris.momo.security.access.entity.LayerAppearancePermissionEvaluator;
+import de.terrestris.momo.security.access.entity.MapConfigPermissionEvaluator;
+import de.terrestris.momo.security.access.entity.MapPermissionEvaluator;
+import de.terrestris.momo.security.access.entity.ModulePermissionEvaluator;
 import de.terrestris.momo.security.access.entity.MomoAlwaysAllowReadPermissionEvaluator;
 import de.terrestris.momo.security.access.entity.MomoApplicationPermissionEvaluator;
 import de.terrestris.momo.security.access.entity.MomoLayerPermissionEvaluator;
@@ -31,6 +35,7 @@ import de.terrestris.shogun2.model.layer.util.TileGrid;
 import de.terrestris.shogun2.model.layout.Layout;
 import de.terrestris.shogun2.model.map.MapConfig;
 import de.terrestris.shogun2.model.map.MapControl;
+import de.terrestris.shogun2.model.module.Map;
 import de.terrestris.shogun2.model.module.Module;
 import de.terrestris.shogun2.model.security.PermissionCollection;
 import de.terrestris.shogun2.model.token.Token;
@@ -69,6 +74,18 @@ public class MomoPermissionEvaluatorFactory<E extends PersistentObject> extends 
 		if(MomoApplication.class.isAssignableFrom(entityClass)) {
 			return new MomoApplicationPermissionEvaluator();
 		}
+		if(Extent.class.isAssignableFrom(entityClass)) {
+			return new ExtentPermissionEvaluator();
+		}
+		if(MapConfig.class.isAssignableFrom(entityClass)) {
+			return new MapConfigPermissionEvaluator();
+		}
+		if(Map.class.isAssignableFrom(entityClass)) {
+			return new MapPermissionEvaluator();
+		}
+		if(Module.class.isAssignableFrom(entityClass)) {
+			return new ModulePermissionEvaluator();
+		}
 		if(TreeNode.class.isAssignableFrom(entityClass)) {
 			return new TreeNodePermissionEvaluator();
 		}
@@ -97,14 +114,11 @@ public class MomoPermissionEvaluatorFactory<E extends PersistentObject> extends 
 		// * File
 		// * Person
 		// * UserGroup
-		if(Extent.class.isAssignableFrom(entityClass) ||
-			InterceptorRule.class.isAssignableFrom(entityClass) ||
+		if(InterceptorRule.class.isAssignableFrom(entityClass) ||
 			LayerAppearance.class.isAssignableFrom(entityClass) ||
 			LayerDataSource.class.isAssignableFrom(entityClass) ||
 			Layout.class.isAssignableFrom(entityClass) ||
-			MapConfig.class.isAssignableFrom(entityClass) ||
 			MapControl.class.isAssignableFrom(entityClass) ||
-			Module.class.isAssignableFrom(entityClass) ||
 			Role.class.isAssignableFrom(entityClass) ||
 			TileGrid.class.isAssignableFrom(entityClass) ||
 			Token.class.isAssignableFrom(entityClass)) {

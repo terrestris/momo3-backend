@@ -182,7 +182,8 @@ public class MetadataService {
 		}
 
 		if (transactionOperationList.isEmpty()) {
-			throw new NotFoundException("Could not detect the transaction type of the given CSW Transaction.");
+			// we have a read
+			transactionOperationList.add("READ");
 		}
 
 		if (transactionOperationList.size() > 1) {

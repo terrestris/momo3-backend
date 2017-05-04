@@ -26,9 +26,12 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import de.terrestris.momo.dao.UserGroupRoleDao;
 import de.terrestris.momo.model.MomoApplication;
 import de.terrestris.momo.model.MomoUser;
 import de.terrestris.momo.model.MomoUserGroup;
+import de.terrestris.momo.model.security.UserGroupRole;
+import de.terrestris.momo.service.UserGroupRoleService;
 import de.terrestris.momo.util.config.MomoConfigHolder;
 import de.terrestris.momo.util.security.MomoSecurityUtil;
 import de.terrestris.shogun2.helper.IdHelper;
@@ -224,6 +227,11 @@ public class MomoApplicationPermissionEvaluatorTest {
 		groupPermissions.put(testGroup, permCollection);
 		testApplication.setGroupPermissions(groupPermissions);
 
+		UserGroupRoleService<UserGroupRole, UserGroupRoleDao<UserGroupRole>> userGroupRoleService =
+				Mockito.mock(UserGroupRoleService.class);
+		when(userGroupRoleService.isUserMemberInUserGroup(accessUser, testGroup)).thenReturn(true);
+		momoApplicationPermissionEvaluator.setUserGroupRoleService(userGroupRoleService);
+
 		boolean permissionResult = momoApplicationPermissionEvaluator.hasPermission(accessUser, testApplication, Permission.DELETE);
 		assertThat(permissionResult, equalTo(true));
 	}
@@ -240,6 +248,11 @@ public class MomoApplicationPermissionEvaluatorTest {
 		HashMap<UserGroup, PermissionCollection> groupPermissions = new HashMap<UserGroup, PermissionCollection>();
 		groupPermissions.put(testGroup, permCollection);
 		testApplication.setGroupPermissions(groupPermissions);
+
+		UserGroupRoleService<UserGroupRole, UserGroupRoleDao<UserGroupRole>> userGroupRoleService =
+				Mockito.mock(UserGroupRoleService.class);
+		when(userGroupRoleService.isUserMemberInUserGroup(accessUser, testGroup)).thenReturn(true);
+		momoApplicationPermissionEvaluator.setUserGroupRoleService(userGroupRoleService);
 
 		boolean permissionResult = momoApplicationPermissionEvaluator.hasPermission(accessUser, testApplication, Permission.UPDATE);
 		assertThat(permissionResult, equalTo(true));
@@ -259,6 +272,10 @@ public class MomoApplicationPermissionEvaluatorTest {
 		groupPermissions.put(testGroup, permCollection);
 		testApplication.setGroupPermissions(groupPermissions);
 
+		UserGroupRoleService<UserGroupRole, UserGroupRoleDao<UserGroupRole>> userGroupRoleService =
+				Mockito.mock(UserGroupRoleService.class);
+		when(userGroupRoleService.isUserMemberInUserGroup(accessUser, testGroup)).thenReturn(true);
+		momoApplicationPermissionEvaluator.setUserGroupRoleService(userGroupRoleService);
 		boolean permissionResult = momoApplicationPermissionEvaluator.hasPermission(accessUser, testApplication, Permission.CREATE);
 		assertThat(permissionResult, equalTo(true));
 	}
@@ -275,6 +292,11 @@ public class MomoApplicationPermissionEvaluatorTest {
 		HashMap<UserGroup, PermissionCollection> groupPermissions = new HashMap<UserGroup, PermissionCollection>();
 		groupPermissions.put(testGroup, permCollection);
 		testApplication.setGroupPermissions(groupPermissions);
+
+		UserGroupRoleService<UserGroupRole, UserGroupRoleDao<UserGroupRole>> userGroupRoleService =
+				Mockito.mock(UserGroupRoleService.class);
+		when(userGroupRoleService.isUserMemberInUserGroup(accessUser, testGroup)).thenReturn(true);
+		momoApplicationPermissionEvaluator.setUserGroupRoleService(userGroupRoleService);
 
 		boolean permissionResult = momoApplicationPermissionEvaluator.hasPermission(accessUser, testApplication, Permission.READ);
 		assertThat(permissionResult, equalTo(true));
