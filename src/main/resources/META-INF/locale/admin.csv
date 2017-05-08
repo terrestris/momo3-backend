@@ -43,6 +43,14 @@ MoMo.admin.view.grid.ApplicationList;config.data.i18n.applicationsFilterByName;F
 MoMo.admin.view.grid.ApplicationList;config.data.i18n.applicationsRefreshText;Aktualisieren;Refresh;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.ApplicationList;config.data.i18n.applicationsSettings;Einstellungen;Settings;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.ApplicationList;config.data.i18n.applicationsPreview;Öffnen;Open;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.ApplicationList;config.data.i18n.appCopyErrorMsgTitle;Fehler;Error;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.ApplicationList;config.data.i18n.appCopyPromptTitle;Nachfrage;Question;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.ApplicationList;config.data.i18n.appCopySelectAppsBeforeMsg;Bitte wählen Sie zunächst eine Applikation aus.;Please select a single application before!;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.ApplicationList;config.data.i18n.appCopyPromptMsg;Bitte geben Sie einen Namen der neuen Applikation ein.;Enter a new name for the application to be copied;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.ApplicationList;config.data.i18n.appCopiedSuccessfulMsg;Die Applikation wurde erfolgreich kopiert.;Application has been copied successfull;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.ApplicationList;config.data.i18n.appCopyErrorMsg;Die Applikation konnte nicht kopiert werden.;Could not copy the application.;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.ApplicationList;config.data.i18n.appDeletedMsg;Applikation gelöscht;Application deleted;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.ApplicationList;config.data.i18n.appDeletionErrorMsg;Löschen der Applikation ist fehlgeschlagen.;Deletion of application failed;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.EntityPermissions;config.data.i18n.usersColumnTitle;Benutzer;User;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.EntityPermissions;config.data.i18n.groupsColumnTitle;Gruppe;Group;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.EntityPermissions;config.data.i18n.readPermissionColumnTitle;Lesen;Read;хараахан орчуулагдаагүй; -
@@ -52,15 +60,44 @@ MoMo.admin.view.grid.EntityPermissions;config.data.i18n.permissionsUpdatesSucces
 MoMo.admin.view.grid.EntityPermissions;config.data.i18n.permissionsUpdatesSuccessText;Berechtigungen aktualisiert;Permissions updated;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.EntityPermissions;config.data.i18n.permissionsUpdatesFailureTitle;Fehler;Failure;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.EntityPermissions;config.data.i18n.permissionsUpdatesFailureText;Berechtigungen konnten nicht aktualisiert werden;Permissions failed to update;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.LayerList;config.data.i18n.layerlistTitle;Alle Layer;All layers;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.LayerList;config.data.i18n.layerlistCreateLayer;Erstellen;Create;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.LayerList;config.data.i18n.layerlistDeleteLayer;Löschen;Delete;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.LayerList;config.data.i18n.layerlistFilterByName;Filtern über Name;Filter by name;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.LayerList;config.data.i18n.layerlistRefreshText;Aktualisieren;Refresh;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.LayerList;config.data.i18n.layerlistSettings;Layer Einstellungen;Layer settings;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.LayerList;config.data.i18n.layerlistStyle;Layer Stil-Einstellungen;Layer stylesettings;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.LayerList;config.data.i18n.layerlistDownload;Layer Download;Download layer;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.LayerList;config.data.i18n.layerlistPreview;Layervorschau;Preview Layer;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.LayerList;config.data.layerlistTitle;Alle Layer;All layers;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.LayerList;config.data.layerlistCreateLayer;Erstellen;Create;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.LayerList;config.data.layerlistDeleteLayer;Löschen;Delete;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.LayerList;config.data.layerlistFilterByName;Filtern über Name;Filter by name;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.LayerList;config.data.layerlistRefreshText;Aktualisieren;Refresh;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.LayerList;config.data.layerlistSettings;Layer Einstellungen;Layer settings;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.LayerList;config.data.layerlistStyle;Layer Stil-Einstellungen;Layer stylesettings;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.LayerList;config.data.layerlistDownload;Layer Download;Download layer;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.LayerList;config.data.layerlistPreview;Layervorschau;Preview Layer;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.LayerList;config.data.deletionErrorMsgTitle;Fehler;Error;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.LayerList;config.data.deletionErrorMsgText;Bitte wählen Sie zunächst mindestens einen Layer aus.;Please select a single layer before!;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.LayerList;config.data.deletionMsgTemplate;Fehler;Layer {0} deleted.;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.LayerList;config.data.unsuccessfulDeletionMsgTemplate;Fehler;Layer {0} could not be deleted.;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.LayerList;config.data.downloadStartingMsg;Download startet in Kürze. Bitte warten Sie...;Download will start shortly, please wait...;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.LayerList;config.data.downloadFailureMsg;Konnte Quelldatensatz des Layers nicht herunterladen.;Could not download Layerdata!;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.LayerList;config.data.previewTemplate;Vorschau von Layer "{0}";Preview of layer "{0}";хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.LayerAttributes;config.data.keyColumnHeader;Name;Name;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.LayerAttributes;config.data.valueColumnHeader;Datentyp;Data type;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tree.LayerTree;config.data.title;Layer Tree;Layer Tree;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tree.LayerTree;config.data.addTreeFolderMenuText;Ordner hinzufügen (innerhalb des ausgewählten Ordners);Add folder (inside selected);хараахан орчуулагдаагүй; -
+MoMo.admin.view.tree.LayerTree;config.data.addTreeFolderTopLevelMenuText;Ordner hinzufügen (oberste Ebene);Add folder (top level);хараахан орчуулагдаагүй; -
+MoMo.admin.view.tree.LayerTree;config.data.deleteTreeLeafMenuText;Layer-Eintrag löschen;Delete leaf;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tree.LayerTree;config.data.deleteTreeFolderMenuText;Ordner löschen;Delete folder;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tree.LayerTree;config.data.deleteAllTreeFoldersMenuText;Ordnerinhalt vollständig löschen;Delete tree contents completely;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tree.LayerTree;config.data.renameTreeLeafMenuText;Layer-Eintrag umbenennen;Rename leaf;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tree.LayerTree;config.data.renameTreeFolderMenuText;Ordner umbenennen;Rename folder;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tree.LayerTree;config.data.addTreeFolderWindowTitle;Ordner hinzufügen;Add folder;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tree.LayerTree;config.data.addTreeFolderWindowMsg;Bitte geben Sie den Namen des neuen Ordners ein.;Enter a name for the new folder;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tree.LayerTree;config.data.deleteTreeLeafWindowTitle;Layer-Eintrag löschen;Delete leaf;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tree.LayerTree;config.data.deleteTreeFolderWindowTitle;Ordner Löschen;Delete folder;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tree.LayerTree;config.data.deleteTreeLeafWindowMsg;Möchten Sie den Layer-Eintrag {0} wirklich löschen;Do you really want to delete leaf {0}?;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tree.LayerTree;config.data.deleteTreeFolderWindowMsg;Möchten Sie den Ordner {0} wirklich löschen?;Do you really want to delete folder {0}?;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tree.LayerTree;config.data.deleteAllTreeFoldersWindowText;Inhalt des Ordners vollständig löschen;Delete tree contents completely;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tree.LayerTree;config.data.deleteAllTreeFoldersWindowText;Möchten Sie den Inhalt des Trees vollständig löschen?;Do you really want to delete the tree contents completely;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tree.LayerTree;config.data.renameTreeLeafWindowTitle;Layer-Eintrag umgenennen;Rename leaf;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tree.LayerTree;config.data.renameTreeFolderWindowTitle;Ordner umbenennen;Rename folder;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tree.LayerTree;config.data.renameTreeLeafWindowMsg;Bitte geben Sie einen neuen Namen für Layer-Eintrag {0} an.;Enter a new name for the leaf {0};хараахан орчуулагдаагүй; -
+MoMo.admin.view.tree.LayerTree;config.data.renameTreeFolderWindowMsg;Bitte geben Sie einen neuen Namen für den Ordner {0} an.;Enter a new name for the folder {0};хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.GroupList;config.data.i18n.groupGridTitle;Gruppen;Groups;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.GroupList;config.data.i18n.groupGridCreateGroup;Erstellen;Create;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.GroupList;config.data.i18n.groupGridDeleteGroup;Löschen;Delete;хараахан орчуулагдаагүй; -
@@ -88,10 +125,6 @@ MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelUpdateSuccessText;Be
 MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelUpdateFailureText;Berechtigungen konnten nicht aktualisiert werden;Permissions could not be updated;хараахан орчуулагдаагүй; -
 MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelPermissionGridDescription;Verwalten Sie hier die Berechtigungen der Nutzer innerhalb der Gruppen.<br>Wenn sich für einen Nutzer die Rolle / Berechtigung ändert, wird dieser per Email darüber informiert;Here you can manage all users permissions for the different groups.<br>The User you are changing the permissions for will be notified via email about his new roles and groups;хараахан орчуулагдаагүй; -
 MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelEditPermissionsTitle;Berechtigungen;Permissions;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.application.Permissions;config.data.i18n.applicationpermissionstitle;Berechtigungen;Permissions;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.application.Permissions;config.data.i18n.applicationpermissionsdescriptionText;Hier können die Berechtigungen an dieser Applikation für Benutzer und Gruppen eingerichtet werden.<br>Wenn Sie einen neue Applikation anlegen, müssen Sie diese zunächst speichern, bevor die Berechtigungen vergeben werden können;Here you can manage what users and groups may see, edit and delete this application.<br>If you are creating a new application, you will need to save it first before you can set the permissions;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.layer.Permissions;config.data.i18n.layerpermissionstitle;Berechtigungen;Permissions;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.layer.Permissions;config.data.i18n.layerpermissionsdescriptionText;Hier können die Berechtigungen an diesem Layer für Benutzer und Gruppen eingerichtet werden.<br>Wenn Sie einen neuen Layer anlegen, müssen Sie diesen zunächst speichern, bevor die Berechtigungen vergeben werden können;Here you can manage what users and groups may see, edit and delete this layer.<br>If you are creating a new layer, you will need to save it first before you can set the permissions;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupPermissionGridPanelGroupColumnName;Gruppe;Group;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupPermissionGridPanelSubadminColumnName;Sub-Admin;Sub-Admin;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupPermissionGridPanelEditorColumnName;Editor;Editor;хараахан орчуулагдаагүй; -
@@ -106,8 +139,6 @@ MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserSaveBtnTex
 MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserSelectFirst;Bitte machen Sie gültige Angaben;Please select valid options;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserSuccess;Einstellungen gespeichert;Settings saved;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserFail;Einstellungen konnten nicht gespeichert werden;Settings could not be saved;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.permissionsUpdatesSuccessText;Berechtigungen aktualisiert;Permissions updated;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.permissionsUpdatesFailureText;Berechtigungen konnten nicht aktualisiert werden;Permissions failed to update;хараахан орчуулагдаагүй; -
 MoMo.admin.view.viewport.Viewport;config.data.i18n.applicationsMenuTitle;Applikationen;Applications;хараахан орчуулагдаагүй; -
 MoMo.admin.view.viewport.Viewport;config.data.i18n.layersMenuTitle;Layer;Layers;хараахан орчуулагдаагүй; -
 MoMo.admin.view.viewport.Viewport;config.data.i18n.usersMenuTitle;Benutzer;Users;хараахан орчуулагдаагүй; -
@@ -211,3 +242,155 @@ Ext.window.MessageBox;buttonText.cancel;Abbrechen;Cancel;хараахан орч
 Ext.window.MessageBox;buttonText.yes;Ja;Yes;хараахан орчуулагдаагүй; -
 Ext.window.MessageBox;buttonText.no;Nein;No;хараахан орчуулагдаагүй; -
 Ext.window.Window;closeToolText;Fenster schließen;close window;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.title;Übergeordnete Einstellungen;General;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.fieldSetTitle;Übergeordnete Einstellungen;General;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.nameFieldLabel;Name;Name;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.nameEmptyText;Name der Applikation eingeben...*;Enter the name of the application*;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.descriptionFieldLabel;Beschreibung;Description;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.descriptionEmptyText;Geben Sie eine Beschreibung der Applikation ein (optional);Enter an optional description of the application;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.languageFieldLabel;Sprache;Language;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.languageEmptyText;Bitte wählen Sie die Sprache der Applikation*;Select the language of the application*;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.publicFieldLabel;Öffentlich;Public;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.publicBoxToastText;<b>Hinweis:</b> Diese Applikation wird öffentlich verfügbar und somit auch für nicht angemeldete Nutzer sichtbar sein!;<b>Note:</b> This application will be set to public and will be visible even for non logged-in users afterwards!;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.activeFieldLabel;Aktiv;Active;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.activeBoxToastText;<b>Hinweis:</b> Diese Applikation wird deaktiviert und somit nicht mehr sichtbar für andere Benutzer sein!;<b>Note:</b> This application will be deactivated and will not be visible to anyone afterwards!;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.tools.title;Werkzeuge;Tools;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.tools.helpText;Grün eingefärbte Werkzeuge sind in der Applikation verfügbar, blau eingefärbte Werkzeuge nicht.;Green buttons / tools will be available in the application, blue ones not;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.permissions.applicationpermissionstitle;Berechtigungen;Permissions;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.permissions.applicationpermissionsdescriptiontext;Hier können die Berechtigungen an dieser Applikation für Benutzer und Gruppen eingerichtet werden.<br>Wenn Sie einen neue Applikation anlegen, müssen Sie diese zunächst speichern, bevor die Berechtigungen vergeben werden können;Here you can manage what users and groups may see, edit and delete this application.<br>If you are creating a new application, you will need to save it first before you can set the permissions;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.title;Startansicht;Startview;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.projectionTitle;Projektionssystem;Projection;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.mapCenterTitle;Zentrum;Center;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.mapExtentTitle;Kartenausdehnung;Extent;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.mapZoomTitle;Zoom;Zoom;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.mapZoomLabel;Stufe;Level;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.mapCenterXLabel;X;X;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.mapCenterYLabel;Y;Y;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.mapExtentMinXLabel;Min X;Min X;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.mapExtentMaxXLabel;Max X;Max X;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.mapExtentMinYLabel;Min Y;Min Y;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.mapExtentMaxYLabel;Max Y;Max Y;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.layer.title;Layer;Layer;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.layer.availableLayersGridTitle;Verfügbare Layer;Available layers;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.cancelBtnText;Abbrechen;Cancel;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.saveBtnText;Speichern;Save;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.couldNotLoadApplicationDataMsg;Daten der Applikation können nicht geladen werden.;Error loading application data.;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.saveApplicationProvideAllRequiredFieldsMsg;Bitte füllen Sie alle notwendigen Felder aus.;Please fill out all required fields.;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.saveApplicationResponseTpl;Operation {0} erfolgreich für Applikation {1} ausgeführt.;Successfully {0}d the application {1}.;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.permissions.layerpermissionstitle;Berechtigungen;Permissions;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.permissions.layerpermissionsdescriptionText;Hier können die Berechtigungen an diesem Layer für Benutzer und Gruppen eingerichtet werden.<br>Wenn Sie einen neuen Layer anlegen, müssen Sie diesen zunächst speichern, bevor die Berechtigungen vergeben werden können;Here you can manage what users and groups may see, edit and delete this layer.<br>If you are creating a new layer, you will need to save it first before you can set the permissions;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.permissions.permissionsUpdatesSuccessText;Berechtigungen aktualisiert;Permissions updated;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.permissions.permissionsUpdatesFailureText;Berechtigungen konnten nicht aktualisiert werden;Permissions failed to update;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.generalTitle;Übergeordnete Einstellungen;General;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.layerName;Name;Name;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.layerNameEmptyText;Bitte einen Layer-Namen eingeben.;Enter a layer name;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.fileUploadFieldLabel;Datei;File;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.fileUploadEmptyText;*.zip;*.zip;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.fileUploadButtonText;Hochladen;Upload;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.fileSelectBtnText;Datei auswählen;Browse;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.layerDescription;Beschreibung des Layers;Layer Description;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.layerOpacity;Deckkraft;Layer Opacity;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.hoverTemplate;Hover Template;Hover Template;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.availableAttributes;Verfügbare Attribute;Available Attributes;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.chooseProjectionWindowTitle;Projektionssystem wählen;Choose projection;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.chooseProjectionLayerNameEmptyText;Bitte wählen Sie ein Projektionssystem;Choose a Projection System;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.chooseProjectionCancelBtnText;Abbrechen;Cancel;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.chooseProjectionOkBtnText;OK;OK;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadSuccessfulText;Layer erfolgreich hochgeladen;Successfully uploaded the layer.;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.layerNameInvalidMsg;Bitte geben Sie einen Layernamen an.;Please enter a layer name.;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.zipValidationFailedText;Validierung der ZIP-Datei fehlgeschlagen;Prevalidation of zip skipped.;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadLayerErrorMsg;Fehler beim Hochladen des Layers;Error while uploading the layer;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.fileTooLargeText;Hochgeladene Datei;Large Uploadfile;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadSkippedLargeFileMsg;Upload abgebrochen da Dateigröße zu groß;Skipped preprocessing because of large file;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadSkippedShapeFileMissingMsg;Archiv enhält keine Shapefile;A shape file is missing;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadSkippedDbfFileMissingMsg;Shape nicht valide: DBF-Datei fehlt.;A database file is missing;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadSkippedShxFileMissingMsg;Shape nicht valide: SHX-Datei fehlt.;A database file is missing;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadSkippedPrjMissingMsg;Es sollte eine PRJ-Datei zur Georeferenzierung verwendet werden. Alternativ können Sie auch im folgenden Schritt ein Projektionssystem auswählen.;A projection file is recommended. You can choose a projectionsystem from the combo alternatively.;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadSkippedGeoTiffMissingMsg;GeoTiff- oder Tif-Datei fehlt.;A geoTiff or tif file is missing.;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadInfoGeoreferencedGeoTiffMsg;Daten sind georeferenziert;Data is georeferenced;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadGeoTiffNotGeoreferencedMsg;Ihre Rasterdaten sind nicht georeferenzeiert. Bitte fügen Sie eine Worldfile (*.tfw) in die ZIP-Datei oder georeferenzieren Sie das GeoTIFF.;Your raster data is not georeferenced. Please georeference it or add a worldfile (*.tfw) to the zip.;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadFailedNoTypeDeterminedMsg;Der Typ des Layers kann nicht bestimmt werden.;Type of the layer could not be determined.;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.tabPanelTitle;Metadaten;Metadata;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.title;Titel;Title;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.abstract;Zusammenfassung;Abstract;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.organisation;Organisation;Organisation;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.address;Anschrift;Mailing address;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.address;Straße und Hausnr.;Delivery point;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.city;Stadt;City;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.postalCode;Postleitzahl;Postal code;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.country;Land;Country;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.website;Website;Website;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.person;Verantwortlicher;Guarantor;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.name;Name;Name;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.email;E-Mail;E-Mail;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.referenceDate;Erstellungsdatum;Reference date;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.topic;Thema;Topic;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.geography;Geographisch;Geography;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.extent;Ausdehnung;Extent;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.projection;Projektionssystem;Projection;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.geoExtent;Räumliche Ausdehnung;Extent;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.minX;Min X;Min X;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.maxX;Max X;Max X;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.minY;Min Y;Min Y;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.maxY;Max Y;Max Y;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.timeExtent;Zeitraum;Time extent;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.start;Von;Start;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.end;Bis;End;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.format;Format;Format;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.limitations;Beschränkungen;Limitations;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.onlineResource;Online Resource;Online Resource;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.dataSource;Quelle;Data source;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.publications;Publikationen;publications;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.createdMetadataMsg;Metadaten erzeugt unter UUID:;Createad MetadataSet with UUID:;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.couldNotCreateMetadataMsg;Metadaten konnten nicht erzeugt werden;Could not create metadata set;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.couldNotLoadLayerDataMsg;Fehler beim lesen der Layer-Rohdaten;Error loading Layer Data;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.updatedMetadataMsg;Metadaten aktualisiert unter UUID:;Updated MetadataSet with UUID:;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.couldNotUpdateMetadataMsg;Metadaten konnten nicht aktualisiert werden;Could not update metadata set;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.style.title;Stil;Style;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.style.fieldsetTitle;Erzeuge Stil für Layer;Generate Style for Layer;хараахан орчуулагдаагүй; -
+MoMo.admin.view.panel.style.Rules;config.data.addRuleButtonText;Regel hinzugügen;Add Rule;хараахан орчуулагдаагүй; -
+MoMo.admin.view.panel.style.Rule;config.data.titlePrefix;Regel;Rule;хараахан орчуулагдаагүй; -
+MoMo.admin.view.panel.style.Rule;config.data.ruleNameText;Name;Name;хараахан орчуулагдаагүй; -
+MoMo.admin.view.panel.style.Rule;config.data.ruleTitleText;Titel;Title;хараахан орчуулагдаагүй; -
+MoMo.admin.view.panel.style.Rule;config.data.singleRoleNeededErrorMsg;Es muss mindestens eine Regel angegeben werden.;At least one rule is required.;хараахан орчуулагдаагүй; -
+MoMo.admin.view.panel.style.Rule;config.data.removeRuleButtonText;Regel entfernen;Remove this rule;хараахан орчуулагдаагүй; -
+MoMo.admin.view.panel.style.Filter;config.data.title;Filter verwenden;Use Filter;хараахан орчуулагдаагүй; -
+MoMo.admin.view.panel.style.Filter;config.data.attributeComboLabel;Attribut;Property;хараахан орчуулагдаагүй; -
+MoMo.admin.view.panel.style.Filter;config.data.operatorComboLabel;Operator;Operator;хараахан орчуулагдаагүй; -
+MoMo.admin.view.panel.style.Filter;config.data.literalNumberField1Label;Untere Grenze;Lower boundary;хараахан орчуулагдаагүй; -
+MoMo.admin.view.panel.style.Filter;config.data.literalNumberField2Label;Wert;Value;хараахан орчуулагдаагүй; -
+MoMo.admin.view.panel.style.Filter;config.data.literalTextFieldLabel;ähnlich wie;Is like pattern;хараахан орчуулагдаагүй; -
+MoMo.admin.view.panel.style.Symbolizer;config.data.name;SLDStyler;SLDStyler;хараахан орчуулагдаагүй; -
+MoMo.admin.view.panel.style.Symbolizer;config.data.title;Darstellung;Symbolizer;хараахан орчуулагдаагүй; -
+MoMo.admin.view.panel.style.Symbolizer;config.data.windowTitle;Symbolisierung bearbeiten;Edit symbolizer;хараахан орчуулагдаагүй; -
+MoMo.admin.view.panel.style.Symbolizer;config.data.symbolizerFieldSetHtml;Bearbeiten der Symbolisierung über Klick;Click symbolizer to edit;хараахан орчуулагдаагүй; -
+MoMo.admin.view.panel.style.Symbolizer;config.data.applySymbolizationText;Übernehmen;OK;хараахан орчуулагдаагүй; -
+MoMo.admin.view.panel.style.Symbolizer;config.data.cancelSymbolizationText;Abbrechen;Cancel;хараахан орчуулагдаагүй; -
+BasiGX.view.container.SLDStyler;config.data.pointStyleFieldSetTitle;Stil eines Punkts;Point Style;хараахан орчуулагдаагүй; -
+BasiGX.view.container.SLDStyler;config.data.pointStyleSymbolPanelTitle;Symbol;Symbol;хараахан орчуулагдаагүй; -
+BasiGX.view.container.SLDStyler;config.data.pointStyleRadiusNumberFieldLabel;Radius des Punkts;Point radius';хараахан орчуулагдаагүй; -
+BasiGX.view.container.SLDStyler;config.data.pointStyleStrokeNumberFieldLabel;Strichstärke;Stroke width;хараахан орчуулагдаагүй; -
+BasiGX.view.container.SLDStyler;config.data.pointStyleStrokeColorFieldLabel;Strichfarbe;Stroke color;хараахан орчуулагдаагүй; -
+BasiGX.view.container.SLDStyler;config.data.pointStyleFillColorFieldLabel;Füllfarbe;Fill Color;хараахан орчуулагдаагүй; -
+BasiGX.view.container.SLDStyler;config.data.pointStyleGraphicPanelTitle;Grafik;Graphic;хараахан орчуулагдаагүй; -
+BasiGX.view.container.SLDStyler;config.data.pointStyleChooseImgBtnText;Bild auswählen;Choose Image;хараахан орчуулагдаагүй; -
+BasiGX.view.container.SLDStyler;config.data.pointStyleChooseFontBtnText;Font-Symbol auswählen;Choose Font Symbol;хараахан орчуулагдаагүй; -
+BasiGX.view.container.SLDStyler;config.data.pointStyleImgScaleSliderLabel;Maßstab;Scale;хараахан орчуулагдаагүй; -
+BasiGX.view.container.SLDStyler;config.data.pointStyleImgRotationSliderLabel;Rotation;Rotation;хараахан орчуулагдаагүй; -
+BasiGX.view.container.SLDStyler;config.data.pointStyleImgOpacitySliderLabel;Deckkraft;Opacity;хараахан орчуулагдаагүй; -
+BasiGX.view.container.SLDStyler;config.data.lineStyleFieldSetTitle;Stil des LineString;LineString Style;хараахан орчуулагдаагүй; -
+BasiGX.view.container.SLDStyler;config.data.lineStyleStrokeNumberFieldLabel;Strichstärke;Stroke Width;хараахан орчуулагдаагүй; -
+BasiGX.view.container.SLDStyler;config.data.lineStyleStrokeColorFieldLabel;Strichfarbe;Stroke Color;хараахан орчуулагдаагүй; -
+BasiGX.view.container.SLDStyler;config.data.polygonStyleFieldSetTitle;Stil des Polygons;Polygon Style;хараахан орчуулагдаагүй; -
+BasiGX.view.container.SLDStyler;config.data.polygonStyleSymbolPanelTitle;Symbol;Symbol;хараахан орчуулагдаагүй; -
+BasiGX.view.container.SLDStyler;config.data.polygonStyleStrokeNumberFieldLabel;Strichstärke;Stroke Width;хараахан орчуулагдаагүй; -
+BasiGX.view.container.SLDStyler;config.data.polygonStyleStrokeColorFieldLabel;Strichfarbe;Stroke Color;хараахан орчуулагдаагүй; -
+BasiGX.view.container.SLDStyler;config.data.polygonStyleFillColorFieldLabel;Füllfarbe;Fill Color;хараахан орчуулагдаагүй; -
+BasiGX.view.container.SLDStyler;config.data.polygonStyleGraphicPanelTitle;Grafik;Graphic;хараахан орчуулагдаагүй; -
+BasiGX.view.container.SLDStyler;config.data.polygonStyleImgScaleSliderLabel;Maßstab;Scale;хараахан орчуулагдаагүй; -
+BasiGX.view.container.SLDStyler;config.data.polygonStyleImgRotationSliderLabel;Rotation;Rotation;хараахан орчуулагдаагүй; -
+BasiGX.view.container.SLDStyler;config.data.polygonStyleImgOpacitySliderLabel;Deckkraft;Opacity;хараахан орчуулагдаагүй; -
+BasiGX.view.container.SLDStyler;config.data.pointGrapicDeletedSuccessMsgText;Die Füllgrafik wurde gelöscht, bitte weisen Sie eine neue zu.;The icon has been deleted. Please reassign a new one.;хараахан орчуулагдаагүй; -
+BasiGX.view.container.SLDStyler;config.data.pointGrapicDeletedSuccessMsgTitle;Löschen der Füllgrafik erfolgreich;Deletion succesfull;хараахан орчуулагдаагүй; -
+BasiGX.view.container.SLDStyler;config.data.graphicPoolWindowTitle;Graphik-Pool;Graphic Pool;хараахан орчуулагдаагүй; -
+BasiGX.view.container.SLDStyler;config.data.fontSymbolPoolWindowTitle;Font symbol pool;Font symbol pool;хараахан орчуулагдаагүй; -
