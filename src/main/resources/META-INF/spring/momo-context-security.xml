@@ -21,6 +21,7 @@
     <http pattern="/client/resources/**" security="none" />
     <http pattern="/login/build/**" security="none" />
     <http pattern="/login/resources/**" security="none" />
+    <http pattern="/locale/**" security="none" />
     <!-- images need to be retrieved by the geoserver due to externalgraphics
         in the sldstyler, so we need to remove the csrf security enhancement -->
     <http pattern="/momoimage/getThumbnail.action" security="none" />
@@ -50,7 +51,7 @@
         <!-- URL security -->
         <intercept-url pattern="/index.html" access="permitAll" />
         <intercept-url pattern="/login/**" access="permitAll" />
-        <intercept-url pattern="/momousers/register.action" access="permitAll" />
+        <intercept-url pattern="/momousers/registeruser.action" access="permitAll" />
         <intercept-url pattern="/momousers/activateAccount.action" access="permitAll" />
         <intercept-url pattern="/momousers/resetPassword.action" access="permitAll" />
         <intercept-url pattern="/momousers/changePassword.action" access="permitAll" />

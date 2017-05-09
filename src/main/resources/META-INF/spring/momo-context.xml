@@ -63,18 +63,60 @@
         <constructor-arg value="${mail.defaultSender}"></constructor-arg>
     </bean>
 
-    <!-- The registration-success mail message template -->
+    <!-- The registration-success mail message template in english-->
     <bean id="registrationMailMessageTemplate" class="org.springframework.mail.SimpleMailMessage">
         <property name="from" value="${mail.defaultSender}" />
-        <property name="subject" value="${mail.registrationMailTemplateSubject}" />
-        <property name="text" value="${mail.registrationMailTemplateText}" />
+        <property name="subject" value="${mail.en.registrationMailTemplateSubject}" />
+        <property name="text" value="${mail.en.registrationMailTemplateText}" />
     </bean>
 
-    <!-- The reset-password mail message template -->
+    <!-- The registration-success mail message template in english-->
+    <bean id="registrationMailMessageTemplate-en" class="org.springframework.mail.SimpleMailMessage">
+        <property name="from" value="${mail.defaultSender}" />
+        <property name="subject" value="${mail.en.registrationMailTemplateSubject}" />
+        <property name="text" value="${mail.en.registrationMailTemplateText}" />
+    </bean>
+
+    <!-- The registration-success mail message template in mongolian-->
+    <bean id="registrationMailMessageTemplate-mn" class="org.springframework.mail.SimpleMailMessage">
+        <property name="from" value="${mail.defaultSender}" />
+        <property name="subject" value="${mail.mn.registrationMailTemplateSubject}" />
+        <property name="text" value="${mail.mn.registrationMailTemplateText}" />
+    </bean>
+
+    <!-- The registration-success mail message template in german-->
+    <bean id="registrationMailMessageTemplate-de" class="org.springframework.mail.SimpleMailMessage">
+        <property name="from" value="${mail.defaultSender}" />
+        <property name="subject" value="${mail.de.registrationMailTemplateSubject}" />
+        <property name="text" value="${mail.de.registrationMailTemplateText}" />
+    </bean>
+
+    <!-- The reset-password mail message template in english-->
     <bean id="resetPasswordMailMessageTemplate" class="org.springframework.mail.SimpleMailMessage">
         <property name="from" value="${mail.defaultSender}" />
-        <property name="subject" value="${mail.resetPasswordMailMessageTemplateSubject}" />
-        <property name="text" value="${mail.resetPasswordMailMessageTemplateText}" />
+        <property name="subject" value="${mail.en.resetPasswordMailMessageTemplateSubject}" />
+        <property name="text" value="${mail.en.resetPasswordMailMessageTemplateText}" />
+    </bean>
+
+    <!-- The reset-password mail message template in english-->
+    <bean id="resetPasswordMailMessageTemplate-en" class="org.springframework.mail.SimpleMailMessage">
+        <property name="from" value="${mail.defaultSender}" />
+        <property name="subject" value="${mail.en.resetPasswordMailMessageTemplateSubject}" />
+        <property name="text" value="${mail.en.resetPasswordMailMessageTemplateText}" />
+    </bean>
+
+    <!-- The reset-password mail message template in mongolian-->
+    <bean id="resetPasswordMailMessageTemplate-mn" class="org.springframework.mail.SimpleMailMessage">
+        <property name="from" value="${mail.defaultSender}" />
+        <property name="subject" value="${mail.mn.resetPasswordMailMessageTemplateSubject}" />
+        <property name="text" value="${mail.mn.resetPasswordMailMessageTemplateText}" />
+    </bean>
+
+    <!-- The reset-password mail message template in german-->
+    <bean id="resetPasswordMailMessageTemplate-de" class="org.springframework.mail.SimpleMailMessage">
+        <property name="from" value="${mail.defaultSender}" />
+        <property name="subject" value="${mail.de.resetPasswordMailMessageTemplateSubject}" />
+        <property name="text" value="${mail.de.resetPasswordMailMessageTemplateText}" />
     </bean>
 
     <!-- The change permissions mail message template in english -->

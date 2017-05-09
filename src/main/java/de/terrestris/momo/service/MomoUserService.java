@@ -2,7 +2,6 @@ package de.terrestris.momo.service;
 
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.List;
@@ -13,7 +12,6 @@ import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.http.client.utils.URIBuilder;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.criterion.SimpleExpression;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +19,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import org.springframework.web.util.UriUtils;
 
 import de.terrestris.momo.dao.MomoLayerDao;
 import de.terrestris.momo.dao.MomoUserDao;
@@ -32,6 +29,7 @@ import de.terrestris.momo.model.MomoUser;
 import de.terrestris.momo.model.MomoUserGroup;
 import de.terrestris.momo.model.security.UserGroupRole;
 import de.terrestris.shogun2.dao.GenericHibernateDao;
+import de.terrestris.shogun2.dao.RegistrationTokenDao;
 import de.terrestris.shogun2.dao.RoleDao;
 import de.terrestris.shogun2.dao.UserGroupDao;
 import de.terrestris.shogun2.model.PersistentObject;
@@ -44,7 +42,6 @@ import de.terrestris.shogun2.model.token.RegistrationToken;
 import de.terrestris.shogun2.service.PermissionAwareCrudService;
 import de.terrestris.shogun2.service.RoleService;
 import de.terrestris.shogun2.service.UserService;
-import de.terrestris.shogun2.util.application.Shogun2ContextUtil;
 import de.terrestris.shogun2.util.mail.MailPublisher;
 import javassist.NotFoundException;
 
@@ -125,6 +122,10 @@ public class MomoUserService<E extends MomoUser, D extends MomoUserDao<E>>
 	@Qualifier("permissionAwareCrudService")
 	private PermissionAwareCrudService<PersistentObject, GenericHibernateDao<PersistentObject, Integer>> permissionAwareCrudService;
 
+	@Autowired
+	@Qualifier("momoRegistrationTokenService")
+	private MomoRegistrationTokenService<RegistrationToken, RegistrationTokenDao<RegistrationToken>> momoRegistrationTokenService;
+
 	/**
 	 *
 	 */
@@ -156,12 +157,12 @@ public class MomoUserService<E extends MomoUser, D extends MomoUserDao<E>>
 	@SuppressWarnings("unchecked")
 	public void activateUser(String tokenValue) throws Exception {
 
-		RegistrationToken token = registrationTokenService.findByTokenValue(tokenValue);
+		RegistrationToken token = momoRegistrationTokenService.findByTokenValue(tokenValue);
 
 		LOG.debug("Trying to activate user account with token: " + tokenValue);
 
 		// throws Exception if token is not valid
-		registrationTokenService.validateToken(token);
+		momoRegistrationTokenService.validateToken(token);
 
 		// set active=true
 		E user = (E) token.getUser();
@@ -181,10 +182,41 @@ public class MomoUserService<E extends MomoUser, D extends MomoUserDao<E>>
 		dao.saveOrUpdate((E) user);
 
 		// delete the token
-		registrationTokenService.deleteTokenAfterActivation(token);
+		momoRegistrationTokenService.deleteTokenAfterActivation(token);
 
 		LOG.info("The user '" + user.getAccountName()
 				+ "' has successfully been activated.");
+	}
+
+	/**
+	 * Registers a new user. Initially, the user will be inactive. An email with
+	 * an activation link will be sent to the user.
+	 *
+	 * @param user A user with an UNencrypted password (!)
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
+	@Override
+	public E registerUser(E user, HttpServletRequest request) throws Exception {
+
+		String email = user.getEmail();
+
+		// check if a user with the email already exists
+		E existingUser = dao.findByEmail(email);
+
+		if(existingUser != null) {
+			final String errorMessage = "User with eMail '" + email + "' already exists.";
+			LOG.info(errorMessage);
+			throw new Exception(errorMessage);
+		}
+
+		user = (E) this.persistNewUser(user, true);
+
+		// create a token for the user and send an email with an "activation" link
+		momoRegistrationTokenService.sendRegistrationActivationMail(request, user);
+
+		return user;
 	}
 
 	/**
@@ -223,7 +255,7 @@ public class MomoUserService<E extends MomoUser, D extends MomoUserDao<E>>
 			throw new SecurityException(userAlreadyActivatedMsg);
 		}
 
-		RegistrationToken registrationToken = registrationTokenService.findByUser(user);
+		RegistrationToken registrationToken = momoRegistrationTokenService.findByUser(user);
 
 		if (registrationToken == null) {
 			String noTokenFoundMsg = "No token found for the requested user.";
@@ -231,30 +263,7 @@ public class MomoUserService<E extends MomoUser, D extends MomoUserDao<E>>
 			throw new NotFoundException(noTokenFoundMsg);
 		}
 
-		// Create a thread safe "copy" of the template message
-		SimpleMailMessage registrationActivationMsg = new SimpleMailMessage(
-				registrationTokenService.getRegistrationMailMessageTemplate());
-
-		// Get the webapp URI
-		URI appURI = Shogun2ContextUtil.getApplicationURIFromRequest(request);
-
-		// Build the registration activation link URI
-		URI tokenURI = new URIBuilder(appURI)
-				.setPath(appURI.getPath() + registrationTokenService.getAccountActivationPath())
-				.setParameter("token", registrationToken.getToken())
-				.build();
-
-		// Prepare a personalized mail with the given token
-		registrationActivationMsg.setTo(email);
-		registrationActivationMsg.setText(
-				String.format(
-						registrationActivationMsg.getText(),
-						UriUtils.decode(tokenURI.toString(), "UTF-8")
-				)
-		);
-
-		// And send the mail
-		mailPublisher.sendMail(registrationActivationMsg);
+		momoRegistrationTokenService.sendRegistrationActivationMail(request, user);
 	}
 
 	/**
@@ -497,6 +506,21 @@ public class MomoUserService<E extends MomoUser, D extends MomoUserDao<E>>
 	 */
 	public SimpleMailMessage getChangePermissionsMailMessageTemplate_de() {
 		return changePermissionsMailMessageTemplate_de;
+	}
+
+	/**
+	 * @return the momoRegistrationTokenService
+	 */
+	public MomoRegistrationTokenService<RegistrationToken, RegistrationTokenDao<RegistrationToken>> getMomoRegistrationTokenService() {
+		return momoRegistrationTokenService;
+	}
+
+	/**
+	 * @param momoRegistrationTokenService the momoRegistrationTokenService to set
+	 */
+	public void setMomoRegistrationTokenService(
+			MomoRegistrationTokenService<RegistrationToken, RegistrationTokenDao<RegistrationToken>> momoRegistrationTokenService) {
+		this.momoRegistrationTokenService = momoRegistrationTokenService;
 	}
 
 }
