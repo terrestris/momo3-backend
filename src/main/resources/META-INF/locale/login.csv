@@ -1,0 +1,153 @@
+component;property;de;en;mn;Dev-status
+MoMo.login.view.button.translation.ToEnglish;config.data.tooltipEn;EN;EN;EN;OK
+MoMo.login.view.button.translation.ToEnglish;config.data.setLanguageCallbackToastText;Applikationssprache ist jetzt {0};Application language is now {0};Хэл нь одоо байна {0};OK
+MoMo.login.view.button.translation.ToGerman;config.data.tooltipDe;DE;DE;DE;OK
+MoMo.login.view.button.translation.ToGerman;config.data.setLanguageCallbackToastText;Applikationssprache ist jetzt {0};Application language is now {0};Хэл нь одоо байна {0};OK
+MoMo.login.view.button.translation.ToMongolian;config.data.tooltipMn;MN;MN;MN;OK
+MoMo.login.view.button.translation.ToMongolian;config.data.setLanguageCallbackToastText;Applikationssprache ist jetzt {0};Application language is now {0};Хэл нь одоо байна {0};OK
+MoMo.login.view.authentication.Login;config.data.loginTitle;MoMo - Login;MoMo - Login;Хэл нь одоо байна; -
+MoMo.login.view.authentication.Login;config.data.loginFormLabel;Loggen Sie sich ein;Sign into your account;Хэл нь одоо байна; -
+MoMo.login.view.authentication.Login;config.data.userNameEmptyText;Benutzername;Username;Хэл нь одоо байна; -
+MoMo.login.view.authentication.Login;config.data.passwordEmptyText;Passwort;Password;Хэл нь одоо байна; -
+MoMo.login.view.authentication.Login;config.data.forgotPasswordText;Passwort vergessen ?;Forgot Password ?;Хэл нь одоо байна; -
+MoMo.login.view.authentication.Login;config.data.loginBtnText;Einloggen;Login;Хэл нь одоо байна; -
+MoMo.login.view.authentication.Login;config.data.createAccountBtnText;Account erstellen;Create Account;Хэл нь одоо байна; -
+MoMo.login.view.authentication.PasswordReset;config.data.passwordResetTitle;MoMo - Passwort zurücksetzen;MoMo - Reset Password;Хэл нь одоо байна; -
+MoMo.login.view.authentication.PasswordReset;config.data.passwordResetDescription;Geben Sie ihre Email ein für weitere Instruktionen;Enter your email address for further reset instructions;Хэл нь одоо байна; -
+MoMo.login.view.authentication.PasswordReset;config.data.emailAddressEmptyText;Emailadresse;Email;Хэл нь одоо байна; -
+MoMo.login.view.authentication.PasswordReset;config.data.resetPasswordBtnText;Passwort zurücksetzen;Reset Password;Хэл нь одоо байна; -
+MoMo.login.view.authentication.PasswordReset;config.data.backToLoginText;Zurück zum Login;Back to Log In;Хэл нь одоо байна; -
+MoMo.login.view.authentication.PasswordChange;config.data.changePasswordTitle;MoMo - Passwort ändern;MoMo - Change Password;Хэл нь одоо байна; -
+MoMo.login.view.authentication.PasswordChange;config.data.newPasswordText;Geben Sie ein neues Passwort ein.;Enter your new password.;Хэл нь одоо байна; -
+MoMo.login.view.authentication.PasswordChange;config.data.passwordEmptyText;Passwort;Password;Хэл нь одоо байна; -
+MoMo.login.view.authentication.PasswordChange;config.data.confirmPasswordEmptyText;Passwort wiederholen;Confirm Password;Хэл нь одоо байна; -
+MoMo.login.view.authentication.PasswordChange;config.data.changePasswordBtnText;Passwort ändern;Change Password;Хэл нь одоо байна; -
+MoMo.login.view.authentication.PasswordChange;config.data.backToLoginText;Zurück zum Login;Back to Log In;Хэл нь одоо байна; -
+MoMo.login.view.authentication.PasswordChange;config.data.passwordsAreNotEqualText;Passwörter sind nicht identisch;Passwords do not match;Хэл нь одоо байна; -
+MoMo.login.view.authentication.ResendToken;config.data.resendTokenTitle;MoMo - Registrierungsmail erneut senden;MoMo - Resend registration mail;Хэл нь одоо байна; -
+MoMo.login.view.authentication.ResendToken;config.data.resendTokenHtmlText;<p>Ihr Account ist noch nicht aktiviert.</p><p>Sie können Ihren Account aktivieren indem Sie die Registrierungsmail öffnen und den Link darin anklicken. Wenn Sie die Registrierungsmail nicht erhalten haben sollten, versuchen Sie bitte folgendes:</p><ul><li>Stellen Sie sicher, dass die Emailadresse die Sie verwendet haben, korrekt ist.</li><li>Prüfen Sie ihren Spam-Ordner im Emailprogramm.</li><li>Wenn Sie ein MailProgramm (wie Thunderbird oder Outlook) benutzen, müssen Sie sich ggf. in der Webpräsenz Ihres Providers einloggen, um den Spam-Ordner zu sehen.</li><li>Bitte seien Sie geduldig, manchmal kann die Zustellung der Mail eine Weile dauern (bis zu 24 Stunden).</li></ul><p>Wenn die oberen Schritte nicht geholfen haben, geben Sie bitte Ihre Emailadresse, die Sie zur Registrierung benutzt haben, unten ein. Sie erhalten dann einen neuen Aktivierungslink:;<p>The account you tried to log in with is not activated.</p><p>You can activate your account by opening the registration URL you should have received via email. If you haven\'t received the registration mail, please try the following:</p><ul><li>Ensure the email address you used to sign up with is correct.</li><li>Check your spam folder to see if the email has been delivered there.</li><li>If you\'re using a mail program (like Thunderbird or Outlook) to fetch your mails, you might need to login to the mail service web client to see the spam folder.</li><li>Please be patient, sometimes it can took a while (up to 24h) to the mail to be delivered.</li></ul><p>If the above couldn\'t help, please enter the email address you used to sign up with and the registration will be sent to you again:</p>;Хэл нь одоо байна; -
+MoMo.login.view.authentication.ResendToken;config.data.resendTokenEmailEmptyText;Email;Email;Хэл нь одоо байна; -
+MoMo.login.view.authentication.ResendToken;config.data.resendTokenBtnText;Registrierungsmail erneut anfordern;Resend registration mail;Хэл нь одоо байна; -
+MoMo.login.view.authentication.ResendToken;config.data.backToLoginText;Zurück zum Login;Back to Login;Хэл нь одоо байна; -
+MoMo.login.view.registration.Registration;config.data.registrationTitle;MoMo - Account erstellen;MoMo - Create Account;Хэл нь одоо байна; -
+MoMo.login.view.registration.Registration;config.data.registrationDescriptionText;Geben Sie ihre Email und ein Passwort für die Registrierung ein.;Enter e-mail and password to register.;Хэл нь одоо байна; -
+MoMo.login.view.registration.Registration;config.data.registrationEmailEmptyText;Email;Email;Хэл нь одоо байна; -
+MoMo.login.view.registration.Registration;config.data.registrationPasswordEmptyText;Passwort;Password;Хэл нь одоо байна; -
+MoMo.login.view.registration.Registration;config.data.registrationConfirmPasswordEmptyText;Passwort wiederholen;Confirm Password;Хэл нь одоо байна; -
+MoMo.login.view.registration.Registration;config.data.passwordsAreNotEqualText;Passwörter stimmen nicht überein;Passwords are not equal;Хэл нь одоо байна; -
+MoMo.login.view.registration.Registration;config.data.registrationBtnText;Account erstellen;Create Account;Хэл нь одоо байна; -
+MoMo.login.view.registration.Registration;config.data.backToLoginText;Zurück zum Login;Back to Login;Хэл нь одоо байна; -
+MoMo.login.view.registration.Registration;config.data.accountCreationSuccessTitle;Information;Information;Хэл нь одоо байна; -
+MoMo.login.view.registration.Registration;config.data.accountCreationSuccessMsg;Der Account wurde erfolgreich erstellt. Sie erhalten eine Mail mit weiteren Informationen;Your account has been successfully created. An Email with further instructions has been sent to your given account;Хэл нь одоо байна; -
+MoMo.login.view.registration.Registration;config.data.accountCreationFailureTitle;Fehler;Error;Хэл нь одоо байна; -
+MoMo.login.view.registration.Registration;config.data.accountCreationFailureMsg;Fehler beim Anlegen des neuen Accounts;Error creating the new account;Хэл нь одоо байна; -
+MoMo.login.view.authentication.Dialog;config.data.registrationSuccessTitle;Information;Information;Хэл нь одоо байна; -
+MoMo.login.view.authentication.Dialog;config.data.registrationSuccessMsg;Eine Mail mit weiteren Informationen wurde an Ihren Account verschickt;An email with further instructions has been sent to your account;Хэл нь одоо байна; -
+MoMo.login.view.authentication.Dialog;config.data.registrationFailureTitle;Fehler;Error;Хэл нь одоо байна; -
+MoMo.login.view.authentication.Dialog;config.data.registrationFailureMsg;Fehler beim Versenden der Mail;Error sending the mail to your account;Хэл нь одоо байна; -
+MoMo.login.view.authentication.Dialog;config.data.passwordUpdateSuccessTitle;Information;Information;Хэл нь одоо байна; -
+MoMo.login.view.authentication.Dialog;config.data.passwordUpdateSuccessMsg;Ihr Passwort wurde erfolgreich geändert;Your password has been successfully updated;Хэл нь одоо байна; -
+MoMo.login.view.authentication.Dialog;config.data.passwordUpdateFailureTitle;Fehler;Error;Хэл нь одоо байна; -
+MoMo.login.view.authentication.Dialog;config.data.passwordUpdateFailureMsg;Fehler beim Ändern des Passworts;Error updating the password;Хэл нь одоо байна; -
+MoMo.login.view.authentication.Dialog;config.data.resendRegistrationSuccessTitle;Information;Information;Хэл нь одоо байна; -
+MoMo.login.view.authentication.Dialog;config.data.resendRegistrationSuccessMsg;Die Registrierungsmail wurde an Ihre Email verschickt;The registration mail has been sent to your account;Хэл нь одоо байна; -
+MoMo.login.view.authentication.Dialog;config.data.resendRegistrationFailureTitle;Fehler;Error;Хэл нь одоо байна; -
+MoMo.login.view.authentication.Dialog;config.data.resendRegistrationFailureMsg;Fehler beim Versenden der Mail. Wurde Ihr Account bereits aktiviert?;Error sending the mail to your account. Has your account already be activated?;Хэл нь одоо байна; -
+Ext.Date;monthNames[];Januar,Februar,März,April,Mai,Juni,Juli,August,September,Oktober,November,Dezember;January,February,March,April,May,June,July,August,September,October,November,December;х,а,р,а,а,х,а,н,о,р,ч,у; -
+Ext.Date;defaultFormat;d.m.Y;m/d/Y;хараахан орчуулагдаагүй; -
+Ext.Date;monthNumbers.Jan;0;0;1; -
+Ext.Date;monthNumbers.Feb;1;1;1; -
+Ext.Date;monthNumbers.Mar;2;2;3; -
+Ext.Date;monthNumbers.Apr;3;3;3; -
+Ext.Date;monthNumbers.Mai;4;4;4; -
+Ext.Date;monthNumbers.Jun;5;5;5; -
+Ext.Date;monthNumbers.Jul;6;6;6; -
+Ext.Date;monthNumbers.Aug;7;7;4; -
+Ext.Date;monthNumbers.Sep;8;8;8; -
+Ext.Date;monthNumbers.Okt;9;9;9; -
+Ext.Date;monthNumbers.Nov;10;10;10; -
+Ext.Date;monthNumbers.Dez;11;11;11; -
+Ext.Date;dayNames[];Sonntag,Montag,Dienstag,Mittwoch,Donnerstag,Freitag,Samstag;Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday;х,а,р,а,а,х,а; -
+Ext.form.Basic;waitTitle;Bitte warten...;Please Wait...;хараахан орчуулагдаагүй; -
+Ext.form.CheckboxGroupExt.form.CheckboxGroup;blankText;Du musst mehr als einen Eintrag aus der Gruppe auswählen;You must select at least one item in this group;хараахан орчуулагдаагүй; -
+Ext.form.field.Base;invalidText;Der Wert des Feldes ist nicht korrekt;The value in this field is invalid;хараахан орчуулагдаагүй; -
+Ext.form.field.ComboBox;valueNotFoundText;;;; -
+Ext.form.field.ComboBox;defaultListConfig.loadingText;Lade Daten ...;Loading...;хараахан орчуулагдаагүй; -
+Ext.form.field.Date;disabledDaysText;nicht erlaubt;Disabled;хараахан орчуулагдаагүй; -
+Ext.form.field.Date;disabledDatesText;nicht erlaubt;Disabled;хараахан орчуулагдаагүй; -
+Ext.form.field.Date;minText;Das Datum in diesem Feld muss nach dem {0} liegen;The date in this field must be after {0};хараахан орчуулагдаагүй; -
+Ext.form.field.Date;maxText;Das Datum in diesem Feld muss vor dem {0} liegen;The date in this field must be before {0};хараахан орчуулагдаагүй; -
+Ext.form.field.Date;invalidText;{0} ist kein gültiges Datum - es muss im Format {1} eingegeben werden;{0} is not a valid date - it must be in the format {1};хараахан орчуулагдаагүй; -
+Ext.form.field.Date;format;d.m.Y;m/d/y;m/d/y; -
+Ext.form.field.Date;altFormats;j.n.Y|j.n.y|j.n.|j.|j/n/Y|j/n/y|j-n-y|j-n-Y|j/n|j-n|dm|dmy|dmY|j|Y-n-j|Y-m-d;m/d/Y|m-d-y|m-d-Y|m/d|m-d|md|mdy|mdY|d|Y-m-d;m/d/Y|m-d-y|m-d-Y|m/d|m-d|md|mdy|mdY|d|Y-m-d; -
+Ext.form.field.Date;startDay;1;1;1; -
+Ext.form.field.HtmlEditor;createLinkText;Bitte geben Sie die URL für den Link ein:;Please enter the URL for the link:;хараахан орчуулагдаагүй; -
+Ext.form.field.HtmlEditor;buttonTips.bold.title;Fett (Ctrl+B);Bold (Ctrl+B);хараахан орчуулагдаагүй; -
+Ext.form.field.Number;minText;Der Mindestwert für dieses Feld ist {0};The minimum value for this field is {0};хараахан орчуулагдаагүй; -
+Ext.form.field.Number;maxText;Der Maximalwert für dieses Feld ist {0};The maximum value for this field is {0};хараахан орчуулагдаагүй; -
+Ext.form.field.Number;nanText;{0} ist keine Zahl;{0} is not a valid number;хараахан орчуулагдаагүй; -
+Ext.form.field.Text;minLengthText;Bitte geben Sie mindestens {0} Zeichen ein;The minimum length for this field is {0};хараахан орчуулагдаагүй; -
+Ext.form.field.Text;maxLengthText;Bitte geben Sie maximal {0} Zeichen ein;The maximum length for this field is {0};хараахан орчуулагдаагүй; -
+Ext.form.field.Text;blankText;Dieses Feld darf nicht leer sein;This field is required;хараахан орчуулагдаагүй; -
+Ext.form.field.Text;regexText;;;; -
+Ext.form.field.Text;emptyText;;;; -
+Ext.form.field.Time;maxText;Die Zeit muss gleich oder vor {0} liegen;The time in this field must be equal to or before {0};хараахан орчуулагдаагүй; -
+Ext.form.field.Time;invalidText;{0} ist keine gültige Zeit;{0} is not a valid time;хараахан орчуулагдаагүй; -
+Ext.form.field.Time;format;H:i;g:i A;хараахан орчуулагдаагүй; -
+Ext.form.field.TimeExt.form.field.Time;minText;Die Zeit muss gleich oder nach {0} liegen;The time in this field must be equal to or after {0};хараахан орчуулагдаагүй; -
+Ext.form.field.VTypes;alphaText;Dieses Feld darf nur Buchstaben enthalten und _;This field should only contain letters and _;хараахан орчуулагдаагүй; -
+Ext.form.field.VTypes;alphanumText;Dieses Feld darf nur Buchstaben und Zahlen enthalten und _;This field should only contain letters numbers and _;хараахан орчуулагдаагүй; -
+Ext.form.field.VTypes;emailText;Dieses Feld sollte eine E-Mail-Adresse enthalten. Format: 'user@example.com';This field should be an e-mail address in the format 'user@example.com';хараахан орчуулагдаагүй; -
+Ext.form.field.VTypes;urlText;Dieses Feld sollte eine URL enthalten. Format: http:'www.example.com';This field should be a URL in the format 'http://www.example.com';хараахан орчуулагдаагүй; -
+Ext.form.RadioGroupExt.form.RadioGroup;blankText;Du musst einen Eintrag aus der Gruppe auswählen;You must select one item in this group;хараахан орчуулагдаагүй; -
+Ext.grid.BooleanColumn;falseText;FALSCH;false;хараахан орчуулагдаагүй; -
+Ext.grid.BooleanColumnExt.grid.BooleanColumn;trueText;wahr;true;хараахан орчуулагдаагүй; -
+Ext.grid.DateColumnExt.grid.DateColumn;format;d.m.Y;m/d/Y;m/d/Y; -
+Ext.grid.header.Container;sortDescText;Absteigend sortieren;Sort Descending;хараахан орчуулагдаагүй; -
+Ext.grid.header.Container;sortClearText;Sortierung entfernen;Remove Sorting;хараахан орчуулагдаагүй; -
+Ext.grid.header.Container;columnsText;Spalten;Columns;араахан орчуулагдаагүй; -
+Ext.grid.header.ContainerExt.grid.header.Container;sortAscText;Aufsteigend sortieren;Sort Ascending;хараахан орчуулагдаагүй; -
+Ext.grid.NumberColumnExt.grid.NumberColumn;format;0.000,00/i;0.000,00/i;0.000,00/i; -
+Ext.grid.plugin.DragDrop;dragText;0} Zeile(n) ausgewählt;{0} selected row{1};хараахан орчуулагдаагүй; -
+Ext.grid.PropertyColumnModel;valueText;Wert;Value;хараахан орчуулагдаагүй; -
+Ext.grid.PropertyColumnModel;dateFormat;d.m.Y;m/j/Y;m/j/Y; -
+Ext.grid.PropertyColumnModel;trueText;wahr;true;хараахан орчуулагдаагүй; -
+Ext.grid.PropertyColumnModel;falseText;FALSCH;false;хараахан орчуулагдаагүй; -
+Ext.grid.PropertyColumnModelExt.grid.PropertyColumnModel;nameText;Name;Name;хараахан орчуулагдаагүй; -
+Ext.LoadMask;msg;Lade Daten...;Loading...;хараахан орчуулагдаагүй; -
+Ext.grid.Panel;collapsible;Einklappen;Collapse panel;хараахан орчуулагдаагүй; -
+Ext.grid.Panel;collapsibleText;Einklappen;Collapse panel;хараахан орчуулагдаагүй; -
+Ext.picker.Date;minText;Dieses Datum liegt von dem erstmöglichen Datum;This date is before the minimum date;хараахан орчуулагдаагүй; -
+Ext.picker.Date;maxText;Dieses Datum liegt nach dem letztmöglichen Datum;This date is after the maximum date;хараахан орчуулагдаагүй; -
+Ext.picker.Date;disabledDaysText;;;; -
+Ext.picker.Date;disabledDatesText;;;; -
+Ext.picker.Date;nextText;Nächster Monat (Strg/Control + Rechts);Next Month (Control+Right);хараахан орчуулагдаагүй; -
+Ext.picker.Date;prevText;Vorheriger Monat (Strg/Control + Links);Previous Month (Control+Left);хараахан орчуулагдаагүй; -
+Ext.picker.Date;monthYearText;Monat auswählen (Strg/Control + Hoch/Runter, um ein Jahr auszuwählen);Choose a month (Control+Up/Down to move years);хараахан орчуулагдаагүй; -
+Ext.picker.Date;todayTip;Heute ({0}) (Leertaste);{0} (Spacebar);хараахан орчуулагдаагүй; -
+Ext.picker.Date;format;d.m.Y;m/d/y;m/d/y; -
+Ext.picker.Date;startDay;1;0;0; -
+Ext.picker.Date;todayText; Heute;Today;хараахан орчуулагдаагүй; -
+Ext.picker.Month;okText;Ok;OK;хараахан орчуулагдаагүй; -
+Ext.picker.Month;cancelText;Abbrechen;Cancel;хараахан орчуулагдаагүй; -
+Ext.tab.Tab;closeText;Diesen Tab schließen;Close this Tab;хараахан орчуулагдаагүй; -
+Ext.toolbar.Paging;beforePageText;Seite;Page;хараахан орчуулагдаагүй; -
+Ext.toolbar.Paging;afterPageText;von {0};of {0};хараахан орчуулагдаагүй; -
+Ext.toolbar.Paging;firstText;Erste Seite;First Page;хараахан орчуулагдаагүй; -
+Ext.toolbar.Paging;prevText;vorherige Seite;Previous Page;хараахан орчуулагдаагүй; -
+Ext.toolbar.Paging;nextText;nächste Seite;Next Page;хараахан орчуулагдаагүй; -
+Ext.toolbar.Paging;lastText;letzte Seite;Last Page;хараахан орчуулагдаагүй; -
+Ext.toolbar.Paging;refreshText;Aktualisieren;Refresh;хараахан орчуулагдаагүй; -
+Ext.toolbar.Paging;displayMsg;Anzeige Eintrag {0} - {1} von {2};Displaying {0} - {1} of {2};хараахан орчуулагдаагүй; -
+Ext.toolbar.Paging;emptyMsg;Keine Daten vorhanden;No data to display;хараахан орчуулагдаагүй; -
+Ext.util.Format;thousandSeparator;.;0;0; -
+Ext.util.Format;decimalSeparator;0;.;.; -
+Ext.util.Format;currencySign;€;$;₮; -
+Ext.util.Format;dateFormat;d.m.Y;m/d/Y;m/d/Y; -
+Ext.view.AbstractView;loadingText;Lade Daten...;Loading...;хараахан орчуулагдаагүй; -
+Ext.view.View;emptyText;;;; -
+Ext.window.MessageBox;buttonText.ok;Ok;OK;хараахан орчуулагдаагүй; -
+Ext.window.MessageBox;buttonText.cancel;Abbrechen;Cancel;хараахан орчуулагдаагүй; -
+Ext.window.MessageBox;buttonText.yes;Ja;Yes;хараахан орчуулагдаагүй; -
+Ext.window.MessageBox;buttonText.no;Nein;No;хараахан орчуулагдаагүй; -
+Ext.window.Window;closeToolText;Fenster schließen;close window;хараахан орчуулагдаагүй; -

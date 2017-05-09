@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +21,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import de.terrestris.momo.dao.MomoUserDao;
 import de.terrestris.momo.model.MomoUser;
+import de.terrestris.momo.service.MomoPasswordResetTokenService;
 import de.terrestris.momo.service.MomoUserService;
+import de.terrestris.shogun2.dao.PasswordResetTokenDao;
+import de.terrestris.shogun2.model.token.PasswordResetToken;
 import de.terrestris.shogun2.util.application.Shogun2ContextUtil;
 import de.terrestris.shogun2.util.data.ResultSet;
 import de.terrestris.shogun2.web.UserController;
@@ -56,6 +60,10 @@ public class MomoUserController<E extends MomoUser, D extends MomoUserDao<E>, S 
 	@Autowired
 	private String redirectPathAfterRegistrationCompleted;
 
+	@Autowired
+	@Qualifier("momoPasswordResetTokenService")
+	private MomoPasswordResetTokenService<PasswordResetToken, PasswordResetTokenDao<PasswordResetToken>> momoPasswordResetTokenService;
+
 	/**
 	 *
 	 * @param token
@@ -86,6 +94,46 @@ public class MomoUserController<E extends MomoUser, D extends MomoUserDao<E>, S 
 
 	/**
 	 *
+	 * @param email
+	 * @param password
+	 * @return
+	 */
+	@RequestMapping(value = "/registeruser.action", method = RequestMethod.POST)
+	public @ResponseBody Map<String, Object> registerUser(HttpServletRequest request,
+			@RequestParam String email,
+			@RequestParam String password,
+			@RequestParam String languageCode) {
+
+		try {
+			// build the user object that will be passed to the service method
+			E user = getEntityClass().newInstance();
+
+			Locale language = new Locale("en");
+			if (languageCode != null && languageCode.equalsIgnoreCase("mn")) {
+				language = new Locale("mn");
+			} else if (languageCode != null && languageCode.equalsIgnoreCase("de")) {
+				language = new Locale("de");
+			}
+
+			user.setEmail(email);
+			user.setAccountName(email);
+			user.setPassword(password);
+			user.setActive(false);
+			user.setLanguage(language);
+
+			user = service.registerUser(user, request);
+
+			return ResultSet.success("You have been registered. "
+					+ "Please check your mails (" + user.getEmail()
+					+ ") for further instructions.");
+		} catch(Exception e) {
+			LOG.error("Could not register a new user: " + e.getMessage());
+			return ResultSet.error("Could not register a new user.");
+		}
+	}
+
+	/**
+	 *
 	 * @param request
 	 * @param email
 	 * @return
@@ -102,6 +150,29 @@ public class MomoUserController<E extends MomoUser, D extends MomoUserDao<E>, S 
 		} catch (Exception e) {
 			LOG.error("Could not send the registration mail: " + e.getMessage());
 			return ResultSet.error("An error has occurred during your request.");
+		}
+	}
+
+	/**
+	 *
+	 * @param email
+	 * @return
+	 */
+	@Override
+	@RequestMapping(value = "/resetPassword.action", method = RequestMethod.POST)
+	public @ResponseBody Map<String, Object> resetPassword(HttpServletRequest request,
+			@RequestParam(value = "email") String email) {
+
+		LOG.debug("Requested to reset the password for '" + email + "'");
+
+		try {
+			momoPasswordResetTokenService.sendResetPasswordMail(request, email);
+			return ResultSet.success("Password reset has been requested. "
+					+ "Please check your mails!");
+		} catch (Exception e) {
+			final String message = e.getMessage();
+			LOG.error("Could not request a password reset: " + message);
+			return ResultSet.error(message);
 		}
 	}
 
