@@ -7,6 +7,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
@@ -26,11 +27,14 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import de.terrestris.momo.dao.MomoApplicationDao;
 import de.terrestris.momo.dao.UserGroupRoleDao;
+import de.terrestris.momo.model.MomoApplication;
 import de.terrestris.momo.model.MomoLayer;
 import de.terrestris.momo.model.MomoUser;
 import de.terrestris.momo.model.MomoUserGroup;
 import de.terrestris.momo.model.security.UserGroupRole;
+import de.terrestris.momo.service.MomoApplicationService;
 import de.terrestris.momo.service.UserGroupRoleService;
 import de.terrestris.momo.util.config.MomoConfigHolder;
 import de.terrestris.momo.util.security.MomoSecurityUtil;
@@ -139,6 +143,11 @@ public class MomoLayerPermissionEvaluatorTest {
 		permissionsToCheck.add(Permission.CREATE);
 		permissionsToCheck.add(Permission.UPDATE);
 		permissionsToCheck.add(Permission.DELETE);
+
+		MomoApplicationService<MomoApplication, MomoApplicationDao<MomoApplication>> momoApplicationServiceMock =
+				Mockito.mock(MomoApplicationService.class);
+		when(momoApplicationServiceMock.findAll()).thenReturn(new ArrayList<MomoApplication>());
+		momoLayerPermissionEvaluator.setMomoApplicationService(momoApplicationServiceMock);
 
 		for (Permission permission : permissionsToCheck) {
 			boolean permissionResult = momoLayerPermissionEvaluator.hasPermission(accessUser, testLayer, permission);
@@ -251,6 +260,11 @@ public class MomoLayerPermissionEvaluatorTest {
 		userRoles.add(role);
 
 		loginMockUser(userRoles);
+
+		MomoApplicationService<MomoApplication, MomoApplicationDao<MomoApplication>> momoApplicationServiceMock =
+				Mockito.mock(MomoApplicationService.class);
+		when(momoApplicationServiceMock.findAll()).thenReturn(new ArrayList<MomoApplication>());
+		momoLayerPermissionEvaluator.setMomoApplicationService(momoApplicationServiceMock);
 
 		boolean permissionResult = momoLayerPermissionEvaluator.hasPermission(accessUser, null, Permission.CREATE);
 		assertFalse(permissionResult);
