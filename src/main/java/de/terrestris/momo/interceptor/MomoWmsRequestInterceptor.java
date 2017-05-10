@@ -1,20 +1,13 @@
 package de.terrestris.momo.interceptor;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 
 import de.terrestris.momo.dao.MomoLayerDao;
 import de.terrestris.momo.model.MomoLayer;
-import de.terrestris.momo.model.MomoUserGroup;
 import de.terrestris.momo.service.MomoLayerService;
 import de.terrestris.shogun2.dao.UserDao;
-import de.terrestris.shogun2.model.Role;
 import de.terrestris.shogun2.model.User;
-import de.terrestris.shogun2.model.UserGroup;
 import de.terrestris.shogun2.service.UserService;
 import de.terrestris.shogun2.util.interceptor.MutableHttpServletRequest;
 import de.terrestris.shogun2.util.interceptor.WmsRequestInterceptorInterface;
@@ -73,77 +66,7 @@ public class MomoWmsRequestInterceptor extends BaseOgcInterceptor implements Wms
 			return null;
 		}
 
-		if(!layer.getSpatiallyRestricted()) {
-			// if the layer is not restricted -> allow
-			return request;
-		}
-
-		// 2. The logged in user
-		User currentUser = userService.getUserBySession();
-
-		if(currentUser == null) {
-			LOG.warn("Logged in user is null!?");
-			// TODO maybe returning null is not optimal here
-			return null;
-		}
-
-		// 2.1 Check if logged in user is ADMIN. If yes -> allow everything
-		for (Role role : currentUser.getRoles()) {
-			if(role.getName().equals(adminRoleName)) {
-				LOG.debug("User is admin -> Not intercepting the WMS request anymore!");
-				return request;
-			}
-		}
-
-		// 3. Adapt following request parameters:
-		//		- LAYERS
-		//		- STYLES
-		//		- CQL_FILTER
-		Set<UserGroup> userGroups = currentUser.getUserGroups();
-
-		Set<Integer> maskingValues = getMaskingPropertyValues(userGroups);
-		String commaSeparatedMaskingValues = StringUtils.join(maskingValues, ",");
-
-		String stylesParam = request.getParameter("STYLES");
-
-		String[] layersParamsArray = new String[]{layersParam, maskingFeatureType};
-		String[] stylesParamsArray = new String[]{stylesParam, maskingStyleName};
-
-		if(commaSeparatedMaskingValues.isEmpty()) {
-			// set an "invalid" id to avoid that the NOT IN expression can still be parsed but the
-			// WMS will not return anything, which should be the case if the layer is restricted,
-			// but the current user has not masking values assigned
-			commaSeparatedMaskingValues = "-1";
-		}
-
-		// We assume that there is no existing CQL_FILTER
-		// TODO: Assure that there will really never be a CQL_FILTER in a request
-		String cqlFilterParam = "1=1;" + maskingPropertyName + " NOT IN (" + commaSeparatedMaskingValues + ")";
-
-		request.setParameter("LAYERS", layersParamsArray);
-		request.setParameter("STYLES", stylesParamsArray);
-		request.setParameter("CQL_FILTER", cqlFilterParam);
-
 		return request;
-	}
-
-	/**
-	 * Extracts the values for the masking from all groups.
-	 *
-	 * @param userGroups
-	 * @return
-	 */
-	private Set<Integer> getMaskingPropertyValues(Set<UserGroup> userGroups) {
-		Set<Integer> allMaskingValues = new HashSet<Integer>();
-
-		for (UserGroup userGroup : userGroups) {
-			if(userGroup instanceof MomoUserGroup) {
-				final Set<Integer> groupMaskingValues = ((MomoUserGroup) userGroup).getMaskingValues();
-				allMaskingValues.addAll(groupMaskingValues);
-			}
-		}
-
-		return allMaskingValues;
 	}
 
 	/**
