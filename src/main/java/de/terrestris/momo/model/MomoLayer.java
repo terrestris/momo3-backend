@@ -17,7 +17,10 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import de.terrestris.momo.model.tree.LayerTreeLeaf;
+import de.terrestris.momo.util.serializer.MomoLayerSerializer;
 import de.terrestris.shogun2.model.User;
 import de.terrestris.shogun2.model.layer.Layer;
 
@@ -27,6 +30,7 @@ import de.terrestris.shogun2.model.layer.Layer;
  */
 @Entity
 @Table
+@JsonSerialize(using=MomoLayerSerializer.class)
 public class MomoLayer extends Layer {
 
 	/**
