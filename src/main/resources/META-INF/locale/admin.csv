@@ -35,6 +35,12 @@ MoMo.admin.view.grid.UserPermissionGrid;config.data.i18n.userPermissionGridPanel
 MoMo.admin.view.grid.UserPermissionGrid;config.data.i18n.userPermissionGridPanelSubadminColumnName;Sub-admin;Sub-admin;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.UserPermissionGrid;config.data.i18n.userPermissionGridPanelEditorColumnName;Editor;Editor;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.UserPermissionGrid;config.data.i18n.userPermissionGridPanelUserColumnName;Benutzer;User;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.UserList;config.data.i18n.actionSuccess;Ok;Success;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.UserList;config.data.i18n.actionFailure;Fehler;Error;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.UserList;config.data.i18n.deleteUser;Account löschen;Delete Account;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.UserList;config.data.i18n.deleteUserText;Wollen Sie wirklich die markierten Benutzer löschen?;'Do you really want to delete the selected users?;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.UserList;config.data.i18n.deletionSuccessText;Account erfolgreich gelöscht;Account has been successfully deleted;хараахан орчуулагдаагүй; -
+MoMo.admin.view.grid.UserList;config.data.i18n.deletionFailureText;Account konnte nicht gelöscht werden;Account could not be deleted;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.ApplicationList;config.data.i18n.applicationsTitle;Alle Applikationen;All applications;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.ApplicationList;config.data.i18n.applicationsCreateApp;Erstellen;Create;хараахан орчуулагдаагүй; -
 MoMo.admin.view.grid.ApplicationList;config.data.i18n.applicationsCopyApp;Kopieren;Copy;хараахан орчуулагдаагүй; -

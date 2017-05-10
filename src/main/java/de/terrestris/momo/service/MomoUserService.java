@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import javax.servlet.UnavailableException;
 import javax.servlet.http.HttpServletRequest;
 
 import org.hibernate.criterion.Restrictions;
@@ -17,13 +18,16 @@ import org.hibernate.criterion.SimpleExpression;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import de.terrestris.momo.dao.MomoApplicationDao;
 import de.terrestris.momo.dao.MomoLayerDao;
 import de.terrestris.momo.dao.MomoUserDao;
 import de.terrestris.momo.dao.MomoUserGroupDao;
 import de.terrestris.momo.dao.UserGroupRoleDao;
+import de.terrestris.momo.model.MomoApplication;
 import de.terrestris.momo.model.MomoLayer;
 import de.terrestris.momo.model.MomoUser;
 import de.terrestris.momo.model.MomoUserGroup;
@@ -110,6 +114,13 @@ public class MomoUserService<E extends MomoUser, D extends MomoUserDao<E>>
 	@Autowired
 	@Qualifier("momoLayerDao")
 	private MomoLayerDao<MomoLayer> layerDao;
+
+	/**
+	 *
+	 */
+	@Autowired
+	@Qualifier("momoApplicationDao")
+	private MomoApplicationDao<MomoApplication> applicationDao;
 
 	/**
 	 * Role service
@@ -280,18 +291,27 @@ public class MomoUserService<E extends MomoUser, D extends MomoUserDao<E>>
 	 * @param permissions
 	 */
 	@SuppressWarnings("unchecked")
-	public void updateUser(String firstName,String lastName,String email,String telephone,String department,
+	public void updateUser(Integer userId, String firstName,String lastName,String email,String telephone,String department,
 			String profileImage, String language, HashMap<String,String> permissions) {
-		E user = getUserBySession();
-		user.setFirstName(firstName);
-		user.setLastName(lastName);
-		user.setEmail(email);
-		user.setTelephone(telephone);
-		user.setDepartment(department);
-		user.setProfileImage(profileImage);
-		user.setLanguage(new Locale(language));
+		if (userId == null) {
+			throw new IllegalArgumentException("No userId to update given");
+		}
+		E updatingUser = getUserBySession();
+		E userToUpdate = findById(userId);
 
-		dao.saveOrUpdate(user);
+		if (!updatingUser.equals(userToUpdate)) {
+			throw new AccessDeniedException("Users can only update themselves");
+		}
+
+		userToUpdate.setFirstName(firstName);
+		userToUpdate.setLastName(lastName);
+		userToUpdate.setEmail(email);
+		userToUpdate.setTelephone(telephone);
+		userToUpdate.setDepartment(department);
+		userToUpdate.setProfileImage(profileImage);
+		userToUpdate.setLanguage(new Locale(language));
+
+		dao.saveOrUpdate(userToUpdate);
 
 		// now handle the permission changes
 		Role subadminRole = roleService.findByRoleName("ROLE_SUBADMIN");
@@ -327,35 +347,63 @@ public class MomoUserService<E extends MomoUser, D extends MomoUserDao<E>>
 				if (wantedRole.equals("ROLE_SUBADMIN")) {
 					//sendmail to superadmin
 					if (superadmin != null) {
-						sendPermissionChangeMail(superadmin, wantedRole, group, user);
+						sendPermissionChangeMail(superadmin, wantedRole, group, userToUpdate);
 					}
 				} else if (wantedRole.equals("ROLE_EDITOR") ||
 						wantedRole.equals("ROLE_USER") ||
 						wantedRole.equals("REMOVE")) {
 					//send mail to subadmin, or, if not available, to the superadmin
-					sendMailToSubadminOrSuperadmin(subadminForGroup, superadmin, wantedRole, group, user);
+					sendMailToSubadminOrSuperadmin(subadminForGroup, superadmin, wantedRole, group, userToUpdate);
 				}
 			}
 		}
 	}
 
 	/**
-	 * Deletes a user and its entities
-	 * TODO: What shall happen exactly? really delete all entities?
-	 * TODO: currenlty only layers get deleted, what about the others?
+	 * Deletes a user and changes ownership of its entities to superadmin
+	 * @throws UnavailableException
 	 *
 	 */
-	@SuppressWarnings("unchecked")
-	public void deleteUser() {
+	public void deleteUser(Integer userId) throws UnavailableException {
 
 		LOG.info("Trying to delete a user");
 
-		MomoUser user = getUserBySession();
-		if (user == null) {
+		E deletingUser = getUserBySession();
+		E userToDelete = findById(userId);
+		if (userToDelete == null) {
 			throw new RuntimeException("User to delete could not be found");
 		}
 
-		List<UserGroupRole> userGroupRoles = userGroupRoleService.findUserGroupRolesBy(user);
+		// check if current user may delete the user
+		Set<Role> rolesOfDeletingUser = userGroupRoleService.findAllUserRoles(deletingUser);
+		Set<Role> rolesOfUserToDelete = userGroupRoleService.findAllUserRoles(userToDelete);
+		Role adminRole = roleService.findByRoleName("ROLE_ADMIN");
+		MomoUser adminUser = null;
+		List<E> allUsers = findAll();
+		for (MomoUser user : allUsers) {
+			Set<Role> roles = userGroupRoleService.findAllUserRoles(user);
+			if (roles.contains(adminRole)) {
+				adminUser = user;
+				break;
+			}
+		}
+
+		if (adminUser == null) {
+			throw new UnavailableException("Could not find the superadmin, aborting");
+		}
+
+		boolean deletingUserIsAdmin = rolesOfDeletingUser.contains(adminRole);
+		boolean userToDeleteIsAdmin = rolesOfUserToDelete.contains(adminRole);
+		if (!userToDelete.equals(deletingUser) &&
+				!deletingUserIsAdmin) {
+			throw new AccessDeniedException("Access is denied");
+		}
+
+		if (userToDeleteIsAdmin) {
+			throw new AccessDeniedException("The Superadmin may not be deleted");
+		}
+
+		List<UserGroupRole> userGroupRoles = userGroupRoleService.findUserGroupRolesBy(userToDelete);
 		for (UserGroupRole userGroupRole : userGroupRoles) {
 			userGroupRoleService.delete(userGroupRole);
 			LOG.debug("Deleted a user group role");
@@ -363,7 +411,7 @@ public class MomoUserService<E extends MomoUser, D extends MomoUserDao<E>>
 
 		// Delete all remaining PermissionCollections for this user, e.g. webmap
 		Map<PersistentObject, PermissionCollection> entityPermissionCollectionsForUser =
-				dao.findAllUserPermissionsOfUser(user);
+				dao.findAllUserPermissionsOfUser(userToDelete);
 		Set<PersistentObject> entitiesWithPermissions = entityPermissionCollectionsForUser.keySet();
 
 		for (PersistentObject persistentObject : entitiesWithPermissions) {
@@ -377,22 +425,36 @@ public class MomoUserService<E extends MomoUser, D extends MomoUserDao<E>>
 					PermissionCollection permissionsOnEntity = entry.getValue();
 					Set<Permission> permissionsSet = permissionsOnEntity.getPermissions();
 					Permission[] permissionsArray = permissionsSet.toArray(new Permission[permissionsSet.size()]);
-					permissionAwareCrudService.removeAndSaveUserPermissions(persistentObject, user, permissionsArray);
+					permissionAwareCrudService.removeAndSaveUserPermissions(persistentObject, userToDelete, permissionsArray);
 					LOG.debug("Removed a permission collection for the user");
 					break;
 				}
 			}
 		}
 
-		// delete all layers of user where he is owner
-		final SimpleExpression isOwner = Restrictions.eq("owner", user);
+		// reown all layers of user
+		final SimpleExpression isOwner = Restrictions.eq("owner", userToDelete);
 		List<MomoLayer> usersLayers = layerDao.findByCriteria(isOwner);
 		for (MomoLayer momoLayer : usersLayers) {
-			layerDao.delete(momoLayer);
-			LOG.info("Delete a layer the user has created");
+			momoLayer.setOwner(adminUser);
+			LOG.info("A layer ownership has been moved to the superadmin");
 		}
 
-		dao.delete((E) user);
+		// reown all applications of user
+		List<MomoApplication> usersApplications = applicationDao.findByCriteria(isOwner);
+		for (MomoApplication momoApp : usersApplications) {
+			momoApp.setOwner(adminUser);
+			LOG.info("An application ownership has been moved to the superadmin");
+		}
+
+		// reown all applications of user
+		List<MomoUserGroup> usersGroups = momoUserGroupDao.findByCriteria(isOwner);
+		for (MomoUserGroup momoGroup : usersGroups) {
+			momoGroup.setOwner(adminUser);
+			LOG.info("A group ownership has been moved to the superadmin");
+		}
+
+		dao.delete((E) userToDelete);
 	}
 
 	/**

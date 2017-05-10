@@ -196,10 +196,11 @@ public class MomoUserController<E extends MomoUser, D extends MomoUserDao<E>, S 
 		String department = (String) params.get("department");
 		String profileImage = (String) params.get("profileImage");
 		String language = (String) params.get("language");
+		Integer userId = (Integer)params.get("userId");
 		HashMap<String, String> permissions = (HashMap<String, String>) params.get("permissions");
 
 		try {
-			service.updateUser(firstName, lastName, email, telephone, department,
+			service.updateUser(userId, firstName, lastName, email, telephone, department,
 					profileImage, language, permissions);
 			LOG.info("Successfully updated a user");
 			return ResultSet.success("ok");
@@ -216,10 +217,11 @@ public class MomoUserController<E extends MomoUser, D extends MomoUserDao<E>, S 
 	 * @return
 	 */
 	@RequestMapping(value = "/delete.action", method = RequestMethod.POST)
-	public @ResponseBody Map<String, Object> delete(HttpServletRequest request) {
+	public @ResponseBody Map<String, Object> delete(HttpServletRequest request,
+			@RequestParam(value = "id") Integer userId) {
 
 		try {
-			service.deleteUser();
+			service.deleteUser(userId);
 			LOG.info("Successfully deleted a user");
 			return ResultSet.success("ok");
 		} catch (Exception e) {
