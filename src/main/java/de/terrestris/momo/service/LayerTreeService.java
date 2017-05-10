@@ -59,6 +59,9 @@ public class LayerTreeService<E extends TreeNode, D extends LayerTreeDao<E>> ext
 	public List<Layer> getAllMapLayersFromTreeFolder(LayerTreeFolder treeFolder) throws Exception {
 
 		List<Layer> mapLayerList = new ArrayList<Layer>();
+		if (treeFolder == null) {
+			return mapLayerList;
+		}
 
 		List<TreeNode> children = treeFolder.getChildren();
 
