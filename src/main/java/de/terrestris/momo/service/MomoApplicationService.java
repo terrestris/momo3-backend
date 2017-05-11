@@ -420,7 +420,7 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 		return resultList;
 	}
 
-	@PreAuthorize("hasRole(@configHolder.getSuperAdminRoleName())")
+	@PreAuthorize("hasRole(@momoConfigHolder.getEditorRoleName())")
 	public DocumentTreeFolder createNewDocumentRoot(Integer id, String name) throws Exception {
 		E app = this.findById(id);
 
@@ -452,7 +452,7 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 	 * @param docId
 	 * @throws Exception
 	 */
-	@PreAuthorize("hasRole(@configHolder.getSuperAdminRoleName())")
+	@PreAuthorize("hasRole(@momoConfigHolder.getEditorRoleName())")
 	public void deleteDocumentRoot(Integer id, Integer docId) throws Exception {
 		E app = this.findById(id);
 

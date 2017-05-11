@@ -4,6 +4,7 @@
 package de.terrestris.momo.security.access.entity;
 
 import de.terrestris.momo.model.tree.DocumentTreeFolder;
+import de.terrestris.momo.util.security.MomoSecurityUtil;
 import de.terrestris.shogun2.model.User;
 import de.terrestris.shogun2.model.security.Permission;
 
@@ -40,6 +41,11 @@ public class DocumentTreeFolderPermissionEvaluator<E extends DocumentTreeFolder>
 		// always grant READ right for this entity
 		if (permission.equals(Permission.READ)) {
 			LOG.trace("Granting READ for document tree folder.");
+			return true;
+		}
+
+		if (!MomoSecurityUtil.currentUsersHighestRoleIsDefaultUser()) {
+			// user has at least role editor, allow everything
 			return true;
 		}
 

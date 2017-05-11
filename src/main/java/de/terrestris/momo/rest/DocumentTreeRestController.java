@@ -23,6 +23,7 @@ import de.terrestris.momo.dao.DocumentTreeDao;
 import de.terrestris.momo.model.tree.DocumentTreeFolder;
 import de.terrestris.momo.model.tree.DocumentTreeLeaf;
 import de.terrestris.momo.service.DocumentTreeService;
+import de.terrestris.momo.util.config.MomoConfigHolder;
 import de.terrestris.shogun2.model.File;
 import de.terrestris.shogun2.model.tree.TreeNode;
 import de.terrestris.shogun2.rest.TreeNodeRestController;
@@ -65,6 +66,10 @@ public class DocumentTreeRestController<E extends TreeNode, D extends DocumentTr
 	public void setService(S service) {
 		this.service = service;
 	}
+
+	@Autowired
+	@Qualifier("momoConfigHolder")
+	private MomoConfigHolder momoConfigHolder;
 
 	/**
 	 * Attaches a document to a (doctree leaf) node
