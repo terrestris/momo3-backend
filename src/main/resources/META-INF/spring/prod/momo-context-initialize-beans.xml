@@ -31,6 +31,10 @@
         <ref bean="adminUserGroup"/>
         <ref bean="defaultUserGroup"/>
 
+        <!-- UserGroupRoles -->
+        <ref bean="adminUserUserGroupRole"/>
+        <ref bean="defaultUserUserGroupRole"/>
+
         <!-- Layouts -->
         <ref bean="borderLayout"/>
         <ref bean="absoluteLayout"/>
@@ -46,7 +50,10 @@
         <ref bean="osmWmsLayerAppearance" />
 
         <!-- Permissions -->
-        <ref bean="defaultUserPermissionCollection" />
+        <ref bean="readAccessPermissionCollection" />
+        <ref bean="createAccessPermissionCollection" />
+        <ref bean="updateAccessPermissionCollection" />
+        <ref bean="fullAccessPermissionCollection" />
 
         <!-- Layers -->
         <ref bean="osmWmsLayer" />
@@ -335,73 +342,63 @@
         <property name="name" value="${role.superAdminRoleName}"/>
         <property name="description" value="Administrator Role"/>
     </bean>
+    <bean id="subAdminRole" class="de.terrestris.shogun2.model.Role">
+        <property name="name" value="${role.subAdminRoleName}"/>
+        <property name="description" value="Subadmin Role"/>
+    </bean>
+    <bean id="editorRole" class="de.terrestris.shogun2.model.Role">
+        <property name="name" value="${role.editorRoleName}"/>
+        <property name="description" value="Editor Role"/>
+    </bean>
     <bean id="userRole" class="de.terrestris.shogun2.model.Role">
-        <property name="name" value="${role.userRoleName}"/>
+        <property name="name" value="${role.defaultUserRoleName}"/>
         <property name="description" value="User Role"/>
     </bean>
 
     <!-- Define users -->
-    <bean id="adminUser" class="de.terrestris.shogun2.model.User">
+    <bean id="adminUser" class="de.terrestris.momo.model.MomoUser">
         <property name="firstName" value="Admins first name"/>
         <property name="lastName" value="Admins last name"/>
         <property name="accountName" value="admin"/>
         <!-- This will be encrypted when the init service saves the user. -->
         <property name="password" value="shogun2"/>
         <property name="active" value="true"/>
-        <property name="roles">
-            <util:set id="adminUserRoles">
-                <ref bean="adminRole"/>
-            </util:set>
-        </property>
     </bean>
-    <bean id="defaultUser" class="de.terrestris.shogun2.model.User">
+    <bean id="defaultUser" class="de.terrestris.momo.model.MomoUser">
         <property name="firstName" value="Users first name"/>
         <property name="lastName" value="Users last name"/>
         <property name="accountName" value="user"/>
         <!-- This will be encrypted when the init service saves the user. -->
         <property name="password" value="shogun2"/>
         <property name="active" value="true"/>
-        <property name="roles">
-            <util:set id="defaultUserRoles">
-                <ref bean="userRole"/>
-            </util:set>
-        </property>
     </bean>
 
     <!-- Define userGroups -->
     <bean id="adminUserGroup" class="de.terrestris.momo.model.MomoUserGroup">
         <property name="name" value="Admin User Group"/>
         <property name="owner" ref="adminUser"/>
-        <property name="members">
-            <util:set id="adminUserGroupMembers">
-                <ref bean="adminUser"/>
-            </util:set>
-        </property>
-        <property name="roles">
-            <util:set id="adminUserGroupRoles">
-                <ref bean="adminRole"/>
-            </util:set>
-        </property>
     </bean>
     <bean id="defaultUserGroup" class="de.terrestris.momo.model.MomoUserGroup">
         <property name="name" value="Default User Group"/>
         <property name="owner" ref="adminUser"/>
-        <property name="members">
-            <util:set id="defaultUserGroupMembers">
-                <ref bean="defaultUser"/>
-            </util:set>
-        </property>
-        <property name="roles">
-            <util:set id="defaultUserGroupRoles">
-                <ref bean="userRole"/>
-            </util:set>
-        </property>
         <property name="maskingValues">
             <util:set id="defaultUserGroupRoles">
                 <value>14</value>
                 <value>21</value>
             </util:set>
         </property>
+    </bean>
+
+	<!-- Define userGroupRoles -->
+    <bean id="adminUserUserGroupRole" class="de.terrestris.momo.model.security.UserGroupRole">
+        <property name="user" ref="adminUser"/>
+        <property name="group" ref="adminUserGroup"/>
+        <property name="role" ref="adminRole"/>
+    </bean>
+    <bean id="defaultUserUserGroupRole" class="de.terrestris.momo.model.security.UserGroupRole">
+        <property name="user" ref="defaultUser"/>
+        <property name="group" ref="defaultUserGroup"/>
+        <property name="role" ref="userRole"/>
     </bean>
 
     <!-- The Border layout -->
@@ -3344,9 +3341,9 @@
         <property name="spatiallyRestricted" value="true" />
         <property name="hoverable" value="true" />
         <property name="userPermissions">
-            <!-- Allow that the default user to READ this application -->
+            <!-- Allow that the default user to READ this layer -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3360,7 +3357,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3374,7 +3371,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3388,7 +3385,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3402,7 +3399,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3416,7 +3413,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3430,7 +3427,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3444,7 +3441,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3458,7 +3455,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3472,7 +3469,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3486,7 +3483,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3500,7 +3497,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3514,7 +3511,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3528,7 +3525,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3542,7 +3539,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3556,7 +3553,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3570,7 +3567,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3584,7 +3581,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3598,7 +3595,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3612,7 +3609,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3626,7 +3623,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3640,7 +3637,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3654,7 +3651,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3668,7 +3665,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3682,7 +3679,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3696,7 +3693,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3710,7 +3707,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3724,7 +3721,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3738,7 +3735,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3752,7 +3749,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3766,7 +3763,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3780,7 +3777,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3794,7 +3791,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3808,7 +3805,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3822,7 +3819,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3836,7 +3833,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3850,7 +3847,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3865,7 +3862,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3879,7 +3876,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3893,7 +3890,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3907,7 +3904,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3921,7 +3918,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3936,7 +3933,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3951,7 +3948,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3965,7 +3962,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3979,7 +3976,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -3993,7 +3990,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4007,7 +4004,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4021,7 +4018,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4035,7 +4032,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4049,7 +4046,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4063,7 +4060,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4077,7 +4074,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4091,7 +4088,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4105,7 +4102,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4119,7 +4116,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4133,7 +4130,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4147,7 +4144,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4161,7 +4158,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4175,7 +4172,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4189,7 +4186,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4203,7 +4200,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4217,7 +4214,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4232,7 +4229,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4246,7 +4243,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4260,7 +4257,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4274,7 +4271,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4288,7 +4285,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4302,7 +4299,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4316,7 +4313,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4330,7 +4327,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4344,7 +4341,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4358,7 +4355,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4372,7 +4369,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4386,7 +4383,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4400,7 +4397,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4414,7 +4411,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4428,7 +4425,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4442,7 +4439,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4456,7 +4453,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4470,7 +4467,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4484,7 +4481,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4498,7 +4495,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4512,7 +4509,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4526,7 +4523,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4540,7 +4537,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4554,7 +4551,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4568,7 +4565,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4582,7 +4579,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4596,7 +4593,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4610,7 +4607,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4624,7 +4621,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4638,7 +4635,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4652,7 +4649,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4666,7 +4663,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4680,7 +4677,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4694,7 +4691,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4708,7 +4705,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4722,7 +4719,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4736,7 +4733,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4750,7 +4747,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4764,7 +4761,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4778,7 +4775,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4792,7 +4789,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4806,7 +4803,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4820,7 +4817,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4834,7 +4831,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4848,7 +4845,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4862,7 +4859,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4876,7 +4873,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4890,7 +4887,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4904,7 +4901,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4918,7 +4915,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4932,7 +4929,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4947,7 +4944,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4961,7 +4958,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4975,7 +4972,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -4989,7 +4986,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5003,7 +5000,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5017,7 +5014,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5031,7 +5028,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5045,7 +5042,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5059,7 +5056,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5073,7 +5070,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5087,7 +5084,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5101,7 +5098,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5115,7 +5112,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5129,7 +5126,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5143,7 +5140,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5157,7 +5154,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5171,7 +5168,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5185,7 +5182,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5199,7 +5196,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5213,7 +5210,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5227,7 +5224,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5241,7 +5238,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5255,7 +5252,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5269,7 +5266,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5283,7 +5280,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5297,7 +5294,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5311,7 +5308,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5325,7 +5322,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5339,7 +5336,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5353,7 +5350,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5367,7 +5364,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5381,7 +5378,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5395,7 +5392,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5409,7 +5406,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5423,7 +5420,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5437,7 +5434,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5451,7 +5448,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5465,7 +5462,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5479,7 +5476,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5493,7 +5490,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5507,7 +5504,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5521,7 +5518,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5535,7 +5532,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5549,7 +5546,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5563,7 +5560,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5577,7 +5574,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5591,7 +5588,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5605,7 +5602,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5619,7 +5616,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5633,7 +5630,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5647,7 +5644,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5661,7 +5658,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5675,7 +5672,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5689,7 +5686,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5703,7 +5700,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5717,7 +5714,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5731,7 +5728,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5745,7 +5742,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5759,7 +5756,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5773,7 +5770,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5787,7 +5784,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5801,7 +5798,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5815,7 +5812,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5829,7 +5826,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5843,7 +5840,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5857,7 +5854,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5871,7 +5868,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5885,7 +5882,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5899,7 +5896,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5913,7 +5910,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5927,7 +5924,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5941,7 +5938,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5955,7 +5952,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5969,7 +5966,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5983,7 +5980,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -5997,7 +5994,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -6011,7 +6008,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -6025,7 +6022,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -6039,7 +6036,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -6053,7 +6050,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -6067,7 +6064,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -6081,7 +6078,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -6095,7 +6092,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -6109,7 +6106,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -6123,7 +6120,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -6137,7 +6134,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -6151,7 +6148,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -6165,7 +6162,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -6179,7 +6176,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -6193,7 +6190,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -6207,7 +6204,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -6221,7 +6218,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -6235,7 +6232,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -6250,7 +6247,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -6264,7 +6261,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
@@ -6926,12 +6923,42 @@
         </property>
     </bean>
 
-    <bean id="defaultUserPermissionCollection" class="de.terrestris.shogun2.model.security.PermissionCollection">
-        <property name="permissions">
-            <util:set>
-                <value>READ</value>
-            </util:set>
-        </property>
+    <bean id="readAccessPermissionCollection" class="de.terrestris.shogun2.model.security.PermissionCollection">
+      <property name="permissions">
+          <util:set>
+              <value>READ</value>
+          </util:set>
+      </property>
+    </bean>
+
+    <bean id="createAccessPermissionCollection" class="de.terrestris.shogun2.model.security.PermissionCollection">
+      <property name="permissions">
+          <util:set>
+              <value>READ</value>
+              <value>CREATE</value>
+          </util:set>
+      </property>
+    </bean>
+
+    <bean id="updateAccessPermissionCollection" class="de.terrestris.shogun2.model.security.PermissionCollection">
+      <property name="permissions">
+          <util:set>
+              <value>READ</value>
+              <value>CREATE</value>
+              <value>UPDATE</value>
+          </util:set>
+      </property>
+    </bean>
+
+    <bean id="fullAccessPermissionCollection" class="de.terrestris.shogun2.model.security.PermissionCollection">
+      <property name="permissions">
+          <util:set>
+              <value>READ</value>
+              <value>CREATE</value>
+              <value>UPDATE</value>
+              <value>DELETE</value>
+          </util:set>
+      </property>
     </bean>
 
     <!-- Define applications -->
@@ -6960,7 +6987,7 @@
         <property name="userPermissions">
             <!-- Allow that the default user to READ this application -->
             <util:map>
-                <entry key-ref="defaultUser" value-ref="defaultUserPermissionCollection" />
+                <entry key-ref="defaultUser" value-ref="readAccessPermissionCollection" />
             </util:map>
         </property>
     </bean>
