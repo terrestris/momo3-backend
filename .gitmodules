@@ -27,6 +27,7 @@
 [submodule "src/main/webapp/lib/ol3"]
 	path = src/main/webapp/lib/ol3
 	url = https://github.com/openlayers/ol3.git # by tag v3.17.1 (eb92c26)
-[submodule "src/main/webapp/lib/proj4"]
+
+[submodule "proj4"]
 	path = src/main/webapp/lib/proj4
 	url = https://github.com/proj4js/proj4js.git
