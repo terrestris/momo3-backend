@@ -432,6 +432,13 @@ public class MomoUserService<E extends MomoUser, D extends MomoUserDao<E>>
 			}
 		}
 
+		// remove all registration token entries
+		RegistrationToken token = registrationTokenService.findByUser(userToDelete);
+		if (token != null) {
+			registrationTokenService.deleteTokenAfterActivation(token);
+			LOG.debug("Deleted a RegistrationToken of a user");
+		}
+
 		// reown all layers of user
 		final SimpleExpression isOwner = Restrictions.eq("owner", userToDelete);
 		List<MomoLayer> usersLayers = layerDao.findByCriteria(isOwner);

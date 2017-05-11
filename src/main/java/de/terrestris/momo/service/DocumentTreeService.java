@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import de.terrestris.momo.dao.DocumentTreeDao;
 import de.terrestris.momo.model.tree.DocumentTreeFolder;
 import de.terrestris.momo.model.tree.DocumentTreeLeaf;
+import de.terrestris.momo.util.config.MomoConfigHolder;
 import de.terrestris.shogun2.dao.FileDao;
 import de.terrestris.shogun2.model.File;
 import de.terrestris.shogun2.model.tree.TreeFolder;
@@ -39,6 +40,10 @@ public class DocumentTreeService<E extends TreeNode, D extends DocumentTreeDao<E
 	@Autowired
 	private FileService<File, FileDao<File>> fileService;
 
+	@Autowired
+	@Qualifier("momoConfigHolder")
+	private MomoConfigHolder momoConfigHolder;
+
 	/**
 	 * In case of a folder: Delete from "bottom up" by stepping down to the
 	 * children and removing them first.
@@ -47,7 +52,7 @@ public class DocumentTreeService<E extends TreeNode, D extends DocumentTreeDao<E
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	@PreAuthorize("hasRole(@configHolder.getSuperAdminRoleName()) or hasPermission(#e, 'DELETE')")
+	@PreAuthorize("hasRole(@momoConfigHolder.getEditorRoleName())")
 	public void delete(E e) {
 
 		if(e instanceof TreeFolder) {
@@ -65,7 +70,7 @@ public class DocumentTreeService<E extends TreeNode, D extends DocumentTreeDao<E
 	 *
 	 */
 	@SuppressWarnings("unchecked")
-	@PreAuthorize("hasRole(@configHolder.getSuperAdminRoleName())")
+	@PreAuthorize("hasRole(@momoConfigHolder.getEditorRoleName())")
 	public void attachDocumentToNode(DocumentTreeLeaf node, MultipartFile documentUpload) throws Exception {
 
 		InputStream is = null;
@@ -111,7 +116,7 @@ public class DocumentTreeService<E extends TreeNode, D extends DocumentTreeDao<E
 	 * @return
 	 * @throws Exception
 	 */
-	@PreAuthorize("hasRole(@configHolder.getDefaultUserRoleName())")
+	@PreAuthorize("hasRole(@momoConfigHolder.getDefaultUserRoleName())")
 	public File getDocumentOfNode(Integer nodeId) throws Exception {
 
 		File fileToReturn = null;
@@ -171,7 +176,7 @@ public class DocumentTreeService<E extends TreeNode, D extends DocumentTreeDao<E
 	 * @return
 	 * @throws Exception
 	 */
-	@PreAuthorize("hasRole(@configHolder.getDefaultUserRoleName())")
+	@PreAuthorize("hasRole(@momoConfigHolder.getDefaultUserRoleName())")
 	private List<byte[]> getAllDocumentsOfFolder(DocumentTreeFolder folder) throws Exception {
 
 		List<byte[]> documentList = new ArrayList<byte[]>();
