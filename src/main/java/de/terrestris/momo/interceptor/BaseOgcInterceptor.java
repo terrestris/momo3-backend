@@ -73,9 +73,17 @@ public class BaseOgcInterceptor {
 			LOGGER.debug("Try to get layer from request");
 			this.setAppUriFromRequest(request);
 			String url = this.geoserverInterceptorUrl;
+			// special case: handling the ecotech layer, it has to be permitted
+			// always, as the layer does not really exist in shogun db
+			String typeName = MutableHttpServletRequest.getRequestParameterValue(
+					request, "TYPENAME");
+			if (typeName != null && typeName.equalsIgnoreCase("momo:ecotech_data")) {
+				return request;
+			}
 			String layerNames = MutableHttpServletRequest.getRequestParameterValue(
 				request, "LAYERS"
 			);
+			System.out.println(layerNames);
 			momoLayerService.findByUrlAndLayerNames(url, layerNames);
 		} catch (Exception e) {
 			request = forbidRequest(request);
