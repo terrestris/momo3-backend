@@ -407,6 +407,9 @@
                             <includes>
                                 <include>${project.artifactId}*.war</include>
                             </includes>
+                            <excludes>
+                                <exclude>*SNAPSHOT*.*</exclude>
+                            </excludes>
                         </fileSet>
                     </fileSets>
                 </configuration>
