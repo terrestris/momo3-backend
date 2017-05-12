@@ -80,11 +80,7 @@ public class BaseOgcInterceptor {
 			if (typeName != null && typeName.equalsIgnoreCase("momo:ecotech_data")) {
 				return request;
 			}
-			String layerNames = MutableHttpServletRequest.getRequestParameterValue(
-				request, "LAYERS"
-			);
-			System.out.println(layerNames);
-			momoLayerService.findByUrlAndLayerNames(url, layerNames);
+			momoLayerService.findByUrlAndLayerNames(url, typeName);
 		} catch (Exception e) {
 			request = forbidRequest(request);
 		}
