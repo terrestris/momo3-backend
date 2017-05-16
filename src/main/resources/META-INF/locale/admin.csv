@@ -1,6 +1,6 @@
 component;property;de;en;mn;Dev-status
-MoMo.admin.view.viewport.Viewport;config.data.i18n.logoutTitle;Ausloggen;Log out;хараахан орчуулагдаагүй; -
-MoMo.admin.view.viewport.Viewport;config.data.i18n.logoutMessage;Wollen Sie sich wirklich ausloggen;Are you sure you want to log out?;хараахан орчуулагдаагүй; -
+MoMo.admin.view.viewport.Viewport;config.data.i18n.logoutTitle;Ausloggen;Log out;Гарах; -
+MoMo.admin.view.viewport.Viewport;config.data.i18n.logoutMessage;Wollen Sie sich wirklich ausloggen;Are you sure you want to log out?;Та гарна гэдэгтээ итгэлтэй байна уу?; -
 MoMo.admin.view.button.translation.ToEnglish;config.data.tooltipEn;EN;EN;EN;OK
 MoMo.admin.view.button.translation.ToEnglish;config.data.setLanguageCallbackToastText;Applikationssprache ist jetzt {0};Application language is now {0};Хэл нь одоо байна {0};OK
 MoMo.admin.view.button.translation.ToGerman;config.data.tooltipDe;DE;DE;DE;OK
@@ -8,395 +8,395 @@ MoMo.admin.view.button.translation.ToGerman;config.data.setLanguageCallbackToast
 MoMo.admin.view.button.translation.ToMongolian;config.data.tooltipMn;MN;MN;MN;OK
 MoMo.admin.view.button.translation.ToMongolian;config.data.setLanguageCallbackToastText;Applikationssprache ist jetzt {0};Application language is now {0};Хэл нь одоо байна {0};OK
 MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelPermissionGridDescription;Setzen Sie die gewünschten Berechtigungen pro Gruppe.<br>Ihre Anfrage wird anschließend von einem privilligiertem Adminstrator bearbeitet.<br>Sobald die Berechtigungen für Sie freigschaltet worden sind, werden Sie per Email benachrichtigt;Check the roles you want to use in a specific group.<br>The changes you request will be on hold until a priviliged Sub-Admin has approved these.<br>You will get notified via email when your request is approved or declined.;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelTitle;Profileinstellungen;Edit your Profile;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelActionSuccess;Ok;Success;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelActionFailure;Fehler;Error;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelDeleteUser;Account löschen;Delete Account;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelDeleteUserText;Wollen Sie wirklich Ihren gesamten Account löschen?;Do you really want to delete your complete account?;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelDeletionSuccessText;Ihr Account wurde gelöscht. Sie werden nun zum Login weitergeleitet;Your account has been deleted, you will now be redirected to the login page';хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelDeletionFailureText;Ihr Account konnte nicht gelöscht werden. Bitte kontaktieren Sie einen Administrator;Your account could not be deleted! Please contact an administrator to get your account deleted;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelSaveUser;Speichern;Save;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelFirstNameLabel;Vorname;First name;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelLastNameLabel;Nachname;Last name;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelEmailLabel;Email;Email Address;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelDepartmentLabel;Organisation;Department;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelTelephoneLabel;Telefonnummer;Telephone number;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelLanguageLabel;Sprache;Language;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelProfileImageLabel;Profilbild;Avatar;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelSelectImageText;Bild wählen...;Select an image...;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelPictureDeletedSuccessMsgText;Bild gelöscht;Picture deleted;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelPictureDeletedSuccessMsgTitle;Ok;Success;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelGraphicPoolWindowTitle;Bild auswählen oder hochladen;Select or upload an image;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelEditDetailsTitle;Ändern Sie ihre Angaben;Change your details;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelEditPermissionsTitle;Ändern Sie ihre Berechtigungen;Change your permissions;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelUpdateSuccessText;Ihre Änderungen wurden gespeichert. Wenn Sie Änderungen an Berechtigungen beantragt haben werden Sie informiert, sobald diese durchgeführt wurden;Your details have been updated. When you have also changed your permissions, you will be notified via email when a priviliged administrator approved or declined them.;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelUpdateFailureText;Änderungen konnten nicht gespeichert werden;Your details could not be updated;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.UserPermissionGrid;config.data.i18n.userPermissionGridPanelGroupColumnName;Gruppe;Group;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.UserPermissionGrid;config.data.i18n.userPermissionGridPanelSubadminColumnName;Sub-admin;Sub-admin;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.UserPermissionGrid;config.data.i18n.userPermissionGridPanelEditorColumnName;Editor;Editor;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.UserPermissionGrid;config.data.i18n.userPermissionGridPanelUserColumnName;Benutzer;User;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.UserList;config.data.i18n.actionSuccess;Ok;Success;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.UserList;config.data.i18n.actionFailure;Fehler;Error;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.UserList;config.data.i18n.deleteUser;Account löschen;Delete Account;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.UserList;config.data.i18n.deleteUserText;Wollen Sie wirklich die markierten Benutzer löschen?;'Do you really want to delete the selected users?;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.UserList;config.data.i18n.deletionSuccessText;Account erfolgreich gelöscht;Account has been successfully deleted;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.UserList;config.data.i18n.deletionFailureText;Account konnte nicht gelöscht werden;Account could not be deleted;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.ApplicationList;config.data.i18n.applicationsTitle;Alle Applikationen;All applications;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.ApplicationList;config.data.i18n.applicationsCreateApp;Erstellen;Create;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.ApplicationList;config.data.i18n.applicationsCopyApp;Kopieren;Copy;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.ApplicationList;config.data.i18n.applicationsDeleteApp;Löschen;Delete;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.ApplicationList;config.data.i18n.applicationsFilterByName;Filtern über Name;Filter by name;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.ApplicationList;config.data.i18n.applicationsRefreshText;Aktualisieren;Refresh;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.ApplicationList;config.data.i18n.applicationsSettings;Einstellungen;Settings;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.ApplicationList;config.data.i18n.applicationsPreview;Öffnen;Open;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.ApplicationList;config.data.i18n.appCopyErrorMsgTitle;Fehler;Error;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.ApplicationList;config.data.i18n.appCopyPromptTitle;Nachfrage;Question;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.ApplicationList;config.data.i18n.appCopySelectAppsBeforeMsg;Bitte wählen Sie zunächst eine Applikation aus.;Please select a single application before!;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.ApplicationList;config.data.i18n.appCopyPromptMsg;Bitte geben Sie einen Namen der neuen Applikation ein.;Enter a new name for the application to be copied;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.ApplicationList;config.data.i18n.appCopiedSuccessfulMsg;Die Applikation wurde erfolgreich kopiert.;Application has been copied successfull;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.ApplicationList;config.data.i18n.appCopyErrorMsg;Die Applikation konnte nicht kopiert werden.;Could not copy the application.;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.ApplicationList;config.data.i18n.appDeletedMsg;Applikation gelöscht;Application deleted;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.ApplicationList;config.data.i18n.appDeletionErrorMsg;Löschen der Applikation ist fehlgeschlagen.;Deletion of application failed;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.EntityPermissions;config.data.i18n.usersColumnTitle;Benutzer;User;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.EntityPermissions;config.data.i18n.groupsColumnTitle;Gruppe;Group;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.EntityPermissions;config.data.i18n.readPermissionColumnTitle;Lesen;Read;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.EntityPermissions;config.data.i18n.updatePermissionColumnTitle;Ändern;Update;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.EntityPermissions;config.data.i18n.deletePermissionColumnTitle;Löschen;Delete;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.EntityPermissions;config.data.i18n.permissionsUpdatesSuccessTitle;Ok;Success;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.EntityPermissions;config.data.i18n.permissionsUpdatesSuccessText;Berechtigungen aktualisiert;Permissions updated;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.EntityPermissions;config.data.i18n.permissionsUpdatesFailureTitle;Fehler;Failure;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.EntityPermissions;config.data.i18n.permissionsUpdatesFailureText;Berechtigungen konnten nicht aktualisiert werden;Permissions failed to update;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.LayerList;config.data.layerlistTitle;Alle Layer;All layers;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.LayerList;config.data.layerlistCreateLayer;Erstellen;Create;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.LayerList;config.data.layerlistDeleteLayer;Löschen;Delete;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.LayerList;config.data.layerlistFilterByName;Filtern über Name;Filter by name;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.LayerList;config.data.layerlistRefreshText;Aktualisieren;Refresh;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.LayerList;config.data.layerlistSettings;Layer Einstellungen;Layer settings;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.LayerList;config.data.layerlistStyle;Layer Stil-Einstellungen;Layer stylesettings;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.LayerList;config.data.layerlistDownload;Layer Download;Download layer;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.LayerList;config.data.layerlistPreview;Layervorschau;Preview Layer;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.LayerList;config.data.deletionErrorMsgTitle;Fehler;Error;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.LayerList;config.data.deletionErrorMsgText;Bitte wählen Sie zunächst mindestens einen Layer aus.;Please select a single layer before!;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.LayerList;config.data.deletionMsgTemplate;Layer {0} erfolgreich gelöscht.;Layer {0} deleted.;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.LayerList;config.data.unsuccessfulDeletionMsgTemplate;Layer {0} konnte nicht gelöscht werden.;Layer {0} could not be deleted.;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.LayerList;config.data.downloadStartingMsg;Download startet in Kürze. Bitte warten Sie...;Download will start shortly, please wait...;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.LayerList;config.data.downloadFailureMsg;Konnte Quelldatensatz des Layers nicht herunterladen.;Could not download Layerdata!;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.LayerList;config.data.previewTemplate;Vorschau von Layer "{0}";Preview of layer "{0}";хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.LayerAttributes;config.data.keyColumnHeader;Name;Name;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.LayerAttributes;config.data.valueColumnHeader;Datentyp;Data type;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tree.LayerTree;config.data.title;Layer Tree;Layer Tree;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tree.LayerTree;config.data.addTreeFolderMenuText;Ordner hinzufügen (innerhalb des ausgewählten Ordners);Add folder (inside selected);хараахан орчуулагдаагүй; -
-MoMo.admin.view.tree.LayerTree;config.data.addTreeFolderTopLevelMenuText;Ordner hinzufügen (oberste Ebene);Add folder (top level);хараахан орчуулагдаагүй; -
-MoMo.admin.view.tree.LayerTree;config.data.deleteTreeLeafMenuText;Layer-Eintrag löschen;Delete leaf;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tree.LayerTree;config.data.deleteTreeFolderMenuText;Ordner löschen;Delete folder;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tree.LayerTree;config.data.deleteAllTreeFoldersMenuText;Ordnerinhalt vollständig löschen;Delete tree contents completely;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tree.LayerTree;config.data.renameTreeLeafMenuText;Layer-Eintrag umbenennen;Rename leaf;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tree.LayerTree;config.data.renameTreeFolderMenuText;Ordner umbenennen;Rename folder;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tree.LayerTree;config.data.addTreeFolderWindowTitle;Ordner hinzufügen;Add folder;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tree.LayerTree;config.data.addTreeFolderWindowMsg;Bitte geben Sie den Namen des neuen Ordners ein.;Enter a name for the new folder;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tree.LayerTree;config.data.deleteTreeLeafWindowTitle;Layer-Eintrag löschen;Delete leaf;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tree.LayerTree;config.data.deleteTreeFolderWindowTitle;Ordner Löschen;Delete folder;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tree.LayerTree;config.data.deleteTreeLeafWindowMsg;Möchten Sie den Layer-Eintrag {0} wirklich löschen;Do you really want to delete leaf {0}?;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tree.LayerTree;config.data.deleteTreeFolderWindowMsg;Möchten Sie den Ordner {0} wirklich löschen?;Do you really want to delete folder {0}?;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tree.LayerTree;config.data.deleteAllTreeFoldersWindowText;Inhalt des Ordners vollständig löschen;Delete tree contents completely;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tree.LayerTree;config.data.deleteAllTreeFoldersWindowText;Möchten Sie den Inhalt des Trees vollständig löschen?;Do you really want to delete the tree contents completely;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tree.LayerTree;config.data.renameTreeLeafWindowTitle;Layer-Eintrag umgenennen;Rename leaf;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tree.LayerTree;config.data.renameTreeFolderWindowTitle;Ordner umbenennen;Rename folder;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tree.LayerTree;config.data.renameTreeLeafWindowMsg;Bitte geben Sie einen neuen Namen für Layer-Eintrag {0} an.;Enter a new name for the leaf {0};хараахан орчуулагдаагүй; -
-MoMo.admin.view.tree.LayerTree;config.data.renameTreeFolderWindowMsg;Bitte geben Sie einen neuen Namen für den Ordner {0} an.;Enter a new name for the folder {0};хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupList;config.data.i18n.groupGridTitle;Gruppen;Groups;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupList;config.data.i18n.groupGridCreateGroup;Erstellen;Create;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupList;config.data.i18n.groupGridDeleteGroup;Löschen;Delete;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupList;config.data.i18n.groupGridFilterByName;Filtern über Name;Filter by name;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupList;config.data.i18n.groupGridRefresh;Aktualisieren;Refresh;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupList;config.data.i18n.groupSettings;Einstellungen;Settings;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupList;config.data.i18n.groupCreationTitle;Neue Gruppe;Group creation;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupList;config.data.i18n.groupCreationText;Bitte geben Sie den Namen der Gruppe ein;Please enter the name of the group to create;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupList;config.data.i18n.groupCreatedSuccessText;Gruppe erstellt;Group created;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupList;config.data.i18n.groupCreatedFailureText;Gruppe konnte nicht erstellt werden;Group could not be created;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupList;config.data.i18n.groupDeletionNoSelectionText;Bitte wählen Sie zuerst eine Gruppe;Please select a group before;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupList;config.data.i18n.groupDeletionText;Wollen Sie diese Gruppe wirklich löschen?;Are you sure you want to delete this group?;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupList;config.data.i18n.groupDeletionTitle;Löschen;Deletion;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupList;config.data.i18n.groupDeletionSuccessText;Gruppe gelöscht;Group deleted successfully;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupList;config.data.i18n.groupDeletionFailureText;Gruppe konnte nicht gelöscht werden;Group could not be deleted;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupList;config.data.i18n.groupModifyText;Bitte geben Sie einen neuen Gruppennamen ein;Please enter a new name for the group;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupList;config.data.i18n.groupModifyTitle;Bearbeiten;Edit;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupList;config.data.i18n.groupModifySuccessText;Gruppe erfolgreich bearbeitet;Group edited successfully;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupList;config.data.i18n.groupModifyFailureText;Gruppe konnte nicht bearbeitet werden;Group edit failed;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelTitle;Gruppen und Berechtigungen;Groups and permissions;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelActionSuccess;Ok;Success;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelActionFailure;Fehler;Error;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelSaveButtonText;Speichern;Save;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelUpdateSuccessText;Berechtigungen aktualisiert;Permissions updated;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelUpdateFailureText;Berechtigungen konnten nicht aktualisiert werden;Permissions could not be updated;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelPermissionGridDescription;Verwalten Sie hier die Berechtigungen der Nutzer innerhalb der Gruppen.<br>Wenn sich für einen Nutzer die Rolle / Berechtigung ändert, wird dieser per Email darüber informiert;Here you can manage all users permissions for the different groups.<br>The User you are changing the permissions for will be notified via email about his new roles and groups;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelEditPermissionsTitle;Berechtigungen;Permissions;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupPermissionGridPanelGroupColumnName;Gruppe;Group;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupPermissionGridPanelSubadminColumnName;Sub-Admin;Sub-Admin;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupPermissionGridPanelEditorColumnName;Editor;Editor;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupPermissionGridPanelUserColumnName;Benutzer;User;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserBtnText;Benutzer hinzufügen;Add user;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserTitle;Benutzer zu Gruppe hinzufügen;Add user to group;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserText;Wählen Sie einen Benutzer, Gruppe und Rolle, die Sie hinzufügen möchten;Select a user, group and role you want to add;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserSelectGroupTitle;Wählen Sie eine Gruppe;Select a group;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserSelectUserTitle;Wählen Sie einen Benutzer;Select a user;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserSelectRoleTitle;Wählen Sie eine Rolle;Select a role;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserSaveBtnText;Speichern;Save;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserSelectFirst;Bitte machen Sie gültige Angaben;Please select valid options;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserSuccess;Einstellungen gespeichert;Settings saved;хараахан орчуулагдаагүй; -
-MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserFail;Einstellungen konnten nicht gespeichert werden;Settings could not be saved;хараахан орчуулагдаагүй; -
-MoMo.admin.view.viewport.Viewport;config.data.i18n.applicationsMenuTitle;Applikationen;Applications;хараахан орчуулагдаагүй; -
-MoMo.admin.view.viewport.Viewport;config.data.i18n.layersMenuTitle;Layer;Layers;хараахан орчуулагдаагүй; -
-MoMo.admin.view.viewport.Viewport;config.data.i18n.usersMenuTitle;Benutzer;Users;хараахан орчуулагдаагүй; -
-MoMo.admin.view.viewport.Viewport;config.data.i18n.groupsMenuTitle;Gruppen;Groups;хараахан орчуулагдаагүй; -
-MoMo.admin.view.viewport.Viewport;config.data.i18n.profileMenuTitle;Profil;Profile;хараахан орчуулагдаагүй; -
-Ext.Date;monthNames[];Januar,Februar,März,April,Mai,Juni,Juli,August,September,Oktober,November,Dezember;January,February,March,April,May,June,July,August,September,October,November,December;х,а,р,а,а,х,а,н,о,р,ч,у; -
-Ext.Date;defaultFormat;d.m.Y;m/d/Y;хараахан орчуулагдаагүй; -
-Ext.Date;monthNumbers.Jan;0;0;1; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelTitle;Profileinstellungen;Edit your Profile;Профайлаа өөрчлөх; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelActionSuccess;Ok;Success;Амжилттай; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelActionFailure;Fehler;Error;Алдаа; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelDeleteUser;Account löschen;Delete Account;Бүртгэлээ устгах; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelDeleteUserText;Wollen Sie wirklich Ihren gesamten Account löschen?;Do you really want to delete your complete account?;Та үнэхээр бүртгэлээ устгамаар байна уу?; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelDeletionSuccessText;Ihr Account wurde gelöscht. Sie werden nun zum Login weitergeleitet;Your account has been deleted, you will now be redirected to the login page';Таны бүртгэл устсан, таныг нэвтрэх хуудас руу чиглүүлэх болно ; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelDeletionFailureText;Ihr Account konnte nicht gelöscht werden. Bitte kontaktieren Sie einen Administrator;Your account could not be deleted! Please contact an administrator to get your account deleted;Таны бүртгэл устах боломжгүй байна, та бүртгэлээ устгахын тулд админтай холбогдоно уу; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelSaveUser;Speichern;Save;Хадгалах; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelFirstNameLabel;Vorname;First name;Нэр; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelLastNameLabel;Nachname;Last name;Овог; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelEmailLabel;Email;Email Address;И-мейл; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelDepartmentLabel;Organisation;Department;Газар/алба; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelTelephoneLabel;Telefonnummer;Telephone number;Утасны дугаар; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelLanguageLabel;Sprache;Language;Хэл ; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelProfileImageLabel;Profilbild;Avatar;Дүрс  ; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelSelectImageText;Bild wählen...;Select an image...;Зураг сонгох; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelPictureDeletedSuccessMsgText;Bild gelöscht;Picture deleted;Зураг устсан; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelPictureDeletedSuccessMsgTitle;Ok;Success;Амжилттай; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelGraphicPoolWindowTitle;Bild auswählen oder hochladen;Select or upload an image;Зураг сонгох эсвэл байршуулах; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelEditDetailsTitle;Ändern Sie ihre Angaben;Change your details;Өөрийн дэлгэрэнгүй мэдээллээ өөрчлөх; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelEditPermissionsTitle;Ändern Sie ihre Berechtigungen;Change your permissions;Өөрийн зөвшөөрлөө өөрчлөх; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelUpdateSuccessText;Ihre Änderungen wurden gespeichert. Wenn Sie Änderungen an Berechtigungen beantragt haben werden Sie informiert, sobald diese durchgeführt wurden;Your details have been updated. When you have also changed your permissions, you will be notified via email when a priviliged administrator approved or declined them.;Таны дэлгэрэнгүй мэдээллийг шинэчиллээ. Та өөрийн зөвшөөрлөө өөрчилсөн бол танд зохих админаас үүнийг баталсан эсвэл үл зөвшөөрсөн мэдэгдэл и-мейлээр очих болно.; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelUpdateFailureText;Änderungen konnten nicht gespeichert werden;Your details could not be updated;Таны дэлгэрэнгүй мэдээллийг шинэчлэх боломжгүй; -
+MoMo.admin.view.grid.UserPermissionGrid;config.data.i18n.userPermissionGridPanelGroupColumnName;Gruppe;Group;Бүлэг; -
+MoMo.admin.view.grid.UserPermissionGrid;config.data.i18n.userPermissionGridPanelSubadminColumnName;Sub-admin;Sub-admin;Дэд-админ; -
+MoMo.admin.view.grid.UserPermissionGrid;config.data.i18n.userPermissionGridPanelEditorColumnName;Editor;Editor;Редактор; -
+MoMo.admin.view.grid.UserPermissionGrid;config.data.i18n.userPermissionGridPanelUserColumnName;Benutzer;User;Хэрэглэгч; -
+MoMo.admin.view.grid.UserList;config.data.i18n.actionSuccess;Ok;Success;Амжилттай; -
+MoMo.admin.view.grid.UserList;config.data.i18n.actionFailure;Fehler;Error;Алдаа; -
+MoMo.admin.view.grid.UserList;config.data.i18n.deleteUser;Account löschen;Delete Account;Устгах; -
+MoMo.admin.view.grid.UserList;config.data.i18n.deleteUserText;Wollen Sie wirklich die markierten Benutzer löschen?;'Do you really want to delete the selected users?;Шинэчлэх?; -
+MoMo.admin.view.grid.UserList;config.data.i18n.deletionSuccessText;Account erfolgreich gelöscht;Account has been successfully deleted;устсан; -
+MoMo.admin.view.grid.UserList;config.data.i18n.deletionFailureText;Account konnte nicht gelöscht werden;Account could not be deleted;Алдаа; -
+MoMo.admin.view.grid.ApplicationList;config.data.i18n.applicationsTitle;Alle Applikationen;All applications;Бүх программууд; -
+MoMo.admin.view.grid.ApplicationList;config.data.i18n.applicationsCreateApp;Erstellen;Create;Үүсгэх; -
+MoMo.admin.view.grid.ApplicationList;config.data.i18n.applicationsCopyApp;Kopieren;Copy;Хуулах; -
+MoMo.admin.view.grid.ApplicationList;config.data.i18n.applicationsDeleteApp;Löschen;Delete;Устгах ; -
+MoMo.admin.view.grid.ApplicationList;config.data.i18n.applicationsFilterByName;Filtern über Name;Filter by name;Нэрээр нь шүүх; -
+MoMo.admin.view.grid.ApplicationList;config.data.i18n.applicationsRefreshText;Aktualisieren;Refresh;Сэргээх; -
+MoMo.admin.view.grid.ApplicationList;config.data.i18n.applicationsSettings;Einstellungen;Settings;Тохиргоо; -
+MoMo.admin.view.grid.ApplicationList;config.data.i18n.applicationsPreview;Öffnen;Open;Нээх; -
+MoMo.admin.view.grid.ApplicationList;config.data.i18n.appCopyErrorMsgTitle;Fehler;Error;Алдаа; -
+MoMo.admin.view.grid.ApplicationList;config.data.i18n.appCopyPromptTitle;Nachfrage;Question;Асуулт; -
+MoMo.admin.view.grid.ApplicationList;config.data.i18n.appCopySelectAppsBeforeMsg;Bitte wählen Sie zunächst eine Applikation aus.;Please select a single application before!;Эхлээд нэг программ сонгоно уу!; -
+MoMo.admin.view.grid.ApplicationList;config.data.i18n.appCopyPromptMsg;Bitte geben Sie einen Namen der neuen Applikation ein.;Enter a new name for the application to be copied;Хуулах программын шинэ нэрийг оруулна уу; -
+MoMo.admin.view.grid.ApplicationList;config.data.i18n.appCopiedSuccessfulMsg;Die Applikation wurde erfolgreich kopiert.;Application has been copied successfull;Программыг амжилттай хууллаа; -
+MoMo.admin.view.grid.ApplicationList;config.data.i18n.appCopyErrorMsg;Die Applikation konnte nicht kopiert werden.;Could not copy the application.;Программыг хуулж чадсангүй; -
+MoMo.admin.view.grid.ApplicationList;config.data.i18n.appDeletedMsg;Applikation gelöscht;Application deleted;Программыг устгасан; -
+MoMo.admin.view.grid.ApplicationList;config.data.i18n.appDeletionErrorMsg;Löschen der Applikation ist fehlgeschlagen.;Deletion of application failed;Программ устгах амжилтгүй; -
+MoMo.admin.view.grid.EntityPermissions;config.data.i18n.usersColumnTitle;Benutzer;User;Хэрэглэгч; -
+MoMo.admin.view.grid.EntityPermissions;config.data.i18n.groupsColumnTitle;Gruppe;Group;Бүлэг; -
+MoMo.admin.view.grid.EntityPermissions;config.data.i18n.readPermissionColumnTitle;Lesen;Read;Унших; -
+MoMo.admin.view.grid.EntityPermissions;config.data.i18n.updatePermissionColumnTitle;Ändern;Update;Шинэчлэх ; -
+MoMo.admin.view.grid.EntityPermissions;config.data.i18n.deletePermissionColumnTitle;Löschen;Delete;Устгах ; -
+MoMo.admin.view.grid.EntityPermissions;config.data.i18n.permissionsUpdatesSuccessTitle;Ok;Success;Амжилттай; -
+MoMo.admin.view.grid.EntityPermissions;config.data.i18n.permissionsUpdatesSuccessText;Berechtigungen aktualisiert;Permissions updated;Зөвшөөрлүүдийг шинэчиллээ; -
+MoMo.admin.view.grid.EntityPermissions;config.data.i18n.permissionsUpdatesFailureTitle;Fehler;Failure;Амжилтгүй; -
+MoMo.admin.view.grid.EntityPermissions;config.data.i18n.permissionsUpdatesFailureText;Berechtigungen konnten nicht aktualisiert werden;Permissions failed to update;Зөвшөөрлүүдийг шинэчилж чадсангүүй; -
+MoMo.admin.view.grid.LayerList;config.data.layerlistTitle;Alle Layer;All layers;Бүх давхаргууд; -
+MoMo.admin.view.grid.LayerList;config.data.layerlistCreateLayer;Erstellen;Create;Үүсгэх; -
+MoMo.admin.view.grid.LayerList;config.data.layerlistDeleteLayer;Löschen;Delete;Устгах ; -
+MoMo.admin.view.grid.LayerList;config.data.layerlistFilterByName;Filtern über Name;Filter by name;Нэрээр нь шүүх; -
+MoMo.admin.view.grid.LayerList;config.data.layerlistRefreshText;Aktualisieren;Refresh;Сэргээх; -
+MoMo.admin.view.grid.LayerList;config.data.layerlistSettings;Layer Einstellungen;Layer settings;Давхаргын тохиргоо; -
+MoMo.admin.view.grid.LayerList;config.data.layerlistStyle;Layer Stil-Einstellungen;Layer stylesettings;Давхаргын хэв маягийн тохиргоо; -
+MoMo.admin.view.grid.LayerList;config.data.layerlistDownload;Layer Download;Download layer;Давхаргыг суулгах; -
+MoMo.admin.view.grid.LayerList;config.data.layerlistPreview;Layervorschau;Preview Layer;Давхаргыг урьдчилан харах; -
+MoMo.admin.view.grid.LayerList;config.data.deletionErrorMsgTitle;Fehler;Error;Алдаа; -
+MoMo.admin.view.grid.LayerList;config.data.deletionErrorMsgText;Bitte wählen Sie zunächst mindestens einen Layer aus.;Please select a single layer before!;Эхлээд нэг давхаргыг сонгоно уу!; -
+MoMo.admin.view.grid.LayerList;config.data.deletionMsgTemplate;Fehler;Layer {0} deleted.;{0} давхарга устсан; -
+MoMo.admin.view.grid.LayerList;config.data.unsuccessfulDeletionMsgTemplate;Fehler;Layer {0} could not be deleted.;{0} давхарга устах боломжгүй; -
+MoMo.admin.view.grid.LayerList;config.data.downloadStartingMsg;Download startet in Kürze. Bitte warten Sie...;Download will start shortly, please wait...;Суулгах явц удахгүй эхэлнэ, та хүлээнэ үү...; -
+MoMo.admin.view.grid.LayerList;config.data.downloadFailureMsg;Konnte Quelldatensatz des Layers nicht herunterladen.;Could not download Layerdata!;Давхаргын мэдээллийг суулгаж чадсангүй; -
+MoMo.admin.view.grid.LayerList;config.data.previewTemplate;"Vorschau von Layer ""{0}""";"Preview of layer ""{0}""";{0} давхаргыг урьдчилан харах; -
+MoMo.admin.view.grid.LayerAttributes;config.data.keyColumnHeader;Name;Name;Нэр; -
+MoMo.admin.view.grid.LayerAttributes;config.data.valueColumnHeader;Datentyp;Data type;Өгөгдлийн төрөл; -
+MoMo.admin.view.tree.LayerTree;config.data.title;Layer Tree;Layer Tree;Давхаргын мод; -
+MoMo.admin.view.tree.LayerTree;config.data.addTreeFolderMenuText;Ordner hinzufügen (innerhalb des ausgewählten Ordners);Add folder (inside selected);Хавтас нэмэх (сонгосон хэсгийн дотор); -
+MoMo.admin.view.tree.LayerTree;config.data.addTreeFolderTopLevelMenuText;Ordner hinzufügen (oberste Ebene);Add folder (top level);Хавтас нэмэх (дээд түвшин) ; -
+MoMo.admin.view.tree.LayerTree;config.data.deleteTreeLeafMenuText;Layer-Eintrag löschen;Delete leaf;Навчийг устгах; -
+MoMo.admin.view.tree.LayerTree;config.data.deleteTreeFolderMenuText;Ordner löschen;Delete folder;Хавтсыг устгах; -
+MoMo.admin.view.tree.LayerTree;config.data.deleteAllTreeFoldersMenuText;Ordnerinhalt vollständig löschen;Delete tree contents completely;Модны агуулгыг бүрэн устгах; -
+MoMo.admin.view.tree.LayerTree;config.data.renameTreeLeafMenuText;Layer-Eintrag umbenennen;Rename leaf;Навчинд шинэ нэр өгөх {0}; -
+MoMo.admin.view.tree.LayerTree;config.data.renameTreeFolderMenuText;Ordner umbenennen;Rename folder;Хавтсанд шинэ нэр өгөх {0}; -
+MoMo.admin.view.tree.LayerTree;config.data.addTreeFolderWindowTitle;Ordner hinzufügen;Add folder;Хавтас нэмэх; -
+MoMo.admin.view.tree.LayerTree;config.data.addTreeFolderWindowMsg;Bitte geben Sie den Namen des neuen Ordners ein.;Enter a name for the new folder;Шинэ хавтсанд шинэ нэр өгөх; -
+MoMo.admin.view.tree.LayerTree;config.data.deleteTreeLeafWindowTitle;Layer-Eintrag löschen;Delete leaf;Навчийг устгах; -
+MoMo.admin.view.tree.LayerTree;config.data.deleteTreeFolderWindowTitle;Ordner Löschen;Delete folder;Хавтсыг устгах; -
+MoMo.admin.view.tree.LayerTree;config.data.deleteTreeLeafWindowMsg;Möchten Sie den Layer-Eintrag {0} wirklich löschen;Do you really want to delete leaf {0}?;Та үнэхээр навчийг {0} устгамаар байна уу?; -
+MoMo.admin.view.tree.LayerTree;config.data.deleteTreeFolderWindowMsg;Möchten Sie den Ordner {0} wirklich löschen?;Do you really want to delete folder {0}?;Та үнэхээр хавтсыг {0} устгамаар байна уу?; -
+MoMo.admin.view.tree.LayerTree;config.data.deleteAllTreeFoldersWindowText;Inhalt des Ordners vollständig löschen;Delete tree contents completely;Модны агуулгыг бүрэн устгах; -
+MoMo.admin.view.tree.LayerTree;config.data.deleteAllTreeFoldersWindowText;Möchten Sie den Inhalt des Trees vollständig löschen?;Do you really want to delete the tree contents completely;Та үнэхээр модны агуулгыг бүрэн устгамаар байна уу?; -
+MoMo.admin.view.tree.LayerTree;config.data.renameTreeLeafWindowTitle;Layer-Eintrag umgenennen;Rename leaf;Навчийг дахин нэрлэх; -
+MoMo.admin.view.tree.LayerTree;config.data.renameTreeFolderWindowTitle;Ordner umbenennen;Rename folder;Хавтсыг дахин нэрлэх; -
+MoMo.admin.view.tree.LayerTree;config.data.renameTreeLeafWindowMsg;Bitte geben Sie einen neuen Namen für Layer-Eintrag {0} an.;Enter a new name for the leaf {0};Навчинд шинэ нэр өгөх {0}; -
+MoMo.admin.view.tree.LayerTree;config.data.renameTreeFolderWindowMsg;Bitte geben Sie einen neuen Namen für den Ordner {0} an.;Enter a new name for the folder {0};Хавтсанд шинэ нэр өгөх {0}; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupGridTitle;Gruppen;Groups;Бүлгүүд; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupGridCreateGroup;Erstellen;Create;Үүсгэх; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupGridDeleteGroup;Löschen;Delete;Устгах ; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupGridFilterByName;Filtern über Name;Filter by name;Нэрээр нь шүүх; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupGridRefresh;Aktualisieren;Refresh;Сэргээх; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupSettings;Einstellungen;Settings;Тохиргоонууд; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupCreationTitle;Neue Gruppe;Group creation;Бүлэг үүсгэх; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupCreationText;Bitte geben Sie den Namen der Gruppe ein;Please enter the name of the group to create;Үүсгэх бүлгийнхээ нэрийг оруулна уу; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupCreatedSuccessText;Gruppe erstellt;Group created;Бүлэг үүссэн ; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupCreatedFailureText;Gruppe konnte nicht erstellt werden;Group could not be created;Бүлэг үүсгэж чадсангүй ; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupDeletionNoSelectionText;Bitte wählen Sie zuerst eine Gruppe;Please select a group before;Эхлээд бүлгээ сонгоно уу; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupDeletionText;Wollen Sie diese Gruppe wirklich löschen?;Are you sure you want to delete this group?;Та энэ бүлгийг устгахдаа итгэлтэй байна уу; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupDeletionTitle;Löschen;Deletion;Устгал ; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupDeletionSuccessText;Gruppe gelöscht;Group deleted successfully;Бүлгийг амжилттай устгалаа; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupDeletionFailureText;Gruppe konnte nicht gelöscht werden;Group could not be deleted;Бүлгийг устгах боломжгүй; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupModifyText;Bitte geben Sie einen neuen Gruppennamen ein;Please enter a new name for the group;Бүлгийн шинэ нэр оруулна уу; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupModifyTitle;Bearbeiten;Edit;Засах; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupModifySuccessText;Gruppe erfolgreich bearbeitet;Group edited successfully;Бүлгийг амжилттай заслаа; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupModifyFailureText;Gruppe konnte nicht bearbeitet werden;Group edit failed;Бүлгийг засах амжилтгүй ; -
+MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelTitle;Gruppen und Berechtigungen;Groups and permissions;Бүлгүүд ба зөвшөөрлүүд; -
+MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelActionSuccess;Ok;Success;Амжилттай; -
+MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelActionFailure;Fehler;Error;Алдаа; -
+MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelSaveButtonText;Speichern;Save;Хадгалах; -
+MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelUpdateSuccessText;Berechtigungen aktualisiert;Permissions updated;Зөвшөөрлүүдийг шинэчиллээ; -
+MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelUpdateFailureText;Berechtigungen konnten nicht aktualisiert werden;Permissions could not be updated;Зөвшөөрлүүдийг шинэчилж чадсангүүй; -
+MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelPermissionGridDescription;Verwalten Sie hier die Berechtigungen der Nutzer innerhalb der Gruppen.<br>Wenn sich für einen Nutzer die Rolle / Berechtigung ändert, wird dieser per Email darüber informiert;Here you can manage all users permissions for the different groups.<br>The User you are changing the permissions for will be notified via email about his new roles and groups;Энд та өөр өөр бүлгүүдийн бүх хэрэглэгчдийн зөвшөөрлийг удирдаж болно. Таны зөвшөөрлийг нь өөрчилж буй хэрэглэгчид и-*мейлээр шинэ үүрэг ба бүлгүүдийнх нь тухай мэдэгдэл очих болно; -
+MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelEditPermissionsTitle;Berechtigungen;Permissions;Зөвшөөрлүүд; -
+MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupPermissionGridPanelGroupColumnName;Gruppe;Group;Бүлэг ; -
+MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupPermissionGridPanelSubadminColumnName;Sub-Admin;Sub-Admin;Дэд-админ; -
+MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupPermissionGridPanelEditorColumnName;Editor;Editor;Редактор; -
+MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupPermissionGridPanelUserColumnName;Benutzer;User;Хэрэглэгч; -
+MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserBtnText;Benutzer hinzufügen;Add user;Хэрэглэгч нэмэх; -
+MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserTitle;Benutzer zu Gruppe hinzufügen;Add user to group;Бүлэгт хэрэглэгч нэмэх; -
+MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserText;Wählen Sie einen Benutzer, Gruppe und Rolle, die Sie hinzufügen möchten;Select a user, group and role you want to add;Нэмэх хүсэлтэй байгаа хэрэглэгч, бүлэг ба үүргийг сонгох; -
+MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserSelectGroupTitle;Wählen Sie eine Gruppe;Select a group;Бүлэг сонгох; -
+MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserSelectUserTitle;Wählen Sie einen Benutzer;Select a user;Хэрэглэгч сонгох; -
+MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserSelectRoleTitle;Wählen Sie eine Rolle;Select a role;Үүрэг сонгох; -
+MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserSaveBtnText;Speichern;Save;Хадгалах; -
+MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserSelectFirst;Bitte machen Sie gültige Angaben;Please select valid options;Зөв сонголтуудыг хийнэ үү; -
+MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserSuccess;Einstellungen gespeichert;Settings saved;Тохиргоог хадгалсан; -
+MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserFail;Einstellungen konnten nicht gespeichert werden;Settings could not be saved;Тохиргоог хадгалж чадсангүй; -
+MoMo.admin.view.viewport.Viewport;config.data.i18n.applicationsMenuTitle;Applikationen;Applications;Программууд; -
+MoMo.admin.view.viewport.Viewport;config.data.i18n.layersMenuTitle;Layer;Layers;Давхаргууд; -
+MoMo.admin.view.viewport.Viewport;config.data.i18n.usersMenuTitle;Benutzer;Users;Хэрэглэгчид; -
+MoMo.admin.view.viewport.Viewport;config.data.i18n.groupsMenuTitle;Gruppen;Groups;Бүлгүүд; -
+MoMo.admin.view.viewport.Viewport;config.data.i18n.profileMenuTitle;Profil;Profile;Профайл; -
+Ext.Date;monthNames[];Januar,Februar,März,April,Mai,Juni,Juli,August,September,Oktober,November,Dezember;January,February,March,April,May,June,July,August,September,October,November,December;Нэг,Хоёр,Гурав,Дөрөв,Тав,Зургаа,Долоо,Найм,Ес,Арав,Арван нэг,Арван хоёрдугаар сар; -
+Ext.Date;defaultFormat;d.m.Y;m/d/y;m/d/y; -
+Ext.Date;monthNumbers.Jan;0;0;0; -
 Ext.Date;monthNumbers.Feb;1;1;1; -
-Ext.Date;monthNumbers.Mar;2;2;3; -
+Ext.Date;monthNumbers.Mar;2;2;2; -
 Ext.Date;monthNumbers.Apr;3;3;3; -
 Ext.Date;monthNumbers.Mai;4;4;4; -
 Ext.Date;monthNumbers.Jun;5;5;5; -
 Ext.Date;monthNumbers.Jul;6;6;6; -
-Ext.Date;monthNumbers.Aug;7;7;4; -
+Ext.Date;monthNumbers.Aug;7;7;7; -
 Ext.Date;monthNumbers.Sep;8;8;8; -
 Ext.Date;monthNumbers.Okt;9;9;9; -
 Ext.Date;monthNumbers.Nov;10;10;10; -
 Ext.Date;monthNumbers.Dez;11;11;11; -
-Ext.Date;dayNames[];Sonntag,Montag,Dienstag,Mittwoch,Donnerstag,Freitag,Samstag;Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday;х,а,р,а,а,х,а; -
-Ext.form.Basic;waitTitle;Bitte warten...;Please Wait...;хараахан орчуулагдаагүй; -
-Ext.form.CheckboxGroupExt.form.CheckboxGroup;blankText;Du musst mehr als einen Eintrag aus der Gruppe auswählen;You must select at least one item in this group;хараахан орчуулагдаагүй; -
-Ext.form.field.Base;invalidText;Der Wert des Feldes ist nicht korrekt;The value in this field is invalid;хараахан орчуулагдаагүй; -
-Ext.form.field.ComboBox;valueNotFoundText;;;; -
-Ext.form.field.ComboBox;defaultListConfig.loadingText;Lade Daten ...;Loading...;хараахан орчуулагдаагүй; -
-Ext.form.field.Date;disabledDaysText;nicht erlaubt;Disabled;хараахан орчуулагдаагүй; -
-Ext.form.field.Date;disabledDatesText;nicht erlaubt;Disabled;хараахан орчуулагдаагүй; -
-Ext.form.field.Date;minText;Das Datum in diesem Feld muss nach dem {0} liegen;The date in this field must be after {0};хараахан орчуулагдаагүй; -
-Ext.form.field.Date;maxText;Das Datum in diesem Feld muss vor dem {0} liegen;The date in this field must be before {0};хараахан орчуулагдаагүй; -
-Ext.form.field.Date;invalidText;{0} ist kein gültiges Datum - es muss im Format {1} eingegeben werden;{0} is not a valid date - it must be in the format {1};хараахан орчуулагдаагүй; -
-Ext.form.field.Date;format;d.m.Y;m/d/y;m/d/y; -
+Ext.Date;dayNames[];Sonntag,Montag,Dienstag,Mittwoch,Donnerstag,Freitag,Samstag;Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday;Ням,Даваа,Мягмар,Лхагва,Пүрэв,Баасан,Бямба; -
+Ext.form.Basic;waitTitle;Bitte warten...;Please Wait...;Та хүлээнэ үү...; -
+Ext.form.CheckboxGroupExt.form.CheckboxGroup;blankText;Du musst mehr als einen Eintrag aus der Gruppe auswählen;You must select at least one item in this group;Та энэ бүлэг дотор хамгийн багадаа нэг зүйл сонгоно уу; -
+Ext.form.field.Base;invalidText;Der Wert des Feldes ist nicht korrekt;The value in this field is invalid;Энэ хэсгийн утга буруу байна; -
+Ext.form.field.ComboBox;valueNotFoundText; -;;;
+Ext.form.field.ComboBox;defaultListConfig.loadingText;Lade Daten ...;Loading...;Ачаалж байна; -
+Ext.form.field.Date;disabledDaysText;nicht erlaubt;Disabled;Хүчингүй болгосон; -
+Ext.form.field.Date;disabledDatesText;nicht erlaubt;Disabled;Хүчингүй болгосон; -
+Ext.form.field.Date;minText;Das Datum in diesem Feld muss nach dem {0} liegen;The date in this field must be after {0};Энэ хэсгийн огноо {0} дараа байна; -
+Ext.form.field.Date;maxText;Das Datum in diesem Feld muss vor dem {0} liegen;The date in this field must be before {0};Энэ хэсгийн огноо {0} өмнө байна; -
+Ext.form.field.Date;invalidText;{0} ist kein gültiges Datum - es muss im Format {1} eingegeben werden;{0} is not a valid date - it must be in the format {1};{0} бол зөв огноо биш - энэ нь {1} форматанд байх ёстой; -
+Ext.form.field.Date;format;d.m.Y;m/d/y;Сар/Өдөр/Он; -
 Ext.form.field.Date;altFormats;j.n.Y|j.n.y|j.n.|j.|j/n/Y|j/n/y|j-n-y|j-n-Y|j/n|j-n|dm|dmy|dmY|j|Y-n-j|Y-m-d;m/d/Y|m-d-y|m-d-Y|m/d|m-d|md|mdy|mdY|d|Y-m-d;m/d/Y|m-d-y|m-d-Y|m/d|m-d|md|mdy|mdY|d|Y-m-d; -
 Ext.form.field.Date;startDay;1;1;1; -
-Ext.form.field.HtmlEditor;createLinkText;Bitte geben Sie die URL für den Link ein:;Please enter the URL for the link:;хараахан орчуулагдаагүй; -
-Ext.form.field.HtmlEditor;buttonTips.bold.title;Fett (Ctrl+B);Bold (Ctrl+B);хараахан орчуулагдаагүй; -
-Ext.form.field.Number;minText;Der Mindestwert für dieses Feld ist {0};The minimum value for this field is {0};хараахан орчуулагдаагүй; -
-Ext.form.field.Number;maxText;Der Maximalwert für dieses Feld ist {0};The maximum value for this field is {0};хараахан орчуулагдаагүй; -
-Ext.form.field.Number;nanText;{0} ist keine Zahl;{0} is not a valid number;хараахан орчуулагдаагүй; -
-Ext.form.field.Text;minLengthText;Bitte geben Sie mindestens {0} Zeichen ein;The minimum length for this field is {0};хараахан орчуулагдаагүй; -
-Ext.form.field.Text;maxLengthText;Bitte geben Sie maximal {0} Zeichen ein;The maximum length for this field is {0};хараахан орчуулагдаагүй; -
-Ext.form.field.Text;blankText;Dieses Feld darf nicht leer sein;This field is required;хараахан орчуулагдаагүй; -
-Ext.form.field.Text;regexText;;;; -
-Ext.form.field.Text;emptyText;;;; -
-Ext.form.field.Time;maxText;Die Zeit muss gleich oder vor {0} liegen;The time in this field must be equal to or before {0};хараахан орчуулагдаагүй; -
-Ext.form.field.Time;invalidText;{0} ist keine gültige Zeit;{0} is not a valid time;хараахан орчуулагдаагүй; -
-Ext.form.field.Time;format;H:i;g:i A;хараахан орчуулагдаагүй; -
-Ext.form.field.TimeExt.form.field.Time;minText;Die Zeit muss gleich oder nach {0} liegen;The time in this field must be equal to or after {0};хараахан орчуулагдаагүй; -
-Ext.form.field.VTypes;alphaText;Dieses Feld darf nur Buchstaben enthalten und _;This field should only contain letters and _;хараахан орчуулагдаагүй; -
-Ext.form.field.VTypes;alphanumText;Dieses Feld darf nur Buchstaben und Zahlen enthalten und _;This field should only contain letters numbers and _;хараахан орчуулагдаагүй; -
-Ext.form.field.VTypes;emailText;Dieses Feld sollte eine E-Mail-Adresse enthalten. Format: 'user@example.com';This field should be an e-mail address in the format 'user@example.com';хараахан орчуулагдаагүй; -
-Ext.form.field.VTypes;urlText;Dieses Feld sollte eine URL enthalten. Format: http:'www.example.com';This field should be a URL in the format 'http://www.example.com';хараахан орчуулагдаагүй; -
-Ext.form.RadioGroupExt.form.RadioGroup;blankText;Du musst einen Eintrag aus der Gruppe auswählen;You must select one item in this group;хараахан орчуулагдаагүй; -
-Ext.grid.BooleanColumn;falseText;FALSCH;false;хараахан орчуулагдаагүй; -
-Ext.grid.BooleanColumnExt.grid.BooleanColumn;trueText;wahr;true;хараахан орчуулагдаагүй; -
-Ext.grid.DateColumnExt.grid.DateColumn;format;d.m.Y;m/d/Y;m/d/Y; -
-Ext.grid.header.Container;sortDescText;Absteigend sortieren;Sort Descending;хараахан орчуулагдаагүй; -
-Ext.grid.header.Container;sortClearText;Sortierung entfernen;Remove Sorting;хараахан орчуулагдаагүй; -
-Ext.grid.header.Container;columnsText;Spalten;Columns;араахан орчуулагдаагүй; -
-Ext.grid.header.ContainerExt.grid.header.Container;sortAscText;Aufsteigend sortieren;Sort Ascending;хараахан орчуулагдаагүй; -
+Ext.form.field.HtmlEditor;createLinkText;Bitte geben Sie die URL für den Link ein:;Please enter the URL for the link:;Энэ холбоосны URL -ийг оруулна уу; -
+Ext.form.field.HtmlEditor;buttonTips.bold.title;Fett (Ctrl+B);Bold (Ctrl+B);Текстийг тодруулах; -
+Ext.form.field.Number;minText;Der Mindestwert für dieses Feld ist {0};The minimum value for this field is {0};Энэ хэсгийн хамгийн бага утга нь {0} ; -
+Ext.form.field.Number;maxText;Der Maximalwert für dieses Feld ist {0};The maximum value for this field is {0};Энэ хэсгийн хамгийн их утга нь {0} ; -
+Ext.form.field.Number;nanText;{0} ist keine Zahl;{0} is not a valid number;{0} бол зөв тоо биш; -
+Ext.form.field.Text;minLengthText;Bitte geben Sie mindestens {0} Zeichen ein;The minimum length for this field is {0};Энэ хэсгийн хамгийн бага урт бол {0} ; -
+Ext.form.field.Text;maxLengthText;Bitte geben Sie maximal {0} Zeichen ein;The maximum length for this field is {0};Энэ хэсгийн хамгийн их урт бол {0} ; -
+Ext.form.field.Text;blankText;Dieses Feld darf nicht leer sein;This field is required;Энэ хэсэг шаардлагатай; -
+Ext.form.field.Text;regexText; -;;;
+Ext.form.field.Text;emptyText; -;;;
+Ext.form.field.Time;maxText;Die Zeit muss gleich oder vor {0} liegen;The time in this field must be equal to or before {0};Энэ хэсгийн хугацаа нь {0} -тэй тэнцүү эсвэл {0} -ий өмнө байна; -
+Ext.form.field.Time;invalidText;{0} ist keine gültige Zeit;{0} is not a valid time; {0} бол зөв хугацаа биш; -
+Ext.form.field.Time;format;H:i;g:i A;g:i A; -
+Ext.form.field.TimeExt.form.field.Time;minText;Die Zeit muss gleich oder nach {0} liegen;The time in this field must be equal to or after {0};Энэ хэсгийн хугацаа нь {0} -тэй тэнцүү эсвэл {0} -ий дараа байна; -
+Ext.form.field.VTypes;alphaText;Dieses Feld darf nur Buchstaben enthalten und _;This field should only contain letters and _;Энэ хэсэг зөвхөн үсэг мөн _ агуулна; -
+Ext.form.field.VTypes;alphanumText;Dieses Feld darf nur Buchstaben und Zahlen enthalten und _;This field should only contain letters numbers and _;Энэ хэсэг зөвхөн үсэг мөн тоо агуулна; -
+Ext.form.field.VTypes;emailText;Dieses Feld sollte eine E-Mail-Adresse enthalten. Format: 'user@example.com';This field should be an e-mail address in the format 'user@example.com';Энэ хэсэг зөвхөн 'user@example.com' гэсэн форматтай цахим шуудангийн хаяг байна; -
+Ext.form.field.VTypes;urlText;Dieses Feld sollte eine URL enthalten. Format: http:'www.example.com';This field should be a URL in the format 'http://www.example.com';Энэ хэсэг нь  'http://www.example.com' форматтай URL байна; -
+Ext.form.RadioGroupExt.form.RadioGroup;blankText;Du musst einen Eintrag aus der Gruppe auswählen;You must select one item in this group;Та энэ бүлэг дотор  нэг зүйл сонгоно уу; -
+Ext.grid.BooleanColumn;falseText;FALSCH;false;Буруу; -
+Ext.grid.BooleanColumnExt.grid.BooleanColumn;trueText;wahr;true;Үнэн; -
+Ext.grid.DateColumnExt.grid.DateColumn;format;d.m.Y;m/d/Y;Сар/Өдөр/Он; -
+Ext.grid.header.Container;sortDescText;Absteigend sortieren;Sort Descending;Бууруулах байдлаар шүүх; -
+Ext.grid.header.Container;sortClearText;Sortierung entfernen;Remove Sorting;Шүүхгүй болгох; -
+Ext.grid.header.Container;columnsText;Spalten;Columns;Баганууд; -
+Ext.grid.header.ContainerExt.grid.header.Container;sortAscText;Aufsteigend sortieren;Sort Ascending;Өсөх байдлаар шүүх; -
 Ext.grid.NumberColumnExt.grid.NumberColumn;format;0.000,00/i;0.000,00/i;0.000,00/i; -
-Ext.grid.plugin.DragDrop;dragText;0} Zeile(n) ausgewählt;{0} selected row{1};хараахан орчуулагдаагүй; -
-Ext.grid.PropertyColumnModel;valueText;Wert;Value;хараахан орчуулагдаагүй; -
+Ext.grid.plugin.DragDrop;dragText;0} Zeile(n) ausgewählt;{0} selected row{1};{0} сонгосон эгнээ; -
+Ext.grid.PropertyColumnModel;valueText;Wert;Value;Утга; -
 Ext.grid.PropertyColumnModel;dateFormat;d.m.Y;m/j/Y;m/j/Y; -
-Ext.grid.PropertyColumnModel;trueText;wahr;true;хараахан орчуулагдаагүй; -
-Ext.grid.PropertyColumnModel;falseText;FALSCH;false;хараахан орчуулагдаагүй; -
-Ext.grid.PropertyColumnModelExt.grid.PropertyColumnModel;nameText;Name;Name;хараахан орчуулагдаагүй; -
-Ext.LoadMask;msg;Lade Daten...;Loading...;хараахан орчуулагдаагүй; -
-Ext.grid.Panel;collapsible;Einklappen;Collapse panel;хараахан орчуулагдаагүй; -
-Ext.grid.Panel;collapsibleText;Einklappen;Collapse panel;хараахан орчуулагдаагүй; -
-Ext.picker.Date;minText;Dieses Datum liegt von dem erstmöglichen Datum;This date is before the minimum date;хараахан орчуулагдаагүй; -
-Ext.picker.Date;maxText;Dieses Datum liegt nach dem letztmöglichen Datum;This date is after the maximum date;хараахан орчуулагдаагүй; -
-Ext.picker.Date;disabledDaysText;;;; -
-Ext.picker.Date;disabledDatesText;;;; -
-Ext.picker.Date;nextText;Nächster Monat (Strg/Control + Rechts);Next Month (Control+Right);хараахан орчуулагдаагүй; -
-Ext.picker.Date;prevText;Vorheriger Monat (Strg/Control + Links);Previous Month (Control+Left);хараахан орчуулагдаагүй; -
-Ext.picker.Date;monthYearText;Monat auswählen (Strg/Control + Hoch/Runter, um ein Jahr auszuwählen);Choose a month (Control+Up/Down to move years);хараахан орчуулагдаагүй; -
-Ext.picker.Date;todayTip;Heute ({0}) (Leertaste);{0} (Spacebar);хараахан орчуулагдаагүй; -
+Ext.grid.PropertyColumnModel;trueText;wahr;true;Үнэн; -
+Ext.grid.PropertyColumnModel;falseText;FALSCH;false;Буруу; -
+Ext.grid.PropertyColumnModelExt.grid.PropertyColumnModel;nameText;Name;Name;Нэр; -
+Ext.LoadMask;msg;Lade Daten...;Loading...;Ачаалж байна; -
+Ext.grid.Panel;collapsible;Einklappen;Collapse panel;Самбарыг унагах; -
+Ext.grid.Panel;collapsibleText;Einklappen;Collapse panel;Самбарыг унагах; -
+Ext.picker.Date;minText;Dieses Datum liegt von dem erstmöglichen Datum;This date is before the minimum date;Энэ өдөр бол хамгийн бага хугацаанаас өмнө; -
+Ext.picker.Date;maxText;Dieses Datum liegt nach dem letztmöglichen Datum;This date is after the maximum date;Энэ өдөр бол хамгийн их хугацааны дараа; -
+Ext.picker.Date;disabledDaysText; -;;;
+Ext.picker.Date;disabledDatesText; -;;;
+Ext.picker.Date;nextText;Nächster Monat (Strg/Control + Rechts);Next Month (Control+Right);Дараагийн сар (Хянах+Баруун); -
+Ext.picker.Date;prevText;Vorheriger Monat (Strg/Control + Links);Previous Month (Control+Left);Өмнөх сар (Хянах+Зүүн); -
+Ext.picker.Date;monthYearText;Monat auswählen (Strg/Control + Hoch/Runter, um ein Jahr auszuwählen);Choose a month (Control+Up/Down to move years);Choose a month (Control+Up/Down to move years); -
+Ext.picker.Date;todayTip;Heute ({0}) (Leertaste);{0} (Spacebar);{0} зай авах; -
 Ext.picker.Date;format;d.m.Y;m/d/y;m/d/y; -
-Ext.picker.Date;startDay;1;0;0; -
-Ext.picker.Date;todayText; Heute;Today;хараахан орчуулагдаагүй; -
-Ext.picker.Month;okText;Ok;OK;хараахан орчуулагдаагүй; -
-Ext.picker.Month;cancelText;Abbrechen;Cancel;хараахан орчуулагдаагүй; -
-Ext.tab.Tab;closeText;Diesen Tab schließen;Close this Tab;хараахан орчуулагдаагүй; -
-Ext.toolbar.Paging;beforePageText;Seite;Page;хараахан орчуулагдаагүй; -
-Ext.toolbar.Paging;afterPageText;von {0};of {0};хараахан орчуулагдаагүй; -
-Ext.toolbar.Paging;firstText;Erste Seite;First Page;хараахан орчуулагдаагүй; -
-Ext.toolbar.Paging;prevText;vorherige Seite;Previous Page;хараахан орчуулагдаагүй; -
-Ext.toolbar.Paging;nextText;nächste Seite;Next Page;хараахан орчуулагдаагүй; -
-Ext.toolbar.Paging;lastText;letzte Seite;Last Page;хараахан орчуулагдаагүй; -
-Ext.toolbar.Paging;refreshText;Aktualisieren;Refresh;хараахан орчуулагдаагүй; -
-Ext.toolbar.Paging;displayMsg;Anzeige Eintrag {0} - {1} von {2};Displaying {0} - {1} of {2};хараахан орчуулагдаагүй; -
-Ext.toolbar.Paging;emptyMsg;Keine Daten vorhanden;No data to display;хараахан орчуулагдаагүй; -
-Ext.util.Format;thousandSeparator;.;0;0; -
-Ext.util.Format;decimalSeparator;0;.;.; -
+Ext.picker.Date;startDay;1;1;1; -
+Ext.picker.Date;todayText; Heute;Today;Өнөөдөр; -
+Ext.picker.Month;okText;Ok;OK;ОК; -
+Ext.picker.Month;cancelText;Abbrechen;Cancel;Цуцлах; -
+Ext.tab.Tab;closeText;Diesen Tab schließen;Close this Tab;Энэ хэсгийг хаах; -
+Ext.toolbar.Paging;beforePageText;Seite;Page;Хуудас; -
+Ext.toolbar.Paging;afterPageText;von {0};of {0};{0} -ны ; -
+Ext.toolbar.Paging;firstText;Erste Seite;First Page;Эхний хуудас; -
+Ext.toolbar.Paging;prevText;vorherige Seite;Previous Page;Өмнөх хуудас; -
+Ext.toolbar.Paging;nextText;nächste Seite;Next Page;Дараагийн хуудас; -
+Ext.toolbar.Paging;lastText;letzte Seite;Last Page;Сүүлийн хуудас; -
+Ext.toolbar.Paging;refreshText;Aktualisieren;Refresh;Шинэчлэх ; -
+Ext.toolbar.Paging;displayMsg;Anzeige Eintrag {0} - {1} von {2};Displaying {0} - {1} of {2};Дэлгэцэн дээр үзүүлж байна {0} - {1} of {2}; -
+Ext.toolbar.Paging;emptyMsg;Keine Daten vorhanden;No data to display;Үзүүлэх өгөгдөл байхгүй; -
+Ext.util.Format;thousandSeparator;.;.;.; -
+Ext.util.Format;decimalSeparator;,;,;,; -
 Ext.util.Format;currencySign;€;$;₮; -
 Ext.util.Format;dateFormat;d.m.Y;m/d/Y;m/d/Y; -
-Ext.view.AbstractView;loadingText;Lade Daten...;Loading...;хараахан орчуулагдаагүй; -
-Ext.view.View;emptyText;;;; -
-Ext.window.MessageBox;buttonText.ok;Ok;OK;хараахан орчуулагдаагүй; -
-Ext.window.MessageBox;buttonText.cancel;Abbrechen;Cancel;хараахан орчуулагдаагүй; -
-Ext.window.MessageBox;buttonText.yes;Ja;Yes;хараахан орчуулагдаагүй; -
-Ext.window.MessageBox;buttonText.no;Nein;No;хараахан орчуулагдаагүй; -
-Ext.window.Window;closeToolText;Fenster schließen;close window;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.title;Übergeordnete Einstellungen;General;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.fieldSetTitle;Übergeordnete Einstellungen;General;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.nameFieldLabel;Name;Name;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.nameEmptyText;Name der Applikation eingeben...*;Enter the name of the application*;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.descriptionFieldLabel;Beschreibung;Description;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.descriptionEmptyText;Geben Sie eine Beschreibung der Applikation ein (optional);Enter an optional description of the application;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.languageFieldLabel;Sprache;Language;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.languageEmptyText;Bitte wählen Sie die Sprache der Applikation*;Select the language of the application*;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.publicFieldLabel;Öffentlich;Public;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.publicBoxToastText;<b>Hinweis:</b> Diese Applikation wird öffentlich verfügbar und somit auch für nicht angemeldete Nutzer sichtbar sein!;<b>Note:</b> This application will be set to public and will be visible even for non logged-in users afterwards!;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.activeFieldLabel;Aktiv;Active;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.activeBoxToastText;<b>Hinweis:</b> Diese Applikation wird deaktiviert und somit nicht mehr sichtbar für andere Benutzer sein!;<b>Note:</b> This application will be deactivated and will not be visible to anyone afterwards!;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.tools.title;Werkzeuge;Tools;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.tools.helpText;Grün eingefärbte Werkzeuge sind in der Applikation verfügbar, blau eingefärbte Werkzeuge nicht.;Green buttons / tools will be available in the application, blue ones not;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.permissions.applicationpermissionstitle;Berechtigungen;Permissions;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.permissions.applicationpermissionsdescriptiontext;Hier können die Berechtigungen an dieser Applikation für Benutzer und Gruppen eingerichtet werden.<br>Wenn Sie einen neue Applikation anlegen, müssen Sie diese zunächst speichern, bevor die Berechtigungen vergeben werden können;Here you can manage what users and groups may see, edit and delete this application.<br>If you are creating a new application, you will need to save it first before you can set the permissions;хараахан орчуулагдаагүй; -
+Ext.view.AbstractView;loadingText;Lade Daten...;Loading...;Ачаалж байна; -
+Ext.view.View;emptyText; -;;;
+Ext.window.MessageBox;buttonText.ok;Ok;OK;OK; -
+Ext.window.MessageBox;buttonText.cancel;Abbrechen;Cancel;Цуцлах; -
+Ext.window.MessageBox;buttonText.yes;Ja;Yes;Тийм; -
+Ext.window.MessageBox;buttonText.no;Nein;No;Үгүй; -
+Ext.window.Window;closeToolText;Fenster schließen;close window;Цонхыг хаах; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.title;Übergeordnete Einstellungen;General;Ерөнхий; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.fieldSetTitle;Übergeordnete Einstellungen;General;Ерөнхий; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.nameFieldLabel;Name;Name;Нэр; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.nameEmptyText;Name der Applikation eingeben...*;Enter the name of the application*;Программын нэр оруулах; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.descriptionFieldLabel;Beschreibung;Description;Тайлбар; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.descriptionEmptyText;Geben Sie eine Beschreibung der Applikation ein (optional);Enter an optional description of the application;Программын нэмэлт тайлбарыг оруулах; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.languageFieldLabel;Sprache;Language;Хэл; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.languageEmptyText;Bitte wählen Sie die Sprache der Applikation*;Select the language of the application*;Программын хэлийг сонгох; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.publicFieldLabel;Öffentlich;Public;Олон нийт; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.publicBoxToastText;<b>Hinweis:</b> Diese Applikation wird öffentlich verfügbar und somit auch für nicht angemeldete Nutzer sichtbar sein!;<b>Note:</b> This application will be set to public and will be visible even for non logged-in users afterwards!;Анхаарах: энэ программ олон нийтэд нээлттэй болсон тул нэвтрээгүй хэрэглэгчдэд ч гэсэн дараа нь харагдах болно!; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.activeFieldLabel;Aktiv;Active;Идэвхтэй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.general.activeBoxToastText;<b>Hinweis:</b> Diese Applikation wird deaktiviert und somit nicht mehr sichtbar für andere Benutzer sein!;<b>Note:</b> This application will be deactivated and will not be visible to anyone afterwards!;Анхаарах: энэ програм идэвхгүй болж хэнд ч дараа нь харагдахаа болино!; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.tools.title;Werkzeuge;Tools;Хэрэгслүүд; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.tools.helpText;Grün eingefärbte Werkzeuge sind in der Applikation verfügbar, blau eingefärbte Werkzeuge nicht.;Green buttons / tools will be available in the application, blue ones not;Ногоон товчнууд/хэрэгслүүд нь программ дээр байна гэхдээ цэнхэр нь байхгүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.permissions.applicationpermissionstitle;Berechtigungen;Permissions;Зөвшөөрлүүд; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.permissions.applicationpermissionsdescriptiontext;Hier können die Berechtigungen an dieser Applikation für Benutzer und Gruppen eingerichtet werden.<br>Wenn Sie einen neue Applikation anlegen, müssen Sie diese zunächst speichern, bevor die Berechtigungen vergeben werden können;Here you can manage what users and groups may see, edit and delete this application.<br>If you are creating a new application, you will need to save it first before you can set the permissions;Энд та хэрэглэгчид, бүлгүүд юу харж мөн энэ программыг засаж, устгаж болохыг удирдаж болно. Хэрэв та шинэ программ үүсгэж буй бол та зөвшөөрөл өгөхөөсөө өмнө хадгалах хэрэгтэй; -
 MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.title;Startansicht;Startview;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.projectionTitle;Projektionssystem;Projection;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.mapCenterTitle;Zentrum;Center;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.mapExtentTitle;Kartenausdehnung;Extent;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.mapZoomTitle;Zoom;Zoom;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.mapZoomLabel;Stufe;Level;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.mapCenterXLabel;X;X;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.mapCenterYLabel;Y;Y;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.mapExtentMinXLabel;Min X;Min X;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.mapExtentMaxXLabel;Max X;Max X;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.mapExtentMinYLabel;Min Y;Min Y;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.mapExtentMaxYLabel;Max Y;Max Y;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.layer.title;Layer;Layer;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.layer.availableLayersGridTitle;Verfügbare Layer;Available layers;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.cancelBtnText;Abbrechen;Cancel;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.saveBtnText;Speichern;Save;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.couldNotLoadApplicationDataMsg;Daten der Applikation können nicht geladen werden.;Error loading application data.;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.saveApplicationProvideAllRequiredFieldsMsg;Bitte füllen Sie alle notwendigen Felder aus.;Please fill out all required fields.;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.saveApplicationResponseTpl;Operation {0} erfolgreich für Applikation {1} ausgeführt.;Successfully {0}d the application {1}.;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.permissions.layerpermissionstitle;Berechtigungen;Permissions;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.permissions.layerpermissionsdescriptionText;Hier können die Berechtigungen an diesem Layer für Benutzer und Gruppen eingerichtet werden.<br>Wenn Sie einen neuen Layer anlegen, müssen Sie diesen zunächst speichern, bevor die Berechtigungen vergeben werden können;Here you can manage what users and groups may see, edit and delete this layer.<br>If you are creating a new layer, you will need to save it first before you can set the permissions;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.permissions.permissionsUpdatesSuccessText;Berechtigungen aktualisiert;Permissions updated;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.permissions.permissionsUpdatesFailureText;Berechtigungen konnten nicht aktualisiert werden;Permissions failed to update;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.generalTitle;Übergeordnete Einstellungen;General;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.layerName;Name;Name;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.layerNameEmptyText;Bitte einen Layer-Namen eingeben.;Enter a layer name;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.fileUploadFieldLabel;Datei;File;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.fileUploadEmptyText;*.zip;*.zip;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.fileUploadButtonText;Hochladen;Upload;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.fileSelectBtnText;Datei auswählen;Browse;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.layerDescription;Beschreibung des Layers;Layer Description;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.layerOpacity;Deckkraft;Layer Opacity;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.hoverTemplate;Hover Template;Hover Template;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.availableAttributes;Verfügbare Attribute;Available Attributes;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.chooseProjectionWindowTitle;Projektionssystem wählen;Choose projection;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.chooseProjectionLayerNameEmptyText;Bitte wählen Sie ein Projektionssystem;Choose a Projection System;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.chooseProjectionCancelBtnText;Abbrechen;Cancel;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.chooseProjectionOkBtnText;OK;OK;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadSuccessfulText;Layer erfolgreich hochgeladen;Successfully uploaded the layer.;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.layerNameInvalidMsg;Bitte geben Sie einen Layernamen an.;Please enter a layer name.;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.zipValidationFailedText;Validierung der ZIP-Datei fehlgeschlagen;Prevalidation of zip skipped.;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadLayerErrorMsg;Fehler beim Hochladen des Layers;Error while uploading the layer;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.fileTooLargeText;Hochgeladene Datei;Large Uploadfile;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadSkippedLargeFileMsg;Upload abgebrochen da Dateigröße zu groß;Skipped preprocessing because of large file;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadSkippedShapeFileMissingMsg;Archiv enhält keine Shapefile;A shape file is missing;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadSkippedDbfFileMissingMsg;Shape nicht valide: DBF-Datei fehlt.;A database file is missing;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadSkippedShxFileMissingMsg;Shape nicht valide: SHX-Datei fehlt.;A database file is missing;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadSkippedPrjMissingMsg;Es sollte eine PRJ-Datei zur Georeferenzierung verwendet werden. Alternativ können Sie auch im folgenden Schritt ein Projektionssystem auswählen.;A projection file is recommended. You can choose a projectionsystem from the combo alternatively.;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadSkippedGeoTiffMissingMsg;GeoTiff- oder Tif-Datei fehlt.;A geoTiff or tif file is missing.;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadInfoGeoreferencedGeoTiffMsg;Daten sind georeferenziert;Data is georeferenced;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadGeoTiffNotGeoreferencedMsg;Ihre Rasterdaten sind nicht georeferenzeiert. Bitte fügen Sie eine Worldfile (*.tfw) in die ZIP-Datei oder georeferenzieren Sie das GeoTIFF.;Your raster data is not georeferenced. Please georeference it or add a worldfile (*.tfw) to the zip.;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadFailedNoTypeDeterminedMsg;Der Typ des Layers kann nicht bestimmt werden.;Type of the layer could not be determined.;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.tabPanelTitle;Metadaten;Metadata;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.title;Titel;Title;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.abstract;Zusammenfassung;Abstract;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.organisation;Organisation;Organisation;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.address;Anschrift;Mailing address;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.address;Straße und Hausnr.;Delivery point;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.city;Stadt;City;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.postalCode;Postleitzahl;Postal code;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.country;Land;Country;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.website;Website;Website;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.person;Verantwortlicher;Guarantor;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.name;Name;Name;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.email;E-Mail;E-Mail;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.referenceDate;Erstellungsdatum;Reference date;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.topic;Thema;Topic;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.geography;Geographisch;Geography;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.extent;Ausdehnung;Extent;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.projectionTitle;Projektionssystem;Projection;Төсөөлөл; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.mapCenterTitle;Zentrum;Center;Төв; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.mapExtentTitle;Kartenausdehnung;Extent;Хэмжээ; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.mapZoomTitle;Zoom;Zoom;Томруулах; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.mapZoomLabel;Stufe;Level;Түвшин; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.mapCenterXLabel;X;X;Х; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.mapCenterYLabel;Y;Y;Ү; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.mapExtentMinXLabel;Min X;Min X;Хамгийн доод Х; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.mapExtentMaxXLabel;Max X;Max X;Хамгийн дээд Х; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.mapExtentMinYLabel;Min Y;Min Y;Хамгийн доод Ү; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.startview.mapExtentMaxYLabel;Max Y;Max Y;Хамгийн дээд Ү; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.layer.title;Layer;Layer;Давхарга   ; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.layer.availableLayersGridTitle;Verfügbare Layer;Available layers;Бэлэн байгаа давхаргууд; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.cancelBtnText;Abbrechen;Cancel;Цуцлах; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.saveBtnText;Speichern;Save;Хадгалах; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.couldNotLoadApplicationDataMsg;Daten der Applikation können nicht geladen werden.;Error loading application data.;Программын өгөгдлийг ачаалахад алдаа гарлаа; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.saveApplicationProvideAllRequiredFieldsMsg;Bitte füllen Sie alle notwendigen Felder aus.;Please fill out all required fields.;Бүх шаардлагатай хэсгүүдийг бөглөнө үү; -
+MoMo.admin.view.tab.CreateOrEditApplication;config.data.i18n.saveApplicationResponseTpl;Operation {0} erfolgreich für Applikation {1} ausgeführt.;Successfully {0}d the application {1}.;Програм {1}-ийг амжилттай {0}-д орууллаа; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.permissions.layerpermissionstitle;Berechtigungen;Permissions;Зөвшөөрлүүд; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.permissions.layerpermissionsdescriptionText;Hier können die Berechtigungen an diesem Layer für Benutzer und Gruppen eingerichtet werden.<br>Wenn Sie einen neuen Layer anlegen, müssen Sie diesen zunächst speichern, bevor die Berechtigungen vergeben werden können;Here you can manage what users and groups may see, edit and delete this layer.<br>If you are creating a new layer, you will need to save it first before you can set the permissions;Энд та хэрэглэгчид, бүлгүүд юу харж мөн энэ давхаргыг засаж, устгаж болохыг удирдаж болно. ; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.permissions.permissionsUpdatesSuccessText;Berechtigungen aktualisiert;Permissions updated;Зөвшөөрлүүдийг шинэчиллээ; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.permissions.permissionsUpdatesFailureText;Berechtigungen konnten nicht aktualisiert werden;Permissions failed to update;Зөвшөөрлүүдийг шинэчлэхэд алдаа гарлаа; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.generalTitle;Übergeordnete Einstellungen;General;Ерөнхий; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.layerName;Name;Name;Нэр; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.layerNameEmptyText;Bitte einen Layer-Namen eingeben.;Enter a layer name;Давхаргын нэрийг оруулна уу; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.fileUploadFieldLabel;Datei;File;Файл; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.fileUploadEmptyText;*.zip;*.zip;*.зип; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.fileUploadButtonText;Hochladen;Upload;Байршуулах; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.fileSelectBtnText;Datei auswählen;Browse;Харах; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.layerDescription;Beschreibung des Layers;Layer Description;Давхаргын тайлбар; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.layerOpacity;Deckkraft;Layer Opacity;Давхаргын тунгалгын байдал; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.hoverTemplate;Hover Template;Hover Template;Ховер загвар; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.availableAttributes;Verfügbare Attribute;Available Attributes;Бэлэн байгаа шинж чанарууд; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.chooseProjectionWindowTitle;Projektionssystem wählen;Choose projection;Төсөөллийг сонгох; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.chooseProjectionLayerNameEmptyText;Bitte wählen Sie ein Projektionssystem;Choose a Projection System;Төсөөллийн системийг сонгох; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.chooseProjectionCancelBtnText;Abbrechen;Cancel;Цуцлах; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.chooseProjectionOkBtnText;OK;OK;ОК; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadSuccessfulText;Layer erfolgreich hochgeladen;Successfully uploaded the layer.;Давхаргыг амжилттай байршууллаа; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.layerNameInvalidMsg;Bitte geben Sie einen Layernamen an.;Please enter a layer name.;Давхаргын нэрийг оруулна уу; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.zipValidationFailedText;Validierung der ZIP-Datei fehlgeschlagen;Prevalidation of zip skipped.;Алгассан зип-ийг урьдчилан батлах; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadLayerErrorMsg;Fehler beim Hochladen des Layers;Error while uploading the layer;Давхарга байршуулж байхад алдаа гарсан; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.fileTooLargeText;Hochgeladene Datei;Large Uploadfile;Илүү том файлыг байршуулах; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadSkippedLargeFileMsg;Upload abgebrochen da Dateigröße zu groß;Skipped preprocessing because of large file;Том файлаас үүдэн процессын урьдчилсан алхмыг алгассан; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadSkippedShapeFileMissingMsg;Archiv enhält keine Shapefile;A shape file is missing;Дүрсний файл байхгүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadSkippedDbfFileMissingMsg;Shape nicht valide: DBF-Datei fehlt.;A database file is missing;Өгөгдлийн сангийн файл байхгүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadSkippedShxFileMissingMsg;Shape nicht valide: SHX-Datei fehlt.;A database file is missing;Өгөгдлийн сангийн файл байхгүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadSkippedPrjMissingMsg;Es sollte eine PRJ-Datei zur Georeferenzierung verwendet werden. Alternativ können Sie auch im folgenden Schritt ein Projektionssystem auswählen.;A projection file is recommended. You can choose a projectionsystem from the combo alternatively.;Төсөөллийн файлыг зөвлөж байна. Эсвэл та комбо-с төсөөлллийн систем сонгож болно; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadSkippedGeoTiffMissingMsg;GeoTiff- oder Tif-Datei fehlt.;A geoTiff or tif file is missing.;Гео-тифф  эсвэл тиф файл байхгүй байна; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadInfoGeoreferencedGeoTiffMsg;Daten sind georeferenziert;Data is georeferenced;Өгөгдөлд гео-лавлагаа хийсэн; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadGeoTiffNotGeoreferencedMsg;Ihre Rasterdaten sind nicht georeferenzeiert. Bitte fügen Sie eine Worldfile (*.tfw) in die ZIP-Datei oder georeferenzieren Sie das GeoTIFF.;Your raster data is not georeferenced. Please georeference it or add a worldfile (*.tfw) to the zip.;Таны растер мэдээлэл гео-лавлагаанд байна. Үүнийг нэг бол гео-лавлагаанд оруулна уу эсвэл зип дээр word-ийн файл (*.tfw) болгож нэмнэ үү; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadFailedNoTypeDeterminedMsg;Der Typ des Layers kann nicht bestimmt werden.;Type of the layer could not be determined.;Давхаргын төрлийг тодорхойлж чадсангүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.tabPanelTitle;Metadaten;Metadata;Мета-өгөгдөл; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.title;Titel;Title;Гарчиг; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.abstract;Zusammenfassung;Abstract;Абстракт; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.organisation;Organisation;Organisation;Байгууллага; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.address;Anschrift;Mailing address;Шуудангийн хаяг; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.address;Straße und Hausnr.;Delivery point;Хүргэлтийн цэг; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.city;Stadt;City;Хот; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.postalCode;Postleitzahl;Postal code;Шуудангийн код; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.country;Land;Country;Улс; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.website;Website;Website;Вебсайт; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.person;Verantwortlicher;Guarantor;Баталгаа гаргагч; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.name;Name;Name;Нэр; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.email;E-Mail;E-Mail;И-мейл; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.referenceDate;Erstellungsdatum;Reference date;Лавлах огноо; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.topic;Thema;Topic;Сэдэв; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.geography;Geographisch;Geography;Газарзүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.extent;Ausdehnung;Extent;; -
 MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.projection;Projektionssystem;Projection;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.geoExtent;Räumliche Ausdehnung;Extent;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.minX;Min X;Min X;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.maxX;Max X;Max X;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.minY;Min Y;Min Y;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.maxY;Max Y;Max Y;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.timeExtent;Zeitraum;Time extent;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.start;Von;Start;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.end;Bis;End;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.format;Format;Format;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.limitations;Beschränkungen;Limitations;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.onlineResource;Online Resource;Online Resource;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.dataSource;Quelle;Data source;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.publications;Publikationen;publications;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.createdMetadataMsg;Metadaten erzeugt unter UUID:;Createad MetadataSet with UUID:;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.couldNotCreateMetadataMsg;Metadaten konnten nicht erzeugt werden;Could not create metadata set;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.couldNotLoadLayerDataMsg;Fehler beim lesen der Layer-Rohdaten;Error loading Layer Data;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.updatedMetadataMsg;Metadaten aktualisiert unter UUID:;Updated MetadataSet with UUID:;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.couldNotUpdateMetadataMsg;Metadaten konnten nicht aktualisiert werden;Could not update metadata set;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.style.title;Stil;Style;хараахан орчуулагдаагүй; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.style.fieldsetTitle;Erzeuge Stil für Layer;Generate Style for Layer;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.style.Rules;config.data.addRuleButtonText;Regel hinzugügen;Add Rule;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.style.Rule;config.data.titlePrefix;Regel;Rule;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.style.Rule;config.data.ruleNameText;Name;Name;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.style.Rule;config.data.ruleTitleText;Titel;Title;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.style.Rule;config.data.singleRoleNeededErrorMsg;Es muss mindestens eine Regel angegeben werden.;At least one rule is required.;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.style.Rule;config.data.removeRuleButtonText;Regel entfernen;Remove this rule;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.style.Filter;config.data.title;Filter verwenden;Use Filter;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.style.Filter;config.data.attributeComboLabel;Attribut;Property;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.style.Filter;config.data.operatorComboLabel;Operator;Operator;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.style.Filter;config.data.literalNumberField1Label;Untere Grenze;Lower boundary;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.style.Filter;config.data.literalNumberField2Label;Wert;Value;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.style.Filter;config.data.literalTextFieldLabel;ähnlich wie;Is like pattern;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.style.Symbolizer;config.data.name;SLDStyler;SLDStyler;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.style.Symbolizer;config.data.title;Darstellung;Symbolizer;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.style.Symbolizer;config.data.windowTitle;Symbolisierung bearbeiten;Edit symbolizer;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.style.Symbolizer;config.data.symbolizerFieldSetHtml;Bearbeiten der Symbolisierung über Klick;Click symbolizer to edit;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.style.Symbolizer;config.data.applySymbolizationText;Übernehmen;OK;хараахан орчуулагдаагүй; -
-MoMo.admin.view.panel.style.Symbolizer;config.data.cancelSymbolizationText;Abbrechen;Cancel;хараахан орчуулагдаагүй; -
-BasiGX.view.container.SLDStyler;config.data.pointStyleFieldSetTitle;Stil eines Punkts;Point Style;хараахан орчуулагдаагүй; -
-BasiGX.view.container.SLDStyler;config.data.pointStyleSymbolPanelTitle;Symbol;Symbol;хараахан орчуулагдаагүй; -
-BasiGX.view.container.SLDStyler;config.data.pointStyleRadiusNumberFieldLabel;Radius des Punkts;Point radius';хараахан орчуулагдаагүй; -
-BasiGX.view.container.SLDStyler;config.data.pointStyleStrokeNumberFieldLabel;Strichstärke;Stroke width;хараахан орчуулагдаагүй; -
-BasiGX.view.container.SLDStyler;config.data.pointStyleStrokeColorFieldLabel;Strichfarbe;Stroke color;хараахан орчуулагдаагүй; -
-BasiGX.view.container.SLDStyler;config.data.pointStyleFillColorFieldLabel;Füllfarbe;Fill Color;хараахан орчуулагдаагүй; -
-BasiGX.view.container.SLDStyler;config.data.pointStyleGraphicPanelTitle;Grafik;Graphic;хараахан орчуулагдаагүй; -
-BasiGX.view.container.SLDStyler;config.data.pointStyleChooseImgBtnText;Bild auswählen;Choose Image;хараахан орчуулагдаагүй; -
-BasiGX.view.container.SLDStyler;config.data.pointStyleChooseFontBtnText;Font-Symbol auswählen;Choose Font Symbol;хараахан орчуулагдаагүй; -
-BasiGX.view.container.SLDStyler;config.data.pointStyleImgScaleSliderLabel;Maßstab;Scale;хараахан орчуулагдаагүй; -
-BasiGX.view.container.SLDStyler;config.data.pointStyleImgRotationSliderLabel;Rotation;Rotation;хараахан орчуулагдаагүй; -
-BasiGX.view.container.SLDStyler;config.data.pointStyleImgOpacitySliderLabel;Deckkraft;Opacity;хараахан орчуулагдаагүй; -
-BasiGX.view.container.SLDStyler;config.data.lineStyleFieldSetTitle;Stil des LineString;LineString Style;хараахан орчуулагдаагүй; -
-BasiGX.view.container.SLDStyler;config.data.lineStyleStrokeNumberFieldLabel;Strichstärke;Stroke Width;хараахан орчуулагдаагүй; -
-BasiGX.view.container.SLDStyler;config.data.lineStyleStrokeColorFieldLabel;Strichfarbe;Stroke Color;хараахан орчуулагдаагүй; -
-BasiGX.view.container.SLDStyler;config.data.polygonStyleFieldSetTitle;Stil des Polygons;Polygon Style;хараахан орчуулагдаагүй; -
-BasiGX.view.container.SLDStyler;config.data.polygonStyleSymbolPanelTitle;Symbol;Symbol;хараахан орчуулагдаагүй; -
-BasiGX.view.container.SLDStyler;config.data.polygonStyleStrokeNumberFieldLabel;Strichstärke;Stroke Width;хараахан орчуулагдаагүй; -
-BasiGX.view.container.SLDStyler;config.data.polygonStyleStrokeColorFieldLabel;Strichfarbe;Stroke Color;хараахан орчуулагдаагүй; -
-BasiGX.view.container.SLDStyler;config.data.polygonStyleFillColorFieldLabel;Füllfarbe;Fill Color;хараахан орчуулагдаагүй; -
-BasiGX.view.container.SLDStyler;config.data.polygonStyleGraphicPanelTitle;Grafik;Graphic;хараахан орчуулагдаагүй; -
-BasiGX.view.container.SLDStyler;config.data.polygonStyleImgScaleSliderLabel;Maßstab;Scale;хараахан орчуулагдаагүй; -
-BasiGX.view.container.SLDStyler;config.data.polygonStyleImgRotationSliderLabel;Rotation;Rotation;хараахан орчуулагдаагүй; -
-BasiGX.view.container.SLDStyler;config.data.polygonStyleImgOpacitySliderLabel;Deckkraft;Opacity;хараахан орчуулагдаагүй; -
-BasiGX.view.container.SLDStyler;config.data.pointGrapicDeletedSuccessMsgText;Die Füllgrafik wurde gelöscht, bitte weisen Sie eine neue zu.;The icon has been deleted. Please reassign a new one.;хараахан орчуулагдаагүй; -
-BasiGX.view.container.SLDStyler;config.data.pointGrapicDeletedSuccessMsgTitle;Löschen der Füllgrafik erfolgreich;Deletion succesfull;хараахан орчуулагдаагүй; -
-BasiGX.view.container.SLDStyler;config.data.graphicPoolWindowTitle;Graphik-Pool;Graphic Pool;хараахан орчуулагдаагүй; -
-BasiGX.view.container.SLDStyler;config.data.fontSymbolPoolWindowTitle;Font symbol pool;Font symbol pool;хараахан орчуулагдаагүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.geoExtent;Räumliche Ausdehnung;Extent;Хэмжээ; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.minX;Min X;Min X;Хамгийн доод Х; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.maxX;Max X;Max X;Хамгийн дээд Х; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.minY;Min Y;Min Y;Хамгийн доод Ү; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.maxY;Max Y;Max Y;Хамгийн дээд Ү; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.timeExtent;Zeitraum;Time extent;Цаг хугацааны хэмжээ; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.start;Von;Start;Эхлэх; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.end;Bis;End;Төгсгөх; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.format;Format;Format;Формат; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.limitations;Beschränkungen;Limitations;Хязгаарлалтууд; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.onlineResource;Online Resource;Online Resource;Он-лайн эх үүсвэр; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.dataSource;Quelle;Data source;Өгөгдлийн эх үүсвэо; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.publications;Publikationen;publications;нийтлэлүүд; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.createdMetadataMsg;Metadaten erzeugt unter UUID:;Createad MetadataSet with UUID:;Мета-өгөгдлийн тохиргоог UUD-р үүсгэсэн; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.couldNotCreateMetadataMsg;Metadaten konnten nicht erzeugt werden;Could not create metadata set;Мета-өгөгдлийн тохиргоог үүсгэж чадсангүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.couldNotLoadLayerDataMsg;Fehler beim lesen der Layer-Rohdaten;Error loading Layer Data;Давхаргын мэдээллийг ачаалахад алдаа гарсан; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.updatedMetadataMsg;Metadaten aktualisiert unter UUID:;Updated MetadataSet with UUID:;Мета-өгөгдлүүдийн тохиргоог UUD-р шинэчилсэн; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.couldNotUpdateMetadataMsg;Metadaten konnten nicht aktualisiert werden;Could not update metadata set;Мета-өгөгдлийн тохиргоор шинэчилж чадсангүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.style.title;Stil;Style;Хэв маяг; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.style.fieldsetTitle;Erzeuge Stil für Layer;Generate Style for Layer;Давхаргын хэв маягийг өгөх; -
+MoMo.admin.view.panel.style.Rules;config.data.addRuleButtonText;Regel hinzugügen;Add Rule;Шугам нэмэх; -
+MoMo.admin.view.panel.style.Rule;config.data.titlePrefix;Regel;Rule;Шугам; -
+MoMo.admin.view.panel.style.Rule;config.data.ruleNameText;Name;Name;Нэр; -
+MoMo.admin.view.panel.style.Rule;config.data.ruleTitleText;Titel;Title;Гарчиг; -
+MoMo.admin.view.panel.style.Rule;config.data.singleRoleNeededErrorMsg;Es muss mindestens eine Regel angegeben werden.;At least one rule is required.;Хамгийн багадаа нэг шугам хэрэгтэй; -
+MoMo.admin.view.panel.style.Rule;config.data.removeRuleButtonText;Regel entfernen;Remove this rule;Энэ шугамыг арилгах; -
+MoMo.admin.view.panel.style.Filter;config.data.title;Filter verwenden;Use Filter;Шүүлтүүр ашиглах; -
+MoMo.admin.view.panel.style.Filter;config.data.attributeComboLabel;Attribut;Property;Тодруулга; -
+MoMo.admin.view.panel.style.Filter;config.data.operatorComboLabel;Operator;Operator;Оператор; -
+MoMo.admin.view.panel.style.Filter;config.data.literalNumberField1Label;Untere Grenze;Lower boundary;Доод хязгаар; -
+MoMo.admin.view.panel.style.Filter;config.data.literalNumberField2Label;Wert;Value;Утга; -
+MoMo.admin.view.panel.style.Filter;config.data.literalTextFieldLabel;ähnlich wie;Is like pattern;нь загвартай адил; -
+MoMo.admin.view.panel.style.Symbolizer;config.data.name;SLDStyler;SLDStyler;SLD хэв маяг оруулагч; -
+MoMo.admin.view.panel.style.Symbolizer;config.data.title;Darstellung;Symbolizer;Тэмдэглэгч; -
+MoMo.admin.view.panel.style.Symbolizer;config.data.windowTitle;Symbolisierung bearbeiten;Edit symbolizer;Тэмдэглэгчийг засах; -
+MoMo.admin.view.panel.style.Symbolizer;config.data.symbolizerFieldSetHtml;Bearbeiten der Symbolisierung über Klick;Click symbolizer to edit;Тэмдэглэгчийг засахаар дарах; -
+MoMo.admin.view.panel.style.Symbolizer;config.data.applySymbolizationText;Übernehmen;OK;ОК; -
+MoMo.admin.view.panel.style.Symbolizer;config.data.cancelSymbolizationText;Abbrechen;Cancel;Цуцлах; -
+BasiGX.view.container.SLDStyler;config.data.pointStyleFieldSetTitle;Stil eines Punkts;Point Style;Цэгийн хэв маяг; -
+BasiGX.view.container.SLDStyler;config.data.pointStyleSymbolPanelTitle;Symbol;Symbol;Тэмдэг; -
+BasiGX.view.container.SLDStyler;config.data.pointStyleRadiusNumberFieldLabel;Radius des Punkts;Point radius';Цэгийн радиус; -
+BasiGX.view.container.SLDStyler;config.data.pointStyleStrokeNumberFieldLabel;Strichstärke;Stroke width;Зураасны өргөн; -
+BasiGX.view.container.SLDStyler;config.data.pointStyleStrokeColorFieldLabel;Strichfarbe;Stroke color;Зураасны өнгө; -
+BasiGX.view.container.SLDStyler;config.data.pointStyleFillColorFieldLabel;Füllfarbe;Fill Color;Өнгөөр дүүргэх; -
+BasiGX.view.container.SLDStyler;config.data.pointStyleGraphicPanelTitle;Grafik;Graphic;График; -
+BasiGX.view.container.SLDStyler;config.data.pointStyleChooseImgBtnText;Bild auswählen;Choose Image;Зураг сонгох; -
+BasiGX.view.container.SLDStyler;config.data.pointStyleChooseFontBtnText;Font-Symbol auswählen;Choose Font Symbol;Фонтны тэмдэг сонгох; -
+BasiGX.view.container.SLDStyler;config.data.pointStyleImgScaleSliderLabel;Maßstab;Scale;Хуваарь; -
+BasiGX.view.container.SLDStyler;config.data.pointStyleImgRotationSliderLabel;Rotation;Rotation;Эргэлт; -
+BasiGX.view.container.SLDStyler;config.data.pointStyleImgOpacitySliderLabel;Deckkraft;Opacity;Тодорхойгүй; -
+BasiGX.view.container.SLDStyler;config.data.lineStyleFieldSetTitle;Stil des LineString;LineString Style;Шугаман мөрний хэв маяг; -
+BasiGX.view.container.SLDStyler;config.data.lineStyleStrokeNumberFieldLabel;Strichstärke;Stroke Width;Зураасны өргөн; -
+BasiGX.view.container.SLDStyler;config.data.lineStyleStrokeColorFieldLabel;Strichfarbe;Stroke Color;Зураасны өнгө; -
+BasiGX.view.container.SLDStyler;config.data.polygonStyleFieldSetTitle;Stil des Polygons;Polygon Style;Олон өнцөгтийн хэв маяг; -
+BasiGX.view.container.SLDStyler;config.data.polygonStyleSymbolPanelTitle;Symbol;Symbol;Тэмдэг; -
+BasiGX.view.container.SLDStyler;config.data.polygonStyleStrokeNumberFieldLabel;Strichstärke;Stroke Width;Зураасны өргөн; -
+BasiGX.view.container.SLDStyler;config.data.polygonStyleStrokeColorFieldLabel;Strichfarbe;Stroke Color;Зураасны өнгө; -
+BasiGX.view.container.SLDStyler;config.data.polygonStyleFillColorFieldLabel;Füllfarbe;Fill Color;Өнгөөр дүүргэх; -
+BasiGX.view.container.SLDStyler;config.data.polygonStyleGraphicPanelTitle;Grafik;Graphic;График; -
+BasiGX.view.container.SLDStyler;config.data.polygonStyleImgScaleSliderLabel;Maßstab;Scale;Хуваарь; -
+BasiGX.view.container.SLDStyler;config.data.polygonStyleImgRotationSliderLabel;Rotation;Rotation;Эргэлт; -
+BasiGX.view.container.SLDStyler;config.data.polygonStyleImgOpacitySliderLabel;Deckkraft;Opacity;Тодорхойгүй; -
+BasiGX.view.container.SLDStyler;config.data.pointGrapicDeletedSuccessMsgText;Die Füllgrafik wurde gelöscht, bitte weisen Sie eine neue zu.;The icon has been deleted. Please reassign a new one.;Дүрс устгагдсан. Шинэ тэмдэг өгнө үү. ; -
+BasiGX.view.container.SLDStyler;config.data.pointGrapicDeletedSuccessMsgTitle;Löschen der Füllgrafik erfolgreich;Deletion succesfull;Устгал амжилттай; -
+BasiGX.view.container.SLDStyler;config.data.graphicPoolWindowTitle;Graphik-Pool;Graphic Pool;Графикийн сан; -
+BasiGX.view.container.SLDStyler;config.data.fontSymbolPoolWindowTitle;Font symbol pool;Font symbol pool;Фонтны тэмдгийн сан; -
