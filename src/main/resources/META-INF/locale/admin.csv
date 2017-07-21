@@ -77,7 +77,7 @@ MoMo.admin.view.grid.LayerList;config.data.layerlistDownload;Layer Download;Down
 MoMo.admin.view.grid.LayerList;config.data.layerlistPreview;Layervorschau;Preview Layer;Давхаргыг урьдчилан харах; -
 MoMo.admin.view.grid.LayerList;config.data.deletionErrorMsgTitle;Fehler;Error;Алдаа; -
 MoMo.admin.view.grid.LayerList;config.data.deletionErrorMsgText;Bitte wählen Sie zunächst mindestens einen Layer aus.;Please select a single layer before!;Эхлээд нэг давхаргыг сонгоно уу!; -
-MoMo.admin.view.grid.LayerList;config.data.deletionMsgTemplate;Fehler;Layer {0} deleted.;{0} давхарга устсан; -
+MoMo.admin.view.grid.LayerList;config.data.deletionMsgTemplate;Layer {0} gelöscht.;Layer {0} deleted.;{0} давхарга устсан; -
 MoMo.admin.view.grid.LayerList;config.data.unsuccessfulDeletionMsgTemplate;Fehler;Layer {0} could not be deleted.;{0} давхарга устах боломжгүй; -
 MoMo.admin.view.grid.LayerList;config.data.downloadStartingMsg;Download startet in Kürze. Bitte warten Sie...;Download will start shortly, please wait...;Суулгах явц удахгүй эхэлнэ, та хүлээнэ үү...; -
 MoMo.admin.view.grid.LayerList;config.data.downloadFailureMsg;Konnte Quelldatensatz des Layers nicht herunterladen.;Could not download Layerdata!;Давхаргын мэдээллийг суулгаж чадсангүй; -

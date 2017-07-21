@@ -12,7 +12,7 @@
         <constructor-arg value="${ddl.tablePrefix}" />
     </bean>
     
-        <!-- HIKARI CP config-->
+    <!-- HIKARI CP config-->
     <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
          <property name="connectionTestQuery" value="${hikari.testQuery}" />
          <property name="maximumPoolSize" value="${hikari.maximumPoolSize}" />
@@ -30,6 +30,26 @@
     <bean id="shogun2DataSource" class="com.zaxxer.hikari.HikariDataSource"
         destroy-method="close">
         <constructor-arg ref="hikariConfig"/>
+    </bean>
+
+    <!-- HIKARI CP config-->
+    <bean id="geoserverHikariConfig" class="com.zaxxer.hikari.HikariConfig">
+         <property name="connectionTestQuery" value="${hikari.testQuery}" />
+         <property name="maximumPoolSize" value="${hikari.maximumPoolSize}" />
+         <property name="dataSourceClassName" value="${hikari.dataSourceClassName}"/>
+         <property name="dataSourceProperties">
+             <props>
+                 <prop key="url">${jdbc.geoserver.url}</prop>
+                 <prop key="user">${jdbc.geoserver.username}</prop>
+                 <prop key="password">${jdbc.geoserver.password}</prop>
+             </props>
+         </property>
+     </bean>
+
+    <!-- Using hikari connection pooling. See http://static.springsource.org/spring/docs/3.2.x/spring-framework-reference/html/jdbc.html#jdbc-datasource -->
+    <bean id="geoserverDataSource" class="com.zaxxer.hikari.HikariDataSource"
+        destroy-method="close">
+        <constructor-arg ref="geoserverHikariConfig"/>
     </bean>
 
     <bean id="sessionFactory"

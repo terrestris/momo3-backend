@@ -4,11 +4,16 @@
 package de.terrestris.momo.dao;
 
 import java.net.MalformedURLException;
+import java.sql.Connection;
+import java.sql.Statement;
 
+import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+
+import com.zaxxer.hikari.HikariDataSource;
 
 import de.terrestris.momo.model.MomoLayer;
 import de.terrestris.momo.util.importer.RESTImporterPublisher;
@@ -62,12 +67,12 @@ public class GeoserverPublisherDao extends GeoServerRESTPublisher {
 	@Qualifier("geoServerPassword")
 	private String gspassword;
 
-//	/**
-//	 * The SQL datasource of the geoserver vector data
-//	 */
-//	@Autowired
-//	@Qualifier("geoServerDataSource")
-//	private DataSource geoserverDataSource;
+	/**
+	 * The SQL datasource of the geoserver vector data
+	 */
+	@Autowired
+	@Qualifier("geoserverDataSource")
+	private HikariDataSource geoserverDataSource;
 
 	/**
 	 *
@@ -133,9 +138,9 @@ public class GeoserverPublisherDao extends GeoServerRESTPublisher {
 			String storename = ds.getName();
 			success = this.unpublishFeatureType(workspace, storename, name);
 
-//			if (success && deleteDataset) {
-//				dropTableOfVectorData(restFeatureType);
-//			}
+			if (success && deleteDataset) {
+				dropTableOfVectorData(restFeatureType);
+			}
 
 		} else if (type.equals(Type.RASTER)) {
 			RESTCoverage restCoverage = gsReaderDao.getCoverage(restLayer);
@@ -188,43 +193,42 @@ public class GeoserverPublisherDao extends GeoServerRESTPublisher {
 		return success;
 	}
 
-//	/**
-//	 *
-//	 * @param restFeatureType
-//	 */
-//	private void dropTableOfVectorData(RESTFeatureType restFeatureType) {
-//
-//		// it seems that the native name is the name of the underlying table
-//		String tableName = restFeatureType.getNativeName();
-//
-//		Connection c = null;
-//		Statement stmt = null;
-//
-//		try {
-//			c = geoserverDataSource.getConnection();
-//			stmt = c.createStatement();
-//
-//			String query = "DROP TABLE IF EXISTS \"" + tableName + "\" CASCADE";
-//
-//			int result = stmt.executeUpdate(query);
-//
-//			if (result != 0) {
-//				throw new Exception(
-//						"Unexpected status code after executing " + "DROP statement: " + result);
-//			}
-//
-//			LOG.debug("Successfully dropped table " + tableName
-//					+ " from the GeoServer vector data database.");
-//
-//		} catch (Exception e) {
-//			LOG.error("Could not delete underlying table " + tableName
-//					+ " of vector data in the GS DB: " + e.getMessage());
-//		} finally {
-//			DbUtils.closeQuietly(stmt);
-//			DbUtils.closeQuietly(c);
-//		}
-//
-//	}
+	/**
+	 *
+	 * @param restFeatureType
+	 */
+	private void dropTableOfVectorData(RESTFeatureType restFeatureType) {
+		// it seems that the native name is the name of the underlying table
+		String tableName = restFeatureType.getNativeName();
+
+		Connection c = null;
+		Statement stmt = null;
+
+		try {
+			c = geoserverDataSource.getConnection();
+			stmt = c.createStatement();
+
+			String query = "DROP TABLE IF EXISTS \"" + tableName + "\" CASCADE";
+
+			int result = stmt.executeUpdate(query);
+
+			if (result != 0) {
+				throw new Exception(
+						"Unexpected status code after executing " + "DROP statement: " + result);
+			}
+
+			LOG.debug("Successfully dropped table " + tableName
+					+ " from the GeoServer vector data database.");
+
+		} catch (Exception e) {
+			LOG.error("Could not delete underlying table " + tableName
+					+ " of vector data in the GS DB: " + e.getMessage());
+		} finally {
+			DbUtils.closeQuietly(stmt);
+			DbUtils.closeQuietly(c);
+		}
+
+	}
 
 	/**
 	 * @return the geoserverRestUrl
@@ -268,21 +272,21 @@ public class GeoserverPublisherDao extends GeoServerRESTPublisher {
 		this.gsReaderDao = gsReaderDao;
 	}
 
-//	/**
-//	 *
-//	 * @return
-//	 */
-//	public DataSource getGeoserverDataSource() {
-//		return geoserverDataSource;
-//	}
-//
-//	/**
-//	 *
-//	 * @param geoserverDataSource
-//	 */
-//	public void setGeoserverDataSource(DataSource geoserverDataSource) {
-//		this.geoserverDataSource = geoserverDataSource;
-//	}
+	/**
+	 *
+	 * @return
+	 */
+	public HikariDataSource getGeoserverDataSource() {
+		return geoserverDataSource;
+	}
+
+	/**
+	 *
+	 * @param geoserverDataSource
+	 */
+	public void setGeoserverDataSource(HikariDataSource geoserverDataSource) {
+		this.geoserverDataSource = geoserverDataSource;
+	}
 
 	/**
 	 *
