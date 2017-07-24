@@ -12,6 +12,7 @@ import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
+import de.terrestris.momo.dao.GeoserverPublisherDao;
 import de.terrestris.momo.dao.GeoserverReaderDao;
 import de.terrestris.momo.dao.MomoLayerDao;
 import de.terrestris.momo.model.MomoLayer;
@@ -46,6 +47,9 @@ public class MomoLayerService<E extends MomoLayer, D extends MomoLayerDao<E>>
 	@Autowired
 	private GeoserverReaderDao gsReaderDao;
 
+	@Autowired
+	private GeoserverPublisherDao gsPublisherDao;
+	
 	/**
 	 * We have to use {@link Qualifier} to define the correct dao here.
 	 * Otherwise, spring can not decide which dao has to be autowired here
@@ -168,4 +172,9 @@ public class MomoLayerService<E extends MomoLayer, D extends MomoLayerDao<E>>
 		return baos.toByteArray();
 	}
 
+	@SuppressWarnings("unchecked")
+	public void deleteMomoLayer(MomoLayer layer) throws Exception {
+		this.gsPublisherDao.unpublishGeoServerLayer(layer, true);
+		this.delete((E) layer);
+	}
 }

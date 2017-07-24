@@ -295,18 +295,6 @@
         <constructor-arg value="${geoserver.importer.raster.performGdalWarp}"></constructor-arg>
     </bean>
 
-    <bean id="geoServerSshUserName" class="java.lang.String">
-        <constructor-arg value="${geoserver.ssh.username}"></constructor-arg>
-    </bean>
-
-    <bean id="geoServerSshPort" class="java.lang.String">
-        <constructor-arg value="${geoserver.ssh.port}"></constructor-arg>
-    </bean>
-
-    <bean id="geoServerSshKeyPath" class="java.lang.String">
-        <constructor-arg value="${geoserver.ssh.keyPath}"></constructor-arg>
-    </bean>
-
     <bean id="geoServerDataDir" class="java.lang.String">
         <constructor-arg value="${geoserver.data.dir}"></constructor-arg>
     </bean>

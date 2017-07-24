@@ -486,36 +486,7 @@ public class RESTImporterPublisher {
 		builder.setPath(endPoint);
 
 		uri = builder.build();
-
 		return uri;
-	}
-
-	/**
-	 *
-	 * @param restBaseScheme
-	 * @param restBaseHost
-	 * @param restBasePort
-	 * @param restBasePath
-	 * @param restEndpointImports
-	 * @return
-	 * @throws URISyntaxException
-	 */
-	private static URI getImporterBaseUri(String restBaseScheme, String restBaseHost,
-			Integer restBasePort, String restBasePath, String restEndpointImports)
-			throws URISyntaxException {
-
-		URI importerUri = null;
-
-		URIBuilder builder = new URIBuilder();
-
-		builder.setScheme(restBaseScheme);
-		builder.setHost(restBaseHost);
-		builder.setPort(restBasePort);
-		builder.setPath(restBasePath + restEndpointImports);
-
-		importerUri = builder.build();
-
-		return importerUri;
 	}
 
 	/**

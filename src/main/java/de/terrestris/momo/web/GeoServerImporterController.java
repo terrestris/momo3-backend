@@ -107,6 +107,7 @@ public class GeoServerImporterController {
 			);
 
 		} catch (ImporterException | URISyntaxException | HttpException | IOException | JSchException e) {
+			LOG.debug(e.getMessage(), e);
 			responseStatus = HttpStatus.INTERNAL_SERVER_ERROR;
 			responseMap = ResultSet.error("Could not upload the file: " + e.getMessage());
 		} finally {
