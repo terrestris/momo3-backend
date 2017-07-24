@@ -41,6 +41,11 @@ MoMo.admin.view.grid.UserList;config.data.i18n.deleteUser;Account löschen;Delet
 MoMo.admin.view.grid.UserList;config.data.i18n.deleteUserText;Wollen Sie wirklich die markierten Benutzer löschen?;'Do you really want to delete the selected users?;Шинэчлэх?; -
 MoMo.admin.view.grid.UserList;config.data.i18n.deletionSuccessText;Account erfolgreich gelöscht;Account has been successfully deleted;устсан; -
 MoMo.admin.view.grid.UserList;config.data.i18n.deletionFailureText;Account konnte nicht gelöscht werden;Account could not be deleted;Алдаа; -
+MoMo.admin.view.grid.UserList;config.data.i18n.userlistFirstNameLabel;Vorname;First name;Нэр; -
+MoMo.admin.view.grid.UserList;config.data.i18n.userlistLastNameLabel;Nachname;Last name;Овог; -
+MoMo.admin.view.grid.UserList;config.data.i18n.userlistEmailLabel;Email;Email Address;И-мейл; -
+MoMo.admin.view.grid.UserList;config.data.i18n.userlistDepartmentLabel;Organisation;Department;Газар/алба; -
+MoMo.admin.view.grid.UserList;config.data.i18n.userlistTelephoneLabel;Telefonnummer;Telephone number;Утасны дугаар; -
 MoMo.admin.view.grid.ApplicationList;config.data.i18n.applicationsTitle;Alle Applikationen;All applications;Бүх программууд; -
 MoMo.admin.view.grid.ApplicationList;config.data.i18n.applicationsCreateApp;Erstellen;Create;Үүсгэх; -
 MoMo.admin.view.grid.ApplicationList;config.data.i18n.applicationsCopyApp;Kopieren;Copy;Хуулах; -
@@ -123,6 +128,16 @@ MoMo.admin.view.grid.GroupList;config.data.i18n.groupModifyText;Bitte geben Sie 
 MoMo.admin.view.grid.GroupList;config.data.i18n.groupModifyTitle;Bearbeiten;Edit;Засах; -
 MoMo.admin.view.grid.GroupList;config.data.i18n.groupModifySuccessText;Gruppe erfolgreich bearbeitet;Group edited successfully;Бүлгийг амжилттай заслаа; -
 MoMo.admin.view.grid.GroupList;config.data.i18n.groupModifyFailureText;Gruppe konnte nicht bearbeitet werden;Group edit failed;Бүлгийг засах амжилтгүй ; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupAddUserBtnText;Benutzer hinzufügen;Add user;Хэрэглэгч нэмэх; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupAddUserTitle;Benutzer zu Gruppe hinzufügen;Add user to group;Бүлэгт хэрэглэгч нэмэх; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupAddUserText;Wählen Sie einen Benutzer, Gruppe und Rolle, die Sie hinzufügen möchten;Select a user, group and role you want to add;Нэмэх хүсэлтэй байгаа хэрэглэгч, бүлэг ба үүргийг сонгох; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupAddUserSelectGroupTitle;Wählen Sie eine Gruppe;Select a group;Бүлэг сонгох; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupAddUserSelectUserTitle;Wählen Sie einen Benutzer;Select a user;Хэрэглэгч сонгох; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupAddUserSelectRoleTitle;Wählen Sie eine Rolle;Select a role;Үүрэг сонгох; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupAddUserSaveBtnText;Speichern;Save;Хадгалах; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupAddUserSelectFirst;Bitte machen Sie gültige Angaben;Please select valid options;Зөв сонголтуудыг хийнэ үү; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupAddUserSuccess;Einstellungen gespeichert;Settings saved;Тохиргоог хадгалсан; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupAddUserFail;Einstellungen konnten nicht gespeichert werden;Settings could not be saved;Тохиргоог хадгалж чадсангүй; -
 MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelTitle;Gruppen und Berechtigungen;Groups and permissions;Бүлгүүд ба зөвшөөрлүүд; -
 MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelActionSuccess;Ok;Success;Амжилттай; -
 MoMo.admin.view.panel.GroupPanel;config.data.i18n.grouppanelActionFailure;Fehler;Error;Алдаа; -
@@ -135,16 +150,6 @@ MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupPermissionGridPan
 MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupPermissionGridPanelSubadminColumnName;Sub-Admin;Sub-Admin;Дэд-админ; -
 MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupPermissionGridPanelEditorColumnName;Editor;Editor;Редактор; -
 MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupPermissionGridPanelUserColumnName;Benutzer;User;Хэрэглэгч; -
-MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserBtnText;Benutzer hinzufügen;Add user;Хэрэглэгч нэмэх; -
-MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserTitle;Benutzer zu Gruppe hinzufügen;Add user to group;Бүлэгт хэрэглэгч нэмэх; -
-MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserText;Wählen Sie einen Benutzer, Gruppe und Rolle, die Sie hinzufügen möchten;Select a user, group and role you want to add;Нэмэх хүсэлтэй байгаа хэрэглэгч, бүлэг ба үүргийг сонгох; -
-MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserSelectGroupTitle;Wählen Sie eine Gruppe;Select a group;Бүлэг сонгох; -
-MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserSelectUserTitle;Wählen Sie einen Benutzer;Select a user;Хэрэглэгч сонгох; -
-MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserSelectRoleTitle;Wählen Sie eine Rolle;Select a role;Үүрэг сонгох; -
-MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserSaveBtnText;Speichern;Save;Хадгалах; -
-MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserSelectFirst;Bitte machen Sie gültige Angaben;Please select valid options;Зөв сонголтуудыг хийнэ үү; -
-MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserSuccess;Einstellungen gespeichert;Settings saved;Тохиргоог хадгалсан; -
-MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupAddUserFail;Einstellungen konnten nicht gespeichert werden;Settings could not be saved;Тохиргоог хадгалж чадсангүй; -
 MoMo.admin.view.viewport.Viewport;config.data.i18n.applicationsMenuTitle;Applikationen;Applications;Программууд; -
 MoMo.admin.view.viewport.Viewport;config.data.i18n.layersMenuTitle;Layer;Layers;Давхаргууд; -
 MoMo.admin.view.viewport.Viewport;config.data.i18n.usersMenuTitle;Benutzer;Users;Хэрэглэгчид; -
