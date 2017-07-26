@@ -38,6 +38,8 @@
              admin) per default. Create with production profile only. -->
         <skip-build-javascript-resources>true</skip-build-javascript-resources>
 
+        <skip-userdoc-regeneration>true</skip-userdoc-regeneration>
+
         <jetty.contextPath>/</jetty.contextPath>
 
         <shogun2.version>0.1.3-SNAPSHOT</shogun2.version>
@@ -205,7 +207,18 @@
                         lib/ogc-schemas/**,
                         lib/opentype.js/**,
                         lib/proj4/**,
-                        lib/proj4-defs/**
+                        lib/proj4-defs/**,
+
+                        userdocs/build/iwrm_momo_logo.png,
+                        userdocs/build/MoMo_doc_de.pdf,
+                        userdocs/build/MoMo_doc_en.pdf,
+                        userdocs/build/MoMo_doc_mn.pdf,
+                        userdocs/build/MoMo_doc_de_html.html,
+                        userdocs/build/MoMo_doc_en_html.html,
+                        userdocs/build/MoMo_doc_mn_html.html,
+                        userdocs/build/MoMo_doc_de_html.css,
+                        userdocs/build/MoMo_doc_en_html.css,
+                        userdocs/build/MoMo_doc_mn_html.css
                     </warSourceIncludes>
                     <warSourceExcludes>
                         lib/BasiGX/**,
@@ -307,7 +320,137 @@
                             </arguments>
                         </configuration>
                     </execution>
+                    <!--
+                    | AUTOUPDATED USER DOCUMENTATION BEGIN
+                    |
+                    | Refresh the current user docs which are stored in
+                    | another repository `terrestris/momo-doc`.
+                    | This repository is configured to produce a zip file with
+                    | the user documentation which we will include in the
+                    | warfile and reference from the JavaScript.
+                    |
+                    | The refreshing happens in the following order:
+                    |
+                    | 1) Create the directory for the user docs, if needed.
+                    | 2) Remove all files from the existing `userdocs/`
+                    |    directory.
+                    | 3) Use the gitlab API (authorized as Mr Robot) to fetch
+                    |    the latest archive containing the current user
+                    |    documentation.
+                    | 4) Unzip that archive in the `userdocs/`-directory.
+                    | 5) Remove the zipfile with the archive.
+                    |
+                    | Pass -Dskip-userdoc-regeneration=true on the commandline
+                    | to skip the regeneration of the user documentation
+                    |
+                    +-->
+                    <!-- Step 1/5: Create user docs directory -->
+                    <execution>
+                      <id>create-user-docs-dir-if-needed</id>
+                      <phase>initialize</phase>
+                      <goals>
+                        <goal>exec</goal>
+                      </goals>
+                      <configuration>
+                        <skip>${skip-userdoc-regeneration}</skip>
+                        <executable>mkdir</executable>
+                        <!-- equivalent to piping all output to /dev/null -->
+                        <outputFile>/dev/null</outputFile>
+                        <arguments>
+                          <argument>-p</argument>
+                          <argument>${basedir}/src/main/webapp/userdocs/*</argument>
+                        </arguments>
+                      </configuration>
+                    </execution>
+                    <!-- Step 2/5: Remove previous docs -->
+                    <execution>
+                      <id>remove-previous-user-docs</id>
+                      <phase>initialize</phase>
+                      <goals>
+                        <goal>exec</goal>
+                      </goals>
+                      <configuration>
+                        <skip>${skip-userdoc-regeneration}</skip>
+                        <executable>rm</executable>
+                        <!-- equivalent to piping all output to /dev/null -->
+                        <outputFile>/dev/null</outputFile>
+                        <arguments>
+                          <argument>-r</argument>
+                          <argument>-f</argument>
+                          <argument>${basedir}/src/main/webapp/userdocs/*</argument>
+                        </arguments>
+                      </configuration>
+                    </execution>
+                    <!-- Step 3/5: Fetch the current archive -->
+                    <execution>
+                      <id>fetch-user-docs-archive</id>
+                      <phase>initialize</phase>
+                      <goals>
+                        <goal>exec</goal>
+                      </goals>
+                      <configuration>
+                        <skip>${skip-userdoc-regeneration}</skip>
+                        <!-- equivalent to piping all output to /dev/null -->
+                        <outputFile>/dev/null</outputFile>
+                        <executable>curl</executable>
+                        <arguments>
+                          <argument>https://gitlab.intranet.terrestris.de/api/v4/projects/terrestris%2Fmomo-doc/jobs/artifacts/master/download</argument>
+                          <argument>--request</argument>
+                          <argument>GET</argument>
+                          <argument>--data</argument>
+                          <argument>job=build_documents</argument>
+                          <argument>--data</argument>
+                          <argument>private_token=${gitlab-token}</argument>
+                          <argument>--output</argument>
+                          <argument>${basedir}/src/main/webapp/userdocs/latest.zip</argument>
+                          <argument>--silent</argument>
+                        </arguments>
+                      </configuration>
+                    </execution>
+                    <!-- Step 4/5: Unzip that archive -->
+                    <execution>
+                      <id>unzip-user-docs-archive</id>
+                      <phase>initialize</phase>
+                      <goals>
+                        <goal>exec</goal>
+                      </goals>
+                      <configuration>
+                        <skip>${skip-userdoc-regeneration}</skip>
+                        <workingDirectory>${basedir}/src/main/webapp/userdocs/</workingDirectory>
+                        <executable>unzip</executable>
+                        <!-- equivalent to piping all output to /dev/null -->
+                        <outputFile>/dev/null</outputFile>
+                        <arguments>
+                          <argument>-o</argument>
+                          <argument>latest.zip</argument>
+                          <argument>-d</argument>
+                          <argument>.</argument>
+                        </arguments>
+                      </configuration>
+                    </execution>
+                    <!-- Step 5/5: Remove downloaded archive -->
+                    <execution>
+                      <id>remove-user-docs-archive</id>
+                      <phase>initialize</phase>
+                      <goals>
+                        <goal>exec</goal>
+                      </goals>
+                      <configuration>
+                        <skip>${skip-userdoc-regeneration}</skip>
+                        <workingDirectory>${basedir}/src/main/webapp/userdocs/</workingDirectory>
+                        <executable>rm</executable>
+                        <!-- equivalent to piping all output to /dev/null -->
+                        <outputFile>/dev/null</outputFile>
+                        <arguments>
+                          <argument>-f</argument>
+                          <argument>latest.zip</argument>
+                        </arguments>
+                      </configuration>
+                    </execution>
+                    <!-- AUTOUPDATED USER DOCUMENTATION END -->
                 </executions>
+
+
             </plugin>
 
             <plugin>
