@@ -32,6 +32,13 @@ if [[ -z $RELEASE_DESCRIPTION ]]; then
     exit 1
 fi
 
+# Check if the input parameter RELEASE_DESCRIPTION is valid
+GITLAB_TOKEN="$4"
+if [[ -z $GITLAB_TOKEN ]]; then
+    echo "Error: GITLAB_TOKEN must be set"
+    exit 1
+fi
+
 COMMIT_PREFIX="[AUTOCOMMIT]"
 RELEASE_COMMIT_MSG="$COMMIT_PREFIX Set version for the release ($RELEASE_VERSION)"
 PREPARE_NEXT_DEV_ITERATION_COMMIT_MSG="$COMMIT_PREFIX Set version for the next development iteration ($DEVELOPMENT_VERSION)"
@@ -47,7 +54,7 @@ mvn scm:check-local-modification
 mvn versions:set -DnewVersion="$RELEASE_VERSION"
 
 # Build/Verify the application
-mvn verify -Dskip-build-javascript-resources=false
+mvn verify -Dskip-build-javascript-resources=false -Dskip-userdoc-regeneration=false -Dgitlab-token=$GITLAB_TOKEN
 
 # Commit the release version (checkin I of II)
 mvn scm:checkin -Dmessage="$RELEASE_COMMIT_MSG"
@@ -62,4 +69,3 @@ mvn versions:set -DnewVersion="$DEVELOPMENT_VERSION"
 mvn scm:checkin -Dmessage="$PREPARE_NEXT_DEV_ITERATION_COMMIT_MSG"
 
 popd
-
