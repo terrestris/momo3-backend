@@ -160,7 +160,9 @@
                     <include>META-INF/spring/${app.profile}/**</include>
                     <!-- This will include the config of the active profile (only) -->
                     <include>META-INF/config/${app.profile}/**</include>
+                    <include>META-INF/config/version.properties</include>
                 </includes>
+                <filtering>true</filtering>
             </resource>
         </resources>
 
