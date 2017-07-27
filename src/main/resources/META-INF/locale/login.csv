@@ -5,6 +5,8 @@ MoMo.login.view.button.translation.ToGerman;config.data.tooltipDe;DE;DE;DE;OK
 MoMo.login.view.button.translation.ToGerman;config.data.setLanguageCallbackToastText;Applikationssprache ist jetzt {0};Application language is now {0};Хэл нь одоо байна {0};OK
 MoMo.login.view.button.translation.ToMongolian;config.data.tooltipMn;MN;MN;MN;OK
 MoMo.login.view.button.translation.ToMongolian;config.data.setLanguageCallbackToastText;Applikationssprache ist jetzt {0};Application language is now {0};Хэл нь одоо байна {0};OK
+MoMo.login.view.authentication.Login;config.data.helpButtonText;Hilfedokument;Helpdocument;Helpdocument; -
+MoMo.login.view.authentication.Login;config.data.contextHelpTooltip;Kontextsensitive Hilfe;Contextsensitive help;Contextsensitive help; -
 MoMo.login.view.authentication.Login;config.data.loginTitle;MoMo - Login;MoMo - Login;Хэл нь одоо байна; -
 MoMo.login.view.authentication.Login;config.data.loginFormLabel;Loggen Sie sich ein;Sign into your account;Хэл нь одоо байна; -
 MoMo.login.view.authentication.Login;config.data.userNameEmptyText;Benutzername;Username;Хэл нь одоо байна; -
@@ -12,11 +14,15 @@ MoMo.login.view.authentication.Login;config.data.passwordEmptyText;Passwort;Pass
 MoMo.login.view.authentication.Login;config.data.forgotPasswordText;Passwort vergessen ?;Forgot Password ?;Хэл нь одоо байна; -
 MoMo.login.view.authentication.Login;config.data.loginBtnText;Einloggen;Login;Хэл нь одоо байна; -
 MoMo.login.view.authentication.Login;config.data.createAccountBtnText;Account erstellen;Create Account;Хэл нь одоо байна; -
+MoMo.login.view.authentication.PasswordReset;config.data.helpButtonText;Hilfedokument;Helpdocument;Helpdocument; -
+MoMo.login.view.authentication.PasswordReset;config.data.contextHelpTooltip;Kontextsensitive Hilfe;Contextsensitive help;Contextsensitive help; -
 MoMo.login.view.authentication.PasswordReset;config.data.passwordResetTitle;MoMo - Passwort zurücksetzen;MoMo - Reset Password;Хэл нь одоо байна; -
 MoMo.login.view.authentication.PasswordReset;config.data.passwordResetDescription;Geben Sie ihre Email ein für weitere Instruktionen;Enter your email address for further reset instructions;Хэл нь одоо байна; -
 MoMo.login.view.authentication.PasswordReset;config.data.emailAddressEmptyText;Emailadresse;Email;Хэл нь одоо байна; -
 MoMo.login.view.authentication.PasswordReset;config.data.resetPasswordBtnText;Passwort zurücksetzen;Reset Password;Хэл нь одоо байна; -
 MoMo.login.view.authentication.PasswordReset;config.data.backToLoginText;Zurück zum Login;Back to Log In;Хэл нь одоо байна; -
+MoMo.login.view.authentication.PasswordChange;config.data.helpButtonText;Hilfedokument;Helpdocument;Helpdocument; -
+MoMo.login.view.authentication.PasswordChange;config.data.contextHelpTooltip;Kontextsensitive Hilfe;Contextsensitive help;Contextsensitive help; -
 MoMo.login.view.authentication.PasswordChange;config.data.changePasswordTitle;MoMo - Passwort ändern;MoMo - Change Password;Хэл нь одоо байна; -
 MoMo.login.view.authentication.PasswordChange;config.data.newPasswordText;Geben Sie ein neues Passwort ein.;Enter your new password.;Хэл нь одоо байна; -
 MoMo.login.view.authentication.PasswordChange;config.data.passwordEmptyText;Passwort;Password;Хэл нь одоо байна; -
@@ -24,11 +30,15 @@ MoMo.login.view.authentication.PasswordChange;config.data.confirmPasswordEmptyTe
 MoMo.login.view.authentication.PasswordChange;config.data.changePasswordBtnText;Passwort ändern;Change Password;Хэл нь одоо байна; -
 MoMo.login.view.authentication.PasswordChange;config.data.backToLoginText;Zurück zum Login;Back to Log In;Хэл нь одоо байна; -
 MoMo.login.view.authentication.PasswordChange;config.data.passwordsAreNotEqualText;Passwörter sind nicht identisch;Passwords do not match;Хэл нь одоо байна; -
+MoMo.login.view.authentication.ResendToken;config.data.helpButtonText;Hilfedokument;Helpdocument;Helpdocument; -
+MoMo.login.view.authentication.ResendToken;config.data.contextHelpTooltip;Kontextsensitive Hilfe;Contextsensitive help;Contextsensitive help; -
 MoMo.login.view.authentication.ResendToken;config.data.resendTokenTitle;MoMo - Registrierungsmail erneut senden;MoMo - Resend registration mail;Хэл нь одоо байна; -
 MoMo.login.view.authentication.ResendToken;config.data.resendTokenHtmlText;<p>Ihr Account ist noch nicht aktiviert.</p><p>Sie können Ihren Account aktivieren indem Sie die Registrierungsmail öffnen und den Link darin anklicken. Wenn Sie die Registrierungsmail nicht erhalten haben sollten, versuchen Sie bitte folgendes:</p><ul><li>Stellen Sie sicher, dass die Emailadresse die Sie verwendet haben, korrekt ist.</li><li>Prüfen Sie ihren Spam-Ordner im Emailprogramm.</li><li>Wenn Sie ein MailProgramm (wie Thunderbird oder Outlook) benutzen, müssen Sie sich ggf. in der Webpräsenz Ihres Providers einloggen, um den Spam-Ordner zu sehen.</li><li>Bitte seien Sie geduldig, manchmal kann die Zustellung der Mail eine Weile dauern (bis zu 24 Stunden).</li></ul><p>Wenn die oberen Schritte nicht geholfen haben, geben Sie bitte Ihre Emailadresse, die Sie zur Registrierung benutzt haben, unten ein. Sie erhalten dann einen neuen Aktivierungslink:;<p>The account you tried to log in with is not activated.</p><p>You can activate your account by opening the registration URL you should have received via email. If you haven\'t received the registration mail, please try the following:</p><ul><li>Ensure the email address you used to sign up with is correct.</li><li>Check your spam folder to see if the email has been delivered there.</li><li>If you\'re using a mail program (like Thunderbird or Outlook) to fetch your mails, you might need to login to the mail service web client to see the spam folder.</li><li>Please be patient, sometimes it can took a while (up to 24h) to the mail to be delivered.</li></ul><p>If the above couldn\'t help, please enter the email address you used to sign up with and the registration will be sent to you again:</p>;Хэл нь одоо байна; -
 MoMo.login.view.authentication.ResendToken;config.data.resendTokenEmailEmptyText;Email;Email;Хэл нь одоо байна; -
 MoMo.login.view.authentication.ResendToken;config.data.resendTokenBtnText;Registrierungsmail erneut anfordern;Resend registration mail;Хэл нь одоо байна; -
 MoMo.login.view.authentication.ResendToken;config.data.backToLoginText;Zurück zum Login;Back to Login;Хэл нь одоо байна; -
+MoMo.login.view.registration.Registration;config.data.helpButtonText;Hilfedokument;Helpdocument;Helpdocument; -
+MoMo.login.view.registration.Registration;config.data.contextHelpTooltip;Kontextsensitive Hilfe;Contextsensitive help;Contextsensitive help; -
 MoMo.login.view.registration.Registration;config.data.registrationTitle;MoMo - Account erstellen;MoMo - Create Account;Хэл нь одоо байна; -
 MoMo.login.view.registration.Registration;config.data.registrationDescriptionText;Geben Sie ihre Email und ein Passwort für die Registrierung ein.;Enter e-mail and password to register.;Хэл нь одоо байна; -
 MoMo.login.view.registration.Registration;config.data.registrationEmailEmptyText;Email;Email;Хэл нь одоо байна; -
@@ -41,6 +51,8 @@ MoMo.login.view.registration.Registration;config.data.accountCreationSuccessTitl
 MoMo.login.view.registration.Registration;config.data.accountCreationSuccessMsg;Der Account wurde erfolgreich erstellt. Sie erhalten eine Mail mit weiteren Informationen;Your account has been successfully created. An Email with further instructions has been sent to your given account;Хэл нь одоо байна; -
 MoMo.login.view.registration.Registration;config.data.accountCreationFailureTitle;Fehler;Error;Хэл нь одоо байна; -
 MoMo.login.view.registration.Registration;config.data.accountCreationFailureMsg;Fehler beim Anlegen des neuen Accounts;Error creating the new account;Хэл нь одоо байна; -
+MoMo.login.view.authentication.Dialog;config.data.helpButtonText;Hilfedokument;Helpdocument;Helpdocument; -
+MoMo.login.view.authentication.Dialog;config.data.contextHelpTooltip;Kontextsensitive Hilfe;Contextsensitive help;Contextsensitive help; -
 MoMo.login.view.authentication.Dialog;config.data.registrationSuccessTitle;Information;Information;Хэл нь одоо байна; -
 MoMo.login.view.authentication.Dialog;config.data.registrationSuccessMsg;Eine Mail mit weiteren Informationen wurde an Ihren Account verschickt;An email with further instructions has been sent to your account;Хэл нь одоо байна; -
 MoMo.login.view.authentication.Dialog;config.data.registrationFailureTitle;Fehler;Error;Хэл нь одоо байна; -

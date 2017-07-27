@@ -21,6 +21,7 @@ MoMo.client.view.button.translation.ToGerman;config.data.setLanguageCallbackToas
 MoMo.client.view.button.translation.ToMongolian;config.data.tooltipMn;MN;MN;МОНГОЛ;OK
 MoMo.client.view.button.translation.ToMongolian;config.data.setLanguageCallbackToastText;Applikationssprache ist jetzt {0};Application language is now {0};Хэл нь одоо байна {0};OK
 MoMo.client.view.button.ZoomToExtent;config.data.tooltip;Auf Gesamtansicht zoomen;Zoom to Extent;Хэмжээгээр нь томруулах;OK
+MoMo.client.view.button.ZoomToExtent;config.data.documentation;<b>DEUTSCH</b>;<b>ENGLISH</b>;<b>Хэмжээгээр нь томруулах<br>huhu</b>;OK
 MoMo.client.view.container.MultiSearchSettings;config.data.title;Sucheinstellungen;Search Settings;Хайлтын тохиргоо; -
 MoMo.client.view.container.MultiSearchSettings;config.data.generalSettingsLabel;Allgemeine Einstellungen;General Settings;Ерөнхий тохиргоо; -
 MoMo.client.view.container.MultiSearchSettings;config.data.limitCboxLabel;Auf den sichtbaren Kartenbereich einschränken;Limit to visible extent;Харагдах хэмжээнд нь хязгаарлах; -
@@ -82,6 +83,8 @@ MoMo.client.view.grid.MultiSearchGazetteerGrid;config.data.title;Gazetteer Suche
 MoMo.client.view.grid.MultiSearchGazetteerGrid;config.data.hideToolTooltip;Gazetteer Suche verbergen;Hide Gazetteer Search;Газеттеер хайлтыг нуух; -
 MoMo.client.view.grid.ObjectSearchGrid;config.data.title;Objektsuche;Object Search;Обьектын хайлт; -
 MoMo.client.view.grid.ObjectSearchGrid;config.data.hideToolTooltip;Objektsuche verbergen;Hide Object Search;Обьектын хайлтыг нуух; -
+MoMo.client.view.container.Viewport;config.data.i18n.helpButtonText;Hilfedokument;Helpdocument;Helpdocument; -
+MoMo.client.view.container.Viewport;config.data.i18n.contextHelpTooltip;Kontextsensitive Hilfe;Contextsensitive help;Contextsensitive help; -
 MoMo.client.view.panel.document.DocumentTree;config.data.title;Dokumentenbaum;Document tree;Баримт бичгийн мод;OK
 MoMo.client.view.panel.document.DocumentTree;config.data.addNewFolderText;Neuen Ordner hinzufügen;Add new folder;Шинэ хавтас нэмэх;OK
 MoMo.client.view.panel.document.DocumentTree;config.data.folderNameText;Ordnername;Folder name;Хавтасны нэр;OK
@@ -166,6 +169,7 @@ MoMo.view.window.WaterDataChartWindow;config.data.chartlegendWasserstand;Wassers
 MoMo.view.window.WaterDataChartWindow;config.data.currentDayBtnText;Heute;Today;Өнөөдөр;NOT OK - not binding
 MoMo.view.window.WaterDataChartWindow;config.data.hourLabel;Std;Hours;Цаг;NOT OK - not binding
 MoMo.view.window.WaterDataChartWindow;config.data.minuteLabel;Min;Minutes;Минут;NOT OK - not binding
+BasiGX.ux.ContextSensitiveHelp;config.data.title;Hilfe;Help;Тусламж; -
 BasiGX.view.button.AddWms;config.data.tooltip;WMS hinzufügen;Add WMS; WMS нэмэх; -
 BasiGX.view.button.AddWms;config.data.text;;;; -
 BasiGX.view.button.AddWms;config.data.windowTitle;WMS hinzufügen;Add WMS;  WMS нэмэх; -
