@@ -156,6 +156,8 @@ MoMo.admin.view.viewport.Viewport;config.data.i18n.usersMenuTitle;Benutzer;Users
 MoMo.admin.view.viewport.Viewport;config.data.i18n.groupsMenuTitle;Gruppen;Groups;Бүлгүүд; -
 MoMo.admin.view.viewport.Viewport;config.data.i18n.profileMenuTitle;Profil;Profile;Профайл; -
 MoMo.admin.view.viewport.Viewport;config.data.i18n.versionLabel;Version;Version;Version; -
+MoMo.admin.view.viewport.Viewport;config.data.i18n.helpButtonText;Hilfedokument;Helpdocument;Helpdocument; -
+MoMo.admin.view.viewport.Viewport;config.data.i18n.contextHelpTooltip;Kontextsensitive Hilfe;Contextsensitive help;Contextsensitive help; -
 Ext.Date;monthNames[];Januar,Februar,März,April,Mai,Juni,Juli,August,September,Oktober,November,Dezember;January,February,March,April,May,June,July,August,September,October,November,December;Нэг,Хоёр,Гурав,Дөрөв,Тав,Зургаа,Долоо,Найм,Ес,Арав,Арван нэг,Арван хоёрдугаар сар; -
 Ext.Date;defaultFormat;d.m.Y;m/d/y;m/d/y; -
 Ext.Date;monthNumbers.Jan;0;0;0; -

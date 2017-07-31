@@ -22,6 +22,7 @@
     <http pattern="/login/build/**" security="none" />
     <http pattern="/login/resources/**" security="none" />
     <http pattern="/locale/**" security="none" />
+    <http pattern="/userdocs/**" security="none" />
     <!-- images need to be retrieved by the geoserver due to externalgraphics
         in the sldstyler, so we need to remove the csrf security enhancement -->
     <http pattern="/momoimage/getThumbnail.action" security="none" />
