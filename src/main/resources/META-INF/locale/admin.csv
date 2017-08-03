@@ -329,12 +329,12 @@ MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.title;Titel;Titl
 MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.abstract;Zusammenfassung;Abstract;Абстракт; -
 MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.organisation;Organisation;Organisation;Байгууллага; -
 MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.address;Anschrift;Mailing address;Шуудангийн хаяг; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.address;Straße und Hausnr.;Delivery point;Хүргэлтийн цэг; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.deliveryPoint;Straße und Hausnr.;Delivery point;Хүргэлтийн цэг; -
 MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.city;Stadt;City;Хот; -
 MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.postalCode;Postleitzahl;Postal code;Шуудангийн код; -
 MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.country;Land;Country;Улс; -
 MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.website;Website;Website;Вебсайт; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.person;Verantwortlicher;Guarantor;Баталгаа гаргагч; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.person;Verantwortlicher;Person responsible;Баталгаа гаргагч; -
 MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.name;Name;Name;Нэр; -
 MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.email;E-Mail;E-Mail;И-мейл; -
 MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.referenceDate;Erstellungsdatum;Reference date;Лавлах огноо; -
