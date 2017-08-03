@@ -7,6 +7,10 @@
  */
 Ext.define('MoMo.shared.MetadataUtil', {
 
+    requires: [
+        'Ext.util.Format'
+    ],
+
     statics: {
         /**
          *
@@ -82,7 +86,7 @@ Ext.define('MoMo.shared.MetadataUtil', {
         getInsertBlankXml: function(){
             var xml;
             Ext.Ajax.request({
-                url: BasiGX.util.Url.getWebProjectBaseUrl() + '/admin/resources/data/xmlTemplates/insertMetadata.xml',
+                url: BasiGX.util.Url.getWebProjectBaseUrl() + 'admin/resources/data/xmlTemplates/insertMetadata.xml',
                 method: 'GET',
                 async: false,
                 success: function(response) {
@@ -148,7 +152,7 @@ Ext.define('MoMo.shared.MetadataUtil', {
 
             return '<csw:RecordProperty>' +
                 '<csw:Name>' + this.objectValueFromSelector(this.keyXpathMapper, selector) + '</csw:Name>' +
-                '<csw:Value>' + value + '</csw:Value>' +
+                '<csw:Value>' + Ext.util.Format.htmlEncode(value) + '</csw:Value>' +
             '</csw:RecordProperty>';
         },
 
