@@ -64,8 +64,7 @@ public class GeoServerFontController {
 	 */
 	@RequestMapping(value = "/getGeoServerFontList.action", method = {RequestMethod.GET})
 	public ResponseEntity<?> getGeoServerFontList(){
-
-		String url = geoServerBaseUrl.split("/momo")[0] + "/rest/resource/fonts";
+		String url = geoServerBaseUrl.split("/momo/ows")[0] + "/rest/resource/fonts";
 		LOG.info("Loading fonts from REST path " + url);
 		Response response = null;
 
@@ -90,7 +89,7 @@ public class GeoServerFontController {
 	public ResponseEntity<?> getGeoServerFont(
 			@RequestParam("fontName") String fontName){
 
-		String url = geoServerBaseUrl.split("/momo")[0] + "/rest/resource/fonts/" + fontName;
+		String url = geoServerBaseUrl.split("/momo/ows")[0] + "/rest/resource/fonts/" + fontName;
 		LOG.info("Loading single font from REST path " + url);
 		Response response = null;
 
