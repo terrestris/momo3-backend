@@ -42,7 +42,7 @@
 
     <annotation-config />
 
-    <beans:bean id="handlerMapping" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+    <beans:bean id="requestHandlerMapping" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
         <beans:property name="alwaysUseFullPath" value="true"/>
     </beans:bean>
 
