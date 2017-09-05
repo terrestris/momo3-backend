@@ -44,6 +44,11 @@ public class MomoApplicationPermissionEvaluator<E extends MomoApplication> exten
 			return true;
 		}
 
+		// applications that have been tagged as 'public' shall be visible to everyone
+		if (permission.equals(Permission.READ) && application.getOpen() == true) {
+			return true;
+		}
+
 		/**
 		 * by default look for granted rights
 		 */

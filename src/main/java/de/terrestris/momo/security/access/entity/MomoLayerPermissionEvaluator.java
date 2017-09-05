@@ -54,7 +54,7 @@ public class MomoLayerPermissionEvaluator<E extends MomoLayer> extends MomoPersi
 	}
 
 	/**
-	 * Always grants right to READ, UPDATE and CREATE this entity.
+	 *
 	 */
 	@Override
 	public boolean hasPermission(User user, E layer, Permission permission) {
@@ -79,7 +79,8 @@ public class MomoLayerPermissionEvaluator<E extends MomoLayer> extends MomoPersi
 			return true;
 		}
 
-		// check if layer is contained in any application the user is allowed to see
+		// check if layer is contained in any application the user is allowed to see.
+		// this includes also the applications tagged as 'open'
 		List<MomoApplication> momoApplications = momoApplicationService.findAll();
 		for (MomoApplication momoApp : momoApplications) {
 			Integer layerTreeId = momoApp.getLayerTree().getId();
