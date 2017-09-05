@@ -116,7 +116,6 @@ public class DocumentTreeService<E extends TreeNode, D extends DocumentTreeDao<E
 	 * @return
 	 * @throws Exception
 	 */
-	@PreAuthorize("hasRole(@momoConfigHolder.getDefaultUserRoleName())")
 	public File getDocumentOfNode(Integer nodeId) throws Exception {
 
 		File fileToReturn = null;
