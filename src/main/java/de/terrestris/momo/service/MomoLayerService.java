@@ -49,7 +49,7 @@ public class MomoLayerService<E extends MomoLayer, D extends MomoLayerDao<E>>
 
 	@Autowired
 	private GeoserverPublisherDao gsPublisherDao;
-	
+
 	/**
 	 * We have to use {@link Qualifier} to define the correct dao here.
 	 * Otherwise, spring can not decide which dao has to be autowired here
@@ -174,7 +174,12 @@ public class MomoLayerService<E extends MomoLayer, D extends MomoLayerDao<E>>
 
 	@SuppressWarnings("unchecked")
 	public void deleteMomoLayer(MomoLayer layer) throws Exception {
-		this.gsPublisherDao.unpublishGeoServerLayer(layer, true);
+		try {
+			this.gsPublisherDao.unpublishGeoServerLayer(layer, true);
+		} catch (Exception e) {
+			LOG.error("Error deleting Layer in GeoServer: "
+					+ e.getMessage());
+		}
 		this.delete((E) layer);
 	}
 }
