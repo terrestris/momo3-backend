@@ -101,6 +101,7 @@ public class MomoApplicationPermissionEvaluatorTest {
 		IdHelper.setIdOnPersistentObject(testGroup, 19);
 
 		testApplication = new MomoApplication();
+		testApplication.setOpen(false);
 		IdHelper.setIdOnPersistentObject(testApplication, 191909);
 	}
 

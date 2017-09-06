@@ -52,6 +52,15 @@
         <!-- URL security -->
         <intercept-url pattern="/index.html" access="permitAll" />
         <intercept-url pattern="/login/**" access="permitAll" />
+        <!-- for public gis clients -->
+        <intercept-url pattern="/client/**" access="permitAll" />
+        <intercept-url pattern="/shared/Metadata.js" access="permitAll" />
+        <intercept-url pattern="/rest/doctree/**" access="permitAll" />
+        <intercept-url pattern="/metadata/csw.action" access="permitAll" />
+        <!-- used e.g. for appContext -->
+        <intercept-url pattern="/rest/momoapps/**" access="permitAll" />
+        <intercept-url pattern="/geoserver.action" access="permitAll" />
+        <!-- registration -->
         <intercept-url pattern="/momousers/registeruser.action" access="permitAll" />
         <intercept-url pattern="/momousers/activateAccount.action" access="permitAll" />
         <intercept-url pattern="/momousers/resetPassword.action" access="permitAll" />
