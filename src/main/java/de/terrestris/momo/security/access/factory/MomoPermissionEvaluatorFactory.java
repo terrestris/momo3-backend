@@ -13,6 +13,7 @@ import de.terrestris.momo.model.tree.DocumentTreeLeaf;
 import de.terrestris.momo.security.access.entity.DocumentTreeFolderPermissionEvaluator;
 import de.terrestris.momo.security.access.entity.DocumentTreeLeafPermissionEvaluator;
 import de.terrestris.momo.security.access.entity.ExtentPermissionEvaluator;
+import de.terrestris.momo.security.access.entity.FilePermissionEvaluator;
 import de.terrestris.momo.security.access.entity.LayerAppearancePermissionEvaluator;
 import de.terrestris.momo.security.access.entity.MapConfigPermissionEvaluator;
 import de.terrestris.momo.security.access.entity.MapPermissionEvaluator;
@@ -25,6 +26,7 @@ import de.terrestris.momo.security.access.entity.MomoUserGroupPermissionEvaluato
 import de.terrestris.momo.security.access.entity.MomoUserPermissionEvaluator;
 import de.terrestris.momo.security.access.entity.TreeNodePermissionEvaluator;
 import de.terrestris.momo.security.access.entity.UserGroupRolePermissionEvaluator;
+import de.terrestris.shogun2.model.File;
 import de.terrestris.shogun2.model.PersistentObject;
 import de.terrestris.shogun2.model.Role;
 import de.terrestris.shogun2.model.interceptor.InterceptorRule;
@@ -100,6 +102,9 @@ public class MomoPermissionEvaluatorFactory<E extends PersistentObject> extends 
 		}
 		if(PermissionCollection.class.isAssignableFrom(entityClass)) {
 			return new PermissionCollectionPermissionEvaluator();
+		}
+		if(File.class.isAssignableFrom(entityClass)) {
+			return new FilePermissionEvaluator();
 		}
 
 		// The following types (and subclasses) may be READ by everyone

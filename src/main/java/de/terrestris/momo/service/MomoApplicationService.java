@@ -396,7 +396,6 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 	 * @return
 	 * @throws Exception
 	 */
-	@PreAuthorize("hasRole(@configHolder.getDefaultUserRoleName())")
 	public List<java.util.Map<String, Object>> getDocumentTreeRootNodeInfo(Integer id) throws Exception {
 		E app = this.findById(id);
 
