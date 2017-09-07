@@ -50,6 +50,10 @@ public class MomoLayerService<E extends MomoLayer, D extends MomoLayerDao<E>>
 	@Autowired
 	private GeoserverPublisherDao gsPublisherDao;
 
+	@Autowired
+	@Qualifier("metadataService")
+	private MetadataService metadataService;
+
 	/**
 	 * We have to use {@link Qualifier} to define the correct dao here.
 	 * Otherwise, spring can not decide which dao has to be autowired here
@@ -160,6 +164,20 @@ public class MomoLayerService<E extends MomoLayer, D extends MomoLayerDao<E>>
 						} else {
 							LOG.error("Error on downloading a rasterlayer named " + layer.getName());
 						}
+					}
+					// also add the metadataset from GNOS to the zip
+					LOG.debug("Requesting a metadataset for the layer to download");
+					String xml = "<?xml version=\"1.0\"?><csw:GetRecordById xmlns:csw=\"http://www.opengis.net/cat/" +
+					    "csw/2.0.2\" service=\"CSW\" version=\"2.0.2\" outputSchema=\"http://www.isotc211.org/2005/" +
+						"gmd\"><csw:Id>" + layer.getMetadataIdentifier() + "</csw:Id>" +
+					    "<csw:ElementSetName>full</csw:ElementSetName></csw:GetRecordById>";
+					try {
+						String response = metadataService.cswRequest(layer.getId(), "READ", xml);
+						finalZip.putNextEntry(new ZipEntry("Metadata.xml"));
+						finalZip.write(response.getBytes());
+						finalZip.closeEntry();
+					} catch (Exception e) {
+						LOG.error("Error while adding metadata to the download zip file");
 					}
 				}
 			}
