@@ -325,6 +325,16 @@ MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadInfoGeorefe
 MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadGeoTiffNotGeoreferencedMsg;Ihre Rasterdaten sind nicht georeferenzeiert. Bitte fügen Sie eine Worldfile (*.tfw) in die ZIP-Datei oder georeferenzieren Sie das GeoTIFF.;Your raster data is not georeferenced. Please georeference it or add a worldfile (*.tfw) to the zip.;Таны растер мэдээлэл гео-лавлагаанд байна. Үүнийг нэг бол гео-лавлагаанд оруулна уу эсвэл зип дээр word-ийн файл (*.tfw) болгож нэмнэ үү; -
 MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadFailedNoTypeDeterminedMsg;Der Typ des Layers kann nicht bestimmt werden.;Type of the layer could not be determined.;Давхаргын төрлийг тодорхойлж чадсангүй; -
 MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.tabPanelTitle;Metadaten;Metadata;Мета-өгөгдөл; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.uploadText;Metadaten XML hochladen;Upload Metadata XML;Upload Metadata XML; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.downloadText;Metadaten herunterladen;Download Metadata;Download Metadata; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.noXMLTitle;Fehler;Error;Алдаа; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.noXMLText;Bitte wählen Sie ein gültiges XML Metadatendokument aus;Please select a valid metadata XML file;Please select a valid metadata XML file; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.parseFailTitle;Fehler;Error;Алдаа; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.parseFailText;Fehler beim Lesen der Datei, prüfen Sie den Inhalt;Error on parsing the content of the file;Error on parsing the content of the file; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.uploadSuccessTitle;Info;Information;Information; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.uploadSuccessText;Metadaten erfolgreich geladen. Prüfen und speichern Sie die Angaben;Metadata loaded successful. Please validate and save the dataset!;Metadata loaded successful. Please validate and save the dataset!; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.downloadFailTitle;Fehler;Error;Алдаа; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.downloadFailText;Metadaten konnten nicht heruntergeladen werden. Ist ein Datensatz bereits hinterlegt?;Metadata could not be downloaded. Is there already a dataset available?;Metadata could not be downloaded. Is there already a dataset available?; -
 MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.title;Titel;Title;Гарчиг; -
 MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.abstract;Zusammenfassung;Abstract;Абстракт; -
 MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.organisation;Organisation;Organisation;Байгууллага; -
