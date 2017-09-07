@@ -112,7 +112,7 @@ MoMo.admin.view.tree.LayerTree;config.data.renameTreeFolderWindowMsg;Bitte geben
 MoMo.admin.view.grid.GroupList;config.data.i18n.groupGridTitle;Gruppen;Groups;Бүлгүүд; -
 MoMo.admin.view.grid.GroupList;config.data.i18n.groupGridCreateGroup;Erstellen;Create;Үүсгэх; -
 MoMo.admin.view.grid.GroupList;config.data.i18n.groupGridDeleteGroup;Löschen;Delete;Устгах ; -
-MoMo.admin.view.grid.GroupList;config.data.i18n.groupGridFilterByName;Filtern über Name;Filter by name;Нэрээр нь шүүх; -
+MoMo.admin.view.grid.GroupList;config.data.i18n.groupGridFilterByName;Filtern über Gruppenname;Filter by groupname;Нэрээр нь шүүх; -
 MoMo.admin.view.grid.GroupList;config.data.i18n.groupGridRefresh;Aktualisieren;Refresh;Сэргээх; -
 MoMo.admin.view.grid.GroupList;config.data.i18n.groupSettings;Einstellungen;Settings;Тохиргоонууд; -
 MoMo.admin.view.grid.GroupList;config.data.i18n.groupCreationTitle;Neue Gruppe;Group creation;Бүлэг үүсгэх; -
@@ -150,6 +150,7 @@ MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupPermissionGridPan
 MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupPermissionGridPanelSubadminColumnName;Sub-Admin;Sub-Admin;Дэд-админ; -
 MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupPermissionGridPanelEditorColumnName;Editor;Editor;Редактор; -
 MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupPermissionGridPanelUserColumnName;Benutzer;User;Хэрэглэгч; -
+MoMo.admin.view.grid.GroupPermissionGrid;config.data.i18n.groupPermissionGridFilterByName;Filtern über Nutzername;Filter by username;Filter by username; -
 MoMo.admin.view.viewport.Viewport;config.data.i18n.applicationsMenuTitle;Applikationen;Applications;Программууд; -
 MoMo.admin.view.viewport.Viewport;config.data.i18n.layersMenuTitle;Layer;Layers;Давхаргууд; -
 MoMo.admin.view.viewport.Viewport;config.data.i18n.usersMenuTitle;Benutzer;Users;Хэрэглэгчид; -
