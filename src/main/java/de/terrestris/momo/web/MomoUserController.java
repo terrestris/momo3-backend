@@ -177,6 +177,31 @@ public class MomoUserController<E extends MomoUser, D extends MomoUserDao<E>, S 
 	}
 
 	/**
+	 *
+	 * @param oldPassword
+	 * @param newPassword
+	 * @return
+	 */
+	@RequestMapping(value = "/updatePassword.action", method = RequestMethod.POST)
+	public @ResponseBody Map<String, Object> updatePassword(String oldPassword, String newPassword) {
+
+		LOG.debug("Requested to update a password.");
+
+		try {
+			boolean success = this.service.updatePassword(oldPassword, newPassword);
+			if(success) {
+				return ResultSet.success("Password has successfully been updated.");
+			}
+			return ResultSet
+					.error("Password could NOT been updated. Please check if the old password was passed correctly.");
+		} catch (Exception e) {
+			final String message = e.getMessage();
+			LOG.error("Could not update a password: " + message);
+			return ResultSet.error(message);
+		}
+	}
+
+	/**
 	 * Updates the users personal credentials and, if a change in permissions
 	 * is made, will contact a subadmin / superadmin to make the appropriate changes
 	 *
