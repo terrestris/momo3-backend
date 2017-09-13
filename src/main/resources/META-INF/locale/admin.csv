@@ -17,6 +17,7 @@ MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelOldPassword;Alte
 MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelNewPassword;Neues Passwort;New password;шинэ нууц үг; -
 MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelNewPasswordValidate;Neues Passwort bestätigen;Verify new password;Шинэ нууц үг баталгаажуулах; -
 MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelNewPasswordNotEqual;Die Eingaben des neuen Passworts sind nicht identisch!;New password entries are not equal!;Шинэ нууц үгийн оруулга ижил биш байна!; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelNoWhitespaceText;Whitespace nicht erlaubt;No whitespace allowed;Whitespace нь зөвшөөрөгдөөгүй байна; -
 MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelChangePasswordCancel;Abbrechen;Cancel;Цуцлах; -
 MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelChangePasswordReset;Zurücksetzen;Reset;буцах; -
 MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelChangePasswordError;Passwort konnte NICHT erfolgreich aktualisiert werden!;Password update was NOT successful!;Нууц үг шинэчлэх боломжгүй байсан; -

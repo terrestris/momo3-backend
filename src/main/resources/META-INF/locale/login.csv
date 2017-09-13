@@ -30,6 +30,7 @@ MoMo.login.view.authentication.PasswordChange;config.data.confirmPasswordEmptyTe
 MoMo.login.view.authentication.PasswordChange;config.data.changePasswordBtnText;Passwort ändern;Change Password;Хэл нь одоо байна; -
 MoMo.login.view.authentication.PasswordChange;config.data.backToLoginText;Zurück zum Login;Back to Log In;Хэл нь одоо байна; -
 MoMo.login.view.authentication.PasswordChange;config.data.passwordsAreNotEqualText;Passwörter sind nicht identisch;Passwords do not match;Хэл нь одоо байна; -
+MoMo.login.view.authentication.PasswordChange;config.data.pwTextfieldNoWhitespaceText;Whitespace nicht erlaubt;No whitespace allowed;Whitespace нь зөвшөөрөгдөөгүй байна;OK
 MoMo.login.view.authentication.ResendToken;config.data.helpButtonText;Hilfedokument;Helpdocument;Helpdocument; -
 MoMo.login.view.authentication.ResendToken;config.data.contextHelpTooltip;Kontextsensitive Hilfe;Contextsensitive help;Contextsensitive help; -
 MoMo.login.view.authentication.ResendToken;config.data.resendTokenTitle;MoMo - Registrierungsmail erneut senden;MoMo - Resend registration mail;Хэл нь одоо байна; -
@@ -44,6 +45,7 @@ MoMo.login.view.registration.Registration;config.data.registrationDescriptionTex
 MoMo.login.view.registration.Registration;config.data.registrationEmailEmptyText;Email;Email;Хэл нь одоо байна; -
 MoMo.login.view.registration.Registration;config.data.registrationPasswordEmptyText;Passwort;Password;Хэл нь одоо байна; -
 MoMo.login.view.registration.Registration;config.data.registrationConfirmPasswordEmptyText;Passwort wiederholen;Confirm Password;Хэл нь одоо байна; -
+MoMo.login.view.registration.Registration;config.data.pwTextfieldNoWhitespaceText;Whitespace nicht erlaubt;No whitespace allowed;Whitespace нь зөвшөөрөгдөөгүй байна;OK
 MoMo.login.view.registration.Registration;config.data.passwordsAreNotEqualText;Passwörter stimmen nicht überein;Passwords are not equal;Хэл нь одоо байна; -
 MoMo.login.view.registration.Registration;config.data.registrationBtnText;Account erstellen;Create Account;Хэл нь одоо байна; -
 MoMo.login.view.registration.Registration;config.data.backToLoginText;Zurück zum Login;Back to Login;Хэл нь одоо байна; -

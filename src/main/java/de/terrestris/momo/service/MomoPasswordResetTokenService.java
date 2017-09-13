@@ -16,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.util.UriUtils;
 
+import de.terrestris.momo.util.security.MomoSecurityUtil;
 import de.terrestris.shogun2.dao.PasswordResetTokenDao;
 import de.terrestris.shogun2.dao.UserDao;
 import de.terrestris.shogun2.model.User;
@@ -214,6 +215,10 @@ public class MomoPasswordResetTokenService<E extends PasswordResetToken, D exten
 
 		// get the user of the provided token
 		User user = passwordResetToken.getUser();
+
+		if(!MomoSecurityUtil.isValidPassword(rawPassword)) {
+			throw new Exception("The given password does not fulfill the security requirements.");
+		}
 
 		// finally update the password (encrypted)
 		userService.updatePassword(user, rawPassword);

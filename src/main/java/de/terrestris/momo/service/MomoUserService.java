@@ -33,6 +33,7 @@ import de.terrestris.momo.model.MomoLayer;
 import de.terrestris.momo.model.MomoUser;
 import de.terrestris.momo.model.MomoUserGroup;
 import de.terrestris.momo.model.security.UserGroupRole;
+import de.terrestris.momo.util.security.MomoSecurityUtil;
 import de.terrestris.shogun2.dao.GenericHibernateDao;
 import de.terrestris.shogun2.dao.RegistrationTokenDao;
 import de.terrestris.shogun2.dao.RoleDao;
@@ -557,7 +558,7 @@ public class MomoUserService<E extends MomoUser, D extends MomoUserDao<E>>
 		E currentUser = this.getUserBySession();
 
 		String encodedOldPassword = currentUser.getPassword();
-		if(passwordEncoder.matches(oldPassword, encodedOldPassword)) {
+		if(passwordEncoder.matches(oldPassword, encodedOldPassword) && MomoSecurityUtil.isValidPassword(newPassword)) {
 			this.updatePassword(currentUser, newPassword);
 			return true;
 		}

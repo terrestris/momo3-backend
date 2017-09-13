@@ -193,7 +193,7 @@ public class MomoUserController<E extends MomoUser, D extends MomoUserDao<E>, S 
 				return ResultSet.success("Password has successfully been updated.");
 			}
 			return ResultSet
-					.error("Password could NOT been updated. Please check if the old password was passed correctly.");
+					.error("Password could NOT be updated. Please check if the old password was passed correctly.");
 		} catch (Exception e) {
 			final String message = e.getMessage();
 			LOG.error("Could not update a password: " + message);
