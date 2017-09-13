@@ -25,6 +25,23 @@ public class MomoSecurityUtil {
 	public static MomoConfigHolder configHolder;
 
 	/**
+	 * Checks whether the given string fulfills the momo password security
+	 * requirements.
+	 *
+	 * A password will be accepted, if it does not contain any whitespace and if
+	 * it's length is at least 6.
+	 *
+	 * @param rawPassword
+	 * @return
+	 */
+	public static boolean isValidPassword(String rawPassword) {
+		if(rawPassword == null || rawPassword.isEmpty() || rawPassword.length() < 6 || !rawPassword.matches("^\\S*$")) {
+			return false;
+		}
+		return true;
+	}
+
+	/**
 	 *
 	 * @return
 	 */

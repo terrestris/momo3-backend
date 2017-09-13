@@ -12,6 +12,17 @@ MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelTitle;Profileins
 MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelActionSuccess;Ok;Success;Амжилттай; -
 MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelActionFailure;Fehler;Error;Алдаа; -
 MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelDeleteUser;Account löschen;Delete Account;Бүртгэлээ устгах; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelChangePassword;Passwort ändern;Change password;Нууц үгээ солих; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelOldPassword;Altes Passwort;Old password;хуучин нууц үг; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelNewPassword;Neues Passwort;New password;шинэ нууц үг; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelNewPasswordValidate;Neues Passwort bestätigen;Verify new password;Шинэ нууц үг баталгаажуулах; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelNewPasswordNotEqual;Die Eingaben des neuen Passworts sind nicht identisch!;New password entries are not equal!;Шинэ нууц үгийн оруулга ижил биш байна!; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelNoWhitespaceText;Whitespace nicht erlaubt;No whitespace allowed;Whitespace нь зөвшөөрөгдөөгүй байна; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelChangePasswordCancel;Abbrechen;Cancel;Цуцлах; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelChangePasswordReset;Zurücksetzen;Reset;буцах; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelChangePasswordError;Passwort konnte NICHT erfolgreich aktualisiert werden!;Password update was NOT successful!;Нууц үг шинэчлэх боломжгүй байсан; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelChangePasswordSuccess;Passwort wurde erfolgreich aktualisiert!;Password has successfully been updated!;Нууц үг амжилттай шинэчлэгдсэн!; -
+MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelConfirmChangePassword;Wollen Sie jetzt ihr Passwort aktualisieren?;Do you want to update your password now?;Та одоо өөрийн нууц үгийг шинэчлэхийг хүсч байна уу?; -
 MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelDeleteUserText;Wollen Sie wirklich Ihren gesamten Account löschen?;Do you really want to delete your complete account?;Та үнэхээр бүртгэлээ устгамаар байна уу?; -
 MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelDeletionSuccessText;Ihr Account wurde gelöscht. Sie werden nun zum Login weitergeleitet;Your account has been deleted, you will now be redirected to the login page';Таны бүртгэл устсан, таныг нэвтрэх хуудас руу чиглүүлэх болно ; -
 MoMo.admin.view.panel.ProfilePanel;config.data.i18n.profilepanelDeletionFailureText;Ihr Account konnte nicht gelöscht werden. Bitte kontaktieren Sie einen Administrator;Your account could not be deleted! Please contact an administrator to get your account deleted;Таны бүртгэл устах боломжгүй байна, та бүртгэлээ устгахын тулд админтай холбогдоно уу; -

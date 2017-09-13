@@ -62,7 +62,6 @@ public class MomoSecurityUtilTest {
 		MomoSecurityUtil.configHolder = momoConfigHolder;
 
 		testUser = new MomoUser();
-		testUser = new MomoUser();
 		testUser.setAccountName("Manta");
 		IdHelper.setIdOnPersistentObject(testUser, 1909);
 	}
@@ -235,6 +234,31 @@ public class MomoSecurityUtilTest {
 		loginMockUser(rolesOfUser);
 
 		assertFalse(MomoSecurityUtil.currentUsersHighestRoleIsDefaultUser());
+	}
+
+	@Test
+	public void nullIsNotAValidPassword() {
+		assertFalse(MomoSecurityUtil.isValidPassword(null));
+	}
+
+	@Test
+	public void emptyStringIsNotAValidPassword() {
+		assertFalse(MomoSecurityUtil.isValidPassword(""));
+	}
+
+	@Test
+	public void passwordMustHaveMoreThanSixChars() {
+		assertFalse(MomoSecurityUtil.isValidPassword("12345"));
+	}
+
+	@Test
+	public void passwordMustNotContainWhitespace() {
+		assertFalse(MomoSecurityUtil.isValidPassword("123 456"));
+	}
+
+	@Test
+	public void passwordFulfillsSecurityRequirements() {
+		assertTrue(MomoSecurityUtil.isValidPassword("1ß2;3#45]6ä?Gh`"));
 	}
 
 }

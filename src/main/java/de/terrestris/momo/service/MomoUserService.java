@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +33,7 @@ import de.terrestris.momo.model.MomoLayer;
 import de.terrestris.momo.model.MomoUser;
 import de.terrestris.momo.model.MomoUserGroup;
 import de.terrestris.momo.model.security.UserGroupRole;
+import de.terrestris.momo.util.security.MomoSecurityUtil;
 import de.terrestris.shogun2.dao.GenericHibernateDao;
 import de.terrestris.shogun2.dao.RegistrationTokenDao;
 import de.terrestris.shogun2.dao.RoleDao;
@@ -542,6 +544,26 @@ public class MomoUserService<E extends MomoUser, D extends MomoUserDao<E>>
 		);
 		// and send the mail
 		mailPublisher.sendMail(changePermissionMailTemplateMsg);
+	}
+
+	/**
+	 *
+	 * @param oldPassword
+	 * @param newPassword
+	 * @return
+	 * @throws Exception 
+	 */
+	@PreAuthorize("isAuthenticated()")
+	public boolean updatePassword(String oldPassword, String newPassword) throws Exception {
+		E currentUser = this.getUserBySession();
+
+		String encodedOldPassword = currentUser.getPassword();
+		if(passwordEncoder.matches(oldPassword, encodedOldPassword) && MomoSecurityUtil.isValidPassword(newPassword)) {
+			this.updatePassword(currentUser, newPassword);
+			return true;
+		}
+
+		return false;
 	}
 
 	/**
