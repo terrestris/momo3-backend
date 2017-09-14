@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import de.terrestris.momo.dao.GeoserverPublisherDao;
 import de.terrestris.momo.dao.GeoserverReaderDao;
@@ -73,6 +74,7 @@ public class MomoLayerService<E extends MomoLayer, D extends MomoLayerDao<E>>
 	 * @throws Exception
 	 */
 	@PreAuthorize("isAuthenticated()")
+	@Transactional(readOnly = true)
 	public String getLayerExtent(Integer layerId) throws Exception {
 		MomoLayer layer = this.findById(layerId);
 		String extent = gsReaderDao.getLayerExtent(layer);
@@ -87,6 +89,7 @@ public class MomoLayerService<E extends MomoLayer, D extends MomoLayerDao<E>>
 	 * @return
 	 */
 	@PostAuthorize("hasRole(@configHolder.getSuperAdminRoleName()) or hasPermission(returnObject, 'READ')")
+	@Transactional(readOnly = true)
 	public E findByUrlAndLayerNames(String url, String layerNames) {
 		if (url == null || layerNames == null) {
 			return null;
@@ -103,6 +106,7 @@ public class MomoLayerService<E extends MomoLayer, D extends MomoLayerDao<E>>
 	 * @throws Exception
 	 */
 	@PreAuthorize("isAuthenticated()")
+	@Transactional(readOnly = true)
 	public byte[] downloadLayers(List<Integer> layerIds) throws Exception {
 
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();

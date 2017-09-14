@@ -15,6 +15,7 @@ import org.springframework.dao.PermissionDeniedDataAccessException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import de.terrestris.momo.dao.MomoUserDao;
 import de.terrestris.momo.dao.MomoUserGroupDao;
@@ -131,6 +132,7 @@ public class UserGroupRoleService<E extends UserGroupRole, D extends UserGroupRo
 	 * @param user
 	 * @return
 	 */
+	@Transactional(readOnly = true)
 	public Set<Role> findAllUserRoles(MomoUser user) {
 		Set<Role> allUserRoles = new HashSet<Role>();
 
@@ -151,6 +153,7 @@ public class UserGroupRoleService<E extends UserGroupRole, D extends UserGroupRo
 	 * @param user
 	 * @return
 	 */
+	@Transactional(readOnly = true)
 	public Set<MomoUserGroup> findAllUserGroups(MomoUser user) {
 		Set<MomoUserGroup> allUserGroups = new HashSet<MomoUserGroup>();
 
@@ -171,6 +174,7 @@ public class UserGroupRoleService<E extends UserGroupRole, D extends UserGroupRo
 	 * @param userGroup
 	 * @return
 	 */
+	@Transactional(readOnly = true)
 	public Set<Role> findAllUserGroupRoles(MomoUserGroup userGroup) {
 		Set<Role> allUserGroupRoles = new HashSet<Role>();
 
@@ -191,6 +195,7 @@ public class UserGroupRoleService<E extends UserGroupRole, D extends UserGroupRo
 	 * @param userGroup
 	 * @return
 	 */
+	@Transactional(readOnly = true)
 	public Set<MomoUser> findAllUserGroupMembers(MomoUserGroup userGroup) {
 		Set<MomoUser> allUserGroupMembers = new HashSet<MomoUser>();
 
@@ -212,6 +217,7 @@ public class UserGroupRoleService<E extends UserGroupRole, D extends UserGroupRo
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
+	@Transactional(readOnly = true)
 	public List<UserGroupRole> findUserGroupRolesBy(MomoUser user) {
 		return (List<UserGroupRole>) this.dao.findAllWhereFieldEquals(
 				"user", user);
@@ -223,6 +229,7 @@ public class UserGroupRoleService<E extends UserGroupRole, D extends UserGroupRo
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
+	@Transactional(readOnly = true)
 	public List<UserGroupRole> findUserGroupRolesBy(MomoUserGroup userGroup) {
 		return (List<UserGroupRole>) this.dao.findAllWhereFieldEquals(
 				"group", userGroup);
@@ -234,6 +241,7 @@ public class UserGroupRoleService<E extends UserGroupRole, D extends UserGroupRo
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
+	@Transactional(readOnly = true)
 	public List<UserGroupRole> findUserGroupRolesBy(Role role) {
 		return (List<UserGroupRole>) this.dao.findAllWhereFieldEquals(
 				"role", role);
@@ -246,6 +254,7 @@ public class UserGroupRoleService<E extends UserGroupRole, D extends UserGroupRo
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
+	@Transactional(readOnly = true)
 	public List<UserGroupRole> findUserGroupRolesBy(MomoUser user, MomoUserGroup userGroup) {
 
 		final Criterion and = Restrictions.and(
@@ -264,6 +273,7 @@ public class UserGroupRoleService<E extends UserGroupRole, D extends UserGroupRo
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
+	@Transactional(readOnly = true)
 	public List<UserGroupRole> findUserGroupRolesBy(MomoUser user, MomoUserGroup userGroup, Role role) {
 		final Criterion and = Restrictions.and(
 				Restrictions.eq("user", user),
@@ -280,6 +290,7 @@ public class UserGroupRoleService<E extends UserGroupRole, D extends UserGroupRo
 	 * @param userGroup
 	 * @return
 	 */
+	@Transactional(readOnly = true)
 	public boolean isUserMemberInUserGroup(MomoUser user, MomoUserGroup userGroup) {
 		final Criterion and = Restrictions.and(
 				Restrictions.eq("user", user),
@@ -296,6 +307,7 @@ public class UserGroupRoleService<E extends UserGroupRole, D extends UserGroupRo
 	 * @param role
 	 * @return
 	 */
+	@Transactional(readOnly = true)
 	public boolean hasUserRoleInGroup(MomoUser user, MomoUserGroup userGroup, Role role) {
 		final Criterion and = Restrictions.and(
 				Restrictions.eq("user", user),
@@ -490,6 +502,7 @@ public class UserGroupRoleService<E extends UserGroupRole, D extends UserGroupRo
 	 * @param group
 	 * @param user
 	 */
+	@Transactional(readOnly = true)
 	public void sendPermissionChangeMail(MomoUser receiver, String givenRole,
 			MomoUserGroup group) {
 

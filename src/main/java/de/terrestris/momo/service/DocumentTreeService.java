@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import de.terrestris.momo.dao.DocumentTreeDao;
@@ -116,6 +117,7 @@ public class DocumentTreeService<E extends TreeNode, D extends DocumentTreeDao<E
 	 * @return
 	 * @throws Exception
 	 */
+	@Transactional(readOnly = true)
 	public File getDocumentOfNode(Integer nodeId) throws Exception {
 
 		File fileToReturn = null;
@@ -176,6 +178,7 @@ public class DocumentTreeService<E extends TreeNode, D extends DocumentTreeDao<E
 	 * @throws Exception
 	 */
 	@PreAuthorize("hasRole(@momoConfigHolder.getDefaultUserRoleName())")
+	@Transactional(readOnly = true)
 	private List<byte[]> getAllDocumentsOfFolder(DocumentTreeFolder folder) throws Exception {
 
 		List<byte[]> documentList = new ArrayList<byte[]>();

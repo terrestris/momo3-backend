@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import de.terrestris.momo.dao.LayerTreeDao;
 import de.terrestris.momo.model.MomoLayer;
@@ -56,6 +57,7 @@ public class LayerTreeService<E extends TreeNode, D extends LayerTreeDao<E>> ext
 	 * @return
 	 * @throws Exception
 	 */
+	@Transactional(readOnly = true)
 	public List<Layer> getAllMapLayersFromTreeFolder(LayerTreeFolder treeFolder) throws Exception {
 
 		List<Layer> mapLayerList = new ArrayList<Layer>();

@@ -14,6 +14,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.util.UriUtils;
 
 import de.terrestris.momo.util.security.MomoSecurityUtil;
@@ -238,6 +239,7 @@ public class MomoPasswordResetTokenService<E extends PasswordResetToken, D exten
 	 * @return
 	 * @throws URISyntaxException
 	 */
+	@Transactional(readOnly = true)
 	private URI createResetPasswordURI(HttpServletRequest request,
 			PasswordResetToken resetPasswordToken) throws URISyntaxException {
 
