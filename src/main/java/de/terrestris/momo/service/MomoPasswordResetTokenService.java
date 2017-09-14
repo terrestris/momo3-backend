@@ -140,7 +140,6 @@ public class MomoPasswordResetTokenService<E extends PasswordResetToken, D exten
 	 * @throws URISyntaxException
 	 * @throws UnsupportedEncodingException
 	 */
-	@Transactional(readOnly = true)
 	public void sendResetPasswordMail(HttpServletRequest request, String email)
 			throws NoSuchMethodException, SecurityException,
 			InstantiationException, IllegalAccessException,
