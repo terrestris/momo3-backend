@@ -42,7 +42,7 @@
 
         <jetty.contextPath>/</jetty.contextPath>
 
-        <shogun2.version>0.1.3-SNAPSHOT</shogun2.version>
+        <shogun2.version>0.1.3</shogun2.version>
 
         <javax.jstl.version>1.2</javax.jstl.version>
 
