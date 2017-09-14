@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.util.UriUtils;
 
 import de.terrestris.shogun2.dao.RegistrationTokenDao;
@@ -125,6 +126,7 @@ public class MomoRegistrationTokenService<E extends RegistrationToken, D extends
 	 * @throws URISyntaxException
 	 * @throws UnsupportedEncodingException
 	 */
+	@Transactional(readOnly = true)
 	public void sendRegistrationActivationMail(HttpServletRequest request,
 			User user) throws NoSuchMethodException, SecurityException,
 			InstantiationException, IllegalAccessException,

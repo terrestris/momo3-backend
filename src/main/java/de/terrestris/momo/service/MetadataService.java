@@ -89,7 +89,7 @@ public class MetadataService {
 
 		if (!transactionOperation.equalsIgnoreCase("CREATE") && layerId != null) {
 			MomoLayer layer = momoLayerService.findById(layerId);
-			
+
 			if (layer == null) {
 				String msg = "Could not find a layer with ID " + layerId;
 				LOG.error(msg);
@@ -97,9 +97,9 @@ public class MetadataService {
 			}
 			if (!transactionOperation.equalsIgnoreCase("CREATE")) {
 				String metaDataIdentifier = layer.getMetadataIdentifier();
-				
+
 				boolean isValidRecord = isValidRecord(metaDataIdentifier);
-				
+
 				if (!isValidRecord) {
 					String msg = "UUID is not valid";
 					LOG.error(msg);

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import de.terrestris.momo.dao.ApplicationStateDao;
 import de.terrestris.momo.model.state.ApplicationState;
@@ -95,6 +96,7 @@ public class ApplicationStateService<E extends ApplicationState, D extends Appli
 	 * @return
 	 */
 	@PreAuthorize("hasRole(@configHolder.getDefaultUserRoleName())")
+	@Transactional(readOnly = true)
 	public Set<E> findByWebMapIdForCurrentUser(Integer webMapId) {
 		User currentUser = userService.getUserBySession();
 		return dao.findByWebMapIdAndUserId(webMapId, currentUser.getId());
@@ -106,6 +108,7 @@ public class ApplicationStateService<E extends ApplicationState, D extends Appli
 	 * @return
 	 */
 	@PreAuthorize("hasRole(@configHolder.getDefaultUserRoleName())")
+	@Transactional(readOnly = true)
 	public List<E> findAllWorkstatesOfUser(User owner) {
 		SimpleExpression eqOwner = Restrictions.eq("owner", owner);
 		return dao.findByCriteria(eqOwner);

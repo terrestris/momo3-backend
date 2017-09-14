@@ -78,6 +78,7 @@ public class EntityPermissionService<E extends PersistentObject> {
 	 * @throws NotFoundException
 	 */
 	@PreAuthorize("hasRole(@momoConfigHolder.getEditorRoleName())")
+	@Transactional(readOnly = true)
 	public EntityPermissionTypeEnvelope getEntityPermission(Integer entityId,
 			String targetEntity, Class<?> entityClass) throws ClassNotFoundException, NotFoundException {
 
@@ -182,6 +183,7 @@ public class EntityPermissionService<E extends PersistentObject> {
 	 * @param entityNameOfPermissionHolder
 	 * @throws Exception
 	 */
+	@Transactional(readOnly = true)
 	private void checkPathParametersWithEnvelopeObject(EntityPermissionTypeEnvelope envelope, String classNameOfTarget,
 			Integer entityIdOfTarget, String entityNameOfPermissionHolder) throws Exception {
 
@@ -220,6 +222,7 @@ public class EntityPermissionService<E extends PersistentObject> {
 	 * @param entity
 	 * @return
 	 */
+	@Transactional(readOnly = true)
 	private Set<EntityPermissionEnvelope> getUserGroupPermissions(PersistentObject entity) {
 
 		Map<UserGroup, PermissionCollection> groupPermissions = entity.getGroupPermissions();
@@ -243,6 +246,7 @@ public class EntityPermissionService<E extends PersistentObject> {
 	 * @param entity
 	 * @return
 	 */
+	@Transactional(readOnly = true)
 	private Set<EntityPermissionEnvelope> getUserPermissions(PersistentObject entity) {
 
 		Map<User, PermissionCollection> userPermissions = entity.getUserPermissions();

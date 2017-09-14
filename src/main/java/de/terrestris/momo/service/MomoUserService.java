@@ -22,6 +22,7 @@ import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import de.terrestris.momo.dao.MomoApplicationDao;
 import de.terrestris.momo.dao.MomoLayerDao;
@@ -247,6 +248,7 @@ public class MomoUserService<E extends MomoUser, D extends MomoUserDao<E>>
 	 * @throws NotFoundException
 	 * @throws AlreadyExistsException
 	 */
+	@Transactional(readOnly = true)
 	public void resendRegistrationTokenMail(HttpServletRequest request, String email)
 			throws NoSuchMethodException, SecurityException, InstantiationException,
 			IllegalAccessException, IllegalArgumentException, InvocationTargetException,
@@ -476,6 +478,7 @@ public class MomoUserService<E extends MomoUser, D extends MomoUserDao<E>>
 	 * @param group
 	 * @param user
 	 */
+	@Transactional(readOnly = true)
 	public void sendMailToSubadminOrSuperadmin(MomoUser subadminForGroup, MomoUser superadmin,
 			String wantedRole, MomoUserGroup group, MomoUser user) {
 		if (subadminForGroup != null) {
@@ -498,6 +501,7 @@ public class MomoUserService<E extends MomoUser, D extends MomoUserDao<E>>
 	 * @param group
 	 * @param user
 	 */
+	@Transactional(readOnly = true)
 	public void sendPermissionChangeMail(MomoUser receiver, String wantedRole,
 			MomoUserGroup group, MomoUser user) {
 

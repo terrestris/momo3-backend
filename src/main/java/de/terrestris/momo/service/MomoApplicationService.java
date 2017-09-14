@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import de.terrestris.momo.dao.DocumentTreeDao;
 import de.terrestris.momo.dao.LayerTreeDao;
@@ -396,6 +397,7 @@ public class MomoApplicationService<E extends MomoApplication, D extends MomoApp
 	 * @return
 	 * @throws Exception
 	 */
+	@Transactional(readOnly = true)
 	public List<java.util.Map<String, Object>> getDocumentTreeRootNodeInfo(Integer id) throws Exception {
 		E app = this.findById(id);
 
