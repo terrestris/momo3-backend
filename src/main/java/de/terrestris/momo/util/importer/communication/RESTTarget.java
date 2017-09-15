@@ -11,11 +11,13 @@ public class RESTTarget extends AbstractRESTEntity {
 	/**
 	 *
 	 */
+	@SuppressWarnings("unused")
 	private String href;
 
 	/**
 	 *
 	 */
+	@SuppressWarnings("unused")
 	private RESTDataStore dataStore;
 
 }
