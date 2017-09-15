@@ -144,6 +144,7 @@ public class MomoLayerPermissionEvaluatorTest {
 		permissionsToCheck.add(Permission.UPDATE);
 		permissionsToCheck.add(Permission.DELETE);
 
+		@SuppressWarnings("unchecked")
 		MomoApplicationService<MomoApplication, MomoApplicationDao<MomoApplication>> momoApplicationServiceMock =
 				Mockito.mock(MomoApplicationService.class);
 		when(momoApplicationServiceMock.findAll()).thenReturn(new ArrayList<MomoApplication>());
@@ -219,6 +220,7 @@ public class MomoLayerPermissionEvaluatorTest {
 		groupPermissions.put(testGroup, permCollection);
 		testLayer.setGroupPermissions(groupPermissions);
 
+		@SuppressWarnings("unchecked")
 		UserGroupRoleService<UserGroupRole, UserGroupRoleDao<UserGroupRole>> userGroupRoleService =
 				Mockito.mock(UserGroupRoleService.class);
 		when(userGroupRoleService.isUserMemberInUserGroup(accessUser, testGroup)).thenReturn(true);
@@ -241,6 +243,7 @@ public class MomoLayerPermissionEvaluatorTest {
 		groupPermissions.put(testGroup, permCollection);
 		testLayer.setGroupPermissions(groupPermissions);
 
+		@SuppressWarnings("unchecked")
 		UserGroupRoleService<UserGroupRole, UserGroupRoleDao<UserGroupRole>> userGroupRoleService =
 				Mockito.mock(UserGroupRoleService.class);
 		when(userGroupRoleService.isUserMemberInUserGroup(accessUser, testGroup)).thenReturn(true);
@@ -261,6 +264,7 @@ public class MomoLayerPermissionEvaluatorTest {
 
 		loginMockUser(userRoles);
 
+		@SuppressWarnings("unchecked")
 		MomoApplicationService<MomoApplication, MomoApplicationDao<MomoApplication>> momoApplicationServiceMock =
 				Mockito.mock(MomoApplicationService.class);
 		when(momoApplicationServiceMock.findAll()).thenReturn(new ArrayList<MomoApplication>());
@@ -313,6 +317,7 @@ public class MomoLayerPermissionEvaluatorTest {
 		groupPermissions.put(testGroup, permCollection);
 		testLayer.setGroupPermissions(groupPermissions);
 
+		@SuppressWarnings("unchecked")
 		UserGroupRoleService<UserGroupRole, UserGroupRoleDao<UserGroupRole>> userGroupRoleService =
 				Mockito.mock(UserGroupRoleService.class);
 		when(userGroupRoleService.isUserMemberInUserGroup(accessUser, testGroup)).thenReturn(true);

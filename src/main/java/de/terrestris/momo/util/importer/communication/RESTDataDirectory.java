@@ -11,6 +11,7 @@ public class RESTDataDirectory extends RESTData {
 	/**
 	 *
 	 */
+	@SuppressWarnings("unused")
 	private String location;
 
 }

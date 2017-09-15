@@ -1,16 +1,8 @@
 package de.terrestris.momo.interceptor;
 
-import java.awt.Color;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-
-import javax.imageio.ImageIO;
-
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 
-import de.terrestris.momo.util.GraphicsUtil;
 import de.terrestris.shogun2.util.interceptor.MutableHttpServletRequest;
 import de.terrestris.shogun2.util.interceptor.WmsResponseInterceptorInterface;
 import de.terrestris.shogun2.util.model.Response;
@@ -25,6 +17,7 @@ public class MomoWmsResponseInterceptor implements WmsResponseInterceptorInterfa
 	/**
 	 * The Logger.
 	 */
+	@SuppressWarnings("unused")
 	private static final Logger LOG = Logger.getLogger(MomoWmsResponseInterceptor.class);
 
 	/**
