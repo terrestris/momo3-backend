@@ -228,6 +228,7 @@ public class MomoApplicationPermissionEvaluatorTest {
 		groupPermissions.put(testGroup, permCollection);
 		testApplication.setGroupPermissions(groupPermissions);
 
+		@SuppressWarnings("unchecked")
 		UserGroupRoleService<UserGroupRole, UserGroupRoleDao<UserGroupRole>> userGroupRoleService =
 				Mockito.mock(UserGroupRoleService.class);
 		when(userGroupRoleService.isUserMemberInUserGroup(accessUser, testGroup)).thenReturn(true);
@@ -250,6 +251,7 @@ public class MomoApplicationPermissionEvaluatorTest {
 		groupPermissions.put(testGroup, permCollection);
 		testApplication.setGroupPermissions(groupPermissions);
 
+		@SuppressWarnings("unchecked")
 		UserGroupRoleService<UserGroupRole, UserGroupRoleDao<UserGroupRole>> userGroupRoleService =
 				Mockito.mock(UserGroupRoleService.class);
 		when(userGroupRoleService.isUserMemberInUserGroup(accessUser, testGroup)).thenReturn(true);
@@ -273,6 +275,7 @@ public class MomoApplicationPermissionEvaluatorTest {
 		groupPermissions.put(testGroup, permCollection);
 		testApplication.setGroupPermissions(groupPermissions);
 
+		@SuppressWarnings("unchecked")
 		UserGroupRoleService<UserGroupRole, UserGroupRoleDao<UserGroupRole>> userGroupRoleService =
 				Mockito.mock(UserGroupRoleService.class);
 		when(userGroupRoleService.isUserMemberInUserGroup(accessUser, testGroup)).thenReturn(true);
@@ -294,6 +297,7 @@ public class MomoApplicationPermissionEvaluatorTest {
 		groupPermissions.put(testGroup, permCollection);
 		testApplication.setGroupPermissions(groupPermissions);
 
+		@SuppressWarnings("unchecked")
 		UserGroupRoleService<UserGroupRole, UserGroupRoleDao<UserGroupRole>> userGroupRoleService =
 				Mockito.mock(UserGroupRoleService.class);
 		when(userGroupRoleService.isUserMemberInUserGroup(accessUser, testGroup)).thenReturn(true);
