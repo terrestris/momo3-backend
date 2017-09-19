@@ -10,11 +10,15 @@ import de.terrestris.momo.model.MomoUserGroup;
 import de.terrestris.momo.model.security.UserGroupRole;
 import de.terrestris.momo.model.tree.DocumentTreeFolder;
 import de.terrestris.momo.model.tree.DocumentTreeLeaf;
+import de.terrestris.momo.model.tree.LayerTreeFolder;
+import de.terrestris.momo.model.tree.LayerTreeLeaf;
 import de.terrestris.momo.security.access.entity.DocumentTreeFolderPermissionEvaluator;
 import de.terrestris.momo.security.access.entity.DocumentTreeLeafPermissionEvaluator;
 import de.terrestris.momo.security.access.entity.ExtentPermissionEvaluator;
 import de.terrestris.momo.security.access.entity.FilePermissionEvaluator;
 import de.terrestris.momo.security.access.entity.LayerAppearancePermissionEvaluator;
+import de.terrestris.momo.security.access.entity.LayerTreeFolderPermissionEvaluator;
+import de.terrestris.momo.security.access.entity.LayerTreeLeafPermissionEvaluator;
 import de.terrestris.momo.security.access.entity.MapConfigPermissionEvaluator;
 import de.terrestris.momo.security.access.entity.MapPermissionEvaluator;
 import de.terrestris.momo.security.access.entity.ModulePermissionEvaluator;
@@ -87,6 +91,12 @@ public class MomoPermissionEvaluatorFactory<E extends PersistentObject> extends 
 		}
 		if(Module.class.isAssignableFrom(entityClass)) {
 			return new ModulePermissionEvaluator();
+		}
+		if (LayerTreeLeaf.class.isAssignableFrom(entityClass)) {
+			return new LayerTreeLeafPermissionEvaluator();
+		}
+		if (LayerTreeFolder.class.isAssignableFrom(entityClass)) {
+			return new LayerTreeFolderPermissionEvaluator();
 		}
 		if(TreeNode.class.isAssignableFrom(entityClass)) {
 			return new TreeNodePermissionEvaluator();

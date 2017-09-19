@@ -49,7 +49,7 @@ public class TreeNodePermissionEvaluator<E extends TreeNode> extends MomoPersist
 			return true;
 		}
 
-		// always grant CREATE right for this entity
+		// always grant UPDATE right for this entity
 		if (permission.equals(Permission.UPDATE)) {
 			LOG.trace("Granting UPDATE for TreeNode.");
 			return true;
