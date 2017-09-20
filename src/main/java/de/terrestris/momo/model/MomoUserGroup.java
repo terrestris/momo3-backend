@@ -72,7 +72,7 @@ public class MomoUserGroup extends UserGroup {
 	@Override
 	@Deprecated
 	public Set<User> getMembers() {
-		LOG.warn("The method getMembers() returns null always. "
+		LOG.debug("The method getMembers() returns null always. "
 				+ "To get the members of a certain group, please make "
 				+ "use of the UserGroupRoleService, e.g. findAllUserGroups()");
 		return null;
@@ -84,7 +84,7 @@ public class MomoUserGroup extends UserGroup {
 	@Override
 	@Deprecated
 	public void setMembers(Set<User> users) {
-		LOG.warn("Calling the method setMembers() has no effect. "
+		LOG.debug("Calling the method setMembers() has no effect. "
 				+ "To set the members of a certain group, please make "
 				+ "use of the UserGroupRoleService.");
 	}
@@ -95,7 +95,7 @@ public class MomoUserGroup extends UserGroup {
 	@Override
 	@Deprecated
 	public Set<Role> getRoles() {
-		LOG.warn("The method getRoles() returns null always. "
+		LOG.debug("The method getRoles() returns null always. "
 				+ "To get the roles of a certain group, please make "
 				+ "use of the UserGroupRoleService, e.g. findAllUserGroupRoles().");
 		return null;
@@ -107,7 +107,7 @@ public class MomoUserGroup extends UserGroup {
 	@Override
 	@Deprecated
 	public void setRoles(Set<Role> roles) {
-		LOG.warn("Calling the method setRoles() has no effect. "
+		LOG.debug("Calling the method setRoles() has no effect. "
 				+ "To set the roles of a certain group, please make "
 				+ "use of the UserGroupRoleService.");
 	}
