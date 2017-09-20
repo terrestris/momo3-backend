@@ -195,7 +195,7 @@ public class MomoLayerService<E extends MomoLayer, D extends MomoLayerDao<E>>
 	}
 
 	@SuppressWarnings("unchecked")
-	public void deleteMomoLayer(MomoLayer layer) throws Exception {
+	public void deleteMomoLayer(MomoLayer layer) {
 		try {
 			this.gsPublisherDao.unpublishGeoServerLayer(layer, true);
 		} catch (Exception e) {

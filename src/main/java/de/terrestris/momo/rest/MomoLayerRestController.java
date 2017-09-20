@@ -54,19 +54,18 @@ public class MomoLayerRestController<E extends MomoLayer, D extends MomoLayerDao
 	}
 
 	@Override
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<E> delete(@PathVariable int id) {
-        try {
-            MomoLayer entityToDelete = this.service.findById(id);
-
-            this.service.deleteMomoLayer(entityToDelete);
-
-            LOG.trace("Deleted MomoLayer with ID " + id);
-            return new ResponseEntity<E>(HttpStatus.NO_CONTENT);
-        } catch (Exception e) {
-            LOG.error("Error deleting MomoLayer with ID " + id + ": "
-                    + e.getMessage());
-            return new ResponseEntity<E>(HttpStatus.NOT_FOUND);
-        }
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<E> delete(@PathVariable int id) {
+		try {
+			LOG.info("Trying to delete MomoLayer with ID " + id);
+			MomoLayer entityToDelete = this.service.findById(id);
+			this.service.deleteMomoLayer(entityToDelete);
+			LOG.info("Deleted MomoLayer with ID " + id);
+			return new ResponseEntity<E>(HttpStatus.NO_CONTENT);
+		} catch (Exception e) {
+			LOG.error("Error deleting MomoLayer with ID " + id + ": "
+					+ e.getMessage());
+			return new ResponseEntity<E>(HttpStatus.NOT_FOUND);
+		}
 	}
 }
