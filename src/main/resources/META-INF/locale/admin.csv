@@ -314,7 +314,7 @@ MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.layerNameEmptyTex
 MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.fileUploadFieldLabel;Datei;File;Файл; -
 MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.fileUploadEmptyText;*.zip;*.zip;*.зип; -
 MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.fileUploadButtonText;Hochladen;Upload;Байршуулах; -
-MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.fileSelectBtnText;Datei auswählen;Browse;Харах; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.fileSelectBtnText;Datei;Browse;Харах; -
 MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.layerDescription;Beschreibung des Layers;Layer Description;Давхаргын тайлбар; -
 MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.layerOpacity;Deckkraft;Layer Opacity;Давхаргын тунгалгын байдал; -
 MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.hoverTemplate;Hover Template;Hover Template;Ховер загвар; -

@@ -47,6 +47,9 @@ SCRIPTDIR=`dirname "$0"`
 
 pushd $SCRIPTDIR/..
 
+# Clean up (to avoid that older artifacts will also be uploaded to github)
+mvn clean
+
 # Check for any local modifications
 mvn scm:check-local-modification
 

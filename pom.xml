@@ -5,7 +5,7 @@
 
     <groupId>de.terrestris</groupId>
     <artifactId>momo</artifactId>
-    <version>0.1.8-SNAPSHOT</version>
+    <version>0.2.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <name>momo</name>
@@ -209,7 +209,10 @@
                         lib/proj4/**,
                         lib/proj4-defs/**,
 
-                        userdocs/build/iwrm_momo_logo.png,
+                        userdocs/build/*.png,
+                        userdocs/build/*.jpg,
+                        userdocs/build/*.jpeg,
+                        userdocs/build/*.gif,
                         userdocs/build/MoMo_doc_de.pdf,
                         userdocs/build/MoMo_doc_en.pdf,
                         userdocs/build/MoMo_doc_mn.pdf,
