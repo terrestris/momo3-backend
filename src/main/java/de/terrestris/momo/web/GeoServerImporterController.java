@@ -1,6 +1,5 @@
 package de.terrestris.momo.web;
 
-import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Map;
 
@@ -18,9 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jcraft.jsch.JSchException;
 
 import de.terrestris.momo.service.GeoServerImporterService;
 import de.terrestris.momo.util.importer.ImporterException;
@@ -106,7 +103,7 @@ public class GeoServerImporterController {
 					layerHoverTemplate
 			);
 
-		} catch (ImporterException | URISyntaxException | HttpException | IOException | JSchException e) {
+		} catch (Exception e) {
 			LOG.debug(e.getMessage(), e);
 			responseStatus = HttpStatus.INTERNAL_SERVER_ERROR;
 			responseMap = ResultSet.error("Could not upload the file: " + e.getMessage());
@@ -114,7 +111,7 @@ public class GeoServerImporterController {
 			// rewrite the response-Map as String
 			try {
 				responseMapAsString = mapper.writeValueAsString(responseMap);
-			} catch (JsonProcessingException e) {
+			} catch (Exception e) {
 				responseStatus = HttpStatus.INTERNAL_SERVER_ERROR;
 				LOG.error("Error while rewriting the response Map to a String" +
 						e.getMessage());
@@ -159,7 +156,7 @@ public class GeoServerImporterController {
 					layerOpacity,
 					layerHoverTemplate,
 					importJobId, taskId, fileProjection);
-		} catch (URISyntaxException | HttpException | IOException | ImporterException | JSchException e) {
+		} catch (Exception e) {
 			LOG.error("updateCrsForImport throwed an exception. Error was: " + e.getMessage());
 			responseMap = ResultSet.error("Could not upload the file: " + e.getMessage());
 		} finally {
@@ -215,7 +212,7 @@ public class GeoServerImporterController {
 		// rewrite the response-Map as String
 		try {
 			responseMapAsString = mapper.writeValueAsString(responseMap);
-		} catch (JsonProcessingException e) {
+		} catch (Exception e) {
 			responseStatus = HttpStatus.INTERNAL_SERVER_ERROR;
 			LOG.error("Error while rewriting the response Map to a String" +
 					e.getMessage());
