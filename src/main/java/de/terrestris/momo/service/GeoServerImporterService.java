@@ -1,7 +1,6 @@
 package de.terrestris.momo.service;
 
 import java.io.File;
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
 import java.util.HashMap;
@@ -16,10 +15,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.jcraft.jsch.JSchException;
 
 import de.terrestris.momo.dao.GeoserverPublisherDao;
 import de.terrestris.momo.dao.MomoLayerDao;
@@ -181,16 +176,10 @@ public class GeoServerImporterService {
 	 * @param workSpaceName
 	 * @param dataStoreName
 	 * @return
-	 * @throws JsonParseException
-	 * @throws JsonMappingException
-	 * @throws URISyntaxException
-	 * @throws HttpException
-	 * @throws IOException
-	 * @throws ImporterException
+	 * @throws Exception
 	 */
 	public RESTImport createImportJob(String workSpaceName, String dataStoreName)
-			throws JsonParseException, JsonMappingException, URISyntaxException, HttpException,
-			IOException, ImporterException {
+			throws Exception {
 
 		return publisher.createImport(workSpaceName, dataStoreName);
 	}
@@ -199,16 +188,10 @@ public class GeoServerImporterService {
 	 *
 	 * @param workSpaceName
 	 * @return
-	 * @throws JsonParseException
-	 * @throws JsonMappingException
-	 * @throws URISyntaxException
-	 * @throws HttpException
-	 * @throws IOException
-	 * @throws ImporterException
+	 * @throws Exception
 	 */
 	public RESTImport createImportJob(String workSpaceName)
-			throws JsonParseException, JsonMappingException, URISyntaxException, HttpException,
-			IOException, ImporterException {
+			throws Exception {
 
 		return publisher.createImport(workSpaceName);
 	}
@@ -246,16 +229,10 @@ public class GeoServerImporterService {
 	 * @param importJobId
 	 * @param taskId
 	 * @return
-	 * @throws JsonParseException
-	 * @throws JsonMappingException
-	 * @throws URISyntaxException
-	 * @throws HttpException
-	 * @throws IOException
-	 * @throws ImporterException
+	 * @throws Exception
 	 */
 	public List<RESTLayer> getRESTLayers(Integer importJobId, List<RESTImportTask> importTasks)
-			throws JsonParseException, JsonMappingException, URISyntaxException, HttpException,
-			IOException, ImporterException {
+			throws Exception {
 		return publisher.getAllImportedLayers(importJobId, importTasks);
 	}
 
@@ -264,14 +241,9 @@ public class GeoServerImporterService {
 	 * @param importJobId ID of import job
 	 * @param taskId ID of task
 	 * @return
-	 * @throws JsonParseException
-	 * @throws JsonMappingException
-	 * @throws URISyntaxException
-	 * @throws HttpException
-	 * @throws IOException
+	 * @throws Exception
 	 */
-	public RESTLayer getRESTLayer(Integer importJobId, Integer taskId) throws JsonParseException,
-			JsonMappingException, URISyntaxException, HttpException, IOException {
+	public RESTLayer getRESTLayer(Integer importJobId, Integer taskId) throws Exception {
 
 		return publisher.getLayer(importJobId, taskId);
 	}
@@ -281,15 +253,10 @@ public class GeoServerImporterService {
 	 * @param importJobId
 	 * @param uploadFile
 	 * @return
-	 * @throws IllegalStateException
-	 * @throws IOException
-	 * @throws URISyntaxException
-	 * @throws HttpException
-	 * @throws ImporterException
+	 * @throws Exception
 	 */
 	public RESTImportTaskList uploadZipFile(Integer importJobId, MultipartFile uploadFile)
-			throws IllegalStateException, IOException, URISyntaxException, HttpException,
-			ImporterException {
+			throws Exception {
 
 		// TODO use Tempfile instead of File (e.g. for windows)
 		File file = new File("/tmp/" + uploadFile.getOriginalFilename());
@@ -379,20 +346,12 @@ public class GeoServerImporterService {
 	 * @param layerOpacity
 	 * @param layerHoverTemplate
 	 * @return
-	 * @throws ImporterException
-	 * @throws IOException
-	 * @throws HttpException
-	 * @throws URISyntaxException
-	 * @throws JsonMappingException
-	 * @throws JsonParseException
-	 * @throws JSchException
 	 * @throws Exception
 	 */
 	public Map<String, Object> importGeodataAndCreateLayer(MultipartFile file,
 			String fileProjection, String layerName, String layerType, String layerDescription,
 			double layerOpacity, String layerHoverTemplate)
-			throws JsonParseException, JsonMappingException, URISyntaxException, HttpException,
-			IOException, ImporterException, JSchException {
+			throws Exception {
 
 		Map<String, Object> responseMap = new HashMap<String, Object>();
 
@@ -450,20 +409,12 @@ public class GeoServerImporterService {
 	 * @param importJobId
 	 * @param importTasks
 	 * @return
-	 * @throws IOException
-	 * @throws HttpException
-	 * @throws URISyntaxException
-	 * @throws JsonMappingException
-	 * @throws JsonParseException
-	 * @throws ImporterException
-	 * @throws JSchException
 	 * @throws Exception
 	 */
 	private Map<String, Object> processTasks(String fileProjection, String layerName,
 			String layerType, String layerDescription, double layerOpacity,
 			String layerHoverTemplate, Integer importJobId, RESTImportTaskList importTasks)
-			throws JsonParseException, JsonMappingException, URISyntaxException, HttpException,
-			IOException, ImporterException, JSchException {
+			throws Exception {
 		Map<String, Object> responseMap;
 
 		for (RESTImportTask importTask : importTasks) {
@@ -505,19 +456,11 @@ public class GeoServerImporterService {
 	 * @param layerHoverTemplate
 	 * @param importJobId
 	 * @return
-	 * @throws ImporterException
-	 * @throws HttpException
-	 * @throws URISyntaxException
-	 * @throws IOException
-	 * @throws JsonMappingException
-	 * @throws JsonParseException
-	 * @throws JSchException
 	 * @throws Exception
 	 */
 	private Map<String, Object> runJobAndCreateLayer(String layerName, String layerType,
 			String layerDescription, double layerOpacity, String layerHoverTemplate,
-			Integer importJobId) throws ImporterException, URISyntaxException, HttpException,
-			JsonParseException, JsonMappingException, IOException, JSchException {
+			Integer importJobId) throws Exception {
 		try {
 			Map<String, Object> responseMap;
 			// start import job (does not depend on layerType)
@@ -526,25 +469,25 @@ public class GeoServerImporterService {
 			if (!respImp) {
 				LOG.error("Could not create layer.");
 			}
-	
+
 			// at this point will persist/return the layer of the first successful import task
 			// since addition of multiple layers is not implemented in MM admin yet.
 			RESTLayer restLayer = null;
 			RESTImportTaskList restTasks = this.getRESTTasks(importJobId);
 			for (RESTImportTask task : restTasks) {
-	
+
 				if (task.getState().equalsIgnoreCase("COMPLETE")) {
 					restLayer = this.getRESTLayer(importJobId, task.getId());
 					break;
 				}
 			}
-	
+
 			if (restLayer != null) {
 				MomoLayer layer = this.saveLayer(restLayer, layerName, layerDescription, layerOpacity,
 						layerHoverTemplate, layerType, importJobId);
-	
+
 				layerService.saveOrUpdate(layer);
-	
+
 				responseMap = ResultSet.success(layer);
 			} else {
 				responseMap = ResultSet.error("No layer of imported dataset could be imported.");
@@ -655,17 +598,12 @@ public class GeoServerImporterService {
 
 	/**
 	 * Return all import tasks for given import job
-	 * 
+	 *
 	 * @param importJobId ID of import job
 	 * @return instance of {@link RESTImportTaskList} containing all import tasks
-	 * @throws IOException
-	 * @throws HttpException
-	 * @throws URISyntaxException
-	 * @throws JsonMappingException
-	 * @throws JsonParseException
+	 * @throws Exception
 	 */
-	private RESTImportTaskList getRESTTasks(Integer importJobId) throws JsonParseException,
-			JsonMappingException, URISyntaxException, HttpException, IOException {
+	private RESTImportTaskList getRESTTasks(Integer importJobId) throws Exception {
 		return this.publisher.getRESTImportTasks(importJobId);
 	}
 
@@ -723,20 +661,12 @@ public class GeoServerImporterService {
 	 * @param taskId
 	 * @param fileProjection
 	 * @return
-	 * @throws IOException
-	 * @throws HttpException
-	 * @throws URISyntaxException
-	 * @throws JsonMappingException
-	 * @throws JsonParseException
-	 * @throws JSchException
-	 * @throws ImporterException
 	 * @throws Exception
 	 */
 	public Map<String, Object> updateCrsForImport(String layerName, String layerType,
 			String layerDescription, double layerOpacity, String layerHoverTemplate,
 			Integer importJobId, Integer taskId, String fileProjection)
-			throws JsonParseException, JsonMappingException, URISyntaxException, HttpException,
-			IOException, ImporterException, JSchException {
+			throws Exception {
 		RESTImportTask importTask = this.publisher.getRESTImportTask(importJobId, taskId);
 		this.publisher.updateSrsForRESTImportTask(importJobId, importTask, fileProjection);
 		// skip transformation as this would reproject everything to 32648, which should get
