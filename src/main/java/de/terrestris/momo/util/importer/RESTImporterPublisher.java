@@ -18,7 +18,6 @@ import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -154,11 +153,11 @@ public class RESTImporterPublisher {
 
 		try {
 			importResult = (RESTImport) this.asEntity(httpResponse.getBody(), RESTImport.class);
-		} catch (JsonMappingException jme) {
+		} catch (Exception e) {
 			if (httpResponse.getStatusCode() == HttpStatus.METHOD_NOT_ALLOWED) {
 				String msg = "Import job cannot be created, maybe the importer extension of GeoServer is not installed.";
-				LOG.debug(msg, jme);
-				throw new ImporterException(msg, jme);
+				LOG.debug(msg, e);
+				throw new ImporterException(msg, e);
 			}
 		}
 
@@ -197,11 +196,11 @@ public class RESTImporterPublisher {
 		RESTImport importResult = null;
 		try {
 			importResult = (RESTImport) this.asEntity(httpResponse.getBody(), RESTImport.class);
-		} catch (JsonMappingException jme) {
+		} catch (Exception e) {
 			if (httpResponse.getStatusCode() == HttpStatus.METHOD_NOT_ALLOWED) {
 				String msg = "Import job cannot be created, maybe the importer extension of GeoServer is not installed.";
-				LOG.debug(msg, jme);
-				throw new ImporterException(msg, jme);
+				LOG.debug(msg, e);
+				throw new ImporterException(msg, e);
 			}
 		}
 
@@ -282,7 +281,7 @@ public class RESTImporterPublisher {
 		try {
 			importTaskLists = mapper.readValue(httpResponse.getBody(), RESTImportTaskList.class);
 			LOG.info("Imported file "+ file.getName() + " contains data for multiple layers.");
-		} catch (JsonMappingException mappExcep) {
+		} catch (Exception e) {
 			LOG.info("Imported file "+ file.getName() + " likely contains data for single layer. Will check this now.");
 			RESTImportTask helperTask = mapper.readValue(httpResponse.getBody(), RESTImportTask.class);
 			if (helperTask != null) {
@@ -307,7 +306,7 @@ public class RESTImporterPublisher {
 	 */
 	public RESTImportTask getRESTImportTask(Integer importJobId, Integer taskId) throws
 		URISyntaxException, HttpException, JsonParseException,
-		JsonMappingException, IOException {
+		JsonMappingException, IOException, Exception {
 		Response httpResponse = HttpUtil.get(
 				this.addEndPoint(importJobId + "/tasks/" + taskId),
 				this.username,
@@ -329,7 +328,7 @@ public class RESTImporterPublisher {
 	 */
 	public RESTImportTaskList getRESTImportTasks(Integer importJobId) throws
 		URISyntaxException, HttpException, JsonParseException,
-		JsonMappingException, IOException {
+		JsonMappingException, IOException, Exception {
 		Response httpResponse = HttpUtil.get(
 				this.addEndPoint(importJobId + "/tasks/"),
 				this.username,
@@ -375,7 +374,7 @@ public class RESTImporterPublisher {
 	 */
 	public RESTLayer getLayer(Integer importJobId, Integer taskId) throws
 			URISyntaxException, HttpException, JsonParseException,
-			JsonMappingException, IOException {
+			JsonMappingException, IOException, Exception {
 
 		Response httpResponse = HttpUtil.get(
 				this.addEndPoint(importJobId + "/tasks/" + taskId + "/layer"),
@@ -398,7 +397,7 @@ public class RESTImporterPublisher {
 	 * @throws IOException
 	 */
 	public RESTData getDataOfImportTask(Integer importJobId, Integer taskId)
-			throws URISyntaxException, HttpException, JsonParseException, JsonMappingException, IOException {
+			throws URISyntaxException, HttpException, JsonParseException, JsonMappingException, IOException, Exception {
 
 		final DeserializationFeature unwrapRootValueFeature = DeserializationFeature.UNWRAP_ROOT_VALUE;
 		boolean unwrapRootValueFeatureIsEnabled = mapper.isEnabled(unwrapRootValueFeature);
@@ -431,7 +430,7 @@ public class RESTImporterPublisher {
 	 * @throws JsonParseException
 	 */
 	private AbstractRESTEntity asEntity(byte[] responseBody, Class<?> clazz)
-			throws JsonParseException, JsonMappingException, IOException  {
+			throws JsonParseException, JsonMappingException, IOException, Exception  {
 
 		AbstractRESTEntity entity = null;
 
@@ -451,7 +450,7 @@ public class RESTImporterPublisher {
 
 		try {
 			entityJson = this.mapper.writeValueAsString(entity);
-		} catch (JsonProcessingException e) {
+		} catch (Exception e) {
 			LOG.error("Could not parse as JSON: " + e.getMessage());
 		}
 
@@ -555,13 +554,9 @@ public class RESTImporterPublisher {
 	 * @param sourceSrs
 	 *
 	 * @return
-	 * @throws URISyntaxException
-	 * @throws JsonParseException
-	 * @throws JsonMappingException
-	 * @throws IOException
-	 * @throws HttpException
+	 * @throws Exception 
 	 */
-	public RESTLayer updateSrsForRESTImportTask(Integer importJobId, RESTImportTask importTask, String sourceSrs) throws URISyntaxException, JsonParseException, JsonMappingException, IOException, HttpException {
+	public RESTLayer updateSrsForRESTImportTask(Integer importJobId, RESTImportTask importTask, String sourceSrs) throws Exception {
 		Integer taskId = importTask.getId();
 
 		RESTLayer updatableLayer = new RESTLayer();
@@ -583,12 +578,9 @@ public class RESTImporterPublisher {
 	 *
 	 * @param importJobId
 	 * @return
-	 * @throws URISyntaxException
-	 * @throws IOException
-	 * @throws HttpException
-	 * @throws ImporterException
+	 * @throws Exception 
 	 */
-	public List<RESTLayer> getAllImportedLayers(Integer importJobId, List<RESTImportTask> tasks) throws IOException, URISyntaxException, HttpException, ImporterException {
+	public List<RESTLayer> getAllImportedLayers(Integer importJobId, List<RESTImportTask> tasks) throws Exception {
 		ArrayList<RESTLayer> layers = new ArrayList<RESTLayer>();
 		for (RESTImportTask task : tasks) {
 
