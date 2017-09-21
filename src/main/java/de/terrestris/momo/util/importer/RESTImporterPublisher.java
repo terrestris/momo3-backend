@@ -1,7 +1,6 @@
 package de.terrestris.momo.util.importer;
 
 import java.io.File;
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -17,9 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
@@ -89,7 +86,7 @@ public class RESTImporterPublisher {
 	}
 
 	/***
-	 * 
+	 *
 	 * @param importerBaseURL
 	 * @param defaultSRS
 	 * @param username
@@ -122,16 +119,10 @@ public class RESTImporterPublisher {
 	 *
 	 * @param importJob
 	 * @return
-	 * @throws HttpException
-	 * @throws URISyntaxException
-	 * @throws IOException
-	 * @throws JsonMappingException
-	 * @throws JsonParseException
-	 * @throws ImporterException
+	 * @throws Exception
 	 */
 	public RESTImport createImport(String workSpaceName, String dataStoreName)
-			throws URISyntaxException, HttpException, JsonParseException,
-			JsonMappingException, IOException, ImporterException {
+			throws Exception {
 
 		RESTImport importJob = new RESTImport();
 
@@ -169,13 +160,9 @@ public class RESTImporterPublisher {
 	 *
 	 * @param workSpaceName
 	 * @return
-	 * @throws URISyntaxException
-	 * @throws HttpException
-	 * @throws JsonParseException
-	 * @throws IOException
-	 * @throws ImporterException
+	 * @throws Exception
 	 */
-	public RESTImport createImport(String workSpaceName) throws URISyntaxException, HttpException, JsonParseException, IOException, ImporterException {
+	public RESTImport createImport(String workSpaceName) throws Exception {
 		RESTImport importJob = new RESTImport();
 
 		RESTTargetWorkspace targetWorkspace = new RESTTargetWorkspace(workSpaceName);
@@ -260,13 +247,9 @@ public class RESTImporterPublisher {
 	 * @param importJobId
 	 * @param file
 	 * @return
-	 * @throws URISyntaxException
-	 * @throws HttpException
-	 * @throws JsonParseException
-	 * @throws JsonMappingException
-	 * @throws IOException
+	 * @throws Exception
 	 */
-	public RESTImportTaskList uploadFile(Integer importJobId, File file) throws URISyntaxException, HttpException, JsonParseException, JsonMappingException, IOException {
+	public RESTImportTaskList uploadFile(Integer importJobId, File file) throws Exception {
 
 		// multipart POST
 		Response httpResponse = HttpUtil.post(
@@ -298,15 +281,10 @@ public class RESTImporterPublisher {
 	 * @param importJobId
 	 * @param taskId
 	 * @return
-	 * @throws URISyntaxException
-	 * @throws HttpException
-	 * @throws JsonParseException
-	 * @throws JsonMappingException
-	 * @throws IOException
+	 * @throws Exception
 	 */
 	public RESTImportTask getRESTImportTask(Integer importJobId, Integer taskId) throws
-		URISyntaxException, HttpException, JsonParseException,
-		JsonMappingException, IOException, Exception {
+		Exception {
 		Response httpResponse = HttpUtil.get(
 				this.addEndPoint(importJobId + "/tasks/" + taskId),
 				this.username,
@@ -320,15 +298,9 @@ public class RESTImporterPublisher {
 	 *
 	 * @param importJobId
 	 * @return
-	 * @throws URISyntaxException
-	 * @throws HttpException
-	 * @throws JsonParseException
-	 * @throws JsonMappingException
-	 * @throws IOException
+	 * @throws Exception
 	 */
-	public RESTImportTaskList getRESTImportTasks(Integer importJobId) throws
-		URISyntaxException, HttpException, JsonParseException,
-		JsonMappingException, IOException, Exception {
+	public RESTImportTaskList getRESTImportTasks(Integer importJobId) throws Exception {
 		Response httpResponse = HttpUtil.get(
 				this.addEndPoint(importJobId + "/tasks/"),
 				this.username,
@@ -366,15 +338,9 @@ public class RESTImporterPublisher {
 	 * @param importJobId
 	 * @param taskId
 	 * @return
-	 * @throws URISyntaxException
-	 * @throws HttpException
-	 * @throws JsonParseException
-	 * @throws JsonMappingException
-	 * @throws IOException
+	 * @throws Exception
 	 */
-	public RESTLayer getLayer(Integer importJobId, Integer taskId) throws
-			URISyntaxException, HttpException, JsonParseException,
-			JsonMappingException, IOException, Exception {
+	public RESTLayer getLayer(Integer importJobId, Integer taskId) throws Exception {
 
 		Response httpResponse = HttpUtil.get(
 				this.addEndPoint(importJobId + "/tasks/" + taskId + "/layer"),
@@ -390,14 +356,10 @@ public class RESTImporterPublisher {
 	 * @param importJobId
 	 * @param taskId
 	 * @return
-	 * @throws URISyntaxException
-	 * @throws HttpException
-	 * @throws JsonParseException
-	 * @throws JsonMappingException
-	 * @throws IOException
+	 * @throws Exception
 	 */
 	public RESTData getDataOfImportTask(Integer importJobId, Integer taskId)
-			throws URISyntaxException, HttpException, JsonParseException, JsonMappingException, IOException, Exception {
+			throws Exception {
 
 		final DeserializationFeature unwrapRootValueFeature = DeserializationFeature.UNWRAP_ROOT_VALUE;
 		boolean unwrapRootValueFeatureIsEnabled = mapper.isEnabled(unwrapRootValueFeature);
@@ -425,12 +387,10 @@ public class RESTImporterPublisher {
 	 * @param responseBody
 	 * @param clazz
 	 * @return
-	 * @throws IOException
-	 * @throws JsonMappingException
-	 * @throws JsonParseException
+	 * @throws Exception
 	 */
 	private AbstractRESTEntity asEntity(byte[] responseBody, Class<?> clazz)
-			throws JsonParseException, JsonMappingException, IOException, Exception  {
+			throws Exception  {
 
 		AbstractRESTEntity entity = null;
 
@@ -554,7 +514,7 @@ public class RESTImporterPublisher {
 	 * @param sourceSrs
 	 *
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public RESTLayer updateSrsForRESTImportTask(Integer importJobId, RESTImportTask importTask, String sourceSrs) throws Exception {
 		Integer taskId = importTask.getId();
@@ -578,7 +538,7 @@ public class RESTImporterPublisher {
 	 *
 	 * @param importJobId
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public List<RESTLayer> getAllImportedLayers(Integer importJobId, List<RESTImportTask> tasks) throws Exception {
 		ArrayList<RESTLayer> layers = new ArrayList<RESTLayer>();

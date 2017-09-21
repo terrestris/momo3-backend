@@ -1,7 +1,6 @@
 package de.terrestris.momo.service;
 
 import java.io.File;
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
 import java.util.HashMap;
@@ -16,9 +15,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 
 import de.terrestris.momo.dao.GeoserverPublisherDao;
 import de.terrestris.momo.dao.MomoLayerDao;
@@ -180,16 +176,10 @@ public class GeoServerImporterService {
 	 * @param workSpaceName
 	 * @param dataStoreName
 	 * @return
-	 * @throws JsonParseException
-	 * @throws JsonMappingException
-	 * @throws URISyntaxException
-	 * @throws HttpException
-	 * @throws IOException
-	 * @throws ImporterException
+	 * @throws Exception
 	 */
 	public RESTImport createImportJob(String workSpaceName, String dataStoreName)
-			throws JsonParseException, JsonMappingException, URISyntaxException, HttpException,
-			IOException, ImporterException {
+			throws Exception {
 
 		return publisher.createImport(workSpaceName, dataStoreName);
 	}
@@ -198,16 +188,10 @@ public class GeoServerImporterService {
 	 *
 	 * @param workSpaceName
 	 * @return
-	 * @throws JsonParseException
-	 * @throws JsonMappingException
-	 * @throws URISyntaxException
-	 * @throws HttpException
-	 * @throws IOException
-	 * @throws ImporterException
+	 * @throws Exception
 	 */
 	public RESTImport createImportJob(String workSpaceName)
-			throws JsonParseException, JsonMappingException, URISyntaxException, HttpException,
-			IOException, ImporterException {
+			throws Exception {
 
 		return publisher.createImport(workSpaceName);
 	}
@@ -269,15 +253,10 @@ public class GeoServerImporterService {
 	 * @param importJobId
 	 * @param uploadFile
 	 * @return
-	 * @throws IllegalStateException
-	 * @throws IOException
-	 * @throws URISyntaxException
-	 * @throws HttpException
-	 * @throws ImporterException
+	 * @throws Exception
 	 */
 	public RESTImportTaskList uploadZipFile(Integer importJobId, MultipartFile uploadFile)
-			throws IllegalStateException, IOException, URISyntaxException, HttpException,
-			ImporterException {
+			throws Exception {
 
 		// TODO use Tempfile instead of File (e.g. for windows)
 		File file = new File("/tmp/" + uploadFile.getOriginalFilename());
