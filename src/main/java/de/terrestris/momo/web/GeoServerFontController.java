@@ -6,8 +6,7 @@ import org.apache.http.Header;
 import org.apache.http.HttpException;
 import org.apache.http.message.BasicHeader;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -38,22 +37,19 @@ public class GeoServerFontController {
 	/**
 	 *
 	 */
-	@Autowired
-	@Qualifier("geoServerBaseUrl")
+	@Value("${geoserver.baseUrl}")
 	private String geoServerBaseUrl;
 
 	/**
 	 *
 	 */
-	@Autowired
-	@Qualifier("geoServerUsername")
+	@Value("${geoserver.username}")
 	private String geoServerUsername;
 
 	/**
 	 *
 	 */
-	@Autowired
-	@Qualifier("geoServerPassword")
+	@Value("${geoserver.password}")
 	private String geoServerPassword;
 
 	/**

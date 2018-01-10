@@ -12,6 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 
 import com.zaxxer.hikari.HikariDataSource;
 
@@ -20,6 +21,7 @@ import de.terrestris.momo.util.importer.RESTImporterPublisher;
 import de.terrestris.momo.util.importer.communication.RESTData;
 import de.terrestris.shogun2.model.layer.source.ImageWmsLayerDataSource;
 import it.geosolutions.geoserver.rest.GeoServerRESTPublisher;
+import it.geosolutions.geoserver.rest.GeoServerRESTReader;
 import it.geosolutions.geoserver.rest.HTTPUtils;
 import it.geosolutions.geoserver.rest.decoder.RESTCoverage;
 import it.geosolutions.geoserver.rest.decoder.RESTCoverageStore;
@@ -27,6 +29,7 @@ import it.geosolutions.geoserver.rest.decoder.RESTDataStore;
 import it.geosolutions.geoserver.rest.decoder.RESTFeatureType;
 import it.geosolutions.geoserver.rest.decoder.RESTLayer;
 import it.geosolutions.geoserver.rest.decoder.RESTLayer.Type;
+import it.geosolutions.geoserver.rest.encoder.feature.GSFeatureTypeEncoder;
 
 /**
  *
@@ -59,12 +62,10 @@ public class GeoserverPublisherDao extends GeoServerRESTPublisher {
 	@Autowired
 	private GeoserverReaderDao gsReaderDao;
 
-	@Autowired
-	@Qualifier("geoServerUsername")
+	@Value("${geoserver.username}")
 	private String gsuser;
 
-	@Autowired
-	@Qualifier("geoServerPassword")
+	@Value("${geoserver.password}")
 	private String gspassword;
 
 	/**
@@ -172,9 +173,9 @@ public class GeoserverPublisherDao extends GeoServerRESTPublisher {
 				boolean layerDeleted = HTTPUtils.delete(restUrl, this.gsuser, this.gspassword);
 				if (!layerDeleted) {
 					throw new Exception(
-							"Could not delete MomoLayer data on the file system: " + fileUrl);
+							"Could not delete ProjectLayer data on the file system: " + fileUrl);
 				} else {
-					LOG.info("Successfully deleted MomoLayer data on the file system: " + fileUrl);
+					LOG.info("Successfully deleted ProjectLayer data on the file system: " + fileUrl);
 				}
 			}
 		} else {
@@ -228,6 +229,69 @@ public class GeoserverPublisherDao extends GeoServerRESTPublisher {
 			DbUtils.closeQuietly(c);
 		}
 
+	}
+
+	/**
+	 *
+	 * @param featureTypeEncoder
+	 * @param workspace
+	 * @param dataStoreName
+	 * @param featureTypeName
+	 * @return
+	 */
+	public boolean configureFeatureType(final GSFeatureTypeEncoder featureTypeEncoder,
+			final String workspace, final String dataStoreName, final String featureTypeName) {
+
+		if (featureTypeEncoder == null) {
+			LOGGER.error("Unable to configure a featureType without a GSFeatureTypeEncoder.");
+			return false;
+		}
+
+		if (StringUtils.isEmpty(workspace)) {
+			LOGGER.error("Unable to configure a featureType without a workspace name.");
+			return false;
+		}
+
+		if (StringUtils.isEmpty(dataStoreName)) {
+			LOGGER.error("Unable to configure a featureType without a dataStoreName name.");
+			return false;
+		}
+
+		if (StringUtils.isEmpty(featureTypeName)) {
+			LOGGER.error("Unable to configure a featureType without a featureTypeName name.");
+			return false;
+		}
+
+		GeoServerRESTReader reader;
+		try {
+			reader = new GeoServerRESTReader(this.geoserverRestUrl, this.gsuser, this.gspassword);
+		} catch (MalformedURLException e) {
+			LOGGER.error("Could not initialize the GeoServerRESTReader: " + e.getMessage());
+			return false;
+		}
+
+		// Check if the featureType is available.
+		boolean existsFeatureType = reader.existsFeatureType(workspace, dataStoreName, featureTypeName);
+		if (!existsFeatureType) {
+			LOGGER.error("FeatureType does not exist in GeoServer!");
+			return false;
+		}
+
+		final String url = this.geoserverRestUrl + "/rest/workspaces/" + workspace +
+				"/datastores/" + dataStoreName + "/featuretypes/" + featureTypeName + ".xml";
+
+		final String xmlBody = featureTypeEncoder.toString();
+		final String sendResult = HTTPUtils.putXml(url, xmlBody, this.gsuser, this.gspassword);
+
+		if (sendResult != null) {
+			LOGGER.debug("FeatureType successfully configured " + workspace + ":" +
+					dataStoreName + ": " + featureTypeName);
+		} else {
+			LOGGER.error("Error configuring featureType " + workspace + ":" +
+					dataStoreName + ":" + featureTypeName + " (" + sendResult + ")");
+		}
+
+		return sendResult != null;
 	}
 
 	/**
@@ -337,9 +401,9 @@ public class GeoserverPublisherDao extends GeoServerRESTPublisher {
 
 		boolean layerDeleted = HTTPUtils.delete(restUrl, this.gsuser, this.gspassword);
 		if (!layerDeleted) {
-			throw new Exception("Could not delete MomoLayer data on the file system: " + fileUrl);
+			throw new Exception("Could not delete ProjectLayer data on the file system: " + fileUrl);
 		} else {
-			LOG.info("Successfully deleted MomoLayer data on the file system: " + fileUrl);
+			LOG.info("Successfully deleted ProjectLayer data on the file system: " + fileUrl);
 		}
 	}
 }
