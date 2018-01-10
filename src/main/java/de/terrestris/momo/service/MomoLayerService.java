@@ -8,6 +8,7 @@ import java.util.zip.ZipOutputStream;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
@@ -38,8 +39,7 @@ public class MomoLayerService<E extends MomoLayer, D extends MomoLayerDao<E>>
 	/**
 	 *
 	 */
-	@Autowired
-	@Qualifier("geoServerBaseUrl")
+	@Value("${geoserver.baseUrl}")
 	private String geoServerBaseUrl;
 
 	/**

@@ -14,6 +14,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -44,15 +45,13 @@ public class PrintService {
 	/**
 	 *
 	 */
-	@Autowired
-	@Qualifier("geoServerBaseUrl")
+	@Value("${geoserver.baseUrl}")
 	private String geoServerBaseUrl;
 
 	/**
 	 *
 	 */
-	@Autowired
-	@Qualifier("publicInterceptGeoServerAction")
+	@Value("${momo.publicInterceptGeoServerAction}")
 	private String publicInterceptGeoServerAction;
 
 	/**
