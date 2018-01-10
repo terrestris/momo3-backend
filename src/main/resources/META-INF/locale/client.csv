@@ -2,8 +2,8 @@ component;property;de;en;mn;Dev-status
 MoMo.client.view.button.AddWms;config.data.title;;;; -
 MoMo.client.view.button.AddWms;config.data.tooltip;WMS hinzufügen;Add WMS; WMS нэмэх; -
 MoMo.client.view.button.AddWms;config.data.windowTitle;WMS hinzufügen;Add WMS; WMS нэмэх; -
-MoMo.client.view.button.ListDocuments;config.data.text;DMS;DMS;DMS;OK
-MoMo.client.view.button.ListDocuments;config.data.tooltip;Dokumentenmanagement;Document management system (DMS);Баримт бичиг зохицуулах систем;OK
+MoMo.client.view.button.ListDocuments;config.data.text;Dokumenten Management System (DMS);Document management system (DMS);Баримт бичиг зохицуулах систем;OK
+MoMo.client.view.button.ListDocuments;config.data.tooltip;Dokumenten Management System (DMS);Document management system (DMS);Баримт бичиг зохицуулах систем;OK
 MoMo.client.view.button.LoginLogout;config.data.loginBtnText;Login;Login;Нэвтрэх; -
 MoMo.client.view.button.LoginLogout;config.data.logoutBtnText;Logout;Logout;Гарах;OK
 MoMo.client.view.button.LoginLogout;config.data.logoutConfirmMsgText;Möchten Sie sich wirklich ausloggen?;Do you really want to log out?;Та үнэхээр гарахыг хүсч байна уу?;OK
