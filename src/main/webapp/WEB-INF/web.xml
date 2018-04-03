@@ -99,4 +99,10 @@
         <url-pattern>/rest/*</url-pattern>
     </filter-mapping>
 
+    <session-config>
+        <!-- Timeout in minutes 720 = 12h -->
+        <session-timeout>720</session-timeout>
+    </session-config>
+
+
 </web-app>
