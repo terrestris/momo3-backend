@@ -9,7 +9,7 @@ MoMo.login.view.authentication.Login;config.data.helpButtonText;Hilfedokument;He
 MoMo.login.view.authentication.Login;config.data.contextHelpTooltip;Kontextsensitive Hilfe;Contextsensitive help;Contextsensitive help; -
 MoMo.login.view.authentication.Login;config.data.loginTitle;MoMo - Login;MoMo - Login;Хэл нь одоо байна; -
 MoMo.login.view.authentication.Login;config.data.loginFormLabel;Loggen Sie sich ein;Sign into your account;Хэл нь одоо байна; -
-MoMo.login.view.authentication.Login;config.data.userNameEmptyText;Benutzername;Username;Хэл нь одоо байна; -
+MoMo.login.view.authentication.Login;config.data.userNameEmptyText;Emailadresse;Email;Хэл нь одоо байна; -
 MoMo.login.view.authentication.Login;config.data.passwordEmptyText;Passwort;Password;Хэл нь одоо байна; -
 MoMo.login.view.authentication.Login;config.data.forgotPasswordText;Passwort vergessen ?;Forgot Password ?;Хэл нь одоо байна; -
 MoMo.login.view.authentication.Login;config.data.loginBtnText;Einloggen;Login;Хэл нь одоо байна; -
