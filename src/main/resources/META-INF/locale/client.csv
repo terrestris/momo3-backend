@@ -35,6 +35,7 @@ MoMo.client.view.form.Print;config.data.labelDpi;DPI;DPI;хараахан орч
 MoMo.client.view.form.Print;config.data.printButtonSuffix;herunterladen;download;суулгах;OK
 MoMo.client.view.form.Print;config.data.printFormat;pdf;pdf;pdf;OK
 MoMo.client.view.form.Print;config.data.printDownload;Download;Download;суулгах;OK
+MoMo.client.view.form.Print;config.data.saveLoadSettings;Einstellungen laden / speichern;Load / save settings;Ачаалал / Тохиргоог тохиргоо;OK
 MoMo.client.view.form.Print;config.data.printErrorTitle;Fehler;Error;Алдаа;OK
 MoMo.client.view.form.Print;config.data.printErrorMsg;Fehler beim Druck;Error while printing;Хэвлэхэд алдаа гарсан;OK
 MoMo.client.view.form.Print;config.data.formatComboLabel;Ausgabeformat;Output format;Гаралтын формат;OK
@@ -79,6 +80,23 @@ MoMo.client.view.grid.ApplicationState;config.data.deleteStateFailureMsg;Fehler 
 MoMo.client.view.grid.ApplicationState;config.data.updateStatePromptMsg;Den ausgewählten Arbeitsstand wirklich überschreiben?;Do you really want to overwrite the selected application state?;Та үнэхээр сонгосон программын байдлыг давхарлаж бичихийг хүсч байна уу?;OK
 MoMo.client.view.grid.ApplicationState;config.data.updateStateSuccessMsg;Arbeitsstand erfolgreich aktualisiert.;Successfully updated the application state.;Программын байдлыг амжилттай шинэчиллээ;OK
 MoMo.client.view.grid.ApplicationState;config.data.updateStateFailureMsg;Fehler bei Aktualisierung des Arbeitsstands!;Could not update the application state!;Программын байдлыг  шинэчилж чадсангүй;OK
+MoMo.client.view.grid.PrintFormSettings;config.data.columnDescriptionText;Beschreibung;Description;Тайлбар;OK
+MoMo.client.view.grid.PrintFormSettings;config.data.columnLastModifiedText;Letzte Änderung;Last modification;Сүүлд хийсэн өөрчлөлт;OK
+MoMo.client.view.grid.PrintFormSettings;config.data.deleteBtnText;Löschen;Delete;Устгах;OK
+MoMo.client.view.grid.PrintFormSettings;config.data.loadBtnText;Laden;Load;Ачаалах;OK
+MoMo.client.view.grid.PrintFormSettings;config.data.createBtnText;Speichen;Save;Хадгалах;OK
+MoMo.client.view.grid.PrintFormSettings;config.data.noSelectionAvailableMsg;Keine Selektion vorhanden!;No selection available!;Сонголт байхгүй!;OK
+MoMo.client.view.grid.PrintFormSettings;config.data.loadStateSuccessMsg;Einstellungen erfolgreich geladen.;Successfully loaded the settings.;тохиргоонууд нөхцлийг амжилттай ачааллаа ;OK
+MoMo.client.view.grid.PrintFormSettings;config.data.loadStateFailureMsg;Fehler beim Laden der Einstellungen!;Could not load the settings!;тохиргоонууд нөхцлийг ачаалж чадахгүй байна!;OK
+MoMo.client.view.grid.PrintFormSettings;config.data.createStatePromptMsg;Bitte geben Sie eine Kurzbeschreibung für die neuen Einstellungen ein:;Please enter a short description for the settings to save:;Бий болгох тохиргоонууд нөцлийн талаар товч мэдээлэл оруулах ;OK
+MoMo.client.view.grid.PrintFormSettings;config.data.createStateSuccessMsg;Einstellungen erfolgreich gespeichert.;Successfully saved the settings.;тохиргоонууд нөхцлийг амжилттай бий болгосон;OK
+MoMo.client.view.grid.PrintFormSettings;config.data.createStateFailureMsg;Fehler beim speichern der Einstellungen!;Could not save the settings!;тохиргоонууд нөхцлийг бий болгож чадсангүй!;OK
+MoMo.client.view.grid.PrintFormSettings;config.data.deleteStateConfirmMsg;Die ausgewählten Einstellungen wirklich löschen?;Do you really want to delete the selected settings?;Та сонгосон тохиргоонууд байдлыг үнэхээр устгахыг хүсч байна уу?;OK
+MoMo.client.view.grid.PrintFormSettings;config.data.deleteStateSuccessMsg;Einstellungen erfolgreich gelöscht.;Successfully removed the settings.;тохиргоонууд байдлыг амжилттай арилгалаа;OK
+MoMo.client.view.grid.PrintFormSettings;config.data.deleteStateFailureMsg;Fehler beim Löschen der Einstellungen!;Could not delete the settings!;тохиргоонууд байдлыг устгаж чадсангүй;OK
+MoMo.client.view.grid.PrintFormSettings;config.data.updateStatePromptMsg;Die ausgewählten Einstellungen wirklich überschreiben?;Do you really want to overwrite the selected settings?;Та үнэхээр сонгосон тохиргоонууд байдлыг давхарлаж бичихийг хүсч байна уу?;OK
+MoMo.client.view.grid.PrintFormSettings;config.data.updateStateSuccessMsg;Einstellungen erfolgreich aktualisiert.;Successfully updated the settings.;тохиргоонууд байдлыг амжилттай шинэчиллээ;OK
+MoMo.client.view.grid.PrintFormSettings;config.data.updateStateFailureMsg;Fehler bei Aktualisierung der Einstellungen!;Could not update the settings!;тохиргоонууд байдлыг  шинэчилж чадсангүй;OK
 MoMo.client.view.grid.MultiSearchGazetteerGrid;config.data.title;Gazetteer Suche;Gazetteer Search;Газеттеер хайлт  ; -
 MoMo.client.view.grid.MultiSearchGazetteerGrid;config.data.hideToolTooltip;Gazetteer Suche verbergen;Hide Gazetteer Search;Газеттеер хайлтыг нуух; -
 MoMo.client.view.grid.ObjectSearchGrid;config.data.title;Objektsuche;Object Search;Обьектын хайлт; -
