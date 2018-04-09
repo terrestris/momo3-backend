@@ -8,6 +8,7 @@ import de.terrestris.momo.model.MomoLayer;
 import de.terrestris.momo.model.MomoUser;
 import de.terrestris.momo.model.MomoUserGroup;
 import de.terrestris.momo.model.security.UserGroupRole;
+import de.terrestris.momo.model.state.PrintFormSettingsState;
 import de.terrestris.momo.model.tree.DocumentTreeFolder;
 import de.terrestris.momo.model.tree.DocumentTreeLeaf;
 import de.terrestris.momo.model.tree.LayerTreeFolder;
@@ -28,6 +29,7 @@ import de.terrestris.momo.security.access.entity.MomoLayerPermissionEvaluator;
 import de.terrestris.momo.security.access.entity.MomoPersistentObjectPermissionEvaluator;
 import de.terrestris.momo.security.access.entity.MomoUserGroupPermissionEvaluator;
 import de.terrestris.momo.security.access.entity.MomoUserPermissionEvaluator;
+import de.terrestris.momo.security.access.entity.PrintFormSettingsPermissionEvaluator;
 import de.terrestris.momo.security.access.entity.TreeNodePermissionEvaluator;
 import de.terrestris.momo.security.access.entity.UserGroupRolePermissionEvaluator;
 import de.terrestris.shogun2.model.File;
@@ -65,6 +67,9 @@ public class MomoPermissionEvaluatorFactory<E extends PersistentObject> extends 
 	public PersistentObjectPermissionEvaluator<E> getEntityPermissionEvaluator(
 			final Class<E> entityClass) {
 
+		if(PrintFormSettingsState.class.isAssignableFrom(entityClass)) {
+			return new PrintFormSettingsPermissionEvaluator();
+		}
 		if(DocumentTreeFolder.class.isAssignableFrom(entityClass)) {
 			return new DocumentTreeFolderPermissionEvaluator();
 		}
