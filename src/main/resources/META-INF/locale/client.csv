@@ -122,6 +122,8 @@ MoMo.client.view.panel.document.DocumentTree;config.data.deleteLeafText;Dokument
 MoMo.client.view.panel.document.DocumentTree;config.data.deleteLeafWarnMsgText;Dieses Dokument wird gelöscht. Sind Sie sicher?;This document will be removed from tree. Are you sure?;Уг баримт бичгийг модноос арилгана. Та итгэлтэй байна уу?;OK
 MoMo.client.view.panel.document.DocumentTree;config.data.dragText;Drag and Drop zum Umsortieren;Drag and drop to reorganize;Зохион байгуулахын тулд татаад унагаах; -
 MoMo.client.view.panel.LegendTree;config.data.title;Legende;Legend;Түүх;OK
+MoMo.client.view.panel.LegendTree;config.data.opacityLabel;Opazität;Opacity;харагдах байдал;OK
+MoMo.client.view.panel.LegendTree;config.data.showMetadataLabel;Metadaten anzeigen;Show Metadata;Мета-өгөгдлийг харуулах;OK
 MoMo.client.view.panel.MapMetaInformation;config.data.srsPrefix;Bezugssystem;Reference System;Лавлах систем;OK
 MoMo.client.view.panel.MapMetaInformation;config.data.mousePositionLabel;Zeigerposition;Mouse Position;Хулганы байрлал;OK
 MoMo.client.view.panel.MeasurementToolsPanel;config.data.lineTooltip;Strecke messen;Distance measurements;Холын зайны хэмжилтүүд;OK
@@ -160,6 +162,38 @@ MoMo.client.view.window.document.ListDocumentsWindow;config.data.textUnknownErro
 MoMo.client.view.window.document.ListDocumentsWindow;config.data.textCouldNotCreateDocument;Dokument konnte nicht erstellt werden.;Could not create document.;Баримт бичгийг үүсгэж чадсангүй; -
 MoMo.client.view.window.document.ListDocumentsWindow;config.data.textCouldNotDeleteDocument;Dokument konnte nicht gelöscht werden.;Could not delete document.;Баримт бичгийг устгаж чадсангүй; -
 MoMo.client.view.window.document.ListDocumentsWindow;config.data.textSuccessDeleteDoc;Dokument {0} wurde erfolgreich gelöscht.;"Successfully deleted the document ""{0}""";Баримт бичгийг амжилттай устгалаа;OK
+MoMo.client.view.window.MetadataWindow;config.data.i18n.title;Metadaten;Metadata;мета өгөгдөл;
+MoMo.client.view.window.MetadataWindow;config.data.i18n.metadata.dataset;Daten;Data;өгөгдөл;
+MoMo.client.view.window.MetadataWindow;config.data.i18n.metadata.title;Titel;Title;нэр;
+MoMo.client.view.window.MetadataWindow;config.data.i18n.metadata.abstract;Zusammenfassung;Abstract;хийсвэр;
+MoMo.client.view.window.MetadataWindow;config.data.i18n.metadata.organisation;Organisation;Organization;байгууллага;
+MoMo.client.view.window.MetadataWindow;config.data.i18n.metadata.address;Anschrift;Address;хаяг;
+MoMo.client.view.window.MetadataWindow;config.data.i18n.metadata.deliveryPoint;Straße und Hausnr.;Street and housenumber;гудамж байшин дугаар;
+MoMo.client.view.window.MetadataWindow;config.data.i18n.metadata.city;Stadt;City;хот;
+MoMo.client.view.window.MetadataWindow;config.data.i18n.metadata.postalCode;Postleitzahl;Post Code;Бичлэгийн код;
+MoMo.client.view.window.MetadataWindow;config.data.i18n.metadata.country;Land;Country;улс орон;
+MoMo.client.view.window.MetadataWindow;config.data.i18n.metadata.website;Website;Website;вэбсайт;
+MoMo.client.view.window.MetadataWindow;config.data.i18n.metadata.person;Verantwortlicher;Responsible person;Хариуцлагатай хүн;
+MoMo.client.view.window.MetadataWindow;config.data.i18n.metadata.name;Name;Name;нэр;
+MoMo.client.view.window.MetadataWindow;config.data.i18n.metadata.email;E-Mail;Email;И-мэйл хаяг;
+MoMo.client.view.window.MetadataWindow;config.data.i18n.metadata.referenceDate;Erstellungsdatum;Creation date;Бүтээлийн огноо;
+MoMo.client.view.window.MetadataWindow;config.data.i18n.metadata.topic;Thema;Topic;Сэдэв;
+MoMo.client.view.window.MetadataWindow;config.data.i18n.metadata.geography;Geographie;Geography;Газарзүй;
+MoMo.client.view.window.MetadataWindow;config.data.i18n.metadata.extent;Ausdehnung;Extent;Өргөтгөсөн;
+MoMo.client.view.window.MetadataWindow;config.data.i18n.metadata.projection;Projektion;Projection;Төсөөлөл;
+MoMo.client.view.window.MetadataWindow;config.data.i18n.metadata.geoExtent;Räumliche Ausdehnung;Spatial extent;Орон зайн цар хүрээ;
+MoMo.client.view.window.MetadataWindow;config.data.i18n.metadata.minX;Min X;Min X;мин x;
+MoMo.client.view.window.MetadataWindow;config.data.i18n.metadata.minY;Min Y;Min Y;мин y;
+MoMo.client.view.window.MetadataWindow;config.data.i18n.metadata.maxX;Max X;Max X;max x;
+MoMo.client.view.window.MetadataWindow;config.data.i18n.metadata.maxY;Max Y;Max Y;max y;
+MoMo.client.view.window.MetadataWindow;config.data.i18n.metadata.timeExtent;Zeitraum;Time range;Цаг хугацааны хязгаар;
+MoMo.client.view.window.MetadataWindow;config.data.i18n.metadata.start;Von;From;from;
+MoMo.client.view.window.MetadataWindow;config.data.i18n.metadata.end;Bis;To;to;
+MoMo.client.view.window.MetadataWindow;config.data.i18n.metadata.format;Format;Format;Формат;
+MoMo.client.view.window.MetadataWindow;config.data.i18n.metadata.limitations;Beschränkungen;Limitations;Хязгаарлалтууд;
+MoMo.client.view.window.MetadataWindow;config.data.i18n.metadata.onlineResource;Online Resource;Online Resource;Онлайн нөөц;
+MoMo.client.view.window.MetadataWindow;config.data.i18n.metadata.dataSource;Quelle;Data source;Мэдээллийн эх үүсвэр;
+MoMo.client.view.window.MetadataWindow;config.data.i18n.metadata.publications;Publikationen;Publications;Нийтлэл;
 MoMo.client.view.window.RedliningStylerWindow;config.data.title;Zeichnungsstil;Drawing Style;Зурах хэв маяг;OK
 MoMo.client.view.window.RedliningStylerWindow;config.data.pointStyleFieldSetTitle;Punktstil;Point Style;Цэгийн хэв маяг;OK
 MoMo.client.view.window.RedliningStylerWindow;config.data.pointStyleRadiusNumberFieldLabel;Punkt Radius;Point Radius;Цэгийн радиус;OK
