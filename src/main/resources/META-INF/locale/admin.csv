@@ -49,7 +49,7 @@ MoMo.admin.view.grid.UserPermissionGrid;config.data.i18n.userPermissionGridPanel
 MoMo.admin.view.grid.UserList;config.data.i18n.actionSuccess;Ok;Success;Амжилттай; -
 MoMo.admin.view.grid.UserList;config.data.i18n.actionFailure;Fehler;Error;Алдаа; -
 MoMo.admin.view.grid.UserList;config.data.i18n.deleteUser;Account löschen;Delete Account;Устгах; -
-MoMo.admin.view.grid.UserList;config.data.i18n.deleteUserText;Wollen Sie wirklich die markierten Benutzer löschen?;'Do you really want to delete the selected users?;Шинэчлэх?; -
+MoMo.admin.view.grid.UserList;config.data.i18n.deleteUserText;Wollen Sie wirklich die markierten Benutzer löschen?;Do you really want to delete the selected users?;Шинэчлэх?; -
 MoMo.admin.view.grid.UserList;config.data.i18n.deletionSuccessText;Account erfolgreich gelöscht;Account has been successfully deleted;устсан; -
 MoMo.admin.view.grid.UserList;config.data.i18n.deletionFailureText;Account konnte nicht gelöscht werden;Account could not be deleted;Алдаа; -
 MoMo.admin.view.grid.UserList;config.data.i18n.userlistFirstNameLabel;Vorname;First name;Нэр; -
@@ -71,6 +71,8 @@ MoMo.admin.view.grid.ApplicationList;config.data.i18n.appCopySelectAppsBeforeMsg
 MoMo.admin.view.grid.ApplicationList;config.data.i18n.appCopyPromptMsg;Bitte geben Sie einen Namen der neuen Applikation ein.;Enter a new name for the application to be copied;Хуулах программын шинэ нэрийг оруулна уу; -
 MoMo.admin.view.grid.ApplicationList;config.data.i18n.appCopiedSuccessfulMsg;Die Applikation wurde erfolgreich kopiert.;Application has been copied successfull;Программыг амжилттай хууллаа; -
 MoMo.admin.view.grid.ApplicationList;config.data.i18n.appCopyErrorMsg;Die Applikation konnte nicht kopiert werden.;Could not copy the application.;Программыг хуулж чадсангүй; -
+MoMo.admin.view.grid.ApplicationList;config.data.i18n.appDeleteConfirmationTitle;Nachfrage;Question;Асуулт;
+MoMo.admin.view.grid.ApplicationList;config.data.i18n.appDeleteConfirmation;Wollen Sie wirklich die markierten Applikationen löschen?;Do you really want to delete the selected applications?;Шинэчлэх?; -
 MoMo.admin.view.grid.ApplicationList;config.data.i18n.appDeletedMsg;Applikation gelöscht;Application deleted;Программыг устгасан; -
 MoMo.admin.view.grid.ApplicationList;config.data.i18n.appDeletionErrorMsg;Löschen der Applikation ist fehlgeschlagen.;Deletion of application failed;Программ устгах амжилтгүй; -
 MoMo.admin.view.grid.EntityPermissions;config.data.i18n.usersColumnTitle;Benutzer;User;Хэрэглэгч; -
@@ -98,6 +100,8 @@ MoMo.admin.view.grid.LayerList;config.data.unsuccessfulDeletionMsgTemplate;Fehle
 MoMo.admin.view.grid.LayerList;config.data.downloadStartingMsg;Download startet in Kürze. Bitte warten Sie...;Download will start shortly, please wait...;Суулгах явц удахгүй эхэлнэ, та хүлээнэ үү...; -
 MoMo.admin.view.grid.LayerList;config.data.downloadFailureMsg;Konnte Quelldatensatz des Layers nicht herunterladen.;Could not download Layerdata!;Давхаргын мэдээллийг суулгаж чадсангүй; -
 MoMo.admin.view.grid.LayerList;config.data.previewTemplate;"Vorschau von Layer ""{0}""";"Preview of layer ""{0}""";{0} давхаргыг урьдчилан харах; -
+MoMo.admin.view.grid.LayerList;config.data.i18n.layerDeleteConfirmationTitle;Nachfrage;Question;Асуулт;
+MoMo.admin.view.grid.LayerList;config.data.i18n.layerDeleteConfirmation;Wollen Sie wirklich die markierten Layer löschen?;Do you really want to delete the selected layers?;Шинэчлэх?; -
 MoMo.admin.view.grid.LayerAttributes;config.data.keyColumnHeader;Name;Name;Нэр; -
 MoMo.admin.view.grid.LayerAttributes;config.data.valueColumnHeader;Datentyp;Data type;Өгөгдлийн төрөл; -
 MoMo.admin.view.tree.LayerTree;config.data.title;Layer Tree;Layer Tree;Давхаргын мод; -
