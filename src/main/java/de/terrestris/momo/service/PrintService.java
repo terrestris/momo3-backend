@@ -2,15 +2,13 @@ package de.terrestris.momo.service;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.http.HttpException;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.entity.ContentType;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -81,10 +79,9 @@ public class PrintService {
 			JsonNode replacedTree = replaceInterceptorUrlsInJson(jsonTree);
 			replacedTree = removeCustomVersionParam(jsonTree);
 
-			List<NameValuePair> queryParams = new ArrayList<NameValuePair>(1);
-			queryParams.add(new BasicNameValuePair("spec",replacedTree.toString()));
 			String url = printservletBaseUrl + "print/" + printApp + "/report." + format;
-			response = HttpUtil.post(url, queryParams);
+			ContentType contentType = ContentType.APPLICATION_JSON;
+			response = HttpUtil.post(url, replacedTree.toString(), contentType);
 		} catch (Exception e) {
 			LOG.error("Error on intercepting a print request: " + e.getMessage(), e);
 		}
