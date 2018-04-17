@@ -2,10 +2,10 @@ package de.terrestris.momo.web;
 
 import java.net.URISyntaxException;
 
-import org.apache.http.Header;
 import org.apache.http.HttpException;
-import org.apache.http.message.BasicHeader;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import de.terrestris.shogun2.util.http.HttpUtil;
+import de.terrestris.momo.service.GeoServerFontService;
 import de.terrestris.shogun2.util.model.Response;
 
 /**
@@ -52,21 +52,21 @@ public class GeoServerFontController {
 	@Value("${geoserver.password}")
 	private String geoServerPassword;
 
+	@Autowired
+	@Qualifier("geoServerFontService")
+	private GeoServerFontService geoServerFontService;
+
 	/**
-	 * Method retrieves all available fonts from GEOSERVER_DATA_DIR/fonts
+	 * Controller retrieves all available fonts from GEOSERVER_DATA_DIR/fonts
 	 * If you want additional fonts, add them to the GEOSERVER_DATA_DIR/fonts folder
 	 *
 	 * @return
 	 */
 	@RequestMapping(value = "/getGeoServerFontList.action", method = {RequestMethod.GET})
 	public ResponseEntity<?> getGeoServerFontList(){
-		String url = geoServerBaseUrl.split("/momo/ows")[0] + "/rest/resource/fonts";
-		LOG.info("Loading fonts from REST path " + url);
 		Response response = null;
-
 		try {
-			Header[] requestHeaders = {new BasicHeader("Accept", "application/json")};
-			response = HttpUtil.get(url, geoServerUsername, geoServerPassword, requestHeaders);
+			response = geoServerFontService.getGeoServerFontList();
 			return new ResponseEntity<byte[]>(response.getBody(), response.getHeaders(), response.getStatusCode());
 		} catch (URISyntaxException | HttpException e) {
 			LOG.error("Error getting the font-list from geoserver: ", e);
@@ -77,21 +77,35 @@ public class GeoServerFontController {
 	}
 
 	/**
-	 * Method gets a specific ttf font by the given name
+	 * Controller retrieves all installed fonts available in GeoServer
+	 *
+	 * @return
+	 */
+	@RequestMapping(value = "/getGeoServerInstalledFontList.action", method = {RequestMethod.GET})
+	public ResponseEntity<?> getGeoServerInstalledFontList(){
+		Response response = null;
+		try {
+			response = geoServerFontService.getGeoServerInstalledFontList();
+			return new ResponseEntity<byte[]>(response.getBody(), response.getHeaders(), response.getStatusCode());
+		} catch (URISyntaxException | HttpException e) {
+			LOG.error("Error getting the font-list from geoserver: ", e);
+			HttpHeaders headers = new HttpHeaders();
+			headers.setContentType(MediaType.APPLICATION_JSON);
+			return new ResponseEntity<byte[]>(new byte[0], headers, HttpStatus.NOT_FOUND);
+		}
+	}
+
+	/**
+	 * Controller gets a specific ttf font by the given name
 	 *
 	 * @return
 	 */
 	@RequestMapping(value = "/getGeoServerFont.action", method = {RequestMethod.GET})
 	public ResponseEntity<?> getGeoServerFont(
 			@RequestParam("fontName") String fontName){
-
-		String url = geoServerBaseUrl.split("/momo/ows")[0] + "/rest/resource/fonts/" + fontName;
-		LOG.info("Loading single font from REST path " + url);
 		Response response = null;
-
 		try {
-			Header[] requestHeaders = {new BasicHeader("Accept", "application/octet-stream")};
-			response = HttpUtil.get(url, geoServerUsername, geoServerPassword, requestHeaders);
+			response = geoServerFontService.getGeoServerFont(fontName);
 			return new ResponseEntity<byte[]>(response.getBody(), response.getHeaders(), response.getStatusCode());
 		} catch (URISyntaxException | HttpException e) {
 			LOG.error("Error getting the font-list from geoserver: ", e);
