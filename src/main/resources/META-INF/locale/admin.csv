@@ -434,6 +434,20 @@ BasiGX.view.container.SLDStyler;config.data.polygonStyleGraphicPanelTitle;Grafik
 BasiGX.view.container.SLDStyler;config.data.polygonStyleImgScaleSliderLabel;Maßstab;Scale;Хуваарь; -
 BasiGX.view.container.SLDStyler;config.data.polygonStyleImgRotationSliderLabel;Rotation;Rotation;Эргэлт; -
 BasiGX.view.container.SLDStyler;config.data.polygonStyleImgOpacitySliderLabel;Deckkraft;Opacity;Тодорхойгүй; -
+BasiGX.view.container.SLDStyler;config.data.textStyleFieldSetTitle;Beschriftung;Text Style;тайлбар; -
+BasiGX.view.container.SLDStyler;config.data.attributeSelectLabel;Attribut;Attribute used for labels;тайлбар шинж чанар; -
+BasiGX.view.container.SLDStyler;config.data.textFontLabel;Schriftart;Font;үсгийн; -
+BasiGX.view.container.SLDStyler;config.data.textFontSizeLabel;Textgröße;Font size;текстийн хэмжээг; -
+BasiGX.view.container.SLDStyler;config.data.fontStyleLabel;Schriftstil;Font style;үсгийн хэв маяг; -
+BasiGX.view.container.SLDStyler;config.data.fontWeightLabel;Schriftgewicht;Font weight;үсгийн жин; -
+BasiGX.view.container.SLDStyler;config.data.textFillColorFieldLabel;Textfarbe;Text color;текстийн өнгө; -
+BasiGX.view.container.SLDStyler;config.data.textPerpendicularOffsetLabel;Aufrechter Versatz;Perpendicular Offset;Босоо босоо; -
+BasiGX.view.container.SLDStyler;config.data.textAnchorPointXLabel;Ankerpunkt X;Anchor Point X;X анчын цэг; -
+BasiGX.view.container.SLDStyler;config.data.textAnchorPointYLabel;Ankerpunkt Y;Anchor Point Y;Y анчын цэг; -
+BasiGX.view.container.SLDStyler;config.data.textDisplacementXLabel;Versatz X;Displacement X;X офсет; -
+BasiGX.view.container.SLDStyler;config.data.textDisplacementYLabel;Versatz Y;Displacement Y;Y офсет; -
+BasiGX.view.container.SLDStyler;config.data.textRotationLabel;Rotation;Rotation;эргүүлэх; -
+BasiGX.view.container.SLDStyler;config.data.textFollowLineLabel;Linie folgen;Follow Line;Мөрийг дагах; -
 BasiGX.view.container.SLDStyler;config.data.pointGrapicDeletedSuccessMsgText;Die Füllgrafik wurde gelöscht, bitte weisen Sie eine neue zu.;The icon has been deleted. Please reassign a new one.;Дүрс устгагдсан. Шинэ тэмдэг өгнө үү. ; -
 BasiGX.view.container.SLDStyler;config.data.pointGrapicDeletedSuccessMsgTitle;Löschen der Füllgrafik erfolgreich;Deletion succesfull;Устгал амжилттай; -
 BasiGX.view.container.SLDStyler;config.data.graphicPoolWindowTitle;Graphik-Pool;Graphic Pool;Графикийн сан; -
