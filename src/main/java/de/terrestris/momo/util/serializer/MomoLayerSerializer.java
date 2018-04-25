@@ -77,6 +77,7 @@ public class MomoLayerSerializer extends StdSerializer<MomoLayer>{
 		generator.writeBooleanField("hoverable", momoLayer.getHoverable() != null ? momoLayer.getHoverable() : false);
 		generator.writeStringField("metadataIdentifier", momoLayer.getMetadataIdentifier() != null ? momoLayer.getMetadataIdentifier() : StringUtils.EMPTY);
 		generator.writeStringField("name", momoLayer.getName());
+		generator.writeStringField("fixLegendUrl", momoLayer.getFixLegendUrl());
 		generator.writeBooleanField("spatiallyRestricted", momoLayer.getSpatiallyRestricted() != null ? momoLayer.getSpatiallyRestricted() : false);
 		generator.writeObjectField("appearance", momoLayer.getAppearance());
 		generator.writeObjectField("owner", momoLayer.getOwner());

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import de.terrestris.momo.service.SldService;
 import de.terrestris.shogun2.util.data.ResultSet;
+import de.terrestris.shogun2.util.model.Response;
 
 /**
  *
@@ -33,11 +34,19 @@ public class SldController {
 	@Qualifier("sldService")
 	private SldService sldService;
 
+	/**
+	 *
+	 * @param sldName
+	 * @param sld
+	 * @param layerId
+	 * @return
+	 */
 	@RequestMapping(value = "/update.action", method = {RequestMethod.POST})
 	public @ResponseBody Map<String, Object> updateSld(
 			@RequestParam String sldName,
 			@RequestParam String sld,
 			@RequestParam Integer layerId) {
+
 		try {
 			this.sldService.updateSld(layerId, sldName, sld);
 			LOG.debug("Updated Sld " + sldName);
@@ -45,6 +54,33 @@ public class SldController {
 		} catch (Exception e) {
 			LOG.error("Error while updating Sld: " + e.getMessage());
 			return ResultSet.error("Error while updating Sld: " + e.getMessage());
+		}
+	}
+
+	/**
+	 *
+	 * @param layerId
+	 * @param width
+	 * @param height
+	 * @param imgUrl
+	 * @param format
+	 * @return
+	 */
+	@RequestMapping(value = "/updateLegendSrc.action", method = {RequestMethod.POST})
+	public @ResponseBody Map<String, Object> updateLegendSrc(
+			@RequestParam Integer layerId,
+			@RequestParam Integer width,
+			@RequestParam Integer height,
+			@RequestParam String imgUrl,
+			@RequestParam String format) {
+
+		try {
+			Response response = this.sldService.updateLegendSrc(layerId, width, height, imgUrl, format);
+			LOG.debug("Successfully updated legend source");
+			return ResultSet.success(response.getBody());
+		} catch (Exception e) {
+			LOG.error("Error while updating legend source: " + e.getMessage());
+			return ResultSet.error("Error while updating legend source: " + e.getMessage());
 		}
 	}
 

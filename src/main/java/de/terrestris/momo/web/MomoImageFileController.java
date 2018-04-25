@@ -87,7 +87,7 @@ public class MomoImageFileController<E extends ImageFile, D extends ImageFileDao
 	public ResponseEntity<?> getThumbnail(@RequestParam Integer id) {
 
 		final HttpHeaders responseHeaders = new HttpHeaders();
-		Map<String, Object> responseMap = new HashMap<String, Object>();
+		Map<String, Object> responseMap = new HashMap<>();
 
 		try {
 			// try to get the image
@@ -106,7 +106,7 @@ public class MomoImageFileController<E extends ImageFile, D extends ImageFileDao
 			LOG.info("Successfully got the image thumbnail " +
 					image.getFileName());
 
-			return new ResponseEntity<byte[]>(
+			return new ResponseEntity<>(
 					imageBytes, responseHeaders, HttpStatus.OK);
 		} catch (Exception e) {
 			final String errorMessage = "Could not get the image thumbnail: "
@@ -117,7 +117,54 @@ public class MomoImageFileController<E extends ImageFile, D extends ImageFileDao
 
 			responseHeaders.setContentType(MediaType.APPLICATION_JSON);
 
-			return new ResponseEntity<Map<String, Object>>(
+			return new ResponseEntity<>(
+					responseMap, responseHeaders, HttpStatus.OK);
+		}
+	}
+
+
+	/**
+	 * Gets a file from the database by the given id
+	 *
+	 * @return
+	 * @throws SQLException
+	 */
+	@Override
+	@RequestMapping(value = "/get.action", method=RequestMethod.GET)
+	public ResponseEntity<?> getFile(@RequestParam Integer id) {
+
+		final HttpHeaders responseHeaders = new HttpHeaders();
+		Map<String, Object> responseMap = new HashMap<>();
+
+		try {
+			// try to get the image
+			ImageFile image = service.getDao().findById(id);
+			if(image == null) {
+				throw new Exception("Could not find the image with id " + id);
+			}
+
+			byte[] imageBytes = null;
+
+			imageBytes = image.getFile();
+
+			responseHeaders.setContentType(
+					MediaType.parseMediaType(image.getFileType()));
+
+			LOG.info("Successfully got the image " +
+					image.getFileName());
+
+			return new ResponseEntity<>(
+					imageBytes, responseHeaders, HttpStatus.OK);
+		} catch (Exception e) {
+			final String errorMessage = "Could not get the image: "
+					+ e.getMessage();
+
+			LOG.error(errorMessage);
+			responseMap = ResultSet.error(errorMessage);
+
+			responseHeaders.setContentType(MediaType.APPLICATION_JSON);
+
+			return new ResponseEntity<>(
 					responseMap, responseHeaders, HttpStatus.OK);
 		}
 	}
