@@ -64,6 +64,13 @@ public class MomoLayer extends Layer {
 	private String metadataIdentifier;
 
 	/**
+	 * If this value IS NOT(null OR empty), it will be used as a fix legend URL
+	 * (instead of the GetLegendGraphic)
+	 */
+	private String fixLegendUrl = null;
+
+
+	/**
 	 *
 	 */
 	@OneToMany(cascade = CascadeType.REMOVE)
@@ -153,6 +160,22 @@ public class MomoLayer extends Layer {
 	}
 
 	/**
+	 * @return the fixLegendUrl
+	 */
+	public String getFixLegendUrl() {
+		return fixLegendUrl;
+	}
+
+
+	/**
+	 * @param fixLegendUrl the fixLegendUrl to set
+	 */
+	public void setFixLegendUrl(String fixLegendUrl) {
+		this.fixLegendUrl = fixLegendUrl;
+	}
+
+
+	/**
 	 * @return the owner
 	 */
 	public User getOwner() {
@@ -183,6 +206,7 @@ public class MomoLayer extends Layer {
 				append(getHoverable()).
 				append(getChartable()).
 				append(getDataType()).
+				append(getFixLegendUrl()).
 				toHashCode();
 	}
 
@@ -206,6 +230,7 @@ public class MomoLayer extends Layer {
 				append(getHoverable(), other.getHoverable()).
 				append(getChartable(), other.getChartable()).
 				append(getDataType(), other.getDataType()).
+				append(getFixLegendUrl(), other.getFixLegendUrl()).
 				isEquals();
 	}
 
