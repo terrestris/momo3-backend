@@ -25,7 +25,7 @@
     <http pattern="/userdocs/**" security="none" />
     <!-- images need to be retrieved by the geoserver due to externalgraphics
         in the sldstyler, so we need to remove the csrf security enhancement -->
-    <http pattern="/momoimage/getThumbnail.action" security="none" />
+    <http pattern="/momoimage/**" security="none" />
 
     <!-- Remove security for print requests, where we cannot include csrf tokens -->
     <http pattern="/print/**" security="none" />
