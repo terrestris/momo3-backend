@@ -141,7 +141,8 @@ public class GeoServerImporterController {
 			@RequestParam("dataType") String dataType,
 			@RequestParam("importJobId") Integer importJobId,
 			@RequestParam("taskId") Integer taskId,
-			@RequestParam(value = "fileProjection") String fileProjection){
+			@RequestParam(value = "fileProjection") String fileProjection,
+			@RequestParam(value = "layerConfig") String layerConfig){
 
 		Map<String, Object> responseMap;
 		final HttpHeaders responseHeaders = new HttpHeaders();
@@ -152,7 +153,10 @@ public class GeoServerImporterController {
 			responseMap = this.service.updateCrsForImport(
 					layerName,
 					dataType,
-					importJobId, taskId, fileProjection);
+					importJobId,
+					taskId,
+					fileProjection,
+					layerConfig);
 		} catch (Exception e) {
 			LOG.error("updateCrsForImport has thrown an exception. Error was: " + e.getMessage());
 			responseStatus = HttpStatus.INTERNAL_SERVER_ERROR;
