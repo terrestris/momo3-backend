@@ -344,6 +344,9 @@ MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadSkippedGeoT
 MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadInfoGeoreferencedGeoTiffMsg;Daten sind georeferenziert;Data is georeferenced;Өгөгдөлд гео-лавлагаа хийсэн; -
 MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadGeoTiffNotGeoreferencedMsg;Ihre Rasterdaten sind nicht korrekt georeferenziert. Bitte fügen Sie eine Worldfile (*.tfw) in die ZIP-Datei, georeferenzieren Sie das GeoTIFF oder wählen Sie ein Koordinatensystem aus.;Your raster data is not georeferenced. Please georeference it, add a worldfile (*.tfw) to the zip or select one in the combo box below.;Таны растер мэдээлэл гео-лавлагаанд байна. Үүнийг нэг бол гео-лавлагаанд оруулна уу эсвэл зип дээр word-ийн файл (*.tfw) болгож нэмнэ үү; -
 MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.uploadFailedNoTypeDeterminedMsg;Der Typ des Layers kann nicht bestimmt werden.;Type of the layer could not be determined.;Давхаргын төрлийг тодорхойлж чадсангүй; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.legend.title;Legenden-Einstellungen;Legend settings;_MN_TEXT_PLACEHOLDER; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.legend.useFixLegendUrlCbBoxLabel;Festes Legendenbild (statt GetLegendGraphic)?;Fix legend image (instead of GetLegendGraphic)?;_MN_TEXT_PLACEHOLDER; -
+MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.general.legend.chooseOrUploadImage;Bild hochladen/auswählen;Upload/choose image;_MN_TEXT_PLACEHOLDER; -
 MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.tabPanelTitle;Metadaten;Metadata;Мета-өгөгдөл; -
 MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.uploadText;Metadaten XML hochladen;Upload Metadata XML;Upload Metadata XML; -
 MoMo.admin.view.tab.CreateOrEditLayer;config.data.i18n.metadata.downloadText;Metadaten herunterladen;Download Metadata;Download Metadata; -
