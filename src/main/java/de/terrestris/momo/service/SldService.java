@@ -4,6 +4,7 @@ import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpException;
 import org.apache.http.entity.ContentType;
 import org.apache.log4j.Logger;
@@ -148,22 +149,26 @@ public class SldService {
 		}
 
 		try {
-
-			// TODO move this to properties file
-			imgUrl = "http://momo-shogun:8080/momo" + imgUrl;
-			// fix to avoid "not supported format" error in GeoServer since a check against a valid
-			// image extension will be performed by PUTting
-			// s. https://github.com/geoserver/geoserver/blob/22e3c7a2adc3bd5f40cf9a675081e32a95e37fa7/src/web/wms/src/main/java/org/geoserver/wms/web/data/ExternalGraphicPanel.java#L100
-			imgUrl += "&format=.";
-			imgUrl += format.split("/")[1];
-
 			Map<String, Object> legendMap = new HashMap<>();
 			Map<String, Map<String, Object>> resultMap = new HashMap<>();
 			Map<String, Object> styleMap = new HashMap<>();
-			legendMap.put("format", format);
-			legendMap.put("height", height);
-			legendMap.put("width", width);
-			legendMap.put("onlineResource", imgUrl);
+
+			// first we check if the static legend shall be removed, this can be detected by
+			// empty values in imgUrl and format. when empty, we need to post an empty legend object
+			if (!StringUtils.isEmpty(imgUrl)) {
+				// add a static legend
+				// TODO move this to properties file
+				imgUrl = "http://momo-shogun:8080/momo" + imgUrl;
+				// fix to avoid "not supported format" error in GeoServer since a check against a valid
+				// image extension will be performed by PUTting
+				// s. https://github.com/geoserver/geoserver/blob/22e3c7a2adc3bd5f40cf9a675081e32a95e37fa7/src/web/wms/src/main/java/org/geoserver/wms/web/data/ExternalGraphicPanel.java#L100
+				imgUrl += "&format=.";
+				imgUrl += format.split("/")[1];
+				legendMap.put("format", format);
+				legendMap.put("height", height);
+				legendMap.put("width", width);
+				legendMap.put("onlineResource", imgUrl);
+			}
 
 			styleMap.put("legend", legendMap);
 			resultMap.put("style", styleMap);
