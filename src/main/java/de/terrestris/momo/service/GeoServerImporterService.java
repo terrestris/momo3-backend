@@ -1,5 +1,7 @@
 package de.terrestris.momo.service;
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -16,6 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
 import org.apache.commons.fileupload.disk.DiskFileItem;
@@ -59,6 +62,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opencsv.CSVReader;
 import com.vividsolutions.jts.geom.Coordinate;
 import com.vividsolutions.jts.geom.GeometryFactory;
@@ -250,6 +255,10 @@ public class GeoServerImporterService {
 	@Autowired
 	private GeoserverPublisherDao gsPublisherDao;
 
+	@Autowired
+	@Qualifier("sldService")
+	private SldService sldService;
+
 	/**
 	 *
 	 * @param file
@@ -302,6 +311,14 @@ public class GeoServerImporterService {
 			tasksWithoutProjection.addAll(importTasks);
 		}
 
+		// handle import metadata, config and SLD
+		String layerConfig = null;
+		try {
+			layerConfig = this.handleLayerConfig(file);
+		} catch (Exception e) {
+			LOG.error("Could not handle layer metadata: " + e.getMessage());
+		}
+
 		// Redefine broken tasks
 		if (tasksWithoutProjection.size() > 0 && StringUtils.isEmpty(fileProjection)) {
 			responseMap = ResultSet.error("NO_CRS or invalid CRS (EPSG:404000) detected and "
@@ -309,13 +326,113 @@ public class GeoServerImporterService {
 			responseMap.put("importJobId", importJobId);
 			responseMap.put("tasksWithoutProjection", tasksWithoutProjection);
 			responseMap.put("error", "NO_CRS");
+			responseMap.put("layerConfig", layerConfig);
 			return responseMap;
 		}
 
-		// 6. Run the import and create the SHOGun layer.
-		responseMap = runJobAndCreateLayer(file.getOriginalFilename(), layerType, importJobId);
+		// 6. Run the import and create the SHOGun layer
+		responseMap = runJobAndCreateLayer(file.getOriginalFilename(), layerType, importJobId, layerConfig);
 
 		return responseMap;
+	}
+
+	private String handleLayerConfig(MultipartFile file) throws IOException {
+		String config = null;
+		InputStream inputStream =  new BufferedInputStream(file.getInputStream());
+		ZipInputStream zis = new ZipInputStream(inputStream);
+		ZipEntry entry = zis.getNextEntry();
+		byte[] buffer = new byte[1024];
+		config = "{";
+		while (entry != null) {
+			String fileName = entry.getName();
+			if (fileName.equalsIgnoreCase("config.json")) {
+				ByteArrayOutputStream bos = this.fileToStream(zis, buffer);
+				if (config.length() > 1) {
+					config += ",";
+				}
+				String configString = bosToCleanString(bos);
+				config += "\"config\": \"" + configString + "\"";
+			} else if (fileName.equalsIgnoreCase("metadata.xml")) {
+				ByteArrayOutputStream bos = this.fileToStream(zis, buffer);
+				if (config.length() > 1) {
+					config += ",";
+				}
+				String metadataString = bosToCleanString(bos);
+				config += "\"metadata\": \"" + metadataString + "\"";
+			} else if (fileName.toLowerCase().contains(".sld")) {
+				ByteArrayOutputStream bos = this.fileToStream(zis, buffer);
+				if (config.length() > 1) {
+					config += ",";
+				}
+				String sldString = bosToCleanString(bos);
+				config += "\"sld\": \"" + sldString + "\"";
+			}
+			entry = zis.getNextEntry();
+		}
+		config += "}";
+		return config;
+	}
+
+	private String bosToCleanString(ByteArrayOutputStream bos) {
+		String cleanString = null;
+		cleanString = bos.toString();
+		cleanString = cleanString.replaceAll("\\n", "");
+		cleanString = cleanString.replaceAll("\\r", "");
+		cleanString = cleanString.replaceAll("\"", "\\\\\"");
+		return cleanString;
+	}
+
+
+//	private String getLayerNameFromJsonConfig(String layerConfig) throws IOException {
+//		ObjectMapper mapper = new ObjectMapper();
+//		JsonNode configNode = mapper.readTree(layerConfig);
+//		String layername = null;
+//		if (configNode.get("config") != null) {
+//			JsonNode layerConfigNode = mapper.readTree(configNode.get("config").asText());
+//			if (layerConfigNode.get("layername") != null) {
+//				layername = layerConfigNode.get("layername").asText();
+//			}
+//		}
+//		return layername;
+//	}
+
+	private void handleSLDandLegendFromJsonConfig(String config, MomoLayer layer) throws Exception {
+		ObjectMapper mapper = new ObjectMapper();
+		JsonNode configNode = mapper.readTree(config);
+		if (configNode.get("config") != null) {
+			JsonNode layerConfigNode = mapper.readTree(configNode.get("config").asText());
+			if (layerConfigNode.get("legend") != null) {
+				JsonNode legendNode = layerConfigNode.get("legend");
+				Integer width = legendNode.get("width").asInt();
+				Integer height = legendNode.get("height").asInt();
+				String format = legendNode.get("format").asText();
+				String onlineResource = legendNode.get("onlineResource").asText();
+				if (!StringUtils.isEmpty(onlineResource)) {
+					sldService.updateLegendSrc(layer.getId(), width, height, onlineResource, format);
+					// set the relative url on the layer
+					if (onlineResource.toLowerCase().contains("momo-shogun")) {
+						onlineResource = onlineResource.split("momo-shogun:8080")[1];
+					}
+					layer.setFixLegendUrl(onlineResource);
+				}
+			}
+		}
+		if (configNode.get("sld") != null) {
+			String sld = configNode.get("sld").asText();
+			if (!StringUtils.isEmpty(sld)) {
+				sldService.publishSLDAsDefault(layer.getId(), sld);
+			}
+		}
+	}
+
+	private ByteArrayOutputStream fileToStream(ZipInputStream zis, byte[] buffer) throws IOException {
+		ByteArrayOutputStream bos = new ByteArrayOutputStream();
+		int len;
+		while ((len = zis.read(buffer)) > 0) {
+			bos.write(buffer, 0, len);
+		}
+		bos.close();
+		return bos;
 	}
 
 	/**
@@ -742,10 +859,11 @@ public class GeoServerImporterService {
 	 * @param layerName
 	 * @param layerType
 	 * @param importJobId
+	 * @param layerConfig
 	 * @return
 	 * @throws Exception
 	 */
-	private Map<String, Object> runJobAndCreateLayer(String layerName, String layerType, Integer importJobId) throws Exception {
+	private Map<String, Object> runJobAndCreateLayer(String layerName, String layerType, Integer importJobId, String layerConfig) throws Exception {
 		try {
 			Map<String, Object> responseMap;
 
@@ -790,9 +908,26 @@ public class GeoServerImporterService {
 					updateReferencingForLayer(restLayer);
 				}
 
-				MomoLayer layer = this.saveLayer(restLayer.getName(), layerType);
+				String nameToSave = restLayer.getName();
+				MomoLayer layer = this.saveLayer(nameToSave, layerType);
+				try {
+					this.handleSLDandLegendFromJsonConfig(layerConfig, layer);
+					momoLayerService.saveOrUpdate(layer);
+				} catch (Exception e) {
+					LOG.error("Could not handle SLD and Legend updates: " + e.getMessage());
+				}
 
-				responseMap = ResultSet.success(layer);
+				// removed the following due to incompatibilities in SHOGun with multiple
+				// layers having the same name......
+//				String uploadedlayerName = this.getLayerNameFromJsonConfig(layerConfig);
+//				if (uploadedlayerName != null) {
+//					// set the name as given by upload config and return, but dont persist it
+//					layer.setName(uploadedlayerName);
+//				}
+				HashMap<String, Object> returnMap = new HashMap<String, Object>(2);
+				returnMap.put("layer", layer);
+				returnMap.put("layerConfig", layerConfig);
+				responseMap = ResultSet.success(returnMap);
 			} else {
 				responseMap = ResultSet.error("No layer of imported dataset could be imported.");
 			}
@@ -1163,7 +1298,7 @@ public class GeoServerImporterService {
 	 * @throws Exception
 	 */
 	public Map<String, Object> updateCrsForImport(String layerName, String layerType,
-			Integer importJobId, Integer taskId, String fileProjection)
+			Integer importJobId, Integer taskId, String fileProjection, String layerConfig)
 			throws Exception {
 		RESTLayer updateLayer = new RESTLayer();
 		updateLayer.setSrs(fileProjection);
@@ -1172,7 +1307,7 @@ public class GeoServerImporterService {
 
 		RESTImportTaskList importTaskList = this.importer.getRESTImportTasks(importJobId);
 		createTransformTasks(fileProjection, layerType, importJobId, importTaskList);
-		return this.runJobAndCreateLayer(layerName, layerType, importJobId);
+		return this.runJobAndCreateLayer(layerName, layerType, importJobId, layerConfig);
 	}
 
 	/**
