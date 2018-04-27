@@ -383,18 +383,18 @@ public class GeoServerImporterService {
 	}
 
 
-	private String getLayerNameFromJsonConfig(String layerConfig) throws IOException {
-		ObjectMapper mapper = new ObjectMapper();
-		JsonNode configNode = mapper.readTree(layerConfig);
-		String layername = null;
-		if (configNode.get("config") != null) {
-			JsonNode layerConfigNode = mapper.readTree(configNode.get("config").asText());
-			if (layerConfigNode.get("layername") != null) {
-				layername = layerConfigNode.get("layername").asText();
-			}
-		}
-		return layername;
-	}
+//	private String getLayerNameFromJsonConfig(String layerConfig) throws IOException {
+//		ObjectMapper mapper = new ObjectMapper();
+//		JsonNode configNode = mapper.readTree(layerConfig);
+//		String layername = null;
+//		if (configNode.get("config") != null) {
+//			JsonNode layerConfigNode = mapper.readTree(configNode.get("config").asText());
+//			if (layerConfigNode.get("layername") != null) {
+//				layername = layerConfigNode.get("layername").asText();
+//			}
+//		}
+//		return layername;
+//	}
 
 	private void handleSLDandLegendFromJsonConfig(String config, MomoLayer layer) throws Exception {
 		ObjectMapper mapper = new ObjectMapper();
@@ -409,6 +409,11 @@ public class GeoServerImporterService {
 				String onlineResource = legendNode.get("onlineResource").asText();
 				if (!StringUtils.isEmpty(onlineResource)) {
 					sldService.updateLegendSrc(layer.getId(), width, height, onlineResource, format);
+					// set the relative url on the layer
+					if (onlineResource.toLowerCase().contains("momo-shogun")) {
+						onlineResource = onlineResource.split("momo-shogun:8080")[1];
+					}
+					layer.setFixLegendUrl(onlineResource);
 				}
 			}
 		}
@@ -907,6 +912,7 @@ public class GeoServerImporterService {
 				MomoLayer layer = this.saveLayer(nameToSave, layerType);
 				try {
 					this.handleSLDandLegendFromJsonConfig(layerConfig, layer);
+					momoLayerService.saveOrUpdate(layer);
 				} catch (Exception e) {
 					LOG.error("Could not handle SLD and Legend updates: " + e.getMessage());
 				}
