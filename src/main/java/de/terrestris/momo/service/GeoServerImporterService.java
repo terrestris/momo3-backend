@@ -291,6 +291,14 @@ public class GeoServerImporterService {
 					"Valid options are: vector, raster");
 		}
 
+		// handle import metadata, config and SLD
+		String layerConfig = null;
+		try {
+			layerConfig = this.handleLayerConfig(file);
+		} catch (Exception e) {
+			LOG.error("Could not handle layer metadata: " + e.getMessage());
+		}
+
 		// 3. Upload the import file.
 		Integer importJobId = restImport.getId();
 		RESTImportTaskList importTasks = null;
@@ -309,14 +317,6 @@ public class GeoServerImporterService {
 		} catch (GeoServerRESTImporterException gsrie) {
 			// TODO what happens if more than one importTasks are contained here?
 			tasksWithoutProjection.addAll(importTasks);
-		}
-
-		// handle import metadata, config and SLD
-		String layerConfig = null;
-		try {
-			layerConfig = this.handleLayerConfig(file);
-		} catch (Exception e) {
-			LOG.error("Could not handle layer metadata: " + e.getMessage());
 		}
 
 		// Redefine broken tasks
