@@ -1,12 +1,11 @@
 package de.terrestris.momo.service;
 
 import java.net.URISyntaxException;
-import java.util.HashMap;
-import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpException;
-import org.apache.http.entity.ContentType;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -14,15 +13,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import de.terrestris.momo.dao.GeoserverPublisherDao;
 import de.terrestris.momo.dao.GeoserverReaderDao;
 import de.terrestris.momo.dao.MomoLayerDao;
 import de.terrestris.momo.model.MomoLayer;
 import de.terrestris.shogun2.model.layer.source.TileWmsLayerDataSource;
-import de.terrestris.shogun2.util.http.HttpUtil;
-import de.terrestris.shogun2.util.model.Response;
 import it.geosolutions.geoserver.rest.decoder.RESTLayer;
 import javassist.NotFoundException;
 
@@ -138,55 +133,34 @@ public class SldService {
 	 */
 	@PreAuthorize("hasRole(@configHolder.getSuperAdminRoleName()) or "
 			+ "hasPermission(#layerId, 'de.terrestris.momo.model.MomoLayer', 'UPDATE')")
-	public Response updateLegendSrc(Integer layerId, Integer width, Integer height, String imgUrl, String format) throws NotFoundException, URISyntaxException, HttpException {
+	public void updateLegendSrc(Integer layerId, Integer width, Integer height, String imgUrl, String format, HttpServletRequest request) throws NotFoundException, URISyntaxException, HttpException {
+		LOG.info("Updating static legend for layer with id " + layerId);
 
-		String gsDefaultStyle = null;
-
-		try {
-			gsDefaultStyle = this.getDefaultStyleForLayer(layerId);
-		} catch (Exception e) {
-			LOG.error("Error while getting default style for layer: " + e.getMessage());
+		MomoLayer layer = momoLayerService.findById(layerId);
+		if (layer == null) {
+			String msg = "Could not find a layer with ID " + layerId;
+			LOG.error(msg);
+			throw new NotFoundException(msg);
 		}
-
-		try {
-			Map<String, Object> legendMap = new HashMap<>();
-			Map<String, Map<String, Object>> resultMap = new HashMap<>();
-			Map<String, Object> styleMap = new HashMap<>();
-
-			// first we check if the static legend shall be removed, this can be detected by
-			// empty values in imgUrl and format. when empty, we need to post an empty legend object
-			if (!StringUtils.isEmpty(imgUrl)) {
-				// add a static legend
-				// TODO move this to properties file
-				imgUrl = "http://momo-shogun:8080/momo" + imgUrl;
-				// fix to avoid "not supported format" error in GeoServer since a check against a valid
-				// image extension will be performed by PUTting
-				// s. https://github.com/geoserver/geoserver/blob/22e3c7a2adc3bd5f40cf9a675081e32a95e37fa7/src/web/wms/src/main/java/org/geoserver/wms/web/data/ExternalGraphicPanel.java#L100
-				imgUrl += "&format=.";
-				imgUrl += format.split("/")[1];
-				legendMap.put("format", format);
-				legendMap.put("height", height);
-				legendMap.put("width", width);
-				legendMap.put("onlineResource", imgUrl);
+		if (StringUtils.isEmpty(imgUrl)) {
+			layer.setFixLegendUrl(null);
+		} else {
+			if (imgUrl.indexOf("http") < 0) {
+				// make relative URL absolute by adding our host
+				String scheme = request.getScheme();
+				String serverName = request.getServerName();
+				int serverPort = request.getServerPort();
+				String path = request.getServletContext().getContextPath();
+				String baseUrl = scheme + "://" + serverName + ":" + serverPort + path;
+				if (imgUrl.startsWith("/")) {
+					imgUrl = baseUrl + imgUrl;
+				} else {
+					imgUrl = baseUrl + "/" + imgUrl;
+				}
 			}
-
-			styleMap.put("legend", legendMap);
-			resultMap.put("style", styleMap);
-
-			ObjectMapper mapperObj = new ObjectMapper();
-			String legendSrcJson = null;
-			legendSrcJson = mapperObj.writeValueAsString(resultMap);
-
-			String url = geoServerBaseUrl.split("/momo/ows")[0] + "/rest/styles/" + gsDefaultStyle;
-			LOG.info("Start updating legend source...");
-
-			return HttpUtil.put(url, legendSrcJson, ContentType.APPLICATION_JSON, gsuser, gspassword);
-
-		} catch (Exception e) {
-			LOG.error("Could not update legend source for layer: " + e.getMessage());
-			return null;
+			layer.setFixLegendUrl(imgUrl);
 		}
-
+		momoLayerService.saveOrUpdate(layer);
 	}
 
 	public void publishSLDAsDefault(Integer layerId, String sld) throws Exception {

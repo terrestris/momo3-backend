@@ -130,7 +130,8 @@ public class MomoImageFileController<E extends ImageFile, D extends ImageFileDao
 	 * @throws SQLException
 	 */
 	@Override
-	@RequestMapping(value = "/get.action", method=RequestMethod.GET)
+	@RequestMapping(value = "/get.action", method = {
+			RequestMethod.GET, RequestMethod.POST })
 	public ResponseEntity<?> getFile(@RequestParam Integer id) {
 
 		final HttpHeaders responseHeaders = new HttpHeaders();

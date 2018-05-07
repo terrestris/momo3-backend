@@ -9,6 +9,7 @@ import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.http.Header;
 import org.apache.http.HttpException;
 import org.apache.http.message.BasicHeader;
@@ -222,14 +223,21 @@ public class MomoLayerService<E extends MomoLayer, D extends MomoLayerDao<E>>
 								finalZip.write(defaultStyle);
 								finalZip.closeEntry();
 							}
-							// finally add some metadata like the layername or if geoserver uses a static
+							// finally add some metadata like the layername or if layer uses a static
 							// legend image etc. to a separate config file
 							ObjectMapper mapper = new ObjectMapper();
 							String config = "{\"layername\": \"" + layer.getName() + "\"";
-							JsonNode legendNode = getStaticLegend(defaultStyleName);
-							if (legendNode != null) {
-								config += ",\"legend\": " + legendNode.toString();
+							if (!StringUtils.isEmpty(layer.getFixLegendUrl())) {
+								String imgUrl = layer.getFixLegendUrl();
+								Response response = HttpUtil.get(imgUrl);
+								if (response.getStatusCode().is2xxSuccessful()) {
+									String subtype = response.getHeaders().getContentType().getSubtype();
+									finalZip.putNextEntry(new ZipEntry("legend." + subtype));
+									finalZip.write(response.getBody());
+									finalZip.closeEntry();
+								}
 							}
+							config += ",\"legend\": \"" + layer.getFixLegendUrl() + "\"";
 							config += "}";
 							JsonNode configNode = mapper.readTree(config);
 							finalZip.putNextEntry(new ZipEntry("config.json"));
@@ -237,7 +245,8 @@ public class MomoLayerService<E extends MomoLayer, D extends MomoLayerDao<E>>
 							finalZip.closeEntry();
 						}
 					} catch (Exception e) {
-						LOG.error("Error while generating SLD and config for layer " + layer.getName());
+						LOG.error("Error while generating SLD and config for layer " + layer.getName() +
+								": " + e.getMessage());
 					}
 				}
 			}
@@ -248,27 +257,6 @@ public class MomoLayerService<E extends MomoLayer, D extends MomoLayerDao<E>>
 			IOUtils.closeQuietly(baos);
 		}
 		return baos.toByteArray();
-	}
-
-	private JsonNode getStaticLegend(String defaultStyleName) throws URISyntaxException, HttpException {
-		JsonNode staticLegend = null;
-		String url = geoServerBaseUrl.split("/momo/ows")[0] + "/rest/styles/" + defaultStyleName;
-		LOG.debug("Requesting the layers legend configuration with url: " + url);
-		Header[] requestHeaders = {new BasicHeader("Accept", "application/json")};
-		Response response =  HttpUtil.get(url, gsuser, gspassword, requestHeaders);
-		if (response.getStatusCode().is2xxSuccessful()) {
-			ObjectMapper mapper = new ObjectMapper();
-			try {
-				JsonNode node = mapper.readTree(response.getBody());
-				JsonNode styleNode = node.get("style");
-				staticLegend = styleNode.get("legend");
-			} catch (Exception e) {
-				LOG.error("Error on getting the legdn config: " + e.getMessage());
-			}
-		} else {
-			LOG.error("Error on getting a legend config");
-		}
-		return staticLegend;
 	}
 
 	/**

@@ -1,6 +1,8 @@
 package de.terrestris.momo.interceptor;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 
 import de.terrestris.momo.dao.MomoLayerDao;
@@ -54,6 +56,13 @@ public class MomoWmsRequestInterceptor extends BaseOgcInterceptor implements Wms
 	@Override
 	public MutableHttpServletRequest interceptGetMap(MutableHttpServletRequest request) {
 		LOG.debug("Intercepting MOMO WMS GetMap request");
+		// TODO: become better here, could not find another way currently
+		boolean hasDockerIp = request.getRemoteAddr().startsWith("172.");
+		if (hasDockerIp) {
+			// the print servlet is contacting us, pass through the requests...
+			LOG.debug("Allowing a request from the print servlet");
+			return request;
+		}
 
 		String layersParam = request.getParameter("LAYERS");
 

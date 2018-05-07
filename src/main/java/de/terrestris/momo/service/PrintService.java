@@ -76,7 +76,7 @@ public class PrintService {
 			ObjectMapper mapper = new ObjectMapper();
 			JsonNode jsonTree = mapper.readTree(printSpec);
 
-			JsonNode replacedTree = replaceInterceptorUrlsInJson(jsonTree);
+			JsonNode replacedTree = replaceInterceptorUrlsInJson(jsonTree, request);
 			replacedTree = removeCustomVersionParam(jsonTree);
 
 			String url = printservletBaseUrl + "print/" + printApp + "/report." + format;
@@ -93,15 +93,16 @@ public class PrintService {
 	 * replaces it with the geoserver base url
 	 *
 	 * @param jsonNode
+	 * @param request
 	 * @return
 	 */
-	private JsonNode replaceInterceptorUrlsInJson(JsonNode jsonNode) {
+	private JsonNode replaceInterceptorUrlsInJson(JsonNode jsonNode, HttpServletRequest request) {
 
 		if (jsonNode.isArray()) {
 			Iterator<JsonNode> elements = jsonNode.elements();
 			ArrayNode arrNode = new ArrayNode(null);
 			while (elements.hasNext()) {
-				JsonNode newNode = replaceInterceptorUrlsInJson(elements.next());
+				JsonNode newNode = replaceInterceptorUrlsInJson(elements.next(), request);
 				arrNode.add(newNode);
 			}
 			jsonNode = arrNode;
@@ -110,7 +111,7 @@ public class PrintService {
 			while (fieldNames.hasNext()) {
 				String fieldName = fieldNames.next();
 				JsonNode childNode = jsonNode.get(fieldName);
-				JsonNode newJsonNode = replaceInterceptorUrlsInJson(childNode);
+				JsonNode newJsonNode = replaceInterceptorUrlsInJson(childNode, request);
 
 				if(!childNode.equals(newJsonNode)) {
 					((ObjectNode)jsonNode).replace(fieldName, newJsonNode);
@@ -120,8 +121,14 @@ public class PrintService {
 		} else if (jsonNode.isTextual()) {
 			String value = jsonNode.asText();
 			if (value.contains(publicInterceptGeoServerAction)) {
+				// make relative URL absolute by adding our host
+				String scheme = request.getScheme();
+				// setup only works in complete docker environment because of this. TODO: make better
+				String serverName = "momo-shogun";
+				int serverPort = 8080;
+				String baseUrl = scheme + "://" + serverName + ":" + serverPort + publicInterceptGeoServerAction;
 				String replacedString = value.replace(
-						publicInterceptGeoServerAction, geoServerBaseUrl);
+						publicInterceptGeoServerAction, baseUrl);
 				jsonNode = new TextNode(replacedString);
 			}
 		}
