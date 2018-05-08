@@ -2,6 +2,8 @@ package de.terrestris.momo.web;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -13,7 +15,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import de.terrestris.momo.service.SldService;
 import de.terrestris.shogun2.util.data.ResultSet;
-import de.terrestris.shogun2.util.model.Response;
 
 /**
  *
@@ -72,12 +73,13 @@ public class SldController {
 			@RequestParam Integer width,
 			@RequestParam Integer height,
 			@RequestParam String imgUrl,
-			@RequestParam String format) {
+			@RequestParam String format,
+			HttpServletRequest request) {
 
 		try {
-			Response response = this.sldService.updateLegendSrc(layerId, width, height, imgUrl, format);
+			this.sldService.updateLegendSrc(layerId, width, height, imgUrl, format, request);
 			LOG.debug("Successfully updated legend source");
-			return ResultSet.success(response.getBody());
+			return ResultSet.success("Legend updated");
 		} catch (Exception e) {
 			LOG.error("Error while updating legend source: " + e.getMessage());
 			return ResultSet.error("Error while updating legend source: " + e.getMessage());

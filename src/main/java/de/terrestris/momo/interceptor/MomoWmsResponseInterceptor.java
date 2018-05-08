@@ -1,8 +1,16 @@
 package de.terrestris.momo.interceptor;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 
+import de.terrestris.momo.dao.MomoLayerDao;
+import de.terrestris.momo.model.MomoLayer;
+import de.terrestris.shogun2.dao.ImageFileDao;
+import de.terrestris.shogun2.model.ImageFile;
 import de.terrestris.shogun2.util.interceptor.MutableHttpServletRequest;
 import de.terrestris.shogun2.util.interceptor.WmsResponseInterceptorInterface;
 import de.terrestris.shogun2.util.model.Response;
@@ -31,6 +39,26 @@ public class MomoWmsResponseInterceptor implements WmsResponseInterceptorInterfa
 	 */
 	@Value("${momo.maskingColorTolerance}")
 	private int maskingColorTolerance;
+
+	/**
+	 *
+	 */
+	@Autowired
+	@Qualifier("momoLayerDao")
+	private MomoLayerDao<MomoLayer> momoLayerDao;
+
+	/**
+	 *
+	 */
+	@Value("${momo.publicInterceptGeoServerAction}")
+	protected String geoserverInterceptorUrl;
+
+	/**
+	 *
+	 */
+	@Autowired
+	@Qualifier("imageFileDao")
+	private ImageFileDao<ImageFile> imageFileDao;
 
 	/**
 	 *
@@ -95,7 +123,31 @@ public class MomoWmsResponseInterceptor implements WmsResponseInterceptorInterfa
 
 	@Override
 	public Response interceptGetLegendGraphic(MutableHttpServletRequest mutableRequest, Response response) {
-		// TODO Auto-generated method stub
+		LOG.debug("Intercepting MOMO WMS GetLegendGraphic response");
+		String layersParam = mutableRequest.getParameter("LAYER");
+		if (StringUtils.isEmpty(layersParam)) {
+			layersParam = mutableRequest.getParameter("layer");
+		}
+
+		MomoLayer layer = null;
+		layer = momoLayerDao.findByUrlAndLayerNames(geoserverInterceptorUrl, layersParam);
+
+		if(layer == null) {
+			LOG.warn("Layer from SHOGun2 database is null!?");
+			return response;
+		}
+
+		if (!StringUtils.isEmpty(layer.getFixLegendUrl())) {
+			String url = layer.getFixLegendUrl();
+			Integer id = Integer.parseInt(url.split("id=")[1]);
+			ImageFile image = imageFileDao.findById(id);
+			if (image != null) {
+				response.setBody(image.getFile());
+				HttpStatus statusCode = HttpStatus.OK;
+				response.setStatusCode(statusCode);
+			}
+			LOG.debug("Returning a fixed legend image with URI: " + url);
+		}
 		return response;
 	}
 
@@ -131,6 +183,20 @@ public class MomoWmsResponseInterceptor implements WmsResponseInterceptorInterfa
 	 */
 	public void setMaskingColorTolerance(int maskingColorTolerance) {
 		this.maskingColorTolerance = maskingColorTolerance;
+	}
+
+	/**
+	 * @return the geoserverInterceptorUrl
+	 */
+	public String getGeoserverInterceptorUrl() {
+		return geoserverInterceptorUrl;
+	}
+
+	/**
+	 * @param geoserverInterceptorUrl the geoserverInterceptorUrl to set
+	 */
+	public void setGeoserverInterceptorUrl(String geoserverInterceptorUrl) {
+		this.geoserverInterceptorUrl = geoserverInterceptorUrl;
 	}
 
 }

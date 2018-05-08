@@ -16,10 +16,14 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.NoSuchElementException;
+import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.fileupload.disk.DiskFileItem;
 import org.apache.commons.io.FileUtils;
@@ -78,6 +82,7 @@ import de.terrestris.momo.model.MomoLayer;
 import de.terrestris.momo.model.MomoUser;
 import de.terrestris.momo.util.importer.TableNameValidator;
 import de.terrestris.momo.util.importer.VectorFeatureTypeTransformer;
+import de.terrestris.shogun2.dao.ImageFileDao;
 import de.terrestris.shogun2.dao.LayerAppearanceDao;
 import de.terrestris.shogun2.importer.GeoServerRESTImporter;
 import de.terrestris.shogun2.importer.GeoServerRESTImporterException;
@@ -86,6 +91,7 @@ import de.terrestris.shogun2.importer.communication.RESTImport;
 import de.terrestris.shogun2.importer.communication.RESTImportTask;
 import de.terrestris.shogun2.importer.communication.RESTImportTaskList;
 import de.terrestris.shogun2.importer.communication.RESTLayer;
+import de.terrestris.shogun2.model.ImageFile;
 import de.terrestris.shogun2.model.layer.appearance.LayerAppearance;
 import de.terrestris.shogun2.model.layer.source.TileWmsLayerDataSource;
 import de.terrestris.shogun2.model.security.Permission;
@@ -244,6 +250,13 @@ public class GeoServerImporterService {
 	private MomoInterceptorRuleService momoInterceptorRuleService;
 
 	/**
+	 *
+	 */
+	@Autowired
+	@Qualifier("imageFileDao")
+	private ImageFileDao<ImageFile> imageFileDao;
+
+	/**
 	 * The GeoServer reader dao
 	 */
 	@Autowired
@@ -264,13 +277,14 @@ public class GeoServerImporterService {
 	 * @param file
 	 * @param fileProjection
 	 * @param layerType
+	 * @param request
 	 * @return
 	 * @throws Exception
 	 */
 	public Map<String, Object> importGeodataAndCreateLayer(
 			MultipartFile file,
 			String fileProjection,
-			String layerType
+			String layerType, HttpServletRequest request
 	) throws Exception {
 		Map<String, Object> responseMap = new HashMap<String, Object>();
 
@@ -297,6 +311,15 @@ public class GeoServerImporterService {
 			layerConfig = this.handleLayerConfig(file);
 		} catch (Exception e) {
 			LOG.error("Could not handle layer metadata: " + e.getMessage());
+		}
+
+		// handle possibly included legend image
+		ImageFile image = null;
+		HashMap<ImageFile, MultipartFile> fileMap = this.handleStaticLegendImage(file);
+		Set<Entry<ImageFile, MultipartFile>> entry = fileMap.entrySet();
+		for (Entry<ImageFile, MultipartFile> singleEntry : entry) {
+			image = singleEntry.getKey();
+			file = singleEntry.getValue();
 		}
 
 		// 3. Upload the import file.
@@ -327,13 +350,60 @@ public class GeoServerImporterService {
 			responseMap.put("tasksWithoutProjection", tasksWithoutProjection);
 			responseMap.put("error", "NO_CRS");
 			responseMap.put("layerConfig", layerConfig);
+			responseMap.put("legendImageId", image.getId());
 			return responseMap;
 		}
 
 		// 6. Run the import and create the SHOGun layer
-		responseMap = runJobAndCreateLayer(file.getOriginalFilename(), layerType, importJobId, layerConfig);
+		responseMap = runJobAndCreateLayer(file.getOriginalFilename(), layerType, importJobId, layerConfig, request, image.getId());
 
 		return responseMap;
+	}
+
+	private HashMap<ImageFile, MultipartFile> handleStaticLegendImage(MultipartFile file) throws IOException {
+		ImageFile fileToPersist = new ImageFile();
+		InputStream inputStream =  new BufferedInputStream(file.getInputStream());
+		ZipInputStream zis = new ZipInputStream(inputStream);
+		File cleanedFile = File.createTempFile(file.getName(), null);
+		ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(cleanedFile));
+		ZipEntry entry = zis.getNextEntry();
+		byte[] buffer = new byte[1024];
+		try {
+			while (entry != null) {
+				String fileName = entry.getName();
+				if (fileName.startsWith("legend.")) {
+					ByteArrayOutputStream bos = this.fileToStream(zis, buffer);
+					fileToPersist.setFile(bos.toByteArray());
+					fileToPersist.setFileName(fileName);
+					String suffix = fileName.substring(fileName.lastIndexOf(".") + 1, fileName.length());
+					fileToPersist.setFileType("image/" + suffix);
+					imageFileDao.saveOrUpdate(fileToPersist);
+				} else {
+					// add entry to the new zip
+					ZipEntry zipEntry = new ZipEntry(fileName);
+					zos.putNextEntry(zipEntry);
+					int len;
+					while ((len = zis.read(buffer)) > 0) {
+						zos.write(buffer, 0, len);
+					}
+					zos.closeEntry();
+				}
+				entry = zis.getNextEntry();
+			}
+		} finally {
+			zos.finish();
+			zos.close();
+			zis.close();
+		}
+
+		final DiskFileItem diskFileItem = new DiskFileItem("file", "application/zip", true, file.getOriginalFilename(), 100000000, cleanedFile.getParentFile());
+		InputStream input =  new FileInputStream(cleanedFile);
+		OutputStream os = diskFileItem.getOutputStream();
+		IOUtils.copy(input, os);
+
+		HashMap<ImageFile, MultipartFile> map = new HashMap<ImageFile, MultipartFile>();
+		map.put(fileToPersist, new CommonsMultipartFile(diskFileItem));
+		return map;
 	}
 
 	private String handleLayerConfig(MultipartFile file) throws IOException {
@@ -396,7 +466,7 @@ public class GeoServerImporterService {
 //		return layername;
 //	}
 
-	private void handleSLDandLegendFromJsonConfig(String config, MomoLayer layer) throws Exception {
+	private void handleSLDandLegendFromJsonConfig(String config, MomoLayer layer, HttpServletRequest request) throws Exception {
 		ObjectMapper mapper = new ObjectMapper();
 		JsonNode configNode = mapper.readTree(config);
 		if (configNode.get("config") != null) {
@@ -407,14 +477,7 @@ public class GeoServerImporterService {
 				Integer height = legendNode.get("height").asInt();
 				String format = legendNode.get("format").asText();
 				String onlineResource = legendNode.get("onlineResource").asText();
-				if (!StringUtils.isEmpty(onlineResource)) {
-					sldService.updateLegendSrc(layer.getId(), width, height, onlineResource, format);
-					// set the relative url on the layer
-					if (onlineResource.toLowerCase().contains("momo-shogun")) {
-						onlineResource = onlineResource.split("momo-shogun:8080")[1];
-					}
-					layer.setFixLegendUrl(onlineResource);
-				}
+				sldService.updateLegendSrc(layer.getId(), width, height, onlineResource, format, request);
 			}
 		}
 		if (configNode.get("sld") != null) {
@@ -860,10 +923,13 @@ public class GeoServerImporterService {
 	 * @param layerType
 	 * @param importJobId
 	 * @param layerConfig
+	 * @param request
+	 * @param imageId
+	 * @param image
 	 * @return
 	 * @throws Exception
 	 */
-	private Map<String, Object> runJobAndCreateLayer(String layerName, String layerType, Integer importJobId, String layerConfig) throws Exception {
+	private Map<String, Object> runJobAndCreateLayer(String layerName, String layerType, Integer importJobId, String layerConfig, HttpServletRequest request, Integer imageId) throws Exception {
 		try {
 			Map<String, Object> responseMap;
 
@@ -911,10 +977,26 @@ public class GeoServerImporterService {
 				String nameToSave = restLayer.getName();
 				MomoLayer layer = this.saveLayer(nameToSave, layerType);
 				try {
-					this.handleSLDandLegendFromJsonConfig(layerConfig, layer);
+					this.handleSLDandLegendFromJsonConfig(layerConfig, layer, request);
 					momoLayerService.saveOrUpdate(layer);
 				} catch (Exception e) {
 					LOG.error("Could not handle SLD and Legend updates: " + e.getMessage());
+				}
+
+				// persist the legend image on the layer, if given
+				if (imageId != null) {
+					ImageFile img = imageFileDao.findById(imageId);
+					if (img != null) {
+						// make a usable image url
+						String scheme = request.getScheme();
+						String serverName = request.getServerName();
+						int serverPort = request.getServerPort();
+						String path = request.getServletContext().getContextPath();
+						String url = scheme + "://" + serverName + ":" + serverPort + path;
+						url += "/momoimage/get.action?id=" + imageId;
+						layer.setFixLegendUrl(url);
+						momoLayerService.saveOrUpdate(layer);
+					}
 				}
 
 				// removed the following due to incompatibilities in SHOGun with multiple
@@ -1294,11 +1376,12 @@ public class GeoServerImporterService {
 	 * @param importJobId
 	 * @param taskId
 	 * @param fileProjection
+	 * @param request
 	 * @return
 	 * @throws Exception
 	 */
 	public Map<String, Object> updateCrsForImport(String layerName, String layerType,
-			Integer importJobId, Integer taskId, String fileProjection, String layerConfig)
+			Integer importJobId, Integer taskId, String fileProjection, String layerConfig, HttpServletRequest request, Integer imageId)
 			throws Exception {
 		RESTLayer updateLayer = new RESTLayer();
 		updateLayer.setSrs(fileProjection);
@@ -1307,7 +1390,7 @@ public class GeoServerImporterService {
 
 		RESTImportTaskList importTaskList = this.importer.getRESTImportTasks(importJobId);
 		createTransformTasks(fileProjection, layerType, importJobId, importTaskList);
-		return this.runJobAndCreateLayer(layerName, layerType, importJobId, layerConfig);
+		return this.runJobAndCreateLayer(layerName, layerType, importJobId, layerConfig, request, imageId);
 	}
 
 	/**

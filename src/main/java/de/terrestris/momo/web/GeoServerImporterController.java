@@ -3,6 +3,8 @@ package de.terrestris.momo.web;
 import java.net.URISyntaxException;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.http.HttpException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,7 +56,8 @@ public class GeoServerImporterController {
 	public ResponseEntity<Map<String, Object>> createLayer(
 			@RequestParam("file") MultipartFile file,
 			@RequestParam(value = "fileProjection", required = false) String fileProjection,
-			@RequestParam("dataType") String dataType) {
+			@RequestParam("dataType") String dataType,
+			HttpServletRequest request) {
 
 		LOG.debug("Requested to create a layer from geo-file(s).");
 
@@ -73,7 +76,8 @@ public class GeoServerImporterController {
 			responseMap = this.service.importGeodataAndCreateLayer(
 					file,
 					fileProjection,
-					dataType
+					dataType,
+					request
 			);
 		} catch (Exception e) {
 			LOG.debug(e.getMessage(), e);
@@ -142,7 +146,9 @@ public class GeoServerImporterController {
 			@RequestParam("importJobId") Integer importJobId,
 			@RequestParam("taskId") Integer taskId,
 			@RequestParam(value = "fileProjection") String fileProjection,
-			@RequestParam(value = "layerConfig") String layerConfig){
+			@RequestParam(value = "layerConfig") String layerConfig,
+			@RequestParam(value = "imageId") Integer imageId,
+			HttpServletRequest request) {
 
 		Map<String, Object> responseMap;
 		final HttpHeaders responseHeaders = new HttpHeaders();
@@ -156,7 +162,9 @@ public class GeoServerImporterController {
 					importJobId,
 					taskId,
 					fileProjection,
-					layerConfig);
+					layerConfig,
+					request,
+					imageId);
 		} catch (Exception e) {
 			LOG.error("updateCrsForImport has thrown an exception. Error was: " + e.getMessage());
 			responseStatus = HttpStatus.INTERNAL_SERVER_ERROR;
