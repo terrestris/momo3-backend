@@ -1,5 +1,9 @@
 package de.terrestris.momo.interceptor;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.Enumeration;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -56,9 +60,20 @@ public class MomoWmsRequestInterceptor extends BaseOgcInterceptor implements Wms
 	@Override
 	public MutableHttpServletRequest interceptGetMap(MutableHttpServletRequest request) {
 		LOG.debug("Intercepting MOMO WMS GetMap request");
-		// TODO: become better here, could not find another way currently
-		boolean hasDockerIp = request.getRemoteAddr().startsWith("172.");
-		if (hasDockerIp) {
+		boolean isPrintServlet = false;
+		try {
+			InetAddress inetAddr = InetAddress.getByName(request.getRemoteAddr());
+			String host = inetAddr.getHostName();
+			if (host.indexOf("momo-mapfish-print") > -1) {
+				isPrintServlet = true;
+			} else {
+				LOG.debug("Could not determine the print servlet: " + host);
+			}
+		} catch (UnknownHostException e) {
+			LOG.debug("Could not determine the requesting host");
+		}
+
+		if (isPrintServlet) {
 			// the print servlet is contacting us, pass through the requests...
 			LOG.debug("Allowing a request from the print servlet");
 			return request;
