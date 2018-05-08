@@ -16,6 +16,7 @@ import org.apache.http.message.BasicHeader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,8 @@ import de.terrestris.momo.dao.GeoserverPublisherDao;
 import de.terrestris.momo.dao.GeoserverReaderDao;
 import de.terrestris.momo.dao.MomoLayerDao;
 import de.terrestris.momo.model.MomoLayer;
+import de.terrestris.shogun2.dao.ImageFileDao;
+import de.terrestris.shogun2.model.ImageFile;
 import de.terrestris.shogun2.model.layer.source.ImageWmsLayerDataSource;
 import de.terrestris.shogun2.service.LayerService;
 import de.terrestris.shogun2.util.http.HttpUtil;
@@ -79,6 +82,13 @@ public class MomoLayerService<E extends MomoLayer, D extends MomoLayerDao<E>>
 	@Autowired
 	@Qualifier("metadataService")
 	private MetadataService metadataService;
+
+	/**
+	 *
+	 */
+	@Autowired
+	@Qualifier("imageFileDao")
+	private ImageFileDao<ImageFile> imageFileDao;
 
 	/**
 	 * We have to use {@link Qualifier} to define the correct dao here.
@@ -229,11 +239,12 @@ public class MomoLayerService<E extends MomoLayer, D extends MomoLayerDao<E>>
 							String config = "{\"layername\": \"" + layer.getName() + "\"";
 							if (!StringUtils.isEmpty(layer.getFixLegendUrl())) {
 								String imgUrl = layer.getFixLegendUrl();
-								Response response = HttpUtil.get(imgUrl);
-								if (response.getStatusCode().is2xxSuccessful()) {
-									String subtype = response.getHeaders().getContentType().getSubtype();
+								Integer id = Integer.parseInt(imgUrl.split("id=")[1]);
+								ImageFile image = imageFileDao.findById(id);
+								if (image != null) {
+									String subtype = image.getFileType().split("/")[1];
 									finalZip.putNextEntry(new ZipEntry("legend." + subtype));
-									finalZip.write(response.getBody());
+									finalZip.write(image.getFile());
 									finalZip.closeEntry();
 								}
 							}
