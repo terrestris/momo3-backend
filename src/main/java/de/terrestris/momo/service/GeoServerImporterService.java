@@ -473,14 +473,16 @@ public class GeoServerImporterService {
 			JsonNode layerConfigNode = mapper.readTree(configNode.get("config").asText());
 			if (layerConfigNode.get("legend") != null) {
 				JsonNode legendNode = layerConfigNode.get("legend");
-				Integer width = legendNode.get("width").asInt();
-				Integer height = legendNode.get("height").asInt();
-				String format = legendNode.get("format").asText();
-				String onlineResource = legendNode.get("onlineResource").asText();
-				sldService.updateLegendSrc(layer.getId(), width, height, onlineResource, format, request);
+				if (legendNode != null && !legendNode.toString().equalsIgnoreCase("\"null\"")) {
+					Integer width = legendNode.get("width").asInt();
+					Integer height = legendNode.get("height").asInt();
+					String format = legendNode.get("format").asText();
+					String onlineResource = legendNode.get("onlineResource").asText();
+					sldService.updateLegendSrc(layer.getId(), width, height, onlineResource, format, request);
+				}
 			}
 		}
-		if (configNode.get("sld") != null) {
+		if (configNode.get("sld") != null && !configNode.get("sld").toString().equalsIgnoreCase("\"null\"")) {
 			String sld = configNode.get("sld").asText();
 			if (!StringUtils.isEmpty(sld)) {
 				sldService.publishSLDAsDefault(layer.getId(), sld);
